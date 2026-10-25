@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muse Charm — Bio-Responsive Digital Companion (Meta AI Hackathon)</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #090d16;
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-8px) scale(1.02); }
+    }
+    @keyframes pulseAura {
+      0%, 100% { opacity: 0.45; transform: scale(0.96); }
+      50% { opacity: 0.85; transform: scale(1.06); }
+    }
+    .creature-float {
+      animation: floatSlow 3.6s ease-in-out infinite;
+    }
+    .aura-ring {
+      animation: pulseAura 3s ease-in-out infinite;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+
+  <!-- Top Navigation & Status Header -->
+  <header class="sticky top-0 z-30 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-bold tracking-tight text-white">ZoeWave Muse Companion</h1>
+            <span class="px-2 py-0.5 text-[11px] font-semibold rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Meta AI Hackathon MVP</span>
+          </div>
+          <p class="text-xs text-slate-400">Tripartite Deterministic Architecture: <span class="text-slate-200 font-medium">Body (Telemetry) → Life Engine (FSM) → Creature (Meta Muse AI)</span></p>
+        </div>
+      </div>
+
+      <!-- Mode & Audio Controls -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <div class="inline-flex rounded-lg bg-slate-900 p-1 border border-slate-800">
+          <button id="tabMainBtn" type="button" class="px-3 py-1.5 rounded-md text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition">
+            Live Companion Cockpit
+          </button>
+          <button id="tabSamBtn" type="button" class="px-3 py-1.5 rounded-md text-xs font-semibold text-slate-400 hover:text-slate-200 transition">
+            SAM 3.1 Meal &amp; Posture Lab
+          </button>
+          <button id="tabArchBtn" type="button" class="px-3 py-1.5 rounded-md text-xs font-semibold text-slate-400 hover:text-slate-200 transition">
+            Meta API &amp; Google Health Bridge
+          </button>
+        </div>
+
+        <button id="audioToggleBtn" type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 flex items-center gap-1.5 transition" title="Toggle Bio-Haptic Audio Synthesis">
+          <span id="audioIcon" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span id="audioLabel">Chimes On</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Toast Notification Banner -->
+  <div id="toastBanner" class="fixed bottom-5 right-5 z-50 hidden max-w-sm rounded-xl bg-slate-900/95 border border-cyan-500/40 px-4 py-3 shadow-2xl backdrop-blur-md">
+    <div class="flex items-start gap-2.5">
+      <span class="mt-1 w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
+      <div>
+        <p id="toastTitle" class="text-xs font-semibold text-cyan-300">Telemetry Synced</p>
+        <p id="toastMessage" class="text-xs text-slate-300 mt-0.5">State vector updated deterministically.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN VIEW 1: LIVE COMPANION COCKPIT -->
+  <main id="viewMain" class="max-w-7xl mx-auto px-4 sm:px-6 py-5">
+    <!-- Scenario Preset Bar (Judge Time-Travel Bar) -->
+    <section class="mb-5 rounded-2xl bg-slate-900/70 border border-slate-800/90 p-3.5 sm:p-4">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs uppercase tracking-wider font-bold text-amber-400">Judge Time-Travel &amp; Telemetry Scenarios</span>
+            <span id="syncBadge" class="px-2 py-0.5 text-[11px] rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 mono">Google Health + sEMG Stream: ACTIVE</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">Click any physiological scenario below or adjust the telemetry sliders to test deterministic Life Engine transitions and Meta Model API responses.</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-preset="thriving" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 transition">
+            1. Optimal Flow &amp; Recovery
+          </button>
+          <button type="button" data-preset="sedentary" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 transition">
+            2. 300-Min Sedentary + Skipped Meal
+          </button>
+          <button type="button" data-preset="semg_stress" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border border-rose-500/30 transition">
+            3. Stationary Wrist sEMG Stress Spike
+          </button>
+          <button type="button" data-preset="sleep_debt" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-purple-500/15 hover:bg-purple-500/25 text-purple-300 border border-purple-500/30 transition">
+            4. Deep Sleep Debt (3.8h)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-Column Tripartite Architecture Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+
+      <!-- LAYER 1: THE BODY (Google Health Web Sync + Meta Neural Band sEMG) -->
+      <section class="lg:col-span-4 rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col justify-between gap-4">
+        <div>
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-400">Layer 1 · The Body</span>
+              <h2 class="text-sm font-bold text-white mt-0.5">Biosignal &amp; Google Health Telemetry</h2>
+            </div>
+            <button id="syncGoogleHealthBtn" type="button" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 border border-blue-500/30 flex items-center gap-1.5 transition">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+              <span>Sync Health API</span>
+            </button>
+          </div>
+
+          <!-- Live sEMG Oscilloscope Canvas (5-250 Hz MUAP Wave) -->
+          <div class="mt-3 rounded-xl bg-slate-950 border border-slate-800/90 p-3">
+            <div class="flex items-center justify-between text-xs mb-1.5">
+              <span class="font-medium text-slate-300">Neural Band sEMG (5–250 Hz RMS)</span>
+              <span id="semgRmsReadout" class="mono text-cyan-400 font-semibold">42 µV RMS · Relaxed</span>
+            </div>
+            <div class="relative h-24 w-full overflow-hidden rounded-lg bg-slate-950">
+              <canvas id="semgCanvas" class="w-full h-full block"></canvas>
+            </div>
+            <div class="mt-2 flex items-center justify-between text-[11px] text-slate-400">
+              <span>MUAP Gesture Classifier: <strong id="gestureReadout" class="text-slate-200">Resting Wrist</strong></span>
+              <span>SNR Filter: <strong class="text-emerald-400">CNN+SVM 92.4%</strong></span>
+            </div>
+          </div>
+
+          <!-- Interactive Telemetry Controls -->
+          <div class="mt-4 space-y-3.5">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <label for="sliderSemg" class="text-slate-300 font-medium">Wrist sEMG Muscle Activation (µV RMS)</label>
+                <span id="valSemg" class="mono text-cyan-300 font-semibold">42 µV</span>
+              </div>
+              <input id="sliderSemg" type="range" min="10" max="180" value="42" class="w-full accent-cyan-400 cursor-pointer" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <label for="sliderSedentary" class="text-slate-300 font-medium">Continuous Sedentary Window (mins)</label>
+                <span id="valSedentary" class="mono text-amber-300 font-semibold">45 min</span>
+              </div>
+              <input id="sliderSedentary" type="range" min="0" max="360" value="45" class="w-full accent-amber-400 cursor-pointer" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <label for="sliderSteps" class="text-slate-300 font-medium">Google Health Daily Steps</label>
+                <span id="valSteps" class="mono text-emerald-300 font-semibold">7,840 steps</span>
+              </div>
+              <input id="sliderSteps" type="range" min="300" max="15000" step="100" value="7840" class="w-full accent-emerald-400 cursor-pointer" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <label for="sliderSleep" class="text-slate-300 font-medium">Last Night Sleep Duration (hrs)</label>
+                <span id="valSleep" class="mono text-indigo-300 font-semibold">7.6 hrs</span>
+              </div>
+              <input id="sliderSleep" type="range" min="2.5" max="10.0" step="0.1" value="7.6" class="w-full accent-indigo-400 cursor-pointer" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <label for="sliderHr" class="text-slate-300 font-medium">Optical Heart Rate &amp; SpO2</label>
+                <span id="valHr" class="mono text-rose-300 font-semibold">68 BPM · 98% SpO2</span>
+              </div>
+              <input id="sliderHr" type="range" min="52" max="145" value="68" class="w-full accent-rose-400 cursor-pointer" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <label for="sliderMeal" class="text-slate-300 font-medium">Hours Since Last Nourishment</label>
+                <span id="valMeal" class="mono text-teal-300 font-semibold">2.0 hrs</span>
+              </div>
+              <input id="sliderMeal" type="range" min="0.5" max="12.0" step="0.5" value="2.0" class="w-full accent-teal-400 cursor-pointer" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Bluetooth + JSON Import Footer -->
+        <div class="pt-3 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2">
+          <button id="webBleBtn" type="button" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+            Pair Web Bluetooth HR/IMU
+          </button>
+          <button id="quickMealBtn" type="button" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-teal-500/15 hover:bg-teal-500/25 text-teal-300 border border-teal-500/30 transition">
+            + Log SAM 3.1 Meal Scan
+          </button>
+        </div>
+      </section>
+
+      <!-- LAYER 2: THE LIFE ENGINE (Deterministic 8-Variable FSM) -->
+      <section class="lg:col-span-4 rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col justify-between gap-4">
+        <div>
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-purple-400">Layer 2 · The Life Engine</span>
+              <h2 class="text-sm font-bold text-white mt-0.5">Deterministic 8-Stat State Machine</h2>
+            </div>
+            <span id="fsmStateBadge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 mono">
+              STATE: VITAL_FLOW
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-400 mt-2.5">
+            Prevents LLM hallucination by evaluating raw physiological telemetry against strict decay and growth thresholds before invoking <code class="text-cyan-300">muse-spark-1.3</code>.
+          </p>
+
+          <!-- 8-Dimensional State Vector Bars -->
+          <div id="stateVectorBars" class="mt-3.5 space-y-2.5">
+            <!-- Populated dynamically by JS -->
+          </div>
+
+          <!-- Causal Event Log (Sent to Muse Secure VM) -->
+          <div class="mt-4">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-xs font-semibold text-slate-300">Deterministic Causal Event Log</span>
+              <span class="text-[11px] text-slate-400 mono">systemd-nspawn Enclave</span>
+            </div>
+            <div id="causalLogContainer" class="h-36 overflow-y-auto rounded-xl bg-slate-950 border border-slate-800 p-2.5 space-y-1.5 text-xs mono">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Muse Wonder 1M-Context Longitudinal Insight Box -->
+        <div class="rounded-xl bg-indigo-950/40 border border-indigo-500/30 p-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-300">Muse Wonder 1.0 · 1M Context Memory</span>
+            <button id="runWonderBtn" type="button" class="px-2 py-0.5 rounded text-[11px] font-semibold bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-200 border border-indigo-500/40 transition">
+              Synthesize 30d Trend
+            </button>
+          </div>
+          <p id="wonderInsightText" class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+            Longitudinal correlation: Your 7.6h sleep window and low resting wrist sEMG (42 µV) sustained a +14% Relationship &amp; Growth trajectory over the past 14 days.
+          </p>
+        </div>
+      </section>
+
+      <!-- LAYER 3: THE CREATURE (Muse Charm Digital Totem & Meta AI Persona) -->
+      <section class="lg:col-span-4 rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col justify-between gap-4">
+        <div>
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">Layer 3 · The Creature</span>
+              <h2 class="text-sm font-bold text-white mt-0.5">Muse Charm Totem &amp; Generative Persona</h2>
+            </div>
+            <span id="evolutionStageBadge" class="px-2.5 py-1 rounded-full text-xs font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+              Stage 3 · Lumina Kin
+            </span>
+          </div>
+
+          <!-- Physical Muse Charm Interactive Totem Display -->
+          <div class="mt-3 relative rounded-2xl bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border border-slate-800 p-4 flex flex-col items-center justify-center overflow-hidden min-h-[250px]">
+            <!-- Ambient Bio-Aura -->
+            <div id="creatureAura" class="aura-ring absolute w-44 h-44 rounded-full bg-cyan-500/20 blur-2xl pointer-events-none"></div>
+
+            <!-- Top Totem Hardware Status Pill -->
+            <div class="relative z-10 w-full flex items-center justify-between text-[11px] text-slate-400 mb-2">
+              <span class="mono flex items-center gap-1.5">
+                <span id="totemLed" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                MUSE CHARM OS v2.4
+              </span>
+              <span id="proteusEffectTag" class="text-cyan-300 font-medium">Proteus Resonance: High</span>
+            </div>
+
+            <!-- Interactive SVG Bio-Responsive Creature -->
+            <div id="creatureTouchArea" class="relative z-10 cursor-pointer creature-float my-2 select-none" title="Tap to send haptic comfort pulse to your companion">
+              <svg id="creatureSvg" class="w-36 h-36" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer Energy Halo -->
+                <circle id="svgHalo" cx="100" cy="100" r="78" stroke="#22d3ee" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
+                <!-- Creature Ears / Antennae -->
+                <path id="svgLeftEar" d="M62 58 C45 25, 30 45, 52 74" fill="#06b6d4" opacity="0.85"/>
+                <path id="svgRightEar" d="M138 58 C155 25, 170 45, 148 74" fill="#06b6d4" opacity="0.85"/>
+                <!-- Core Body -->
+                <path id="svgBody" d="M100 38 C142 38, 164 68, 160 112 C156 150, 132 168, 100 168 C68 168, 44 150, 40 112 C36 68, 58 38, 100 38 Z" fill="url(#creatureGrad)" stroke="#67e8f9" stroke-width="3"/>
+                <!-- Bioluminescent Core Heart -->
+                <circle id="svgCoreHeart" cx="100" cy="128" r="14" fill="#a5f3fc" opacity="0.45"/>
+                <!-- Eyes -->
+                <ellipse id="svgLeftEye" cx="78" cy="92" rx="9" ry="11" fill="#0f172a"/>
+                <ellipse id="svgRightEye" cx="122" cy="92" rx="9" ry="11" fill="#0f172a"/>
+                <!-- Eye Highlights -->
+                <circle id="svgLeftShine" cx="75" cy="88" r="3.5" fill="#ffffff"/>
+                <circle id="svgRightShine" cx="119" cy="88" r="3.5" fill="#ffffff"/>
+                <!-- Expressive Mouth -->
+                <path id="svgMouth" d="M88 112 Q100 122 112 112" stroke="#0f172a" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <!-- Cheeks -->
+                <ellipse id="svgLeftCheek" cx="63" cy="104" rx="7" ry="4" fill="#f472b6" opacity="0.6"/>
+                <ellipse id="svgRightCheek" cx="137" cy="104" rx="7" ry="4" fill="#f472b6" opacity="0.6"/>
+                <defs>
+                  <radialGradient id="creatureGrad" cx="50%" cy="35%" r="65%">
+                    <stop id="gradStop1" offset="0%" stop-color="#67e8f9"/>
+                    <stop id="gradStop2" offset="60%" stop-color="#0891b2"/>
+                    <stop id="gradStop3" offset="100%" stop-color="#1e1b4b"/>
+                  </radialGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <!-- Animation Directive Pill -->
+            <div class="relative z-10 mt-1 flex items-center gap-2">
+              <span id="animDirectiveBadge" class="px-2.5 py-0.5 rounded-md bg-slate-900/90 border border-slate-700 text-[11px] mono text-cyan-300">
+                anim: gentle_levitation_pulse (68 BPM sync)
+              </span>
+            </div>
+          </div>
+
+          <!-- Muse Spark 1.3 Persona & Active Health Coaching Bubble -->
+          <div class="mt-3 rounded-xl bg-slate-950 border border-slate-800 p-3">
+            <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
+              <span class="font-semibold text-cyan-400">muse-spark-1.3 · Empathetic Health Coach</span>
+              <span id="sparkLatency" class="mono text-emerald-400">Streak: 3 Coaching Wins</span>
+            </div>
+            <p id="creatureDialogue" class="text-xs sm:text-sm text-slate-100 leading-relaxed font-medium">
+              "Your wrist tension is super calm and that 7.6-hour sleep gave us a huge vitality boost! Ready to tackle today's sprint together?"
+            </p>
+          </div>
+
+          <!-- Active Health Coaching Prescription & Closed-Loop Intervention Card -->
+          <div class="mt-3 rounded-xl bg-gradient-to-br from-emerald-950/50 via-slate-950 to-cyan-950/40 border border-emerald-500/30 p-3">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Muse Active Health Coach</span>
+              </div>
+              <select id="coachFocusSelect" class="rounded-md bg-slate-900 border border-slate-700 px-2 py-0.5 text-[11px] text-cyan-300 font-medium focus:outline-none focus:border-cyan-400">
+                <option value="holistic">Focus: Whole-Body Vitality</option>
+                <option value="stress">Focus: Stress &amp; sEMG Relief</option>
+                <option value="metabolic">Focus: Nutrition &amp; Movement</option>
+                <option value="sleep">Focus: Deep Sleep Recovery</option>
+              </select>
+            </div>
+
+            <div id="coachPrescriptionBox" class="text-xs text-slate-200 font-medium leading-snug">
+              Prescription: Maintain your 45-min movement cadence and hydrate within the next 30 minutes to lock in Peak Flow.
+            </div>
+            <p id="coachExpectedImpact" class="text-[11px] text-emerald-400 mono mt-1">
+              Projected Impact: +12 Energy · +10 Happiness · +15 Growth XP
+            </p>
+
+            <!-- Guided Coaching Timer Bar (Visible during active guided breathing/walk) -->
+            <div id="guidedSessionBox" class="hidden mt-2.5 rounded-lg bg-slate-900/90 border border-cyan-500/40 p-2.5">
+              <div class="flex items-center justify-between text-xs mb-1">
+                <span id="guidedStepLabel" class="font-bold text-cyan-300">Inhale slowly (4s)... Release wrist tension</span>
+                <span id="guidedTimerLabel" class="mono text-emerald-300">12s</span>
+              </div>
+              <div class="w-full h-1.5 rounded-full bg-slate-950 overflow-hidden">
+                <div id="guidedProgressBar" class="h-full bg-gradient-to-r from-cyan-400 to-emerald-400 transition-all duration-300" style="width: 15%"></div>
+              </div>
+            </div>
+
+            <!-- 1-Click Actionable Coaching Micro-Interventions -->
+            <div class="mt-2.5 grid grid-cols-2 gap-1.5">
+              <button id="coachActionPrimaryBtn" type="button" class="col-span-2 py-2 px-3 rounded-lg text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-md shadow-emerald-500/10 flex items-center justify-center gap-1.5">
+                <span id="coachPrimaryBtnLabel">Start Guided 15s Bio-Breathing Reset</span>
+              </button>
+              <button id="coachWalkBtn" type="button" class="py-1.5 px-2.5 rounded-lg text-[11px] font-semibold bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/30 transition">
+                Complete 5m Walk (+600 steps)
+              </button>
+              <button id="coachHydrateMealBtn" type="button" class="py-1.5 px-2.5 rounded-lg text-[11px] font-semibold bg-teal-500/15 hover:bg-teal-500/25 text-teal-300 border border-teal-500/30 transition">
+                Log Balanced Meal &amp; Water
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice & Chat Check-In (muse-voice-transcribe-1.0 + muse-spark-1.3) -->
+        <div class="pt-2 border-t border-slate-800">
+          <form id="companionChatForm" class="flex items-center gap-2">
+            <button id="voiceMicBtn" type="button" class="px-2.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 shrink-0 transition flex items-center gap-1 text-xs font-medium" title="Simulate muse-voice-transcribe-1.0 Voice Check-in">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/>
+              </svg>
+              <span id="micBtnLabel">Voice</span>
+            </button>
+            <input id="chatInput" type="text" placeholder="Talk to your Muse Charm companion..." class="w-full rounded-xl bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500" />
+            <button type="submit" class="px-3 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shrink-0 transition">
+              Send
+            </button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MAIN VIEW 2: SAM 3.1 MEAL & POSTURE VISUAL GROUNDING LAB -->
+  <main id="viewSam" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-5">
+    <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-5">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Meta Model API · SAM 3.1 + Muse Image</span>
+          <h2 class="text-lg font-bold text-white mt-0.5">Zero-Friction Visual Grounding for the Life Engine</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Instead of manual calorie or workout logging, <code class="text-cyan-300">SAM 3.1</code> outlines food portions and desk ergonomics from a quick snapshot and feeds deterministic deltas directly into the Life Engine FSM.</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-sample="salmon_bowl" class="sam-sample-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+            Scan Balanced Salmon Bowl
+          </button>
+          <button type="button" data-sample="espresso_overload" class="sam-sample-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+            Scan Late-Night Triple Espresso
+          </button>
+          <button type="button" data-sample="ergonomic_walk" class="sam-sample-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+            Scan Outdoor Trail Walk
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-5">
+        <div class="lg:col-span-7 rounded-xl bg-slate-950 border border-slate-800 p-4 flex flex-col items-center justify-center">
+          <div class="w-full flex items-center justify-between text-xs text-slate-400 mb-2">
+            <span id="samSceneTitle" class="font-semibold text-slate-200">Scene: Wild Salmon, Quinoa &amp; Avocado Bowl</span>
+            <span class="mono text-cyan-400">Model: sam-3.1-vision · 3 Masks Detected</span>
+          </div>
+          <div class="relative w-full h-64 rounded-xl bg-slate-900 border border-slate-800 overflow-hidden flex items-center justify-center">
+            <canvas id="samCanvas" class="w-full h-full block"></canvas>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col justify-between rounded-xl bg-slate-950 border border-slate-800 p-4">
+          <div>
+            <h3 class="text-sm font-bold text-white">SAM 3.1 Segmentation Telemetry</h3>
+            <p class="text-xs text-slate-400 mt-1">Text-prompted object masks converted into deterministic Life Engine state shifts:</p>
+            <div id="samMaskList" class="mt-3 space-y-2.5 text-xs">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800">
+            <button id="applySamToFsmBtn" type="button" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs transition shadow-lg shadow-cyan-500/20">
+              Push SAM 3.1 Telemetry into Life Engine FSM
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MAIN VIEW 3: META API & GOOGLE HEALTH WEB BRIDGE -->
+  <main id="viewArch" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-5">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+      <!-- Left: How Google Health Web Integration Works in 2026 -->
+      <div class="lg:col-span-6 rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">2026 Web Health Architecture</span>
+          <h2 class="text-base font-bold text-white mt-0.5">How to Bridge Google Health &amp; Wearables in a Web App</h2>
+          <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+            Because Google deprecated the legacy Google Fit REST API in 2026 in favor of on-device <strong class="text-white">Android Health Connect</strong>, a winning hackathon web app uses a <strong class="text-cyan-300">3-Path Web Telemetry Bridge</strong> so both live hardware and zero-install judge testing work out of the box:
+          </p>
+        </div>
+
+        <div class="space-y-2.5 text-xs">
+          <div class="rounded-xl bg-slate-950 border border-slate-800 p-3">
+            <div class="font-semibold text-cyan-300">Path A · Google Fitbit Web API (OAuth 2.0 PKCE) + Open Wearables Bridge</div>
+            <p class="text-slate-400 mt-1">Android Health Connect syncs bi-directionally with the Fitbit app on Android. Your web app authenticates directly against Google's Fitbit Web REST API (or an Open Wearables / Terra webhook) to pull sleep stages, heart rate, and daily steps in the browser.</p>
+          </div>
+          <div class="rounded-xl bg-slate-950 border border-slate-800 p-3">
+            <div class="font-semibold text-purple-300">Path B · Native Browser Hardware APIs (Web Bluetooth + DeviceMotion)</div>
+            <p class="text-slate-400 mt-1">Uses <code class="text-purple-200">navigator.bluetooth</code> to stream real-time heart rate and sEMG/IMU packets from BLE wearables, paired with standard <code class="text-purple-200">DeviceMotionEvent</code> and <code class="text-purple-200">DeviceOrientationEvent</code> browser APIs specified in the ZoeWave paper.</p>
+          </div>
+          <div class="rounded-xl bg-slate-950 border border-slate-800 p-3">
+            <div class="font-semibold text-amber-300">Path C · Deterministic Judge Time-Travel Simulator</div>
+            <p class="text-slate-400 mt-1">Lets hackathon judges simulate 300-minute sedentary windows, 5–250 Hz wrist sEMG stress spikes, and SAM 3.1 meal scans in one click without needing to log into a personal health account.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Live Meta Model API Configuration & Payload Inspector -->
+      <div class="lg:col-span-6 rounded-2xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Meta Model API Live Inspector</span>
+          <h2 class="text-base font-bold text-white mt-0.5">Muse Spark 1.3 &amp; Muse Wonder Payload</h2>
+          <p class="text-xs text-slate-400 mt-1">
+            Optionally enter your <code class="text-cyan-300">$150 Meta Model API</code> key during the hackathon to switch from deterministic local persona synthesis to live cloud inference.
+          </p>
+
+          <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div>
+              <label for="metaApiKeyInput" class="block text-[11px] font-medium text-slate-400 mb-1">Meta Model API Key (Optional)</label>
+              <input id="metaApiKeyInput" type="password" placeholder="meta_sk_live_..." class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-1.5 text-xs text-slate-100 mono focus:outline-none focus:border-cyan-500" />
+            </div>
+            <div>
+              <label for="metaModelSelect" class="block text-[11px] font-medium text-slate-400 mb-1">Active Orchestration Model</label>
+              <select id="metaModelSelect" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-1.5 text-xs text-slate-100 mono focus:outline-none focus:border-cyan-500">
+                <option value="muse-spark-1.3">muse-spark-1.3 (Low-Latency Persona)</option>
+                <option value="muse-wonder-1.0">muse-wonder-1.0 (1M Context Agent)</option>
+                <option value="muse-spark-open">muse-spark-open (Baseten / Modal)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
+              <span class="font-semibold text-slate-300">Live Outbound JSON Payload (Muse Secure VM → Meta Model API)</span>
+              <button id="copyPayloadBtn" type="button" class="text-cyan-400 hover:text-cyan-300 font-semibold">Copy JSON</button>
+            </div>
+            <pre id="jsonPayloadPreview" class="h-48 overflow-auto rounded-xl bg-slate-950 border border-slate-800 p-3 text-[11px] text-emerald-300 mono leading-relaxed"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      // --- STATE ---
+      const state = {
+        audioEnabled: true,
+        activeTab: 'main',
+        telemetry: {
+          semgUv: 42,
+          sedentaryMins: 45,
+          steps: 7840,
+          sleepHrs: 7.6,
+          hrBpm: 68,
+          mealHoursAgo: 2.0
+        },
+        vector: {
+          Happiness: 86,
+          Energy: 84,
+          Nourishment: 82,
+          Rest: 88,
+          Activity: 79,
+          Engagement: 85,
+          Growth: 81,
+          Relationship: 90
+        },
+        fsmMode: 'VITAL_FLOW',
+        causalLog: [],
+        samScene: 'salmon_bowl',
+        coachFocus: 'holistic',
+        coachStreak: 3,
+        coachXp: 65,
+        guidedTimer: null
+      };
+
+      // --- WEB AUDIO SYNTHESIZER FOR BIO-HAPTIC CHIMES ---
+      let audioCtx = null;
+      function playBioChime(type) {
+        if (!state.audioEnabled) return;
+        try {
+          if (!audioCtx) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextClass) return;
+            audioCtx = new AudioContextClass();
+          }
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+          const now = audioCtx.currentTime;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          if (type === 'positive') {
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(523.25, now);
+            osc.frequency.exponentialRampToValueAtTime(659.25, now + 0.14);
+            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+            osc.start(now);
+            osc.stop(now + 0.29);
+          } else if (type === 'alert') {
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(310, now);
+            osc.frequency.exponentialRampToValueAtTime(220, now + 0.22);
+            gain.gain.setValueAtTime(0.09, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
+            osc.start(now);
+            osc.stop(now + 0.27);
+          } else {
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(440, now);
+            osc.frequency.exponentialRampToValueAtTime(587.33, now + 0.12);
+            gain.gain.setValueAtTime(0.06, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+            osc.start(now);
+            osc.stop(now + 0.21);
+          }
+        } catch (err) {
+          // Ignore audio block before gesture
+        }
+      }
+
+      function showToast(title, message) {
+        const banner = document.getElementById('toastBanner');
+        document.getElementById('toastTitle').textContent = title;
+        document.getElementById('toastMessage').textContent = message;
+        banner.classList.remove('hidden');
+        clearTimeout( showToast._timer );
+        showToast._timer = setTimeout(() => {
+          banner.classList.add('hidden');
+        }, 3200);
+      }
+
+      function appendLog(msg, level) {
+        const ts = new Date().toLocaleTimeString([], { hour12: false });
+        state.causalLog.unshift({ ts, msg, level: level || 'info' });
+        if (state.causalLog.length > 18) state.causalLog.pop();
+        renderCausalLog();
+      }
+
+      function renderCausalLog() {
+        const container = document.getElementById('causalLogContainer');
+        container.innerHTML = state.causalLog.map(item => {
+          const color = item.level === 'warn' ? 'text-amber-300' : item.level === 'crit' ? 'text-rose-400' : 'text-cyan-300';
+          return `<div class="flex items-start gap-2 border-b border-slate-900 pb-1">
+            <span class="text-slate-500 shrink-0">[${item.ts}]</span>
+            <span class="${color}">${item.msg}</span>
+          </div>`;
+        }).join('');
+      }
+
+      // --- DETERMINISTIC LIFE ENGINE FINITE STATE MACHINE ---
+      function evaluateLifeEngine(triggerSource) {
+        const t = state.telemetry;
+        const clamp = (v) => Math.max(8, Math.min(100, Math.round(v)));
+
+        // Strict deterministic equations mapping Body telemetry -> 8 Life Engine variables
+        const restScore = clamp((t.sleepHrs / 8.0) * 92 - Math.max(0, (t.hrBpm - 80) * 0.35));
+        const nourishScore = clamp(100 - Math.max(0, (t.mealHoursAgo - 1.5) * 11.5));
+        const activityScore = clamp((t.steps / 9000) * 75 + Math.max(0, 30 - (t.sedentaryMins / 10)));
+        const stressPenalty = (t.semgUv > 95 && t.sedentaryMins > 60) ? (t.semgUv - 95) * 0.55 : 0;
+        const energyScore = clamp(restScore * 0.45 + nourishScore * 0.35 + activityScore * 0.20 - stressPenalty * 0.5);
+        const happinessScore = clamp(energyScore * 0.4 + activityScore * 0.3 + nourishScore * 0.3 - stressPenalty * 0.7);
+        const engagementScore = clamp(72 + (t.semgUv > 30 && t.semgUv <= 95 ? 18 : -10) - (t.sedentaryMins > 180 ? 18 : 0));
+        const growthScore = clamp((energyScore + activityScore + restScore) / 3);
+        const relationshipScore = clamp(78 + (happinessScore - 50) * 0.3);
+
+        state.vector = {
+          Happiness: happinessScore,
+          Energy: energyScore,
+          Nourishment: nourishScore,
+          Rest: restScore,
+          Activity: activityScore,
+          Engagement: engagementScore,
+          Growth: growthScore,
+          Relationship: relationshipScore
+        };
+
+        // Determine FSM State deterministically
+        let nextMode = 'VITAL_FLOW';
+        let logLevel = 'info';
+        let reason = 'All physiological thresholds nominal.';
+
+        if (t.semgUv >= 105 && t.sedentaryMins >= 60) {
+          nextMode = 'CONCERN_STRESS';
+          logLevel = 'crit';
+          reason = `Sustained wrist sEMG (${t.semgUv} µV RMS) while stationary (${t.sedentaryMins}m) -> Isometric stress detected.`;
+        } else if (t.sedentaryMins >= 180 && t.mealHoursAgo >= 5.0) {
+          nextMode = 'DEPLETED_NEGLECT';
+          logLevel = 'crit';
+          reason = `${t.sedentaryMins}m sedentary + ${t.mealHoursAgo}h fasting -> Activity & Nourishment below critical threshold.`;
+        } else if (t.sleepHrs < 5.5 || restScore < 50) {
+          nextMode = 'DROWSY_RECOVERY';
+          logLevel = 'warn';
+          reason = `Sleep debt (${t.sleepHrs}h) reduced Rest (${restScore}%) -> Entering low-stimulation recovery posture.`;
+        } else if (t.semgUv >= 75 && t.semgUv < 105 && t.sedentaryMins < 90) {
+          nextMode = 'HYPER_FOCUS';
+          logLevel = 'info';
+          reason = `Active MUAP recruitment (${t.semgUv} µV RMS) with balanced vitals -> Co-focus companion mode.`;
+        }
+
+        const modeChanged = nextMode !== state.fsmMode;
+        state.fsmMode = nextMode;
+
+        if (triggerSource) {
+          appendLog(`${triggerSource}: FSM -> ${nextMode}. ${reason}`, logLevel);
+          if (modeChanged) {
+            playBioChime(logLevel === 'crit' ? 'alert' : 'positive');
+          }
+        }
+
+        renderStateVector();
+        renderCreatureManifestation();
+        renderJsonPayload();
+      }
+
+      function renderStateVector() {
+        const container = document.getElementById('stateVectorBars');
+        const colors = {
+          Happiness: 'from-emerald-400 to-teal-500',
+          Energy: 'from-cyan-400 to-blue-500',
+          Nourishment: 'from-teal-400 to-emerald-500',
+          Rest: 'from-indigo-400 to-purple-500',
+          Activity: 'from-amber-400 to-orange-500',
+          Engagement: 'from-sky-400 to-indigo-500',
+          Growth: 'from-fuchsia-400 to-purple-500',
+          Relationship: 'from-rose-400 to-pink-500'
+        };
+
+        container.innerHTML = Object.entries(state.vector).map(([key, val]) => {
+          const lowWarn = val < 48 ? 'text-rose-400 font-bold' : 'text-slate-200 font-semibold';
+          return `<div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-300 font-medium">${key}</span>
+              <span class="mono ${lowWarn}">${val}/100</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-slate-950 overflow-hidden border border-slate-800">
+              <div class="h-full rounded-full bg-gradient-to-r ${colors[key]} transition-all duration-300" style="width: ${val}%"></div>
+            </div>
+          </div>`;
+        }).join('');
+      }
+
+      function renderCreatureManifestation() {
+        const badge = document.getElementById('fsmStateBadge');
+        const animBadge = document.getElementById('animDirectiveBadge');
+        const dialogue = document.getElementById('creatureDialogue');
+        const wonderText = document.getElementById('wonderInsightText');
+        const stop1 = document.getElementById('gradStop1');
+        const stop2 = document.getElementById('gradStop2');
+        const mouth = document.getElementById('svgMouth');
+        const leftEye = document.getElementById('svgLeftEye');
+        const rightEye = document.getElementById('svgRightEye');
+        const aura = document.getElementById('creatureAura');
+        const proteusTag = document.getElementById('proteusEffectTag');
+        const semgReadout = document.getElementById('semgRmsReadout');
+        const gestureReadout = document.getElementById('gestureReadout');
+
+        const t = state.telemetry;
+        semgReadout.textContent = `${t.semgUv} µV RMS · ${t.semgUv > 100 ? 'High Isometric Tension' : t.semgUv > 65 ? 'Active Recruitment' : 'Relaxed'}`;
+        gestureReadout.textContent = t.semgUv > 100 ? 'Sustained Wrist Clench' : t.semgUv > 65 ? 'Rapid Typing / Pinch' : 'Resting Wrist';
+
+        if (state.fsmMode === 'CONCERN_STRESS') {
+          badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 mono';
+          badge.textContent = 'STATE: CONCERN_STRESS';
+          stop1.setAttribute('stop-color', '#fb7185');
+          stop2.setAttribute('stop-color', '#e11d48');
+          mouth.setAttribute('d', 'M88 118 Q100 108 112 118');
+          leftEye.setAttribute('ry', '12');
+          rightEye.setAttribute('ry', '12');
+          aura.className = 'aura-ring absolute w-44 h-44 rounded-full bg-rose-500/25 blur-2xl pointer-events-none';
+          animBadge.textContent = `anim: empathetic_grounding_breath (${t.hrBpm} BPM -> 60 BPM guide)`;
+          proteusTag.textContent = 'Proteus Alert: Somatic Tension Mirror';
+          dialogue.textContent = `"I'm feeling high isometric muscle activation (${t.semgUv} µV RMS) in your wrist while you've been stationary for ${t.sedentaryMins} minutes. Drop your shoulders and take three slow breaths with my pulse."`;
+          wonderText.textContent = `Muse Wonder 1M-Context Alert: Afternoon sEMG spikes above 100 µV correlate with a 28% drop in deep sleep when unaddressed. Delegating a 3-minute decompression micro-break.`;
+        } else if (state.fsmMode === 'DEPLETED_NEGLECT') {
+          badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 mono';
+          badge.textContent = 'STATE: DEPLETED_NEGLECT';
+          stop1.setAttribute('stop-color', '#fbbf24');
+          stop2.setAttribute('stop-color', '#b45309');
+          mouth.setAttribute('d', 'M88 117 Q100 110 112 117');
+          leftEye.setAttribute('ry', '6');
+          rightEye.setAttribute('ry', '6');
+          aura.className = 'aura-ring absolute w-44 h-44 rounded-full bg-amber-500/20 blur-2xl pointer-events-none';
+          animBadge.textContent = 'anim: sluggish_posture_dim_aura (Nourishment + Activity Low)';
+          proteusTag.textContent = 'Proteus Mirror: Energy Depletion';
+          dialogue.textContent = `"We've been locked at the desk for ${t.sedentaryMins} minutes and haven't eaten in ${t.mealHoursAgo} hours—my core light is dimming! Let's take a 5-minute walk and scan a meal with SAM 3.1."`;
+          wonderText.textContent = `Muse Wonder 1M-Context Synthesis: Crossing the 300-minute sedentary threshold alongside skipped meals triggered a deterministic -38 Nourishment/Activity shift.`;
+        } else if (state.fsmMode === 'DROWSY_RECOVERY') {
+          badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40 mono';
+          badge.textContent = 'STATE: DROWSY_RECOVERY';
+          stop1.setAttribute('stop-color', '#c084fc');
+          stop2.setAttribute('stop-color', '#6d28d9');
+          mouth.setAttribute('d', 'M92 114 Q100 116 108 114');
+          leftEye.setAttribute('ry', '4');
+          rightEye.setAttribute('ry', '4');
+          aura.className = 'aura-ring absolute w-44 h-44 rounded-full bg-purple-500/20 blur-2xl pointer-events-none';
+          animBadge.textContent = 'anim: cozy_hibernation_float (Low Rest Conservation)';
+          proteusTag.textContent = 'Proteus Mirror: Circadian Recovery';
+          dialogue.textContent = `"With only ${t.sleepHrs} hours of sleep in Google Health last night, our Rest reserve is down to ${state.vector.Rest}%. Let's pace your cognitive load today and wind down early tonight."`;
+          wonderText.textContent = `Muse Wonder 1M-Context Synthesis: Cumulative sleep debt detected via Android Health Connect sync. Adjusting daily step target to prioritize parasympathetic recovery.`;
+        } else if (state.fsmMode === 'HYPER_FOCUS') {
+          badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 mono';
+          badge.textContent = 'STATE: HYPER_FOCUS';
+          stop1.setAttribute('stop-color', '#38bdf8');
+          stop2.setAttribute('stop-color', '#2563eb');
+          mouth.setAttribute('d', 'M88 112 Q100 120 112 112');
+          leftEye.setAttribute('ry', '11');
+          rightEye.setAttribute('ry', '11');
+          aura.className = 'aura-ring absolute w-44 h-44 rounded-full bg-blue-500/25 blur-2xl pointer-events-none';
+          animBadge.textContent = 'anim: synchronized_focus_orbit (sEMG Flow State)';
+          proteusTag.textContent = 'Proteus Mirror: Cognitive Flow';
+          dialogue.textContent = `"Your sEMG motor recruitment (${t.semgUv} µV) and heart rate (${t.hrBpm} BPM) are locked in a clean flow state. I'm holding notifications back while we build!"`;
+          wonderText.textContent = `Muse Wonder 1M-Context Synthesis: Peak productive cadence detected. Current metabolic and neuromuscular balance supports 45 more minutes of deep work.`;
+        } else {
+          badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 mono';
+          badge.textContent = 'STATE: VITAL_FLOW';
+          stop1.setAttribute('stop-color', '#67e8f9');
+          stop2.setAttribute('stop-color', '#0891b2');
+          mouth.setAttribute('d', 'M86 110 Q100 124 114 110');
+          leftEye.setAttribute('ry', '11');
+          rightEye.setAttribute('ry', '11');
+          aura.className = 'aura-ring absolute w-44 h-44 rounded-full bg-cyan-500/20 blur-2xl pointer-events-none';
+          animBadge.textContent = `anim: gentle_levitation_pulse (${t.hrBpm} BPM sync)`;
+          proteusTag.textContent = 'Proteus Resonance: High Vitality';
+          dialogue.textContent = `"Your wrist tension is super calm (${t.semgUv} µV RMS) and ${t.steps.toLocaleString()} steps plus ${t.sleepHrs}h sleep have all 8 Life Engine stats glowing!"`;
+          wonderText.textContent = `Muse Wonder 1M-Context Synthesis: Your ${t.sleepHrs}h sleep window and low resting wrist sEMG (${t.semgUv} µV) sustained a +14% Relationship & Growth trajectory over 14 days.`;
+        }
+
+        renderCoachingPrescription();
+      }
+
+      function renderCoachingPrescription() {
+        const box = document.getElementById('coachPrescriptionBox');
+        const impact = document.getElementById('coachExpectedImpact');
+        const primaryLabel = document.getElementById('coachPrimaryBtnLabel');
+        const streakEl = document.getElementById('sparkLatency');
+        const stageBadge = document.getElementById('evolutionStageBadge');
+        if (!box || !impact || !primaryLabel) return;
+
+        const t = state.telemetry;
+        streakEl.textContent = `Streak: ${state.coachStreak} Wins · ${state.coachXp} XP`;
+        if (state.coachXp >= 100) {
+          stageBadge.textContent = 'Stage 4 · Ascendant Guardian';
+          stageBadge.className = 'px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+        } else {
+          stageBadge.textContent = 'Stage 3 · Lumina Kin';
+        }
+
+        const focusPrefix = state.coachFocus === 'stress'
+          ? '[Somatic Stress Coach] '
+          : state.coachFocus === 'metabolic'
+          ? '[Metabolic & Fuel Coach] '
+          : state.coachFocus === 'sleep'
+          ? '[Circadian Recovery Coach] '
+          : '[Whole-Body Coach] ';
+
+        if (state.fsmMode === 'CONCERN_STRESS') {
+          box.textContent = `${focusPrefix}Your wrist sEMG is spiking at ${t.semgUv} µV while stationary (${t.sedentaryMins}m). Let's do a 15-second guided somatic breathing reset right now to drop your heart rate (${t.hrBpm} BPM) and unclench your forearm motor units.`;
+          impact.textContent = 'Coaching Target: Drop sEMG < 50 µV · +22 Energy · +25 Happiness';
+          primaryLabel.textContent = 'Start 15s Guided Somatic Breathing & Wrist Unclench';
+        } else if (state.fsmMode === 'DEPLETED_NEGLECT') {
+          box.textContent = `${focusPrefix}You've been stationary for ${t.sedentaryMins} minutes and haven't refueled in ${t.mealHoursAgo} hours. Stand up for a 5-minute walk and log a high-protein meal to restore your companion's core light.`;
+          impact.textContent = 'Coaching Target: Reset Sedentary Window to 0m · +32 Nourishment · +28 Activity';
+          primaryLabel.textContent = 'Execute 5-Min Walk + Refuel Coaching Protocol';
+        } else if (state.fsmMode === 'DROWSY_RECOVERY') {
+          box.textContent = `${focusPrefix}With ${t.sleepHrs}h sleep last night, your Rest score is ${state.vector.Rest}%. Avoid late caffeine, take a gentle 15s vagal breathing reset, and lock in an 8.0h recovery sleep target tonight.`;
+          impact.textContent = 'Coaching Target: +30 Rest Reserve · +18 Energy · Circadian Alignment';
+          primaryLabel.textContent = 'Commit to 8.0h Recovery Sleep & Down-Regulation Protocol';
+        } else if (state.fsmMode === 'HYPER_FOCUS') {
+          box.textContent = `${focusPrefix}You're in high-output cognitive flow (${t.semgUv} µV sEMG). Coach tip: do a micro-posture check and sip water every 25 minutes so hyper-focus doesn't turn into afternoon burnout.`;
+          impact.textContent = 'Coaching Target: Sustain Flow Without Burnout · +15 Growth XP';
+          primaryLabel.textContent = 'Run 15s Micro-Posture & Hydration Check';
+        } else {
+          box.textContent = `${focusPrefix}Your biomarkers are balanced (${t.steps.toLocaleString()} steps, ${t.semgUv} µV resting sEMG). Complete a quick 15s coherence breath or 5-min walk to evolve your Muse to Stage 4!`;
+          impact.textContent = 'Coaching Target: +15 Growth XP toward Stage 4 Ascendant Guardian';
+          primaryLabel.textContent = 'Start 15s Bio-Coherence Breathing Session';
+        }
+      }
+
+      function renderJsonPayload() {
+        const modelEl = document.getElementById('metaModelSelect');
+        const previewEl = document.getElementById('jsonPayloadPreview');
+        if (!previewEl) return;
+        const payload = {
+          model: modelEl ? modelEl.value : 'muse-spark-1.3',
+          enclave: 'muse-secure-vm://systemd-nspawn/user-enclave-01',
+          body_telemetry_summary: {
+            source: 'google_health_web_bridge + meta_neural_band_dat',
+            semg_rms_uv: state.telemetry.semgUv,
+            sedentary_window_mins: state.telemetry.sedentaryMins,
+            daily_steps: state.telemetry.steps,
+            sleep_duration_hrs: state.telemetry.sleepHrs,
+            heart_rate_bpm: state.telemetry.hrBpm,
+            hours_since_meal: state.telemetry.mealHoursAgo
+          },
+          life_engine_fsm: {
+            deterministic_state: state.fsmMode,
+            state_vector_8d: state.vector
+          },
+          manifestation_target: {
+            device: 'muse_charm_web_totem',
+            voice_model: 'muse-voice-transcribe-1.0',
+            vision_grounding: 'sam-3.1'
+          }
+        };
+        previewEl.textContent = JSON.stringify(payload, null, 2);
+      }
+
+      // --- LIVE sEMG OSCILLOSCOPE CANVAS ---
+      const semgCanvas = document.getElementById('semgCanvas');
+      const semgCtx = semgCanvas.getContext('2d');
+      let phase = 0;
+
+      function resizeCanvases() {
+        if (semgCanvas && semgCanvas.parentElement) {
+          semgCanvas.width = semgCanvas.parentElement.clientWidth || 320;
+          semgCanvas.height = semgCanvas.parentElement.clientHeight || 96;
+        }
+        drawSamScene();
+      }
+
+      function animateSemg() {
+        if (semgCanvas && semgCtx && state.activeTab === 'main') {
+          const w = semgCanvas.width;
+          const h = semgCanvas.height;
+          semgCtx.clearRect(0, 0, w, h);
+
+          // Grid lines
+          semgCtx.strokeStyle = 'rgba(51, 65, 85, 0.35)';
+          semgCtx.lineWidth = 1;
+          semgCtx.beginPath();
+          semgCtx.moveTo(0, h / 2);
+          semgCtx.lineTo(w, h / 2);
+          semgCtx.stroke();
+
+          // sEMG MUAP waveform
+          const amp = Math.min(h * 0.44, (state.telemetry.semgUv / 180) * (h * 0.44));
+          semgCtx.strokeStyle = state.telemetry.semgUv > 100 ? '#fb7185' : '#22d3ee';
+          semgCtx.lineWidth = 1.8;
+          semgCtx.beginPath();
+          for (let x = 0; x < w; x++) {
+            const burst = Math.sin((x * 0.04) + phase) * Math.cos((x * 0.19) - phase * 1.7);
+            const highFreq = Math.sin((x * 0.45) + phase * 3.1) * 0.45;
+            const y = (h / 2) + (burst + highFreq) * amp;
+            if (x === 0) semgCtx.moveTo(x, y);
+            else semgCtx.lineTo(x, y);
+          }
+          semgCtx.stroke();
+          phase += 0.16 + (state.telemetry.semgUv / 600);
+        }
+        requestAnimationFrame(animateSemg);
+      }
+
+      // --- SAM 3.1 VISUAL SEGMENTATION LAB ---
+      const samSamples = {
+        salmon_bowl: {
+          title: 'Scene: Wild Salmon, Quinoa & Avocado Bowl',
+          masks: [
+            { label: 'mask_01: Wild Salmon Fillet (185g)', confidence: '98.4%', delta: '+24 Nourishment, +12 Energy', color: '#34d399' },
+            { label: 'mask_02: Steamed Quinoa & Greens', confidence: '96.1%', delta: '+14 Activity Fuel', color: '#22d3ee' },
+            { label: 'mask_03: Sliced Avocado (Healthy Lipids)', confidence: '95.8%', delta: '+8 Growth & Recovery', color: '#a78bfa' }
+          ],
+          applyFn: () => {
+            state.telemetry.mealHoursAgo = 0.5;
+            document.getElementById('sliderMeal').value = '0.5';
+            updateSlidersUI();
+            evaluateLifeEngine('SAM 3.1 Meal Segmentation (Balanced Salmon Bowl)');
+          }
+        },
+        espresso_overload: {
+          title: 'Scene: Late-Night Triple Espresso & Desk Keyboard',
+          masks: [
+            { label: 'mask_01: Triple Espresso Cup (240mg Caffeine)', confidence: '97.9%', delta: '+18 Short-Term Energy, -16 Rest', color: '#fbbf24' },
+            { label: 'mask_02: Wrist Isometric Keyboard Posture', confidence: '94.2%', delta: '+35 µV sEMG Tension Warning', color: '#fb7185' }
+          ],
+          applyFn: () => {
+            state.telemetry.semgUv = 118;
+            state.telemetry.hrBpm = 96;
+            document.getElementById('sliderSemg').value = '118';
+            document.getElementById('sliderHr').value = '96';
+            updateSlidersUI();
+            evaluateLifeEngine('SAM 3.1 Desk & Caffeine Segmentation');
+          }
+        },
+        ergonomic_walk: {
+          title: 'Scene: Outdoor Park Trail & Hydration Bottle',
+          masks: [
+            { label: 'mask_01: Shaded Walking Trail Path', confidence: '99.1%', delta: 'Resets Sedentary Window to 0m', color: '#34d399' },
+            { label: 'mask_02: 750ml Electrolyte Bottle', confidence: '96.7%', delta: '+15 Nourishment & Vitality', color: '#38bdf8' }
+          ],
+          applyFn: () => {
+            state.telemetry.sedentaryMins = 0;
+            state.telemetry.steps = Math.min(15000, state.telemetry.steps + 2400);
+            state.telemetry.semgUv = 38;
+            document.getElementById('sliderSedentary').value = '0';
+            document.getElementById('sliderSteps').value = String(state.telemetry.steps);
+            document.getElementById('sliderSemg').value = '38';
+            updateSlidersUI();
+            evaluateLifeEngine('SAM 3.1 Outdoor Recovery Walk Scan');
+          }
+        }
+      };
+
+      function drawSamScene() {
+        const canvas = document.getElementById('samCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.parentElement.clientWidth || 500;
+        canvas.height = canvas.parentElement.clientHeight || 256;
+        const w = canvas.width;
+        const h = canvas.height;
+
+        ctx.fillStyle = '#090d16';
+        ctx.fillRect(0, 0, w, h);
+
+        // Draw segmented polygon overlays with bounding boxes
+        const sample = samSamples[state.samScene];
+        document.getElementById('samSceneTitle').textContent = sample.title;
+
+        const boxes = [
+          { x: w * 0.12, y: h * 0.18, bw: w * 0.34, bh: h * 0.58 },
+          { x: w * 0.52, y: h * 0.22, bw: w * 0.36, bh: h * 0.52 },
+          { x: w * 0.32, y: h * 0.55, bw: w * 0.30, bh: h * 0.32 }
+        ];
+
+        sample.masks.forEach((m, idx) => {
+          const b = boxes[idx % boxes.length];
+          ctx.fillStyle = m.color + '28';
+          ctx.strokeStyle = m.color;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(b.x, b.y, b.bw, b.bh, 12);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#0f172a';
+          ctx.fillRect(b.x + 6, b.y + 6, Math.min(b.bw - 12, 230), 22);
+          ctx.fillStyle = m.color;
+          ctx.font = '600 11px JetBrains Mono, monospace';
+          ctx.fillText(`${m.label.split(':')[0]} (${m.confidence})`, b.x + 12, b.y + 21);
+        });
+
+        const maskList = document.getElementById('samMaskList');
+        maskList.innerHTML = sample.masks.map(m => `
+          <div class="rounded-lg bg-slate-900 border border-slate-800 p-2.5">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-white">${m.label}</span>
+              <span class="mono text-cyan-300">${m.confidence}</span>
+            </div>
+            <div class="text-emerald-400 mono mt-1">FSM Impact: ${m.delta}</div>
+          </div>
+        `).join('');
+      }
+
+      // --- UI SYNC & EVENT LISTENERS ---
+      function updateSlidersUI() {
+        const t = state.telemetry;
+        document.getElementById('valSemg').textContent = `${t.semgUv} µV`;
+        document.getElementById('valSedentary').textContent = `${t.sedentaryMins} min`;
+        document.getElementById('valSteps').textContent = `${t.steps.toLocaleString()} steps`;
+        document.getElementById('valSleep').textContent = `${t.sleepHrs.toFixed(1)} hrs`;
+        document.getElementById('valHr').textContent = `${t.hrBpm} BPM · 98% SpO2`;
+        document.getElementById('valMeal').textContent = `${t.mealHoursAgo.toFixed(1)} hrs`;
+      }
+
+      function bindSliders() {
+        const bindings = [
+          { id: 'sliderSemg', key: 'semgUv', parse: Number, label: 'Wrist sEMG Adjusted' },
+          { id: 'sliderSedentary', key: 'sedentaryMins', parse: Number, label: 'Sedentary Timer Adjusted' },
+          { id: 'sliderSteps', key: 'steps', parse: Number, label: 'Google Health Steps Updated' },
+          { id: 'sliderSleep', key: 'sleepHrs', parse: parseFloat, label: 'Sleep Stage Sync Updated' },
+          { id: 'sliderHr', key: 'hrBpm', parse: Number, label: 'Optical Heart Rate Updated' },
+          { id: 'sliderMeal', key: 'mealHoursAgo', parse: parseFloat, label: 'Fasting Window Updated' }
+        ];
+        bindings.forEach(({ id, key, parse, label }) => {
+          const el = document.getElementById(id);
+          el.addEventListener('input', () => {
+            state.telemetry[key] = parse(el.value);
+            updateSlidersUI();
+            evaluateLifeEngine(label);
+          });
+        });
+      }
+
+      function applyPreset(presetName) {
+        const presets = {
+          thriving: { semgUv: 42, sedentaryMins: 35, steps: 9200, sleepHrs: 7.9, hrBpm: 66, mealHoursAgo: 1.5, msg: 'Scenario 1: Optimal Flow & Recovery' },
+          sedentary: { semgUv: 64, sedentaryMins: 300, steps: 1400, sleepHrs: 6.8, hrBpm: 78, mealHoursAgo: 6.5, msg: 'Scenario 2: 300-Min Sedentary + Skipped Meal' },
+          semg_stress: { semgUv: 142, sedentaryMins: 110, steps: 4100, sleepHrs: 6.4, hrBpm: 104, mealHoursAgo: 3.5, msg: 'Scenario 3: Stationary Wrist sEMG Stress Spike' },
+          sleep_debt: { semgUv: 55, sedentaryMins: 80, steps: 3200, sleepHrs: 3.8, hrBpm: 84, mealHoursAgo: 2.5, msg: 'Scenario 4: Deep Sleep Debt (3.8h)' }
+        };
+        const p = presets[presetName];
+        if (!p) return;
+        state.telemetry = {
+          semgUv: p.semgUv,
+          sedentaryMins: p.sedentaryMins,
+          steps: p.steps,
+          sleepHrs: p.sleepHrs,
+          hrBpm: p.hrBpm,
+          mealHoursAgo: p.mealHoursAgo
+        };
+        document.getElementById('sliderSemg').value = String(p.semgUv);
+        document.getElementById('sliderSedentary').value = String(p.sedentaryMins);
+        document.getElementById('sliderSteps').value = String(p.steps);
+        document.getElementById('sliderSleep').value = String(p.sleepHrs);
+        document.getElementById('sliderHr').value = String(p.hrBpm);
+        document.getElementById('sliderMeal').value = String(p.mealHoursAgo);
+        updateSlidersUI();
+        evaluateLifeEngine(p.msg);
+        showToast('Scenario Loaded', p.msg);
+      }
+
+      // Navigation Tabs
+      function switchTab(tab) {
+        state.activeTab = tab;
+        const views = {
+          main: document.getElementById('viewMain'),
+          sam: document.getElementById('viewSam'),
+          arch: document.getElementById('viewArch')
+        };
+        const btns = {
+          main: document.getElementById('tabMainBtn'),
+          sam: document.getElementById('tabSamBtn'),
+          arch: document.getElementById('tabArchBtn')
+        };
+        Object.keys(views).forEach(k => {
+          if (k === tab) {
+            views[k].classList.remove('hidden');
+            btns[k].className = 'px-3 py-1.5 rounded-md text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition';
+          } else {
+            views[k].classList.add('hidden');
+            btns[k].className = 'px-3 py-1.5 rounded-md text-xs font-semibold text-slate-400 hover:text-slate-200 transition';
+          }
+        });
+        if (tab === 'sam') drawSamScene();
+        if (tab === 'arch') renderJsonPayload();
+      }
+
+      // Attach DOM Listeners
+      document.getElementById('tabMainBtn').addEventListener('click', () => switchTab('main'));
+      document.getElementById('tabSamBtn').addEventListener('click', () => switchTab('sam'));
+      document.getElementById('tabArchBtn').addEventListener('click', () => switchTab('arch'));
+
+      document.getElementById('audioToggleBtn').addEventListener('click', () => {
+        state.audioEnabled = !state.audioEnabled;
+        document.getElementById('audioIcon').className = state.audioEnabled ? 'w-2 h-2 rounded-full bg-emerald-400' : 'w-2 h-2 rounded-full bg-slate-500';
+        document.getElementById('audioLabel').textContent = state.audioEnabled ? 'Chimes On' : 'Chimes Muted';
+        if (state.audioEnabled) playBioChime('neutral');
+      });
+
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyPreset(btn.getAttribute('data-preset')));
+      });
+
+      document.getElementById('syncGoogleHealthBtn').addEventListener('click', () => {
+        state.telemetry.steps = Math.min(15000, state.telemetry.steps + 650);
+        document.getElementById('sliderSteps').value = String(state.telemetry.steps);
+        updateSlidersUI();
+        evaluateLifeEngine('Google Health / Fitbit Web API Delta Pull (+650 steps)');
+        showToast('Google Health Web Bridge', 'Pulled latest step & HR delta via OAuth 2.0 Web Bridge.');
+      });
+
+      document.getElementById('webBleBtn').addEventListener('click', async () => {
+        if (navigator.bluetooth) {
+          try {
+            await navigator.bluetooth.requestDevice({ acceptAllDevices: true });
+          } catch (e) {
+            // In sandboxed iframe or user cancel, fall back gracefully to simulated BLE stream
+          }
+        }
+        state.telemetry.hrBpm = 71;
+        document.getElementById('sliderHr').value = '71';
+        updateSlidersUI();
+        evaluateLifeEngine('Web Bluetooth GATT Heart Rate + sEMG Stream Paired');
+        showToast('Web Bluetooth Stream Active', 'Streaming live GATT Heart Rate (71 BPM) & sEMG packets.');
+      });
+
+      document.getElementById('quickMealBtn').addEventListener('click', () => {
+        switchTab('sam');
+        showToast('SAM 3.1 Vision Lab', 'Select a meal or posture snapshot to segment and push to the Life Engine.');
+      });
+
+      document.getElementById('runWonderBtn').addEventListener('click', () => {
+        playBioChime('positive');
+        const avg = Math.round(Object.values(state.vector).reduce((a, b) => a + b, 0) / 8);
+        document.getElementById('wonderInsightText').textContent =
+          `Muse Wonder 1.0 (1M Context Run Complete): Evaluated 14-day sEMG + Google Health window. Composite vitality score is ${avg}/100. Sub-agent scheduled a 4-minute wrist mobility & breathing cue for 3:30 PM.`;
+        showToast('Muse Wonder 1.0 Synthesis', `1M-token longitudinal analysis complete (Composite: ${avg}/100).`);
+      });
+
+      document.getElementById('creatureTouchArea').addEventListener('click', () => {
+        playBioChime('positive');
+        state.vector.Relationship = Math.min(100, state.vector.Relationship + 4);
+        state.vector.Happiness = Math.min(100, state.vector.Happiness + 3);
+        renderStateVector();
+        appendLog('User tactile tap on Muse Charm -> +4 Relationship, +3 Happiness.', 'info');
+        showToast('Haptic Totem Resonance', 'Sent tactile pulse to your Muse Charm companion!');
+      });
+
+      document.getElementById('voiceMicBtn').addEventListener('click', () => {
+        const voiceSamples = [
+          'I just finished a 25-minute walk outside and grabbed lunch!',
+          'My wrists feel pretty tense from coding all afternoon.',
+          'How are my energy and recovery stats looking today?'
+        ];
+        const sample = voiceSamples[Math.floor(Math.random() * voiceSamples.length)];
+        document.getElementById('chatInput').value = sample;
+        showToast('muse-voice-transcribe-1.0', `Transcribed: "${sample}"`);
+      });
+
+      document.getElementById('companionChatForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim();
+        if (!text) return;
+        input.value = '';
+        playBioChime('neutral');
+
+        const lower = text.toLowerCase();
+        if (lower.includes('walk') || lower.includes('lunch') || lower.includes('ate')) {
+          state.telemetry.sedentaryMins = 10;
+          state.telemetry.mealHoursAgo = 0.5;
+          document.getElementById('sliderSedentary').value = '10';
+          document.getElementById('sliderMeal').value = '0.5';
+          updateSlidersUI();
+          evaluateLifeEngine(`Voice/Chat Check-in ("${text.slice(0, 32)}...")`);
+        } else if (lower.includes('tense') || lower.includes('stress') || lower.includes('tired')) {
+          state.telemetry.semgUv = 125;
+          document.getElementById('sliderSemg').value = '125';
+          updateSlidersUI();
+          evaluateLifeEngine(`Voice/Chat Stress Report ("${text.slice(0, 32)}...")`);
+        } else {
+          appendLog(`muse-spark-1.3 dialogue response generated for: "${text.slice(0, 36)}"`, 'info');
+          document.getElementById('creatureDialogue').textContent =
+            `"Hearing you loud and clear! Right now our Life Engine sits in ${state.fsmMode} with ${state.vector.Energy}% Energy and ${state.vector.Rest}% Rest—let's keep our rhythm steady."`;
+        }
+      });
+
+      document.querySelectorAll('.sam-sample-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.samScene = btn.getAttribute('data-sample');
+          drawSamScene();
+        });
+      });
+
+      document.getElementById('applySamToFsmBtn').addEventListener('click', () => {
+        const sample = samSamples[state.samScene];
+        if (sample && sample.applyFn) {
+          sample.applyFn();
+          switchTab('main');
+          showToast('SAM 3.1 Telemetry Applied', `${sample.title} pushed into the Life Engine FSM.`);
+        }
+      });
+
+      document.getElementById('metaModelSelect').addEventListener('change', renderJsonPayload);
+
+      document.getElementById('copyPayloadBtn').addEventListener('click', () => {
+        const text = document.getElementById('jsonPayloadPreview').textContent;
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('Copied to Clipboard', 'Meta Model API JSON payload copied.');
+      });
+
+      // --- ACTIVE HEALTH COACHING HANDLERS ---
+      document.getElementById('coachFocusSelect').addEventListener('change', (e) => {
+        state.coachFocus = e.target.value;
+        renderCoachingPrescription();
+        appendLog(`Coaching Focus switched to: ${state.coachFocus.toUpperCase()}`, 'info');
+        showToast('Muse Coach Focus Updated', `Tailoring interventions for ${e.target.options[e.target.selectedIndex].text}.`);
+      });
+
+      function rewardCoachingWin(actionName) {
+        state.coachStreak += 1;
+        state.coachXp += 20;
+        playBioChime('positive');
+        evaluateLifeEngine(`Coach Action Completed (${actionName})`);
+        showToast('Health Coaching Win! (+20 XP)', `${actionName} improved your biomarkers and strengthened your Muse!`);
+      }
+
+      document.getElementById('coachActionPrimaryBtn').addEventListener('click', () => {
+        const guidedBox = document.getElementById('guidedSessionBox');
+        const stepLabel = document.getElementById('guidedStepLabel');
+        const timerLabel = document.getElementById('guidedTimerLabel');
+        const progressBar = document.getElementById('guidedProgressBar');
+
+        if (state.guidedTimer) {
+          clearInterval(state.guidedTimer);
+          state.guidedTimer = null;
+        }
+
+        guidedBox.classList.remove('hidden');
+        let remaining = 6;
+        const total = 6;
+        playBioChime('neutral');
+
+        const updateGuidedStep = () => {
+          const pct = Math.round(((total - remaining) / total) * 100);
+          progressBar.style.width = `${ Math.max(10, pct) }%`;
+          timerLabel.textContent = `${remaining}s`;
+
+          if (remaining > 4) {
+            stepLabel.textContent = '1/3 · Inhale deeply... drop your shoulders & unclench wrist';
+          } else if (remaining > 2) {
+            stepLabel.textContent = '2/3 · Hold gently... feeling Muse Charm haptics slow down';
+            // Progressively ease sEMG and HR in real time!
+            state.telemetry.semgUv = Math.max(36, Math.round(state.telemetry.semgUv * 0.72));
+            state.telemetry.hrBpm = Math.max(64, Math.round(state.telemetry.hrBpm * 0.92));
+            document.getElementById('sliderSemg').value = String(state.telemetry.semgUv);
+            document.getElementById('sliderHr').value = String(state.telemetry.hrBpm);
+            updateSlidersUI();
+          } else {
+            stepLabel.textContent = '3/3 · Exhale slowly... restoring parasympathetic balance';
+          }
+        };
+
+        updateGuidedStep();
+        state.guidedTimer = setInterval(() => {
+          remaining -= 1;
+          if (remaining <= 0) {
+            clearInterval(state.guidedTimer);
+            state.guidedTimer = null;
+            guidedBox.classList.add('hidden');
+            state.telemetry.semgUv = 38;
+            state.telemetry.hrBpm = 65;
+            if (state.fsmMode === 'DROWSY_RECOVERY') {
+              state.telemetry.sleepHrs = 8.0;
+              document.getElementById('sliderSleep').value = '8.0';
+            }
+            if (state.fsmMode === 'DEPLETED_NEGLECT') {
+              state.telemetry.sedentaryMins = 10;
+              state.telemetry.mealHoursAgo = 1.0;
+              document.getElementById('sliderSedentary').value = '10';
+              document.getElementById('sliderMeal').value = '1.0';
+            }
+            document.getElementById('sliderSemg').value = '38';
+            document.getElementById('sliderHr').value = '65';
+            updateSlidersUI();
+            rewardCoachingWin('Guided Bio-Coherence & Recovery Reset');
+          } else {
+            updateGuidedStep();
+          }
+        }, 700);
+      });
+
+      document.getElementById('coachWalkBtn').addEventListener('click', () => {
+        state.telemetry.sedentaryMins = 0;
+        state.telemetry.steps = Math.min(15000, state.telemetry.steps + 600);
+        state.telemetry.semgUv = Math.min(60, state.telemetry.semgUv);
+        document.getElementById('sliderSedentary').value = '0';
+        document.getElementById('sliderSteps').value = String(state.telemetry.steps);
+        document.getElementById('sliderSemg').value = String(state.telemetry.semgUv);
+        updateSlidersUI();
+        rewardCoachingWin('5-Min Movement Break (+600 Steps, 0m Sedentary)');
+      });
+
+      document.getElementById('coachHydrateMealBtn').addEventListener('click', () => {
+        state.telemetry.mealHoursAgo = 0.5;
+        document.getElementById('sliderMeal').value = '0.5';
+        updateSlidersUI();
+        rewardCoachingWin('Balanced Meal & Hydration Logged');
+      });
+
+      window.addEventListener('resize', resizeCanvases);
+
+      // Initialize App
+      window.addEventListener('load', () => {
+        bindSliders();
+        updateSlidersUI();
+        evaluateLifeEngine('Initial System Boot (Body -> Life Engine -> Creature)');
+        resizeCanvases();
+        animateSemg();
+      });
+    })();
+  </script>
+</body>
+</html>

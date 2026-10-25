@@ -197,6 +197,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
             <ul className="flex flex-col gap-2 text-[13px] text-[#bac9cc]">
               <li>
                 <button
+                  onClick={() => onNavigate('muse-charm')}
+                  className="hover:text-[#00e5ff] transition-colors text-left cursor-pointer text-[#00e5ff] font-medium flex items-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff]"></span>
+                  <span>Muse Charm (Meta AI Hackathon)</span>
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => onNavigate('drunkwatch')}
                   className="hover:text-[#FFB703] transition-colors text-left cursor-pointer"
                 >

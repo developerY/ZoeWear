@@ -196,3 +196,18 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #00e5ff;
 }
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+@keyframes pulseAura {
+  0%, 100% { opacity: 0.45; transform: scale(0.96); }
+  50% { opacity: 0.85; transform: scale(1.06); }
+}
+.creature-float {
+  animation: floatSlow 3.6s ease-in-out infinite;
+}
+.aura-ring {
+  animation: pulseAura 3s ease-in-out infinite;
+}

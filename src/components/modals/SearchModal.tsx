@@ -64,6 +64,17 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onNav
       }
     });
 
+    // Muse Charm (Meta AI Hackathon)
+    if ('muse charm meta ai hackathon companion semg fsm totem sam'.includes(q) || 'meta'.includes(q) || 'hackathon'.includes(q) || 'companion'.includes(q)) {
+      items.push({
+        category: 'Meta AI Hackathon',
+        title: 'Muse Charm: Bio-Responsive Digital Companion',
+        snippet: 'Tripartite deterministic architecture: sEMG + Google Health -> Life Engine FSM -> Generative Totem Companion.',
+        targetPage: 'muse-charm',
+        badge: 'Meta MVP',
+      });
+    }
+
     // DrunkWatch
     if ('drunkwatch bac alcohol metabolic guardian watch cuff'.includes(q)) {
       items.push({

@@ -1,4 +1,4 @@
-export type NavPage = 'home' | 'shop' | 'fashion' | 'tech' | 'fusion' | 'drunkwatch' | 'teaching-and-research';
+export type NavPage = 'home' | 'shop' | 'fashion' | 'tech' | 'fusion' | 'drunkwatch' | 'muse-charm' | 'teaching-and-research';
 
 export interface ShopItem {
   id: string;

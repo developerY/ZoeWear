@@ -16,6 +16,7 @@ import { FashionScreen } from './components/screens/FashionScreen';
 import { TechScreen } from './components/screens/TechScreen';
 import { FusionScreen } from './components/screens/FusionScreen';
 import { DrunkWatchScreen } from './components/screens/DrunkWatchScreen';
+import { MuseCharmScreen } from './components/screens/MuseCharmScreen';
 import { TeachingResearchScreen } from './components/screens/TeachingResearchScreen';
 
 // Modals
@@ -103,6 +104,7 @@ export default function App() {
       'tech',
       'fusion',
       'drunkwatch',
+      'muse-charm',
       'teaching-and-research',
     ];
 
@@ -281,6 +283,7 @@ export default function App() {
         {currentPage === 'tech' && (
           <TechScreen
             onNavigateToDrunkwatch={() => handleNavigate('drunkwatch')}
+            onNavigateToMuseCharm={() => handleNavigate('muse-charm')}
             onNavigateToTeaching={() => handleNavigate('teaching-and-research')}
             onOpenKeynote={(deck) => handleOpenKeynote(deck.title, deck.slides)}
           />
@@ -300,6 +303,12 @@ export default function App() {
             onNavigate={handleNavigate}
             onOpenDiagnostics={() => setIsDiagnosticsOpen(true)}
             onRequestPrototype={handleOpenReserve}
+          />
+        )}
+
+        {currentPage === 'muse-charm' && (
+          <MuseCharmScreen
+            onNavigate={handleNavigate}
           />
         )}
 

@@ -3,12 +3,14 @@ import { IMAGES, KEYNOTE_DECKS } from '../../data/mockData';
 
 interface TechScreenProps {
   onNavigateToDrunkwatch: () => void;
+  onNavigateToMuseCharm: () => void;
   onNavigateToTeaching: () => void;
   onOpenKeynote: (deck: (typeof KEYNOTE_DECKS)[0]) => void;
 }
 
 export const TechScreen: React.FC<TechScreenProps> = ({
   onNavigateToDrunkwatch,
+  onNavigateToMuseCharm,
   onNavigateToTeaching,
   onOpenKeynote,
 }) => {
@@ -451,6 +453,35 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                     <span className="font-['Plus_Jakarta_Sans'] text-[13px] text-[#bac9cc] mt-0.5">
                       Synchronizes ECG, continuous EDA, transdermal ethanol diagnostics, and peripheral temperature at 100Hz with near-zero battery drain.
                     </span>
+                  </div>
+                </div>
+
+                {/* Muse Charm Hackathon Feature Card */}
+                <div className="p-4 rounded-xl bg-gradient-to-r from-[#181c22] to-[#0f2132] border border-cyan-500/40 flex items-start gap-4 hover:border-cyan-400 transition-colors shadow-lg shadow-cyan-500/10">
+                  <div className="p-2 rounded-lg bg-cyan-500/20 text-[#00e5ff] shrink-0 border border-cyan-500/30">
+                    <span className="material-symbols-outlined text-[20px]">smart_toy</span>
+                  </div>
+                  <div className="flex flex-col flex-1">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <span className="font-['Space_Grotesk'] text-[16px] text-[#F8FAFC] font-semibold leading-snug">
+                        Muse Charm: Bio-Responsive Digital Companion
+                      </span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-[#00e5ff] font-bold border border-cyan-500/30">
+                        META AI HACKATHON
+                      </span>
+                    </div>
+                    <span className="font-['Plus_Jakarta_Sans'] text-[13px] text-[#bac9cc] mt-0.5">
+                      Tripartite deterministic architecture: Body telemetry (sEMG + Google Health) → Life Engine FSM → Generative Totem Companion (Meta Muse AI &amp; SAM 3.1).
+                    </span>
+                    <div className="flex items-center gap-4 mt-2">
+                      <button
+                        onClick={onNavigateToMuseCharm}
+                        className="text-xs font-['Space_Grotesk'] text-[#00e5ff] hover:underline flex items-center gap-1 font-semibold w-fit cursor-pointer"
+                      >
+                        <span>Launch Interactive Companion Cockpit</span>
+                        <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
 

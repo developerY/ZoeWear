@@ -177,8 +177,16 @@ export const Header: React.FC<HeaderProps> = ({
     {
       id: 'tech',
       label: 'TECH',
-      categoryTitle: 'HARDWARE, EDGE ML & DRUNKWATCH',
+      categoryTitle: 'HARDWARE, EDGE ML & BIO-COMPANION',
       items: [
+        {
+          id: 'muse-charm-page',
+          title: 'Muse Charm (Meta AI Hackathon)',
+          sublabel: 'Dedicated Page: Bio-Responsive Digital Companion · sEMG, Life Engine & SAM 3.1',
+          targetPage: 'muse-charm',
+          badge: 'Meta Hackathon',
+          badgeColor: 'text-[#00e5ff] bg-[#00e5ff]/15 border-[#00e5ff]/40 font-bold',
+        },
         {
           id: 'drunkwatch-page',
           title: 'DrunkWatch™',
@@ -372,7 +380,8 @@ export const Header: React.FC<HeaderProps> = ({
           >
             {navTabs.map((tab) => {
               const isActive =
-                currentPage === tab.id || (tab.id === 'tech' && currentPage === 'drunkwatch');
+                currentPage === tab.id ||
+                (tab.id === 'tech' && (currentPage === 'drunkwatch' || currentPage === 'muse-charm'));
               const isHovered = activeDropdown === tab.id;
 
               return (
@@ -558,7 +567,8 @@ export const Header: React.FC<HeaderProps> = ({
             {navTabs.map((tab) => {
               const isExpanded = mobileExpandedTab === tab.id;
               const isActive =
-                currentPage === tab.id || (tab.id === 'tech' && currentPage === 'drunkwatch');
+                currentPage === tab.id ||
+                (tab.id === 'tech' && (currentPage === 'drunkwatch' || currentPage === 'muse-charm'));
 
               return (
                 <div
