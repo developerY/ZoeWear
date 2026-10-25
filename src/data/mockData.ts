@@ -3,7 +3,7 @@ import { GarmentSilhouette, FootwearModel, ResearchPaper, CourseModule, ShopItem
 export const ZOEWEAR_ORIGINAL_INSIGNIA =
   'https://lh3.googleusercontent.com/aida/AEtjO1UZhPV7bT2Ga6gKl85I4jKcZ3AqF0KNXjEk01wHR_ZMacpbd0b0gpxMFLlaHIYBGam_lhC1QGgsPiJ8z41la3ZCGcfwW1_Dh8vXMr1gzkt-CuGOmS7H_PW3dKqVfhLQHt2_lH53IG3CW_R89vjA3LLrXCnR7qezaKrJJcCDEeX9nJPYJgGF8w6Hi4nRZBOaImzJM4SG9N45qUhLlJD-p3sl6jTJUzGQYr6YyBtmLLAb6kQdY2RM1168la0';
 
-export const ZOEWEAR_FAVICON = ZOEWEAR_ORIGINAL_INSIGNIA;
+export const ZOEWEAR_FAVICON = '/zoewave-favicon.png';
 export const ZOEWEAR_CHIP_LOGO = '/assets/aistudio/image_7c108a7e.png';
 export const ZOEWEAR_LOGO = ZOEWEAR_CHIP_LOGO;
 export const ZOEWEAR_INSIGNIA = ZOEWEAR_ORIGINAL_INSIGNIA;
