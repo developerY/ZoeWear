@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "border-subtle": "rgba(255, 255, 255, 0.08)", "surface-container-high": "#262a31", "outline": "#849396", "primary": "#c3f5ff", "on-background": "#dfe2eb", "tertiary": "#ffecbb", "error-container": "#93000a", "neon-cyan-glow": "rgba(0, 229, 255, 0.25)", "secondary-fixed-dim": "#4cd6fb", "on-error": "#690005", "background": "#10141a", "inverse-on-surface": "#2d3137", "text-primary": "#F8FAFC", "text-muted": "#94A3B8", "on-surface": "#dfe2eb", "primary-container": "#00e5ff", "surface-glass": "rgba(18, 24, 36, 0.65)", "tertiary-fixed": "#ffe088", "surface": "#10141a", "on-primary": "#00363d", "on-error-container": "#ffdad6", "surface-container-highest": "#31353c", "tertiary-container": "#f4cd52", "primary-fixed-dim": "#00daf3", "on-tertiary-fixed": "#241a00", "on-primary-container": "#00626e", "surface-variant": "#31353c", "surface-dim": "#10141a", "primary-fixed": "#9cf0ff", "on-secondary-fixed": "#001f27", "on-secondary": "#003642", "on-tertiary-fixed-variant": "#574500", "on-surface-variant": "#bac9cc", "surface-bright": "#353940", "on-tertiary-container": "#6d5600", "surface-slate": "#121824", "on-primary-fixed": "#001f24", "surface-obsidian": "#0B0F15", "on-secondary-fixed-variant": "#004e5f", "tertiary-fixed-dim": "#e9c349", "secondary": "#4cd6fb", "on-secondary-container": "#003f4e", "secondary-container": "#00b2d6", "on-primary-fixed-variant": "#004f58", "secondary-fixed": "#b3ebff", "on-tertiary": "#3c2f00", "inverse-surface": "#dfe2eb", "surface-container": "#1c2026", "error": "#ffb4ab", "border-luminous": "rgba(0, 229, 255, 0.35)", "circuit-gold": "#FFB703", "inverse-primary": "#006875", "surface-container-lowest": "#0a0e14", "surface-container-low": "#181c22", "outline-variant": "#3b494c", "surface-tint": "#00daf3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-lg": "1.5rem", "margin": "3rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem" }, "fontFamily": { "display": [ "Space Grotesk" ], "body-md": [ "Plus Jakarta Sans" ], "label-sm": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "headline-sm": [ "Space Grotesk" ], "display-mobile": [ "Space Grotesk" ], "headline-lg-mobile": [ "Space Grotesk" ], "label-lg": [ "Space Grotesk" ], "body-sm": [ "Plus Jakarta Sans" ], "headline-md": [ "Space Grotesk" ], "body-lg": [ "Plus Jakarta Sans" ] }, "fontSize": { "display": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" } ], "headline-lg": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "fontWeight": "500" } ], "display-mobile": [ "38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-lg-mobile": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.06em", "fontWeight": "600" } ], "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-md": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface-obsidian text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 w-full z-50 flex flex-col"><div class="w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-subtle py-1.5 px-margin"><div class="max-w-7xl mx-auto flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-space-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span><span class="tracking-wider uppercase text-text-primary">ZoeWear Telemetry Architecture</span><span class="text-border-subtle">|</span><span class="text-text-muted hidden sm:inline">Fall/Winter Phygital Biometric Showcase</span></div><div class="flex items-center gap-space-md text-text-muted"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high/70 border border-border-luminous/40 text-primary-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span><span class="tracking-widest uppercase text-label-sm font-label-sm">Live Biosignal Feed: Synced</span></div><span class="text-border-subtle hidden md:inline">|</span><span class="tracking-widest uppercase text-circuit-gold hidden md:inline">Technology is the New Black</span></div></div></div><div class="w-full bg-surface-glass/85 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-subtle"><div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><img alt="ZoeWear Insignia" class="w-9 h-9 rounded-full object-cover ring-1 ring-border-luminous" src="https://lh3.googleusercontent.com/aida/AEtjO1UZhPV7bT2Ga6gKl85I4jKcZ3AqF0KNXjEk01wHR_ZMacpbd0b0gpxMFLlaHIYBGam_lhC1QGgsPiJ8z41la3ZCGcfwW1_Dh8vXMr1gzkt-CuGOmS7H_PW3dKqVfhLQHt2_lH53IG3CW_R89vjA3LLrXCnR7qezaKrJJcCDEeX9nJPYJgGF8w6Hi4nRZBOaImzJM4SG9N45qUhLlJD-p3sl6jTJUzGQYr6YyBtmLLAb6kQdY2RM1168la0"/><div class="flex flex-col"><span class="font-display text-headline-sm font-semibold tracking-wider text-text-primary leading-none">ZOEWEAR</span><span class="font-label-sm text-label-sm tracking-widest text-primary-container leading-tight mt-0.5">CYBER-COUTURE &amp; WEARABLE TECH</span></div></div><nav class="hidden xl:flex items-center gap-space-xs font-label-lg text-label-lg tracking-wide" data-active-classes="text-primary-container bg-surface-container-high/90 border border-border-luminous/60 font-semibold shadow-[0_0_12px_rgba(0,229,255,0.2)]"><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="home" href="#">Home</a><a aria-current="page" class="px-space-sm py-1.5 rounded-lg transition-colors text-primary-container bg-surface-container-high/90 border border-border-luminous/60 font-semibold shadow-[0_0_12px_rgba(0,229,255,0.2)]" data-path="fashion" href="#">Fashion</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="tech" href="#">Tech</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="fusion" href="#">Fusion</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="drunkwatch" href="#">DrunkWatch™</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="teaching-and-research" href="#">Teaching &amp; Research</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-2 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-widest border border-border-luminous shadow-[0_0_15px_rgba(0,229,255,0.15)] hover:bg-primary-container hover:text-on-primary-container hover:shadow-[0_0_24px_rgba(0,229,255,0.45)] transition-all" data-path="explore-innovations" href="#">Explore Innovations</a><div class="flex items-center gap-space-xs text-on-surface-variant"><button aria-label="Search Archive" class="p-2 rounded-full hover:bg-surface-container hover:text-primary transition-colors flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Telemetry Diagnostics" class="p-2 rounded-full hover:bg-surface-container hover:text-primary transition-colors flex items-center justify-center relative"><span class="material-symbols-outlined text-[20px]">sensors</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container"></span></button><div class="ml-space-xs pl-space-xs"><img alt="Biometric Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-border-subtle hover:ring-primary-container transition-all" src="https://lh3.googleusercontent.com/aida/AEtjO1UZhPV7bT2Ga6gKl85I4jKcZ3AqF0KNXjEk01wHR_ZMacpbd0b0gpxMFLlaHIYBGam_lhC1QGgsPiJ8z41la3ZCGcfwW1_Dh8vXMr1gzkt-CuGOmS7H_PW3dKqVfhLQHt2_lH53IG3CW_R89vjA3LLrXCnR7qezaKrJJcCDEeX9nJPYJgGF8w6Hi4nRZBOaImzJM4SG9N45qUhLlJD-p3sl6jTJUzGQYr6YyBtmLLAb6kQdY2RM1168la0"/></div></div></div></div></div></header><main class="w-full pt-28 bg-surface-obsidian min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Manifesto Marquee Banner -->
+<div class="w-full bg-surface-container-lowest overflow-hidden py-3">
+<div class="flex items-center gap-space-xl whitespace-nowrap text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">
+<div class="flex items-center gap-space-sm text-primary-container">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>HAUTE ERGONOMICS // VOLUME IX</span>
+</div>
+<span class="text-circuit-gold">THE R/EVOLUTION OF FASHION IN THE DIGITAL AGE</span>
+<span>•</span>
+<span class="text-text-primary">MAGIC OF TECH + BEAUTY OF FASHION + WELLNESS OF HEALTHCARE</span>
+<span>•</span>
+<span class="text-secondary">CONTINUOUS TRANSDERMAL BIO-MAPPING</span>
+<span>•</span>
+<span class="text-primary-container">SWIFTMONSTER PROTOTYPES SYNCHRONIZED</span>
+<span>•</span>
+<span class="text-on-surface-variant">AWAKEN THE SOUL OF THE SHOE &amp; GARMENT</span>
+</div>
+</div>
+<!-- Editorial Split Header & Humanizing Tech Philosophy -->
+<section class="max-w-7xl mx-auto px-margin py-space-xl w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left Column: Big Typographic Statement -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-primary-container font-label-sm text-label-sm tracking-widest uppercase">Editorial Dossier</span>
+<span class="text-text-muted font-label-sm text-label-sm uppercase">Doc 04.FASH // Humanizing Systems</span>
+</div>
+<h1 class="font-display text-display text-text-primary tracking-tight leading-tight">
+          Humanizing Technology Through <span class="text-primary-container">Haute Cyber-Couture</span>.
+        </h1>
+<p class="font-body-lg text-body-lg text-text-muted leading-relaxed">
+          Even the most advanced biometric telemetry platform fails if it feels alien to the human form. By merging color, fluid architecture, and conductive weaves, we turn cold silicon hardware into evocative luxury garments that people are excited to inhabit.
+        </p>
+<!-- Triad Concept Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-xl">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container">01 / The Magic</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Autonomous Tech</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Micro-neural filaments and bio-galvanic transdermal arrays woven into natural silks.</p>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-circuit-gold">02 / The Beauty</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Haute Silhouettes</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Parisian draping rules, kinetic tailoring, and memory fabrics that flatter organic movement.</p>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">03 / The Wellness</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Preventive Health</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous adherence yields unbroken diagnostics, delivering life-saving clinical intelligence.</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md pt-space-xs">
+<a class="px-space-lg py-3 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider hover:bg-primary-fixed-dim transition-all shadow-[0_0_20px_rgba(0,229,255,0.3)] flex items-center gap-space-xs" href="#swiftmonster">
+<span>Explore SwiftMonster Shoes</span>
+<span class="material-symbols-outlined text-lg">arrow_downward</span>
+</a>
+<a class="px-space-lg py-3 rounded-full bg-surface-container-high text-text-primary font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-bright transition-all" href="#lookbook">
+            Cyber-Couture Lookbook
+          </a>
+</div>
+</div>
+<!-- Right Column: Visual Telemetry Editorial Mosaic -->
+<div class="lg:col-span-5 flex flex-col gap-space-md relative">
+<div class="relative w-full h-[460px] rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="High-fashion model wearing an obsidian-black structural cyber-couture coat with illuminated electric cyan fiber optic traces woven into the collar and lapel, dramatic atmospheric moody studio lighting, dark luxury aesthetic, detailed textures of carbon weave and silk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAnaIkpi_Waqx0BhuSVGNvw6ySCgkCEZhGRkXfAgovT3nuFBDR_5M4lLdHOgShEH_Wm3BL8NZDLiwaQqEkN_xkVOhozPu8ycwu9oD1LFmVTTqbsLO9OropE2qibVJWuWStPxYZRPzxsj6kxp7N49Lv-oehcFvXS_iIMbTHNHiMvMhT52dBP7ffcf4e97IF1FBeNe0qe8SEUOh3AwEPK4UWbEodGnVECgQ9p4pLDH6lsdz1CFOQlTma"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-obsidian via-surface-obsidian/30 to-transparent"></div>
+<!-- Corner Telemetry Overlay -->
+<div class="absolute top-4 right-4 px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-circuit-gold font-label-sm text-label-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-circuit-gold animate-pulse"></span>
+<span>GAIT SENSING: ACTIVE</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 p-space-md rounded-lg bg-surface-glass/90 backdrop-blur-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary-container tracking-widest uppercase">Philosophy Principle</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-medium">DeSign &amp; Function</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-text-muted">Adherence Ratio</span>
+<span class="font-headline-sm text-headline-sm text-secondary block font-semibold">+94.6%</span>
+</div>
+</div>
+</div>
+<!-- Metric cluster below hero photo -->
+<div class="grid grid-cols-2 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Color &amp; Shape Matrix</span>
+<div class="flex items-center gap-2 my-2">
+<span class="w-5 h-5 rounded-full bg-surface-obsidian ring-2 ring-primary-container"></span>
+<span class="w-5 h-5 rounded-full bg-primary-container"></span>
+<span class="w-5 h-5 rounded-full bg-circuit-gold"></span>
+<span class="w-5 h-5 rounded-full bg-surface-bright"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Emotionally receptive paletting to reduce tech wear fatigue.</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Bio-Feedback Loop</span>
+<span class="font-headline-sm text-headline-sm text-primary-container font-semibold mt-1">Continuous 24/7</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Seamless drape delivers continuous transdermal contact.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Telemetry Strip / Live Biosignal Mock -->
+<section class="w-full bg-surface-container-low py-space-md my-space-lg">
+<div class="max-w-7xl mx-auto px-margin flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-2xl">vital_signs</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Biometric Garment Network</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Dynamic Micro-Filament Compliance</span>
+</div>
+</div>
+<!-- Inline SVG Biosignal Graph -->
+<div class="flex items-center gap-space-lg w-full md:w-auto">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary-container uppercase">Heart-Rate Variability (HRV)</span>
+<div class="w-48 h-8 flex items-center">
+<svg class="w-full h-full text-primary-container" fill="none" viewbox="0 0 180 32">
+<path d="M0,16 L30,16 L38,4 L44,28 L50,16 L65,16 L72,9 L78,22 L84,16 L120,16 L128,2 L136,30 L144,16 L180,16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-circuit-gold uppercase">Skin Conductance</span>
+<span class="font-headline-sm text-headline-sm text-circuit-gold font-semibold">0.42 μS <span class="font-label-sm text-label-sm text-text-muted">NOMINAL</span></span>
+</div>
+<div class="hidden sm:flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Mesh Temp</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-semibold">36.7°C</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footwear Focus: SwiftMonster Series Section -->
+<section class="max-w-7xl mx-auto px-margin py-space-xl w-full" id="swiftmonster">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs text-circuit-gold font-label-sm text-label-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-base">footprint</span>
+<span>Footwear Architecture Showcase</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">
+          The SwiftMonster Series: Awaken the Soul of the Shoe
+        </h2>
+<p class="font-body-md text-body-md text-text-muted">
+          Reimagining gait telemetry from the sole upward. Integrated bio-kinetic nodes harvest kinetic dissipation, adjust active thermal parameters, and safeguard skeletal posture across extreme geographic extremes.
+        </p>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-high p-1 rounded-full self-start md:self-auto">
+<button class="px-space-md py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm tracking-wider uppercase transition-all" id="tab-mountain-btn">
+          SwiftMonster Mountain
+        </button>
+<button class="px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-text-primary font-label-sm text-label-sm tracking-wider uppercase transition-all" id="tab-beach-btn">
+          SwiftMonster Beach
+        </button>
+</div>
+</div>
+<!-- Mountain Spec Panel -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center" id="mountain-panel">
+<!-- High Fashion Sneaker Imagery -->
+<div class="lg:col-span-7 relative h-[480px] rounded-xl overflow-hidden bg-surface-container-lowest shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Futuristic luxury high-top mountain sneaker in obsidian black with electric cyan filament accents, aggressive micro-traction tread, sub-zero insulated matte fabric, technical cybernetic sole with embedded gold circuits, high altitude alpine backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiV01UNws1YQNbJb3roJAT9Rdpgt5DX1NBkgfLY6t4FJ1RUnuDArIXCncUzXoPpyFf7xuzkzUBB88ls2Em9Syxn2rkLPMgZ4o5tBSX3yDPq4rWPbWzZDKP4eTgX0MHi5R-_KHDyDMZrYhharmkxw-WuP9fS6drzV0iTNNdh32kJMW3E7GrCqblZRcP3Y93ce695Lx6O6M81i5INkZFsoAD-5DWsG2BhxNIUwUxY48ij4l2TwJNZiPH"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-obsidian/70 via-transparent to-transparent"></div>
+<!-- Floating Sensor Badge -->
+<div class="absolute bottom-6 left-6 p-space-md rounded-xl bg-surface-glass/90 backdrop-blur-md flex flex-col gap-1 max-w-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-container uppercase tracking-wider">Thermal Filaments</span>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-text-primary font-medium">Sub-Zero Bio-Heating</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automated galvanic thermoregulation kicks in when ambient temperatures drop below -5°C.</p>
+</div>
+</div>
+<!-- Mountain Specs List -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Model SM-M90 // Alpine Ergonomics</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">SwiftMonster Mountain</h3>
+<p class="font-body-md text-body-md text-text-muted">
+            Engineered for high-altitude thermal dissipation, icy ascents, and severe stress terrains. Maintains plantar core warmth while continuously reporting neuromuscular fatigue.
+          </p>
+</div>
+<div class="space-y-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="p-2 rounded-lg bg-surface-container-high text-primary-container">
+<span class="material-symbols-outlined text-2xl">thermostat</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary">Sub-Zero Bio-Heating</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ultra-thin carbon nanotube filaments woven throughout the toe box regulate arterial circulation autonomously.</p>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="p-2 rounded-lg bg-surface-container-high text-circuit-gold">
+<span class="material-symbols-outlined text-2xl">hiking</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary">Rugged Micro-Traction Array</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Directional basalt lugs paired with micro-piezoelectric sensors that predict terrain slip vectors in 12ms.</p>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="p-2 rounded-lg bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-2xl">altitude</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary">Thermal Dissipation Exchanger</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vapor vents expel sweat vapor before condensation freezes, maintaining pristine skin conductance integrity.</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-headline-md text-headline-md text-circuit-gold font-semibold">$840 USD</span>
+<button class="px-space-lg py-2.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary-fixed-dim transition-all">
+            Reserve Prototype
+          </button>
+</div>
+</div>
+</div>
+<!-- Beach Spec Panel (Hidden by default, toggled via JS) -->
+<div class="hidden grid-cols-1 lg:grid-cols-12 gap-space-xl items-center" id="beach-panel">
+<div class="lg:col-span-7 relative h-[480px] rounded-xl overflow-hidden bg-surface-container-lowest shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="High-fashion athletic aquatic sneaker in sleek matte pearl and translucent cyan rubber, aquatic salinity-resistant mesh, solar micro-harvesting insole visible through transparent chassis, wet sand shoreline luxury aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHxfwrYRHnBPx7qyB9_OC3p5i_0P9jF6qpvy1ywjTWPc6p7BPex-avZTh8zmpH8r-lk43ixGIvtSgnrmONG6uGer4zM19fMVkjbcu_WvWvFtn0hQbx4o1UBWpV4otAZlYfJgwWsUCmkBHscOQcTphjyMi959C4ShtRZC0Q9HREYTsXFxHWnsCCVIMUjbnZlp9GW05_VKXgpztkXtqcnBd-tTPPOjTrgyDhz6dWfv7FDwePL2DuKVg_"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-obsidian/70 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 p-space-md rounded-xl bg-surface-glass/90 backdrop-blur-md flex flex-col gap-1 max-w-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Aquatic Biosync</span>
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-text-primary font-medium">Solar-Harvesting Insoles</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ambient photonic cells generate up to 80mW to maintain telemetry without recharging.</p>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Model SM-B40 // Hydrodynamic Series</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">SwiftMonster Beach</h3>
+<p class="font-body-md text-body-md text-text-muted">
+            Designed for coastal sprints, salt water exposure, and shifting granular sands. Built with self-flushing micropores and hydrophobic galvanic transducers.
+          </p>
+</div>
+<div class="space-y-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="p-2 rounded-lg bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-2xl">water</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary">Salinity-Resistant Micro-Mesh</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Marine-grade fluoropolymer fibers prevent salt crystallization from obstructing transdermal micro-contacts.</p>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="p-2 rounded-lg bg-surface-container-high text-circuit-gold">
+<span class="material-symbols-outlined text-2xl">solar_power</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary">Solar Micro-Harvesting Insoles</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Flexible photovoltaic layers recharge low-power gait-analysis nodes during prolonged daylight shoreline excursions.</p>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<div class="p-2 rounded-lg bg-surface-container-high text-primary-container">
+<span class="material-symbols-outlined text-2xl">waves</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary">Sand-Shielded Gait Dynamics</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Multi-layer mechanical baffles purge abrasive silica while maintaining millisecond heel-to-toe load telemetry.</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-headline-md text-headline-md text-circuit-gold font-semibold">$790 USD</span>
+<button class="px-space-lg py-2.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary-fixed transition-all">
+            Reserve Prototype
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Cyber-Couture Lookbook Gallery -->
+<section class="w-full bg-surface-container-lowest py-space-xl" id="lookbook">
+<div class="max-w-7xl mx-auto px-margin flex flex-col gap-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary-container uppercase tracking-widest">Autumn / Winter Ready-to-Wear</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Cyber-Couture Silhouettes</h2>
+<p class="font-body-md text-body-md text-text-muted max-w-xl">
+            Where sensory intelligence vanishes into opulent tailoring. Garments that drape like bespoke silks while continuously reporting cardiovascular baseline dynamics.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs text-text-muted font-label-sm text-label-sm">
+<span class="text-primary-container font-semibold">04 SILHOUETTES</span>
+<span>/</span>
+<span>SERIES 2025</span>
+</div>
+</div>
+<!-- Asymmetric Editorial Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Garment 1 -->
+<div class="group relative rounded-xl bg-surface-container overflow-hidden shadow-xl flex flex-col">
+<div class="relative h-80 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Female haute couture model wearing a black liquid-silk conductive evening gown with subtle electric cyan bioluminescent seams running along the spine, dark high-fashion editorial runway lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbsOcxRhc4pybKdfrUH487wSMFtqo36AKfyXvat3_Pwvc8tpL9_VDeajMVcvMMQaFALRR_EmARt8-eIMKlxhSwriuQbEATceBvSQiSKLhoLxcDr_gh5PmrzqnpHA6jRkjTX2y1Vm1pjJkc5-IxEOW7mvIoyexC_rs8tlu-J7VZ-xIn4NCgXOQtlh0H39EQvgCvPXSjAOFRP2Z8Ws21KjdHw1VHD7ZY1Z8zjZpoWV2UIJ0xWdxRAPll"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-surface-obsidian/80 backdrop-blur-md text-primary-container font-label-sm text-label-sm uppercase">SILK // MATRIX</span>
+</div>
+<div class="p-space-md flex flex-col flex-grow justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-text-primary">Conductive Silk Gown</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Silver-plated mulberry threads track autonomic nervous tone and diaphragmatic breath volume.</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+<span class="font-label-sm text-label-sm text-circuit-gold">99.8% Transdermal Flow</span>
+<span class="material-symbols-outlined text-primary-container group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Garment 2 -->
+<div class="group relative rounded-xl bg-surface-container overflow-hidden shadow-xl flex flex-col">
+<div class="relative h-80 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="High fashion model in a dark slate biometric double-breasted trench coat with subtle golden metallic circuitry traces stitched into the lapel, rain droplets on technical waterproof luxury textile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8omN30XsJBwWRK-unvqElHFEof60A9L40XlIbzGeKkCV2n1X02r09BBXWWZhlDS_YDsCjnI0vQo_pthn9f-jvO0yorDgYStW_LHNnvNRPGlb3CKyImENyVWw-b_5SBYjYxcPpsjFkGNk8tRUk47NRDeBxTeH28_6gt0FjDoK6EuROuXgZ1uR3BtkVJRviZdbavg3xxVQqiss-EJR3qO7OErUGmF8nox3qaPBLHcyHC2IG8b-oWyiu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-surface-obsidian/80 backdrop-blur-md text-circuit-gold font-label-sm text-label-sm uppercase">WEATHER // CORE</span>
+</div>
+<div class="p-space-md flex flex-col flex-grow justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-text-primary">Biometric Trench Coat</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Embedded barometric micro-transducers and core posture-correcting kinetic tension seams.</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+<span class="font-label-sm text-label-sm text-circuit-gold">Barometric Array</span>
+<span class="material-symbols-outlined text-primary-container group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Garment 3 -->
+<div class="group relative rounded-xl bg-surface-container overflow-hidden shadow-xl flex flex-col">
+<div class="relative h-80 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist avant-garde male suit tailored with fluid memory shape-shifting textile in charcoal and deep cyan tint, clean lines, sharp modern lapel, high luxury cybernetic studio shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt2NCxt3_bQ7jkZDh4pXGTI8iezG3zkpwXREJOEQHFaqNVVZAdGEg8FB-cvOQ2M2MqW4yt7UXoclEWxNwhN0FgTzpMXHIgMV8xpyfRwL8gCMgPKknCxO25Zh4GHjl9KVuQbrkWFvSmbsLoT0SJnbHZnEZlFEB0M-mH4BR7GExgmbvwX52YFQZWBQa23r9LFt5Uw5j2kBk7F2_GwOOj8-PYWQ9CL9WC4t_8SsY24egK-L1_bGEB1aKh"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-surface-obsidian/80 backdrop-blur-md text-secondary font-label-sm text-label-sm uppercase">NITINOL // DRAPE</span>
+</div>
+<div class="p-space-md flex flex-col flex-grow justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-text-primary">Fluid Memory Blazer</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Shape-memory nickel-titanium alloy weave adapts collar breathability based on wearer cortisol spikes.</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+<span class="font-label-sm text-label-sm text-circuit-gold">Adaptive Ventilation</span>
+<span class="material-symbols-outlined text-primary-container group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Garment 4 -->
+<div class="group relative rounded-xl bg-surface-container overflow-hidden shadow-xl flex flex-col">
+<div class="relative h-80 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Avant-garde unisex cybernetic knit cape in midnight obsidian wool with embedded optical fiber threads emitting a very faint champagne gold pulse, high fashion editorial portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD59d5HderjSou0XPYkZV1xFgjqF-fYf0rAgAyjKf9nGsDEyUTKbPVsod3xGfhdyevt97fjx69G8E3dsUU1WN27kWdfi0XNi595fYv3BTNKb0YqpEJ7E2cuGSpUCL9JCRI4tYKAlw2nED8Q-db_Yh5ARK7c_vjt9Id9HrebHNM1JS0f__5Nfj75voZypk8YAVC_rJ4CEUvuwyyWN5f45actm6PWTikSy_eoaIc2aCZr85p8xr2KGllu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-surface-obsidian/80 backdrop-blur-md text-primary-container font-label-sm text-label-sm uppercase">MERINO // OPTO</span>
+</div>
+<div class="p-space-md flex flex-col flex-grow justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-text-primary">Opto-Merino Shroud</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-density Australian wool integrated with fiber-optic heart pulse visualization along the cowl neckline.</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+<span class="font-label-sm text-label-sm text-circuit-gold">Optic Heartbeat Sync</span>
+<span class="material-symbols-outlined text-primary-container group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Telemetry Customizer & Engagement Simulator -->
+<section class="max-w-7xl mx-auto px-margin py-space-xl w-full">
+<div class="p-space-xl rounded-2xl bg-surface-container-low relative overflow-hidden shadow-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs text-primary-container font-label-sm text-label-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-base">tune</span>
+<span>Wearer Acceptance Calculator</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">
+            Fashion Drives Long-Term Adherence.
+          </h2>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+            Medical wearables see a 42% abandonment rate within 90 days due to social friction and clunky silicon aesthetics. Experience how ZoeWear’s cyber-couture integration keeps wearers engaged for months on end.
+          </p>
+<!-- Interactive Sliders -->
+<div class="space-y-space-md pt-space-xs">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant uppercase">Fabric Elegance &amp; Drape Index</span>
+<span class="text-primary-container font-semibold" id="slider-elegance-val">92%</span>
+</div>
+<input class="w-full accent-primary-container cursor-pointer" id="slider-elegance" max="100" min="20" type="range" value="92"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant uppercase">Hardware Camouflage &amp; Weightlessness</span>
+<span class="text-circuit-gold font-semibold" id="slider-camo-val">88%</span>
+</div>
+<input class="w-full accent-circuit-gold cursor-pointer" id="slider-camo" max="100" min="20" type="range" value="88"/>
+</div>
+</div>
+</div>
+<!-- Resulting Telemetry Calculation Display -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-obsidian shadow-inner flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Projected Daily Continuous Wear</span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-display text-display text-primary-container font-bold" id="metric-hours">21.8</span>
+<span class="font-headline-sm text-headline-sm text-text-muted">hrs / day</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full transition-all duration-300" id="metric-bar" style="width: 90%;"></div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted">Health Data Fidelity</span>
+<span class="font-headline-sm text-headline-sm text-circuit-gold font-semibold" id="metric-fidelity">99.2%</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted">Social Comfort Index</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-semibold" id="metric-comfort">High-Haute</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+              "Continuous transdermal telemetry without social compromise turns health diagnostics from an anxiety-inducing reminder into an empowering fashion signature."
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Curricular & Academic Footnote: Teaching Integration -->
+<section class="max-w-7xl mx-auto px-margin pb-space-xl w-full">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="p-3 rounded-full bg-surface-container-high text-circuit-gold">
+<span class="material-symbols-outlined text-3xl">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-circuit-gold uppercase tracking-widest">Academic Curricula &amp; Research</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Building the Future of Phygital Fashion</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xl">
+            ZoeWear’s West Coast university research initiatives combine computational design, generative neural models, and sustainable e-textiles to train the next wave of cyber-couturiers.
+          </p>
+</div>
+</div>
+<a class="px-space-md py-2 rounded-lg bg-surface-container-high text-primary hover:bg-surface-bright transition-colors font-label-sm text-label-sm uppercase tracking-wider whitespace-nowrap" href="#">
+        Explore Academic Courses
+      </a>
+</div>
+</section>
+</div>
+<script>
+  // Tab toggle between SwiftMonster Mountain & Beach
+  const tabMountain = document.getElementById('tab-mountain-btn');
+  const tabBeach = document.getElementById('tab-beach-btn');
+  const panelMountain = document.getElementById('mountain-panel');
+  const panelBeach = document.getElementById('beach-panel');
+
+  if (tabMountain && tabBeach) {
+    tabMountain.addEventListener('click', () => {
+      tabMountain.className = 'px-space-md py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm tracking-wider uppercase transition-all';
+      tabBeach.className = 'px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-text-primary font-label-sm text-label-sm tracking-wider uppercase transition-all';
+      panelMountain.classList.remove('hidden');
+      panelMountain.classList.add('grid');
+      panelBeach.classList.add('hidden');
+      panelBeach.classList.remove('grid');
+    });
+
+    tabBeach.addEventListener('click', () => {
+      tabBeach.className = 'px-space-md py-1.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm tracking-wider uppercase transition-all';
+      tabMountain.className = 'px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-text-primary font-label-sm text-label-sm tracking-wider uppercase transition-all';
+      panelBeach.classList.remove('hidden');
+      panelBeach.classList.add('grid');
+      panelMountain.classList.add('hidden');
+      panelMountain.classList.remove('grid');
+    });
+  }
+
+  // Interactive Wearer Adherence Simulator
+  const sElegance = document.getElementById('slider-elegance');
+  const sCamo = document.getElementById('slider-camo');
+  const valElegance = document.getElementById('slider-elegance-val');
+  const valCamo = document.getElementById('slider-camo-val');
+  const metricHours = document.getElementById('metric-hours');
+  const metricBar = document.getElementById('metric-bar');
+  const metricFidelity = document.getElementById('metric-fidelity');
+
+  function updateAdherence() {
+    if (!sElegance || !sCamo) return;
+    const eVal = parseInt(sElegance.value, 10);
+    const cVal = parseInt(sCamo.value, 10);
+    valElegance.textContent = eVal + '%';
+    valCamo.textContent = cVal + '%';
+
+    // Calculation: avg mapped to 24 hrs
+    const avg = (eVal + cVal) / 2;
+    const hours = ((avg / 100) * 23.5).toFixed(1);
+    const fidelity = (80 + (avg * 0.198)).toFixed(1);
+
+    metricHours.textContent = hours;
+    metricBar.style.width = Math.min(100, avg) + '%';
+    metricFidelity.textContent = fidelity + '%';
+  }
+
+  if (sElegance && sCamo) {
+    sElegance.addEventListener('input', updateAdherence);
+    sCamo.addEventListener('input', updateAdherence);
+  }
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-subtle mt-space-xl pt-space-xl pb-space-lg"><div class="max-w-7xl mx-auto px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-space-xl border-b border-subtle"><div class="flex flex-col gap-space-md lg:col-span-2"><div class="flex flex-col"><span class="font-display text-headline-sm font-semibold tracking-wider text-text-primary leading-none">ZOEWEAR</span><span class="font-label-sm text-label-sm tracking-widest text-primary-container mt-1">CYBER-COUTURE &amp; WEARABLE TECH</span></div><p class="text-on-surface-variant font-body-sm text-body-sm italic">Awaken the Soul of the Shoe &amp; Garment.</p><p class="text-text-muted font-body-sm text-body-sm leading-relaxed max-w-md">Pioneering haute cybernetic apparel, autonomous transdermal diagnostics, and ML-accelerated bio-analytics woven into luxury silhouettes for preventive human sovereignty.</p><div class="flex flex-col gap-space-xs pt-space-xs max-w-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-text-primary">Telemetry Dispatch</span><div class="flex items-center gap-space-xs"><input class="w-full bg-surface-container-low border border-subtle rounded-lg px-space-sm py-2 text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:border-primary-container" placeholder="couture@biometrics.com" type="email"/><button aria-label="Subscribe to Dispatch" class="px-space-md py-2 rounded-lg bg-surface-container-high border border-border-luminous text-primary hover:bg-primary-container hover:text-on-primary-container transition-all flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button></div></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container pb-space-xs border-b border-subtle">Fashion</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors cursor-pointer">SwiftMonster Collection</li><li class="hover:text-primary transition-colors cursor-pointer">Haute Philosophy</li><li class="hover:text-primary transition-colors cursor-pointer">Avant-Garde Concept</li><li class="hover:text-primary transition-colors cursor-pointer">Phygital Runway Silhouettes</li><li class="hover:text-primary transition-colors cursor-pointer">Conductive Fiber Weaving</li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary pb-space-xs border-b border-subtle">Tech &amp; Fusion</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Smartwatch Sensor Core</li><li class="hover:text-secondary transition-colors cursor-pointer">AI / ML Autonomous Engine</li><li class="hover:text-secondary transition-colors cursor-pointer">3D Print Cyber-Structures</li><li class="hover:text-secondary transition-colors cursor-pointer">Blockchain Fabric Ledgers</li><li class="hover:text-secondary transition-colors cursor-pointer">TensorFlow Telemetry &amp; Breathe</li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-circuit-gold pb-space-xs border-b border-subtle">Innovation &amp; Labs</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-circuit-gold transition-colors cursor-pointer">DrunkWatch™ Biosensor</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">Academic Curricula Program</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">WestCoast Computational Bio-Lab</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">Whitepapers &amp; Clinical Data</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">Global Health Consortium Trials</li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-space-sm"><span>© 2025 ZoeWear Technologies Corp.</span><span class="text-border-subtle">|</span><span class="text-text-muted">All Rights Reserved. Wearable for Life.</span></div><div class="flex items-center gap-space-lg flex-wrap justify-center"><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a><a class="hover:text-primary transition-colors" href="#">Terms of Innovation</a><a class="hover:text-primary transition-colors" href="#">Ethics in Biometrics</a><a class="hover:text-primary transition-colors" href="#">Sensor Calibration Standards</a></div></div></div></footer></body></html>

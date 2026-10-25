@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "border-subtle": "rgba(255, 255, 255, 0.08)", "surface-container-high": "#262a31", "outline": "#849396", "primary": "#c3f5ff", "on-background": "#dfe2eb", "tertiary": "#ffecbb", "error-container": "#93000a", "neon-cyan-glow": "rgba(0, 229, 255, 0.25)", "secondary-fixed-dim": "#4cd6fb", "on-error": "#690005", "background": "#10141a", "inverse-on-surface": "#2d3137", "text-primary": "#F8FAFC", "text-muted": "#94A3B8", "on-surface": "#dfe2eb", "primary-container": "#00e5ff", "surface-glass": "rgba(18, 24, 36, 0.65)", "tertiary-fixed": "#ffe088", "surface": "#10141a", "on-primary": "#00363d", "on-error-container": "#ffdad6", "surface-container-highest": "#31353c", "tertiary-container": "#f4cd52", "primary-fixed-dim": "#00daf3", "on-tertiary-fixed": "#241a00", "on-primary-container": "#00626e", "surface-variant": "#31353c", "surface-dim": "#10141a", "primary-fixed": "#9cf0ff", "on-secondary-fixed": "#001f27", "on-secondary": "#003642", "on-tertiary-fixed-variant": "#574500", "on-surface-variant": "#bac9cc", "surface-bright": "#353940", "on-tertiary-container": "#6d5600", "surface-slate": "#121824", "on-primary-fixed": "#001f24", "surface-obsidian": "#0B0F15", "on-secondary-fixed-variant": "#004e5f", "tertiary-fixed-dim": "#e9c349", "secondary": "#4cd6fb", "on-secondary-container": "#003f4e", "secondary-container": "#00b2d6", "on-primary-fixed-variant": "#004f58", "secondary-fixed": "#b3ebff", "on-tertiary": "#3c2f00", "inverse-surface": "#dfe2eb", "surface-container": "#1c2026", "error": "#ffb4ab", "border-luminous": "rgba(0, 229, 255, 0.35)", "circuit-gold": "#FFB703", "inverse-primary": "#006875", "surface-container-lowest": "#0a0e14", "surface-container-low": "#181c22", "outline-variant": "#3b494c", "surface-tint": "#00daf3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-lg": "1.5rem", "margin": "3rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem" }, "fontFamily": { "display": [ "Space Grotesk" ], "body-md": [ "Plus Jakarta Sans" ], "label-sm": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "headline-sm": [ "Space Grotesk" ], "display-mobile": [ "Space Grotesk" ], "headline-lg-mobile": [ "Space Grotesk" ], "label-lg": [ "Space Grotesk" ], "body-sm": [ "Plus Jakarta Sans" ], "headline-md": [ "Space Grotesk" ], "body-lg": [ "Plus Jakarta Sans" ] }, "fontSize": { "display": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" } ], "headline-lg": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "fontWeight": "500" } ], "display-mobile": [ "38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-lg-mobile": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.06em", "fontWeight": "600" } ], "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-md": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface-obsidian text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 w-full z-50 flex flex-col"><div class="w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-subtle py-1.5 px-margin"><div class="max-w-7xl mx-auto flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-space-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span><span class="tracking-wider uppercase text-text-primary">ZoeWear Telemetry Architecture</span><span class="text-border-subtle">|</span><span class="text-text-muted hidden sm:inline">Fall/Winter Phygital Biometric Showcase</span></div><div class="flex items-center gap-space-md text-text-muted"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high/70 border border-border-luminous/40 text-primary-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span><span class="tracking-widest uppercase text-label-sm font-label-sm">Live Biosignal Feed: Synced</span></div><span class="text-border-subtle hidden md:inline">|</span><span class="tracking-widest uppercase text-circuit-gold hidden md:inline">Technology is the New Black</span></div></div></div><div class="w-full bg-surface-glass/85 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-subtle"><div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><img alt="ZoeWear Insignia" class="w-9 h-9 rounded-full object-cover ring-1 ring-border-luminous" src="https://lh3.googleusercontent.com/aida/AEtjO1UZhPV7bT2Ga6gKl85I4jKcZ3AqF0KNXjEk01wHR_ZMacpbd0b0gpxMFLlaHIYBGam_lhC1QGgsPiJ8z41la3ZCGcfwW1_Dh8vXMr1gzkt-CuGOmS7H_PW3dKqVfhLQHt2_lH53IG3CW_R89vjA3LLrXCnR7qezaKrJJcCDEeX9nJPYJgGF8w6Hi4nRZBOaImzJM4SG9N45qUhLlJD-p3sl6jTJUzGQYr6YyBtmLLAb6kQdY2RM1168la0"/><div class="flex flex-col"><span class="font-display text-headline-sm font-semibold tracking-wider text-text-primary leading-none">ZOEWEAR</span><span class="font-label-sm text-label-sm tracking-widest text-primary-container leading-tight mt-0.5">CYBER-COUTURE &amp; WEARABLE TECH</span></div></div><nav class="hidden xl:flex items-center gap-space-xs font-label-lg text-label-lg tracking-wide" data-active-classes="text-primary-container bg-surface-container-high/90 border border-border-luminous/60 font-semibold shadow-[0_0_12px_rgba(0,229,255,0.2)]"><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="home" href="#">Home</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="fashion" href="#">Fashion</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="tech" href="#">Tech</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="fusion" href="#">Fusion</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="drunkwatch" href="#">DrunkWatch™</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="teaching-and-research" href="#">Teaching &amp; Research</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-2 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-widest border border-border-luminous shadow-[0_0_15px_rgba(0,229,255,0.15)] hover:bg-primary-container hover:text-on-primary-container hover:shadow-[0_0_24px_rgba(0,229,255,0.45)] transition-all" data-path="explore-innovations" href="#">Explore Innovations</a><div class="flex items-center gap-space-xs text-on-surface-variant"><button aria-label="Search Archive" class="p-2 rounded-full hover:bg-surface-container hover:text-primary transition-colors flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Telemetry Diagnostics" class="p-2 rounded-full hover:bg-surface-container hover:text-primary transition-colors flex items-center justify-center relative"><span class="material-symbols-outlined text-[20px]">sensors</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container"></span></button><div class="ml-space-xs pl-space-xs"><img alt="Biometric Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-border-subtle hover:ring-primary-container transition-all" src="https://lh3.googleusercontent.com/aida/AEtjO1UZhPV7bT2Ga6gKl85I4jKcZ3AqF0KNXjEk01wHR_ZMacpbd0b0gpxMFLlaHIYBGam_lhC1QGgsPiJ8z41la3ZCGcfwW1_Dh8vXMr1gzkt-CuGOmS7H_PW3dKqVfhLQHt2_lH53IG3CW_R89vjA3LLrXCnR7qezaKrJJcCDEeX9nJPYJgGF8w6Hi4nRZBOaImzJM4SG9N45qUhLlJD-p3sl6jTJUzGQYr6YyBtmLLAb6kQdY2RM1168la0"/></div></div></div></div></div></header><main class="w-full pt-28 bg-surface-obsidian min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle ambient top gradient flare -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/3 w-[580px] h-[340px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute top-12 right-12 w-[320px] h-[220px] bg-circuit-gold/10 rounded-full blur-[110px] pointer-events-none"></div>
+<!-- Editorial Header / Curricular Vision -->
+<section class="max-w-7xl mx-auto px-margin pt-6 pb-space-xl">
+<!-- Scholarly Breadcrumb & Identifier -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-lg">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase">
+<span class="text-circuit-gold">WestCoast Institute</span>
+<span class="text-text-muted">/</span>
+<span class="text-primary-container">Bio-Couture Curricula</span>
+<span class="text-text-muted">/</span>
+<span class="text-text-muted">SYLLABUS 2025.2</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/60 backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-circuit-gold animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-circuit-gold uppercase tracking-wider">Summer Fellowships Active</span>
+</div>
+</div>
+<!-- Main Asymmetric Narrative Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<span class="font-label-lg text-label-lg text-primary tracking-widest uppercase flex items-center gap-2">
+<span class="inline-block w-8 h-[1px] bg-primary-container"></span>
+            Academic &amp; Clinical Fellowship
+          </span>
+<h1 class="font-display text-display text-text-primary tracking-tight max-w-4xl">
+            Building the Future: Interdisciplinary Fashion, Technology &amp; Healthcare Curricula
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+            Teaching fashion, technology, and health as a unified discipline ensures that technology performs optimally while meeting rigorous aesthetic and ergonomic standards. At WestCoast Lab, we discard the boundary between sterile medical monitors and bespoke runway ateliers.
+          </p>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<a class="px-space-xl py-3.5 rounded-full bg-primary-container text-surface-obsidian font-headline-sm text-headline-sm hover:shadow-[0_0_24px_rgba(0,229,255,0.4)] transition-all flex items-center gap-space-xs" href="#fellowship">
+              Apply for Research Fellowship
+              <span class="material-symbols-outlined text-[20px]">arrow_outward</span>
+</a>
+<a class="px-space-xl py-3.5 rounded-full bg-surface-container-high text-text-primary font-headline-sm text-headline-sm hover:bg-surface-container-highest transition-all flex items-center gap-space-xs shadow-md" href="#syllabus">
+<span class="material-symbols-outlined text-primary-container text-[20px]">download</span>
+              Download Academic Syllabus
+            </a>
+</div>
+</div>
+<!-- Telemetry Spec Card (Right Spanning Metadata) -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl p-space-lg shadow-xl relative overflow-hidden flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-circuit-gold uppercase tracking-widest">Lab Metric Index</span>
+<span class="font-label-sm text-label-sm text-text-muted font-mono">[ PROTOCOL // WC-409 ]</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-text-muted uppercase block">Active Cohorts</span>
+<span class="font-headline-md text-headline-md text-text-primary">14 Labs</span>
+</div>
+<div class="bg-surface-container rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-text-muted uppercase block">Peer-Reviewed</span>
+<span class="font-headline-md text-headline-md text-primary-container">48 Papers</span>
+</div>
+<div class="bg-surface-container rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-text-muted uppercase block">Sensor Matrix</span>
+<span class="font-headline-md text-headline-md text-text-primary">32 Channels</span>
+</div>
+<div class="bg-surface-container rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-text-muted uppercase block">Patents Granted</span>
+<span class="font-headline-md text-headline-md text-circuit-gold">11 Global</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest/80 rounded-lg p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Syllabus Compliance</span>
+<span class="text-primary-container">99.4% IEEE/HCI</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-[99.4%] shadow-[0_0_8px_rgba(0,229,255,0.8)]"></div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic leading-normal">
+            "We construct wearable artifacts that interpret living physiology without imposing the clinical burden of disease."
+          </p>
+</div>
+</div>
+</section>
+<!-- Lab Feature Imagery Strip -->
+<section class="max-w-7xl mx-auto px-margin py-space-md">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<div class="md:col-span-7 rounded-xl overflow-hidden bg-surface-container shadow-xl relative min-h-[340px]">
+<img class="w-full h-full object-cover" data-alt="Close up high-precision macro photography of conductive silver threads woven into fine dark cashmere and silk luxury garment fabric, tiny glowing electric cyan microscopic sensors embedded along warp and weft, dark luxury cyber-couture atmosphere with deep obsidian shadows and sharp luminous accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAuib4LftE_7asYd4h0LmLaGFk-RuMWGgQJIjE5w8SQ-jOZh8XW4_XHdidKijzG-NewjUTUQZaGC2U06esqw8Vx87evkgy5xyOX51i51q-VyDlDfz9jUX0xis157WzdvXmjlvW8CCEa_1Kr4G_GajuVckEkskOPSTMNbkJKkgsO5ALaqNA9e89IspYkNI7__95A7c5Z24Drihb3KfX--0VW3D4H4IcxpvVm9wXEGZ8N12Vn-AoV7A7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-obsidian via-surface-obsidian/40 to-transparent p-space-lg flex flex-col justify-end">
+<span class="font-label-sm text-label-sm text-circuit-gold uppercase tracking-widest">[ LAB 01 // TEXTILE FOUNDRY ]</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">Conductive Weft Micro-Integration</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-lg">
+              Precision automated looms interpolating insulated gold micro-leads with organic Merino fibers for zero-impedance biosensing.
+            </p>
+</div>
+</div>
+<div class="md:col-span-5 rounded-xl overflow-hidden bg-surface-container shadow-xl relative min-h-[340px]">
+<img class="w-full h-full object-cover" data-alt="A futuristic university research laboratory with graduate design students inspecting a holographic 3D mannequin draped in glowing biometric cyber-garments, dark obsidian interior with neon cyan status displays and microscope arrays, academic high-tech luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL_PYuVA6d92uSaBFudooyijS91wKdUul7fF5BDNlxN1MlXO0Ty10HvWzs3zqEir0nRa5JppFWVPi_mdOEAkX3h0GmDl3Af1gUjidpxOHUjl_fBzHCcFb-mzLKmwQKOb3oUp7-_4agpy2_CmJk-2nH3GaDuj-AOKxu5TXBpEVtfC5dxY9cK6nLK2608ZvU3ZgO53zYDkkB_5_FanS4WCWjXXUUy8Mp3jvHb68LOdgYyEKzrIdyAfhv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-obsidian via-surface-obsidian/40 to-transparent p-space-lg flex flex-col justify-end">
+<span class="font-label-sm text-label-sm text-primary-container uppercase tracking-widest">[ LAB 04 // VIRTUAL ATELIER ]</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">Real-Time Twin Synthesis</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Physics-accurate drape mechanics simulated directly from live pulse and respiratory input feeds.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Curricular Catalog (Four Pillars) -->
+<section class="max-w-7xl mx-auto px-margin pt-space-xl pb-space-lg" id="syllabus">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm text-circuit-gold tracking-widest uppercase">Four Core Academic Modules</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary mt-1">Interdisciplinary Course Catalog</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+          Graduates master the synthesis of haute couture tailoring and medical-grade bio-telemetry computation.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Module 1 -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg hover:shadow-2xl transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-container font-headline-sm">01</span>
+<span class="font-label-sm text-label-sm text-text-muted font-mono">16 WEEKS</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary-container transition-colors">
+              NewFashion &amp; CoreTech
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Smart textile micro-integration, conductive threading mechanics, and flexible sub-millimeter circuit architecture woven into wearable silhouettes.
+            </p>
+</div>
+<div class="pt-space-md flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Conductive Weave</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Flex PCBs</span>
+</div>
+</div>
+<!-- Module 2 -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg hover:shadow-2xl transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary font-headline-sm">02</span>
+<span class="font-label-sm text-label-sm text-text-muted font-mono">14 WEEKS</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-secondary transition-colors">
+              Phygital Transformation
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Digital twin creation, real-time 3D garments for physical and virtual worlds, and generative AI algorithms for computational pattern modeling.
+            </p>
+</div>
+<div class="pt-space-md flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Digital Twins</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Real-Time Unreal</span>
+</div>
+</div>
+<!-- Module 3 -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg hover:shadow-2xl transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary font-headline-sm">03</span>
+<span class="font-label-sm text-label-sm text-text-muted font-mono">16 WEEKS</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
+              AI / ML in Haute Couture
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Neural network architectures calculating bespoke biometric drape alongside embedded TensorFlow engines for predictive transdermal analysis.
+            </p>
+</div>
+<div class="pt-space-md flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">TensorFlow Lite</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Edge ML</span>
+</div>
+</div>
+<!-- Module 4 -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg hover:shadow-2xl transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-circuit-gold font-headline-sm">04</span>
+<span class="font-label-sm text-label-sm text-text-muted font-mono">12 WEEKS</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-circuit-gold transition-colors">
+              Sustainable Bio-Polymers
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Zero-waste regenerative silk matrices, mycelium composite structures, custom 3D printing filaments, and fully biodegradable circuit substrates.
+            </p>
+</div>
+<div class="pt-space-md flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Bio-Plastics</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Regenerative Silk</span>
+</div>
+</div>
+</div>
+</section>
+<!-- WestCoast Academic Research Portal -->
+<section class="max-w-7xl mx-auto px-margin pt-space-xl pb-space-lg">
+<div class="bg-surface-slate rounded-2xl p-space-xl shadow-2xl relative overflow-hidden">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm text-primary-container tracking-widest uppercase">WestCoast Academic Research Portal</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">Scholarly Citations &amp; Whitepapers</h2>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Archived in IEEE, ACM, Nature-Biotech</span>
+</div>
+</div>
+<!-- Research Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Whitepaper 1 -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-circuit-gold font-mono">
+<span>VOL. 18 / ISS. 4</span>
+<span class="text-text-muted">OPEN ACCESS</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary">
+                Non-Invasive Transdermal Ethanol Vapor Sensing via Conductive Substrates
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Dr. Zoe Alexander, Dr. H. Vance (WestCoast Bio-Sensors Group). Published in IEEE Transactions on Biomedical Circuits &amp; Systems.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-container font-mono">DOI: 10.1109/TBCAS.2024.9</span>
+<button class="p-2 rounded-full bg-surface-container hover:bg-surface-container-high text-primary-container transition-colors flex items-center">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Whitepaper 2 -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-circuit-gold font-mono">
+<span>VOL. 12 / ISS. 2</span>
+<span class="text-text-muted">OPEN ACCESS</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary">
+                Dynamic Plantar Pressure Topology: Ergonomic Sole Sensor Arrays for Autonomous Gait Prediction
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Smart Footwear Consortium in collaboration with Stanford Biomechanical Labs. Evaluation of SwiftMonster sole matrices.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-container font-mono">DOI: 10.1145/3613904.3642</span>
+<button class="p-2 rounded-full bg-surface-container hover:bg-surface-container-high text-primary-container transition-colors flex items-center">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Whitepaper 3 -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-circuit-gold font-mono">
+<span>VOL. 09 / ISS. 1</span>
+<span class="text-text-muted">PEER REVIEW</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary">
+                Micro-Graphene Weave Impedance in Luxury Textiles Under High-Perspiration Cycles
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                ZoeWear Labs Whitepaper. Benchmarking durability of biometric silk-graphene yarns after 200 wash/dry stress iterations.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-container font-mono">DOI: 10.1038/s41565-024-001</span>
+<button class="p-2 rounded-full bg-surface-container hover:bg-surface-container-high text-primary-container transition-colors flex items-center">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Academic Keynote Archive Strip -->
+<div class="mt-space-lg pt-space-md flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-lowest/60 rounded-xl p-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-circuit-gold/20 flex items-center justify-center text-circuit-gold">
+<span class="material-symbols-outlined text-[22px]">podium</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-text-primary block">Lecture Presentations &amp; Symposiums</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct access to keynote slide decks &amp; workshop audio</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:text-primary transition-colors flex items-center gap-1.5">
+<span>ETsig Keynote 2024</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:text-primary transition-colors flex items-center gap-1.5">
+<span>Silicon Valley Code Camp</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:text-primary transition-colors flex items-center gap-1.5">
+<span>DevFest TechFashion Deck</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Student Projects & Summer Fellowship Application Section -->
+<section class="max-w-7xl mx-auto px-margin pt-space-lg pb-space-xl" id="fellowship">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Student Project Archive Preview -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-circuit-gold uppercase tracking-widest">Student Work Index</span>
+<h3 class="font-headline-lg text-headline-lg text-text-primary">Featured Graduate Inventions</h3>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-primary-container font-mono">[ PROJECT 089 ]</span>
+<span>Class of 2024 Cohort</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary">RespiratOne: Vocal Cord Haptic Corset</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              An ergonomic bustier utilizing micro-piezoelectric films to provide real-time haptic diaphragm guidance for opera performers and respiratory recovery patients.
+            </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="text-circuit-gold text-label-sm font-label-sm">Winner: Prix de l'Innovation Paris 2024</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-primary-container font-mono">[ PROJECT 094 ]</span>
+<span>Class of 2024 Cohort</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary">NeuralDrape: Predictive Silk Shirring</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Garments wired with low-voltage shape memory alloys that physically contract or expand in response to user autonomic heart-rate variability.
+            </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="text-circuit-gold text-label-sm font-label-sm">Honorable Mention: MIT Media Lab BioSummit</span>
+</div>
+</div>
+</div>
+<!-- Summer Fellowship Interactive Portal Form -->
+<div class="lg:col-span-7 bg-surface-container rounded-2xl p-space-xl shadow-2xl flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-container uppercase tracking-widest">Admissions &amp; Grants</span>
+<span class="px-space-sm py-0.5 rounded-full bg-circuit-gold/10 text-circuit-gold font-label-sm text-label-sm">Summer 2025 Cohort Open</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-text-primary">Apply for WestCoast Research Fellowship</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Open to graduate researchers, biomaterial chemists, and couturiers interested in spending 12 weeks at our San Francisco bio-textiles prototyping studio.
+            </p>
+<!-- Form -->
+<form class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-sm" id="fellowship-form" onsubmit="event.preventDefault(); showConfirmation();">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-text-muted uppercase">Full Name</label>
+<input class="w-full bg-surface-container-low rounded-lg p-2.5 text-text-primary font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors" placeholder="Dr. Elena Rossi" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-text-muted uppercase">Institutional Affiliation</label>
+<input class="w-full bg-surface-container-low rounded-lg p-2.5 text-text-primary font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors" placeholder="University / Studio Name" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1 md:col-span-2">
+<label class="font-label-sm text-label-sm text-text-muted uppercase">Academic Email</label>
+<input class="w-full bg-surface-container-low rounded-lg p-2.5 text-text-primary font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors" placeholder="researcher@lab.edu" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-1 md:col-span-2">
+<label class="font-label-sm text-label-sm text-text-muted uppercase">Focus Discipline</label>
+<select class="w-full bg-surface-container-low rounded-lg p-2.5 text-text-primary font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors">
+<option>Transdermal Biosensors &amp; DrunkWatch™ Mechanics</option>
+<option>Smart Textile Weave &amp; Micro-Electronics</option>
+<option>Generative AI / ML Biometric Drapery</option>
+<option>Regenerative Bio-Polymer Synthesis</option>
+</select>
+</div>
+<div class="flex flex-col gap-1 md:col-span-2">
+<label class="font-label-sm text-label-sm text-text-muted uppercase">Abstract / Proposal Link (Max 300 Words)</label>
+<textarea class="w-full bg-surface-container-low rounded-lg p-2.5 text-text-primary font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors resize-none" placeholder="Summarize your experimental hypothesis and required laboratory equipment..." rows="3"></textarea>
+</div>
+<div class="md:col-span-2 pt-space-xs flex flex-col md:flex-row items-center justify-between gap-space-sm">
+<span class="font-label-sm text-label-sm text-text-muted">Deadline: May 15, 2025. Fully Funded Stipend.</span>
+<button class="w-full md:w-auto px-space-xl py-3 rounded-full bg-primary-container text-surface-obsidian font-headline-sm text-headline-sm hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all" type="submit">
+                  Submit Research Proposal
+                </button>
+</div>
+</form>
+<div class="hidden mt-space-md p-space-md rounded-xl bg-surface-container-low text-primary-container flex items-center gap-space-sm" id="form-success">
+<span class="material-symbols-outlined text-[24px]">check_circle</span>
+<span class="font-headline-sm text-headline-sm">Proposal Dispatch Received. Academic committee review sequence initiated.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Academic Ethics & Calibration Accordion / Manifest -->
+<section class="max-w-7xl mx-auto px-margin pt-space-md pb-space-xl">
+<div class="bg-surface-container-lowest/80 rounded-xl p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-circuit-gold/10 flex items-center justify-center text-circuit-gold shrink-0">
+<span class="material-symbols-outlined text-[28px]">verified_user</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-text-primary block">IRB &amp; Clinical Privacy Governance</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+              All academic telemetry curricula operate under strict end-to-end encrypted biometric zero-knowledge protocols. Human physiological data remains the uncompromised property of the wearer.
+            </p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-space-xs">
+<span class="px-space-md py-1.5 rounded-full bg-surface-container font-label-sm text-label-sm text-circuit-gold">HIPAA &amp; GDPR Aware</span>
+<span class="px-space-md py-1.5 rounded-full bg-surface-container font-label-sm text-label-sm text-primary-container">ISO 13485 Standardized</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  function showConfirmation() {
+    const form = document.getElementById('fellowship-form');
+    const successMsg = document.getElementById('form-success');
+    if (form && successMsg) {
+      form.style.display = 'none';
+      successMsg.classList.remove('hidden');
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-subtle mt-space-xl pt-space-xl pb-space-lg"><div class="max-w-7xl mx-auto px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-space-xl border-b border-subtle"><div class="flex flex-col gap-space-md lg:col-span-2"><div class="flex flex-col"><span class="font-display text-headline-sm font-semibold tracking-wider text-text-primary leading-none">ZOEWEAR</span><span class="font-label-sm text-label-sm tracking-widest text-primary-container mt-1">CYBER-COUTURE &amp; WEARABLE TECH</span></div><p class="text-on-surface-variant font-body-sm text-body-sm italic">Awaken the Soul of the Shoe &amp; Garment.</p><p class="text-text-muted font-body-sm text-body-sm leading-relaxed max-w-md">Pioneering haute cybernetic apparel, autonomous transdermal diagnostics, and ML-accelerated bio-analytics woven into luxury silhouettes for preventive human sovereignty.</p><div class="flex flex-col gap-space-xs pt-space-xs max-w-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-text-primary">Telemetry Dispatch</span><div class="flex items-center gap-space-xs"><input class="w-full bg-surface-container-low border border-subtle rounded-lg px-space-sm py-2 text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:border-primary-container" placeholder="couture@biometrics.com" type="email"/><button aria-label="Subscribe to Dispatch" class="px-space-md py-2 rounded-lg bg-surface-container-high border border-border-luminous text-primary hover:bg-primary-container hover:text-on-primary-container transition-all flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button></div></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container pb-space-xs border-b border-subtle">Fashion</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors cursor-pointer">SwiftMonster Collection</li><li class="hover:text-primary transition-colors cursor-pointer">Haute Philosophy</li><li class="hover:text-primary transition-colors cursor-pointer">Avant-Garde Concept</li><li class="hover:text-primary transition-colors cursor-pointer">Phygital Runway Silhouettes</li><li class="hover:text-primary transition-colors cursor-pointer">Conductive Fiber Weaving</li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary pb-space-xs border-b border-subtle">Tech &amp; Fusion</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Smartwatch Sensor Core</li><li class="hover:text-secondary transition-colors cursor-pointer">AI / ML Autonomous Engine</li><li class="hover:text-secondary transition-colors cursor-pointer">3D Print Cyber-Structures</li><li class="hover:text-secondary transition-colors cursor-pointer">Blockchain Fabric Ledgers</li><li class="hover:text-secondary transition-colors cursor-pointer">TensorFlow Telemetry &amp; Breathe</li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-circuit-gold pb-space-xs border-b border-subtle">Innovation &amp; Labs</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-circuit-gold transition-colors cursor-pointer">DrunkWatch™ Biosensor</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">Academic Curricula Program</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">WestCoast Computational Bio-Lab</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">Whitepapers &amp; Clinical Data</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">Global Health Consortium Trials</li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-space-sm"><span>© 2025 ZoeWear Technologies Corp.</span><span class="text-border-subtle">|</span><span class="text-text-muted">All Rights Reserved. Wearable for Life.</span></div><div class="flex items-center gap-space-lg flex-wrap justify-center"><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a><a class="hover:text-primary transition-colors" href="#">Terms of Innovation</a><a class="hover:text-primary transition-colors" href="#">Ethics in Biometrics</a><a class="hover:text-primary transition-colors" href="#">Sensor Calibration Standards</a></div></div></div></footer></body></html>

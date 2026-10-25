@@ -1,0 +1,6 @@
+{
+  "name": "ZoeWear - Cyber-Couture & Wearable Tech",
+  "description": "Haute cybernetic apparel, autonomous transdermal diagnostics, and ML-accelerated bio-analytics woven into luxury silhouettes for preventive human sovereignty.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "border-subtle": "rgba(255, 255, 255, 0.08)", "surface-container-high": "#262a31", "outline": "#849396", "primary": "#c3f5ff", "on-background": "#dfe2eb", "tertiary": "#ffecbb", "error-container": "#93000a", "neon-cyan-glow": "rgba(0, 229, 255, 0.25)", "secondary-fixed-dim": "#4cd6fb", "on-error": "#690005", "background": "#10141a", "inverse-on-surface": "#2d3137", "text-primary": "#F8FAFC", "text-muted": "#94A3B8", "on-surface": "#dfe2eb", "primary-container": "#00e5ff", "surface-glass": "rgba(18, 24, 36, 0.65)", "tertiary-fixed": "#ffe088", "surface": "#10141a", "on-primary": "#00363d", "on-error-container": "#ffdad6", "surface-container-highest": "#31353c", "tertiary-container": "#f4cd52", "primary-fixed-dim": "#00daf3", "on-tertiary-fixed": "#241a00", "on-primary-container": "#00626e", "surface-variant": "#31353c", "surface-dim": "#10141a", "primary-fixed": "#9cf0ff", "on-secondary-fixed": "#001f27", "on-secondary": "#003642", "on-tertiary-fixed-variant": "#574500", "on-surface-variant": "#bac9cc", "surface-bright": "#353940", "on-tertiary-container": "#6d5600", "surface-slate": "#121824", "on-primary-fixed": "#001f24", "surface-obsidian": "#0B0F15", "on-secondary-fixed-variant": "#004e5f", "tertiary-fixed-dim": "#e9c349", "secondary": "#4cd6fb", "on-secondary-container": "#003f4e", "secondary-container": "#00b2d6", "on-primary-fixed-variant": "#004f58", "secondary-fixed": "#b3ebff", "on-tertiary": "#3c2f00", "inverse-surface": "#dfe2eb", "surface-container": "#1c2026", "error": "#ffb4ab", "border-luminous": "rgba(0, 229, 255, 0.35)", "circuit-gold": "#FFB703", "inverse-primary": "#006875", "surface-container-lowest": "#0a0e14", "surface-container-low": "#181c22", "outline-variant": "#3b494c", "surface-tint": "#00daf3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-lg": "1.5rem", "margin": "3rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem" }, "fontFamily": { "display": [ "Space Grotesk" ], "body-md": [ "Plus Jakarta Sans" ], "label-sm": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "headline-sm": [ "Space Grotesk" ], "display-mobile": [ "Space Grotesk" ], "headline-lg-mobile": [ "Space Grotesk" ], "label-lg": [ "Space Grotesk" ], "body-sm": [ "Plus Jakarta Sans" ], "headline-md": [ "Space Grotesk" ], "body-lg": [ "Plus Jakarta Sans" ] }, "fontSize": { "display": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" } ], "headline-lg": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "fontWeight": "500" } ], "display-mobile": [ "38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-lg-mobile": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.06em", "fontWeight": "600" } ], "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-md": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface-obsidian text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 w-full z-50 flex flex-col"><div class="w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-subtle py-1.5 px-margin"><div class="max-w-7xl mx-auto flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-space-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span><span class="tracking-wider uppercase text-text-primary">ZoeWear Telemetry Architecture</span><span class="text-border-subtle">|</span><span class="text-text-muted hidden sm:inline">Fall/Winter Phygital Biometric Showcase</span></div><div class="flex items-center gap-space-md text-text-muted"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high/70 border border-border-luminous/40 text-primary-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span><span class="tracking-widest uppercase text-label-sm font-label-sm">Live Biosignal Feed: Synced</span></div><span class="text-border-subtle hidden md:inline">|</span><span class="tracking-widest uppercase text-circuit-gold hidden md:inline">Technology is the New Black</span></div></div></div><div class="w-full bg-surface-glass/85 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-subtle"><div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><img alt="ZoeWear Insignia" class="w-9 h-9 rounded-full object-cover ring-1 ring-border-luminous" src="https://lh3.googleusercontent.com/aida/AEtjO1UZhPV7bT2Ga6gKl85I4jKcZ3AqF0KNXjEk01wHR_ZMacpbd0b0gpxMFLlaHIYBGam_lhC1QGgsPiJ8z41la3ZCGcfwW1_Dh8vXMr1gzkt-CuGOmS7H_PW3dKqVfhLQHt2_lH53IG3CW_R89vjA3LLrXCnR7qezaKrJJcCDEeX9nJPYJgGF8w6Hi4nRZBOaImzJM4SG9N45qUhLlJD-p3sl6jTJUzGQYr6YyBtmLLAb6kQdY2RM1168la0"/><div class="flex flex-col"><span class="font-display text-headline-sm font-semibold tracking-wider text-text-primary leading-none">ZOEWEAR</span><span class="font-label-sm text-label-sm tracking-widest text-primary-container leading-tight mt-0.5">CYBER-COUTURE &amp; WEARABLE TECH</span></div></div><nav class="hidden xl:flex items-center gap-space-xs font-label-lg text-label-lg tracking-wide" data-active-classes="text-primary-container bg-surface-container-high/90 border border-border-luminous/60 font-semibold shadow-[0_0_12px_rgba(0,229,255,0.2)]"><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="home" href="#">Home</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="fashion" href="#">Fashion</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="tech" href="#">Tech</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="fusion" href="#">Fusion</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="drunkwatch" href="#">DrunkWatch™</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-colors" data-path="teaching-and-research" href="#">Teaching &amp; Research</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-2 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-widest border border-border-luminous shadow-[0_0_15px_rgba(0,229,255,0.15)] hover:bg-primary-container hover:text-on-primary-container hover:shadow-[0_0_24px_rgba(0,229,255,0.45)] transition-all" data-path="explore-innovations" href="#">Explore Innovations</a><div class="flex items-center gap-space-xs text-on-surface-variant"><button aria-label="Search Archive" class="p-2 rounded-full hover:bg-surface-container hover:text-primary transition-colors flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Telemetry Diagnostics" class="p-2 rounded-full hover:bg-surface-container hover:text-primary transition-colors flex items-center justify-center relative"><span class="material-symbols-outlined text-[20px]">sensors</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container"></span></button><div class="ml-space-xs pl-space-xs"><img alt="Biometric Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-border-subtle hover:ring-primary-container transition-all" src="https://lh3.googleusercontent.com/aida/AEtjO1UZhPV7bT2Ga6gKl85I4jKcZ3AqF0KNXjEk01wHR_ZMacpbd0b0gpxMFLlaHIYBGam_lhC1QGgsPiJ8z41la3ZCGcfwW1_Dh8vXMr1gzkt-CuGOmS7H_PW3dKqVfhLQHt2_lH53IG3CW_R89vjA3LLrXCnR7qezaKrJJcCDEeX9nJPYJgGF8w6Hi4nRZBOaImzJM4SG9N45qUhLlJD-p3sl6jTJUzGQYr6YyBtmLLAb6kQdY2RM1168la0"/></div></div></div></div></div></header><main class="w-full pt-28 bg-surface-obsidian min-h-screen"><div class="flex flex-col w-full">
+<!-- Immersive Sub-Header Cinematic Hero -->
+<section class="relative w-full -mt-28 pt-32 pb-20 px-margin overflow-hidden bg-surface-obsidian">
+<!-- Atmospheric Ambient Glows (Contained) -->
+<div class="absolute -top-40 right-1/4 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute top-1/2 -left-20 w-[450px] h-[450px] bg-circuit-gold/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl relative z-10">
+<!-- Breadcrumb & Top Indicator Pill -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">
+<span class="text-primary-container">Telemetry</span>
+<span>/</span>
+<span class="text-circuit-gold">Biosensing Core</span>
+<span>/</span>
+<span class="text-text-primary">DrunkWatch™ OS v4.8</span>
+</div>
+<div class="flex items-center gap-space-sm px-space-md py-1 rounded-full bg-surface-container-high shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Micro-Spectrometry Sensor Matrix Active</span>
+</div>
+</div>
+<!-- Hero Asymmetric Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Editorial & Technical Headline Block -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-circuit-gold">Autonomous Metabolic Biometric Guardian</span>
+<h1 class="font-display text-display text-text-primary uppercase tracking-tight">
+              DrunkWatch<span class="text-primary-container">™</span>
+</h1>
+<p class="font-headline-sm text-headline-sm text-secondary font-light">
+              Transdermal Micro-Spectrometry &amp; Human Sovereignty Core.
+            </p>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            A breakthrough cyber-couture module engineered for Wear OS, watchOS, and bespoke woven cuffs. DrunkWatch™ continuously samples epidermal interstitial sweat glands to measure ethanol clearance, cellular hydration, and autonomic safety vectors in real-time.
+          </p>
+<!-- Quick Metrics Bar -->
+<div class="grid grid-cols-3 gap-space-md pt-space-xs">
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Calibration Rate</span>
+<span class="font-headline-md text-headline-md text-primary-container font-semibold">99.8%</span>
+<span class="font-body-sm text-body-sm text-text-muted">WestCoast Clinical Grade</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Sampling Cycle</span>
+<span class="font-headline-md text-headline-md text-circuit-gold font-semibold">120ms</span>
+<span class="font-body-sm text-body-sm text-text-muted">Sub-Dermal Optical LED</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Safety Net</span>
+<span class="font-headline-md text-headline-md text-secondary font-semibold">Autonomous</span>
+<span class="font-body-sm text-body-sm text-text-muted">Encrypted Dispatch Concierge</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<a class="px-space-xl py-3 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider font-semibold shadow-md hover:bg-primary transition-all flex items-center gap-space-xs" href="#simulator">
+<span class="material-symbols-outlined text-[18px]">csv</span>
+              Launch Telemetry Sim
+            </a>
+<button class="px-space-lg py-3 rounded-full bg-surface-container-high text-primary font-label-lg text-label-lg uppercase tracking-wider shadow-sm hover:bg-surface-bright transition-all flex items-center gap-space-xs" id="quickCalibrateBtn">
+<span class="material-symbols-outlined text-[18px]">sensors</span>
+              Run Sensor Diagnostics
+            </button>
+</div>
+</div>
+<!-- Hero Photo & Visual Artifact (Negative Margin Overlap) -->
+<div class="lg:col-span-5 relative">
+<div class="relative w-full rounded-2xl overflow-hidden bg-surface-container-lowest shadow-xl">
+<img class="w-full h-[520px] object-cover object-center" data-alt="A futuristic haute couture luxury smartwatch cuff crafted from matte black titanium and conductive cybernetic woven fibers, resting on a model wrist against an obsidian velvet backdrop. The curved sapphire screen projects a luminous cyan bio-spectrometry dial and faint golden neural circuitry traces with crisp reflections and dramatic studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlao3-awtM9nGLh1a7DVZTWLdE46l-6mJOZC4-ank6dYhfbzP7KKaPGsaYrMLU8CHRN98ABaDL8D4VaLVQtZyNJrr2XJdnc2ifQ1b2tflLfstznBgnagcTACpoeKhCMaG-7GlNtptxYtcZltKKHHD_AMXhNROE3Rxv4mL6b0Vmr28aCcn4OpDrAnvXDF-R-C11PR-G5lcXeJ_nmBGdRjzArw4cGM99xKjwTnJMLrl5TOpC4oCBUmlI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-obsidian via-surface-obsidian/30 to-transparent"></div>
+<!-- Floating Holographic Badge -->
+<div class="absolute top-space-md right-space-md px-space-md py-1.5 rounded-full bg-surface-slate/80 backdrop-blur-md shadow-md flex items-center gap-space-xs text-text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary-container text-[16px]">verified</span>
+<span>ISO 13485 CERTIFIED</span>
+</div>
+<!-- Bottom Floating Live Overlay -->
+<div class="absolute bottom-space-md left-space-md right-space-md p-space-md rounded-xl bg-surface-slate/90 backdrop-blur-xl shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted uppercase">Electrolyte Reserve</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">88.4 mEq/L</span>
+</div>
+</div>
+<div class="text-right flex flex-col">
+<span class="font-label-sm text-label-sm text-circuit-gold uppercase">Buffer State</span>
+<span class="font-label-lg text-label-lg text-text-primary">STABLE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive HUD Simulator & Live Metabolic Telemetry Section -->
+<section class="w-full py-24 px-margin bg-surface-container-lowest relative" id="simulator">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-circuit-gold font-label-sm text-label-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-[16px]">stream</span>
+<span>Interactive Console Simulator</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">
+            Sub-Dermal Neural Interface &amp; BAC Dynamics
+          </h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Stream State:</span>
+<span class="px-space-sm py-0.5 rounded-full bg-primary-container/20 text-primary-container font-label-sm text-label-sm uppercase font-semibold">Live Realtime</span>
+</div>
+</div>
+<!-- Main Simulator Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left: Radial Dial & BAC Readout Pod -->
+<div class="lg:col-span-5 p-space-xl rounded-2xl bg-surface-container-low shadow-xl flex flex-col items-center justify-between gap-space-lg relative overflow-hidden">
+<div class="w-full flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted tracking-widest uppercase">HUD GAUGING CLUSTER</span>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary/20 text-secondary font-label-sm text-label-sm uppercase font-semibold" id="bacThresholdStatus">
+              OPTIMAL &amp; CLEARED
+            </span>
+</div>
+<!-- Circular Radial Progress Gauge Visual SVG -->
+<div class="relative w-72 h-72 flex items-center justify-center my-space-xs">
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 160 160">
+<!-- Background Ring -->
+<circle class="text-surface-bright" cx="80" cy="80" fill="none" r="68" stroke="currentColor" stroke-width="8"></circle>
+<!-- Alert Threshold Arc -->
+<circle class="text-circuit-gold/30" cx="80" cy="80" fill="none" r="68" stroke="currentColor" stroke-dasharray="85 427" stroke-dashoffset="-280" stroke-width="8"></circle>
+<!-- Dynamic Luminous Cyan Value Arc -->
+<circle class="text-primary-container transition-all duration-700 ease-out" cx="80" cy="80" fill="none" id="gaugeProgressArc" r="68" stroke="currentColor" stroke-dasharray="427" stroke-dashoffset="340" stroke-linecap="round" stroke-width="10"></circle>
+</svg>
+<!-- Dial Interior Readout -->
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Estimated BAC</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display text-display text-text-primary font-bold tracking-tight" id="bacDisplayValue">0.02</span>
+<span class="font-label-sm text-label-sm text-primary-container font-semibold">%</span>
+</div>
+<span class="mt-1 px-space-sm py-0.5 rounded-full bg-surface-bright text-primary font-label-sm text-label-sm uppercase tracking-wide" id="bacSafetyPill">
+                Clearance: 18m
+              </span>
+</div>
+</div>
+<!-- Quick Simulation State Buttons -->
+<div class="w-full flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-center">Simulate Metabolic State</span>
+<div class="grid grid-cols-3 gap-space-xs">
+<button class="py-2 px-space-xs rounded-lg bg-surface-container-high text-text-primary hover:bg-surface-bright font-label-sm text-label-sm uppercase transition-all" onclick="setBacSim(0.02, 'OPTIMAL &amp; CLEARED', 'text-secondary', 'bg-secondary/20', 'Clearance: 18m')">
+                Resting (0.02%)
+              </button>
+<button class="py-2 px-space-xs rounded-lg bg-surface-container-high text-text-primary hover:bg-surface-bright font-label-sm text-label-sm uppercase transition-all" onclick="setBacSim(0.05, 'MODERATE METABOLIC', 'text-circuit-gold', 'bg-circuit-gold/20', 'Spike Warning')">
+                Social (0.05%)
+              </button>
+<button class="py-2 px-space-xs rounded-lg bg-surface-container-high text-text-primary hover:bg-surface-bright font-label-sm text-label-sm uppercase transition-all" onclick="setBacSim(0.09, 'HIGH BAC CRITICAL', 'text-error', 'bg-error-container/40', 'Concierge Active')">
+                Spike (0.09%)
+              </button>
+</div>
+</div>
+<!-- Bottom Telemetry Status Line -->
+<div class="w-full pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span class="flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              Pulse Rate: 72 bpm
+            </span>
+<span class="flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-circuit-gold"></span>
+              Skin Temp: 34.6°C
+            </span>
+</div>
+</div>
+<!-- Right: Historical Metabolic Curve Graph & Live Console -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Metabolic Curve Spark-HUD Card -->
+<div class="p-space-xl rounded-2xl bg-surface-container-low shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Metabolic Absorption &amp; Clearance Curve</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">4-Hour Predictive Trajectory</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-bright font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">insights</span>
+                ML Predictor v2.1
+              </div>
+</div>
+<!-- Inline SVG Metabolic Curve Chart -->
+<div class="w-full h-48 relative pt-2">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 500 150">
+<defs>
+<lineargradient id="curveGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00e5ff" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#00e5ff" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Horizontal Guide Lines -->
+<line class="text-surface-bright" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="500" y1="30" y2="30"></line>
+<line class="text-surface-bright" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="500" y1="80" y2="80"></line>
+<line class="text-surface-bright" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="500" y1="130" y2="130"></line>
+<!-- Threshold Critical Line (0.08% BAC level) -->
+<line stroke="#FFB703" stroke-dasharray="2 4" stroke-width="1.5" x1="0" x2="500" y1="45" y2="45"></line>
+<text class="font-label-sm text-[9px] uppercase tracking-widest" fill="#FFB703" x="4" y="40">Legal Limit (0.08% BAC)</text>
+<!-- Gradient Fill Under Curve -->
+<path d="M 0,140 Q 90,135 140,80 T 260,35 T 360,95 T 500,135 L 500,150 L 0,150 Z" fill="url(#curveGradient)"></path>
+<!-- Main Trend Line -->
+<path d="M 0,140 Q 90,135 140,80 T 260,35 T 360,95 T 500,135" fill="none" stroke="#00e5ff" stroke-linecap="round" stroke-width="3"></path>
+<!-- Live Position Node -->
+<circle class="animate-ping" cx="360" cy="95" fill="#c3f5ff" r="5" stroke="#00e5ff" stroke-width="3"></circle>
+<circle cx="360" cy="95" fill="#00e5ff" r="4"></circle>
+</svg>
+</div>
+<!-- Curve Timeline Labels -->
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm pt-space-xs">
+<span>-3.0 Hrs (Onset)</span>
+<span>-2.0 Hrs</span>
+<span>-1.0 Hr (Peak: 0.076%)</span>
+<span class="text-primary-container font-semibold">T-0 (Now: 0.02%)</span>
+<span>+1.0 Hr (Estimated Clearance)</span>
+</div>
+</div>
+<!-- Calibration Test Console & Hardware Diagnostics -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low shadow-xl grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Sensor Impedance Card -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-text-muted">Sub-Dermal Impedance</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold" id="impedanceVal">41.8 kΩ</span>
+</div>
+<div class="w-full bg-surface-bright h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" id="impedanceBar" style="width: 84%;"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Optimal epidermal moisture contact.</span>
+</div>
+<!-- Optical Transmittance Card -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-text-muted">Spectrometry Accuracy</span>
+<span class="font-label-sm text-label-sm text-circuit-gold font-semibold">99.8% Calibrated</span>
+</div>
+<div class="w-full bg-surface-bright h-2 rounded-full overflow-hidden">
+<div class="bg-circuit-gold h-full rounded-full" style="width: 98%;"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Continuous optical drift compensation.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Technological Capabilities (4 Architectural Pillars) -->
+<section class="w-full py-24 px-margin bg-surface-obsidian">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<span class="font-label-sm text-label-sm text-circuit-gold uppercase tracking-[0.2em]">Pioneering Bio-Spectroscopy</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">
+          Four Pillars of Non-Invasive Metabolic Defense
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Moving beyond rudimentary accelerometers to clinical-grade biochemical sensing embedded within high-fashion silicon and woven wristwear.
+        </p>
+</div>
+<!-- Bento Features Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Pillar 1 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low shadow-md hover:bg-surface-container transition-all flex flex-col justify-between gap-space-lg group">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary-container group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">csv</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-medium">
+                Transdermal Micro-Spectrometry
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Optical multi-wavelength emitter analyzes ethanol molecules within sweat vapor at ppm precision without prick tests or invasive probes.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span>Accuracy: ±0.003%</span>
+<span class="text-primary-container">680nm - 940nm</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low shadow-md hover:bg-surface-container transition-all flex flex-col justify-between gap-space-lg group">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">water_ph</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-medium">
+                Hydration &amp; Electrolyte Buffer
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Continuous galvanic sweat conductivity monitors sodium and potassium shifts to forecast morning fatigue and cellular dehydration early.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span>Cellular Osmolarity</span>
+<span class="text-secondary">Osmotic Tracking</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low shadow-md hover:bg-surface-container transition-all flex flex-col justify-between gap-space-lg group">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-circuit-gold/10 flex items-center justify-center text-circuit-gold group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">vibration</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-medium">
+                Proactive Haptic Interventions
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Subtle micro-frequency pulses warn the user of fast metabolic rate shifts, prompting water intake before judgment or balance are compromised.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span>Taptic Engine</span>
+<span class="text-circuit-gold">Custom Resonance</span>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low shadow-md hover:bg-surface-container transition-all flex flex-col justify-between gap-space-lg group">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/10 flex items-center justify-center text-tertiary-container group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">local_taxi</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-medium">
+                Encrypted Safety Concierge
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                One-touch or autonomic trip orchestration. Dispatches premium rideshare tokens directly to your trusted circle with zero plain-text GPS exposure.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm">
+<span>Zero-Knowledge Tokens</span>
+<span class="text-tertiary-container">AES-256 Vault</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lifestyle & Autonomous Safety Network Demonstration -->
+<section class="w-full py-24 px-margin bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Visual Lifestyle Narrative -->
+<div class="lg:col-span-6 relative">
+<div class="w-full h-[460px] rounded-2xl overflow-hidden shadow-2xl relative">
+<img class="w-full h-full object-cover object-center" data-alt="Editorial night-time photograph in a luxury lounge bar showing a well-dressed individual holding a bespoke cocktail glass with a high-fashion biometric DrunkWatch bracelet subtly glowing in cyan and gold on their wrist. Dim atmospheric amber bar lights, dark shadows, and cinematic focus on the wearable design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABtCqYjJwHSek3AV5ACSeuHra-VAV7CEONQQ130iESQkloy1BD5GFcMTpZVk-jipozw4-lfLknkGWfTyqtci__pFHTd3nWPIGOXUqburqUk6KFGVV85Ws1qwN4InCeBnmpkeKnlmN-32PHeiK4WXgzuvtknnIa_VziljkIfPb3SksGDZ6GIR4u8XaI0vU0awt0JTGN82h9DVSI4xNWWpXskR5rOQYgsSrNh3pOej8kg4fLNIi8fF29"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-surface-obsidian via-transparent to-surface-obsidian/40"></div>
+<!-- Callout Pin on Cuff -->
+<div class="absolute bottom-6 left-6 p-space-md rounded-xl bg-surface-slate/90 backdrop-blur-md shadow-lg flex items-center gap-space-md max-w-xs">
+<div class="w-8 h-8 rounded-full bg-circuit-gold flex items-center justify-center text-on-tertiary-fixed font-bold">
+<span class="material-symbols-outlined text-[18px]">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-circuit-gold uppercase">Guardian Trigger</span>
+<span class="font-body-sm text-body-sm text-text-primary">Autonomous Ride Hail Armed</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Narrative & Dispatch Protocol Mechanics -->
+<div class="lg:col-span-6 flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary-container uppercase tracking-[0.2em]">Autonomic Protection Network</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">
+            Sovereignty When Discretion Matters Most
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            DrunkWatch™ operates silently on your wrist, providing calm assurance in bustling metropolitan evenings, private galas, and late-night travels.
+          </p>
+</div>
+<!-- Protocol Steps -->
+<div class="flex flex-col gap-space-md">
+<div class="flex gap-space-md items-start">
+<span class="w-7 h-7 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-label-sm text-label-sm font-semibold shrink-0">01</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary">Predictive Spike Telemetry</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Detects dynamic escalation before cognitive delay occurs, providing quiet haptic cues.</p>
+</div>
+</div>
+<div class="flex gap-space-md items-start">
+<span class="w-7 h-7 rounded-full bg-surface-container-high text-circuit-gold flex items-center justify-center font-label-sm text-label-sm font-semibold shrink-0">02</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary">Zero-Touch Chaperone Mode</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">If blood alcohol threshold exceeds customized limits, an encrypted concierge vehicle summons to your current location.</p>
+</div>
+</div>
+<div class="flex gap-space-md items-start">
+<span class="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center font-label-sm text-label-sm font-semibold shrink-0">03</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-primary">Encrypted Ring Notification</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Designated family or security detail receives a tamper-proof check-in ping confirming your safe transit route.</p>
+</div>
+</div>
+</div>
+<div class="pt-space-xs">
+<button class="px-space-xl py-3 rounded-full bg-surface-container-high text-circuit-gold font-label-lg text-label-lg uppercase tracking-wider shadow-md hover:bg-surface-bright transition-all flex items-center gap-space-xs" onclick="dispatchSimNotification()">
+<span class="material-symbols-outlined text-[18px]">send</span>
+            Test Concierge Dispatch Ping
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Standards, Clinical Validation & Compliance Matrix -->
+<section class="w-full py-20 px-margin bg-surface-obsidian">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="p-space-xl rounded-2xl bg-surface-container-low shadow-xl flex flex-col md:flex-row items-center justify-between gap-space-xl">
+<div class="flex flex-col gap-space-xs max-w-xl">
+<span class="font-label-sm text-label-sm text-primary-container uppercase tracking-widest">Scientific Rigor &amp; Medical Sovereignty</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">
+            WestCoast Computational Bio-Lab Validated
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Cross-referenced with GC-MS (Gas Chromatography-Mass Spectrometry) blood draw tests across 1,400 clinical trials. Designed under strict HIPAA-compliant zero-knowledge architecture.
+          </p>
+</div>
+<!-- Compliance Badges Badging Grid -->
+<div class="grid grid-cols-2 gap-space-md shrink-0 w-full md:w-auto">
+<div class="p-space-md rounded-xl bg-surface-container-high flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[24px]">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-primary font-semibold">HIPAA Telemetry</span>
+<span class="font-body-sm text-body-sm text-text-muted">End-to-End Encrypted</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-high flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-circuit-gold text-[24px]">workspace_premium</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-primary font-semibold">ISO 13485:2016</span>
+<span class="font-body-sm text-body-sm text-text-muted">Medical Device Standard</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-high flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">memory</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-primary font-semibold">Wear OS / watchOS</span>
+<span class="font-body-sm text-body-sm text-text-muted">Native Micro-App</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-high flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[24px]">lock_reset</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-primary font-semibold">Self-Sovereign</span>
+<span class="font-body-sm text-body-sm text-text-muted">On-Device Processing</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript Logic for Live HUD -->
+<script>
+    function setBacSim(bacVal, statusText, textColorClass, bgClass, clearanceText) {
+      const displayEl = document.getElementById('bacDisplayValue');
+      const statusEl = document.getElementById('bacThresholdStatus');
+      const safetyPillEl = document.getElementById('bacSafetyPill');
+      const progressArc = document.getElementById('gaugeProgressArc');
+
+      // Update text values
+      displayEl.textContent = bacVal.toFixed(2);
+      statusEl.textContent = statusText;
+      statusEl.className = 'px-space-sm py-0.5 rounded-full font-label-sm text-label-sm uppercase font-semibold ' + textColorClass + ' ' + bgClass;
+      safetyPillEl.textContent = clearanceText;
+
+      // Arc calculation: circumference ~ 427. 
+      // 0.00% = 427 offset, 0.12% = 0 offset
+      const maxBac = 0.12;
+      const fraction = Math.min(bacVal / maxBac, 1.0);
+      const newOffset = 427 - (fraction * 427);
+      progressArc.setAttribute('stroke-dashoffset', newOffset.toFixed(0));
+
+      // Color shift for arc
+      if (bacVal > 0.08) {
+        progressArc.setAttribute('class', 'text-error transition-all duration-700 ease-out');
+      } else if (bacVal > 0.04) {
+        progressArc.setAttribute('class', 'text-circuit-gold transition-all duration-700 ease-out');
+      } else {
+        progressArc.setAttribute('class', 'text-primary-container transition-all duration-700 ease-out');
+      }
+    }
+
+    document.getElementById('quickCalibrateBtn').addEventListener('click', function() {
+      const impedance = document.getElementById('impedanceVal');
+      const bar = document.getElementById('impedanceBar');
+      const btn = this;
+      
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Scanning Sub-Dermal Layer...';
+      
+      setTimeout(() => {
+        impedance.textContent = '42.1 kΩ';
+        bar.style.width = '92%';
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary-container">check_circle</span> Sensor Calibrated (99.9%)';
+      }, 900);
+    });
+
+    function dispatchSimNotification() {
+      alert("DrunkWatch™ Concierge Dispatch: Zero-knowledge rideshare token generated and dispatched to your authorized contacts.");
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-subtle mt-space-xl pt-space-xl pb-space-lg"><div class="max-w-7xl mx-auto px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-space-xl border-b border-subtle"><div class="flex flex-col gap-space-md lg:col-span-2"><div class="flex flex-col"><span class="font-display text-headline-sm font-semibold tracking-wider text-text-primary leading-none">ZOEWEAR</span><span class="font-label-sm text-label-sm tracking-widest text-primary-container mt-1">CYBER-COUTURE &amp; WEARABLE TECH</span></div><p class="text-on-surface-variant font-body-sm text-body-sm italic">Awaken the Soul of the Shoe &amp; Garment.</p><p class="text-text-muted font-body-sm text-body-sm leading-relaxed max-w-md">Pioneering haute cybernetic apparel, autonomous transdermal diagnostics, and ML-accelerated bio-analytics woven into luxury silhouettes for preventive human sovereignty.</p><div class="flex flex-col gap-space-xs pt-space-xs max-w-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-text-primary">Telemetry Dispatch</span><div class="flex items-center gap-space-xs"><input class="w-full bg-surface-container-low border border-subtle rounded-lg px-space-sm py-2 text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:border-primary-container" placeholder="couture@biometrics.com" type="email"/><button aria-label="Subscribe to Dispatch" class="px-space-md py-2 rounded-lg bg-surface-container-high border border-border-luminous text-primary hover:bg-primary-container hover:text-on-primary-container transition-all flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button></div></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container pb-space-xs border-b border-subtle">Fashion</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors cursor-pointer">SwiftMonster Collection</li><li class="hover:text-primary transition-colors cursor-pointer">Haute Philosophy</li><li class="hover:text-primary transition-colors cursor-pointer">Avant-Garde Concept</li><li class="hover:text-primary transition-colors cursor-pointer">Phygital Runway Silhouettes</li><li class="hover:text-primary transition-colors cursor-pointer">Conductive Fiber Weaving</li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary pb-space-xs border-b border-subtle">Tech &amp; Fusion</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Smartwatch Sensor Core</li><li class="hover:text-secondary transition-colors cursor-pointer">AI / ML Autonomous Engine</li><li class="hover:text-secondary transition-colors cursor-pointer">3D Print Cyber-Structures</li><li class="hover:text-secondary transition-colors cursor-pointer">Blockchain Fabric Ledgers</li><li class="hover:text-secondary transition-colors cursor-pointer">TensorFlow Telemetry &amp; Breathe</li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-circuit-gold pb-space-xs border-b border-subtle">Innovation &amp; Labs</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-circuit-gold transition-colors cursor-pointer">DrunkWatch™ Biosensor</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">Academic Curricula Program</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">WestCoast Computational Bio-Lab</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">Whitepapers &amp; Clinical Data</li><li class="hover:text-circuit-gold transition-colors cursor-pointer">Global Health Consortium Trials</li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-space-sm"><span>© 2025 ZoeWear Technologies Corp.</span><span class="text-border-subtle">|</span><span class="text-text-muted">All Rights Reserved. Wearable for Life.</span></div><div class="flex items-center gap-space-lg flex-wrap justify-center"><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a><a class="hover:text-primary transition-colors" href="#">Terms of Innovation</a><a class="hover:text-primary transition-colors" href="#">Ethics in Biometrics</a><a class="hover:text-primary transition-colors" href="#">Sensor Calibration Standards</a></div></div></div></footer></body></html>
