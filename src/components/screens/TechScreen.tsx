@@ -454,17 +454,29 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#181c22] border border-[rgba(255,255,255,0.06)] flex items-start gap-4">
-                  <div className="p-2 rounded-lg bg-[#262a31] text-[#FFB703] shrink-0">
+                <div className="p-4 rounded-xl bg-[#181c22] border border-[#00e5ff]/30 flex items-start gap-4 hover:border-[#00e5ff] transition-colors">
+                  <div className="p-2 rounded-lg bg-[#262a31] text-[#00e5ff] shrink-0">
                     <span className="material-symbols-outlined text-[20px]">security</span>
                   </div>
-                  <div className="flex flex-col">
-                    <span className="font-['Space_Grotesk'] text-[16px] text-[#F8FAFC] font-semibold leading-snug">
-                      Autonomous Edge Guardian: DrunkWatch™
-                    </span>
+                  <div className="flex flex-col flex-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-['Space_Grotesk'] text-[16px] text-[#F8FAFC] font-semibold leading-snug">
+                        Autonomous Edge Guardian: DrunkWatch™
+                      </span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#00e5ff]/15 text-[#00e5ff] font-bold">
+                        DEDICATED PAGE
+                      </span>
+                    </div>
                     <span className="font-['Plus_Jakarta_Sans'] text-[13px] text-[#bac9cc] mt-0.5">
                       Sub-ppm transdermal vapor sensors paired with local ML classifiers to alert wearers before cognitive degradation occurs.
                     </span>
+                    <button
+                      onClick={onNavigateToDrunkwatch}
+                      className="mt-2 text-xs font-['Space_Grotesk'] text-[#00e5ff] hover:underline flex items-center gap-1 font-semibold w-fit cursor-pointer"
+                    >
+                      <span>Open DrunkWatch Page &amp; Concept Video</span>
+                      <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </button>
                   </div>
                 </div>
 

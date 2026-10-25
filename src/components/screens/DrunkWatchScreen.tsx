@@ -18,17 +18,39 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
   onOpenDiagnostics,
   onRequestPrototype,
 }) => {
+  // Simulator State
   const [bac, setBac] = useState<number>(0.02);
-  const [statusText, setStatusText] = useState<string>('OPTIMAL & CLEARED');
-  const [statusColor, setStatusColor] = useState<string>('text-secondary bg-secondary/20');
+  const [statusText, setStatusText] = useState<string>('OPTIMAL & CLEARED TO DRIVE');
+  const [statusColor, setStatusColor] = useState<string>('text-secondary bg-secondary/20 border-secondary/40');
   const [clearanceText, setClearanceText] = useState<string>('Clearance: 18m');
   const [isCalibrating, setIsCalibrating] = useState<boolean>(false);
   const [calibrationSuccess, setCalibrationSuccess] = useState<boolean>(false);
   const [impedance, setImpedance] = useState<number>(41.8);
   const [dispatchAlert, setDispatchAlert] = useState<string | null>(null);
 
-  // SVG Gauge calculations
-  // Circumference ~ 2 * PI * 68 = 427.25
+  // Video Theater State
+  const [theaterMode, setTheaterMode] = useState<boolean>(false);
+  const [activeVideoTab, setActiveVideoTab] = useState<'video' | 'multimodal' | 'specs'>('video');
+  const [videoTimestamp, setVideoTimestamp] = useState<number>(0);
+  const [videoIframeKey, setVideoIframeKey] = useState<number>(1);
+
+  // Interactive Passcode Behavioral Motor Test State
+  const [passcodeDigits, setPasscodeDigits] = useState<string>('');
+  const [motorScore, setMotorScore] = useState<{
+    score: number;
+    dwellTimeMs: number;
+    tremorVariance: number;
+    verdict: string;
+    verdictColor: string;
+  } | null>(null);
+  const [keyPressHistory, setKeyPressHistory] = useState<number[]>([]);
+
+  // Interactive Gait Telemetry State
+  const [gaitActive, setGaitActive] = useState<boolean>(true);
+  const [gaitCadence, setGaitCadence] = useState<number>(112);
+  const [lateralSway, setLateralSway] = useState<number>(1.4);
+
+  // Circumference calculation for radial gauge: 2 * PI * 68 = ~427.25
   const circumference = 427.25;
   const maxBac = 0.12;
   const progressOffset = Math.max(0, circumference - (bac / maxBac) * circumference);
@@ -45,6 +67,18 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
     setStatusColor(colorClasses);
     setClearanceText(clearance);
     setImpedance(targetImpedance);
+
+    // Adjust simulated gait & sway according to BAC
+    if (val < 0.04) {
+      setLateralSway(1.2);
+      setGaitCadence(114);
+    } else if (val < 0.08) {
+      setLateralSway(3.8);
+      setGaitCadence(98);
+    } else {
+      setLateralSway(8.6);
+      setGaitCadence(74);
+    }
   };
 
   const handleQuickCalibrate = () => {
@@ -53,170 +87,280 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
     setTimeout(() => {
       setIsCalibrating(false);
       setCalibrationSuccess(true);
-      setTimeout(() => setCalibrationSuccess(false), 4000);
+      setTimeout(() => setCalibrationSuccess(false), 4500);
     }, 1200);
   };
 
   const handleTestDispatch = () => {
     setDispatchAlert(
-      'Encrypted Concierge Dispatch Ping Transmitted: Black Car Chaperone stand-by token routed via zero-knowledge relay.'
+      'Encrypted DrunkWatch Concierge Ping Dispatched: Zero-knowledge rideshare chaperone token routed. Vehicle ignition lockout handshake initiated.'
     );
-    setTimeout(() => setDispatchAlert(null), 6000);
+    setTimeout(() => setDispatchAlert(null), 7000);
+  };
+
+  // Passcode Motor Test Handlers
+  const handlePasscodeTap = (digit: string) => {
+    const now = performance.now();
+    const updatedHistory = [...keyPressHistory, now];
+    setKeyPressHistory(updatedHistory);
+
+    const newCode = (passcodeDigits + digit).slice(-4);
+    setPasscodeDigits(newCode);
+
+    if (newCode.length === 4) {
+      // Calculate motor metrics
+      const intervals: number[] = [];
+      for (let i = 1; i < updatedHistory.length; i++) {
+        intervals.push(updatedHistory[i] - updatedHistory[i - 1]);
+      }
+      const avgInterval = intervals.length > 0
+        ? intervals.reduce((a, b) => a + b, 0) / intervals.length
+        : 180;
+
+      // Adjust motor score based on current simulated BAC and tap timing
+      const baseScore = Math.max(20, Math.min(100, Math.round(100 - bac * 600 - (avgInterval > 400 ? 25 : 0))));
+      const simulatedDwell = Math.round(140 + bac * 450);
+      const simulatedTremor = parseFloat((0.8 + bac * 12.4).toFixed(1));
+
+      let verdict = 'Motor Cadence Normal (Sobriety Verified)';
+      let verdictColor = 'text-secondary';
+
+      if (bac >= 0.08 || baseScore < 60) {
+        verdict = 'Impaired Motor Velocity — Driving Lockdown Triggered';
+        verdictColor = 'text-error';
+      } else if (bac >= 0.04 || baseScore < 80) {
+        verdict = 'Mild Reaction Lag Detected — Caution Advised';
+        verdictColor = 'text-circuit-gold';
+      }
+
+      setMotorScore({
+        score: baseScore,
+        dwellTimeMs: simulatedDwell,
+        tremorVariance: simulatedTremor,
+        verdict,
+        verdictColor,
+      });
+    }
+  };
+
+  const handleResetPasscode = () => {
+    setPasscodeDigits('');
+    setMotorScore(null);
+    setKeyPressHistory([]);
+  };
+
+  const handleSeekVideo = (seconds: number) => {
+    setVideoTimestamp(seconds);
+    setVideoIframeKey((prev) => prev + 1);
   };
 
   return (
-    <div className="flex flex-col w-full">
-      {/* Immersive Sub-Header Cinematic Hero */}
-      <section className="relative w-full -mt-28 pt-36 pb-20 px-margin overflow-hidden bg-surface-obsidian">
-        {/* Atmospheric Ambient Glows */}
-        <div className="absolute -top-40 right-1/4 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute top-1/2 -left-20 w-[450px] h-[450px] bg-circuit-gold/10 rounded-full blur-[120px] pointer-events-none" />
+    <div className="flex flex-col w-full bg-[#0B0F15] text-[#dfe2eb]">
+      {/* Top Banner Ribbon */}
+      <div className="w-full bg-[#0a0e14] border-b border-white/5 px-4 sm:px-8 lg:px-12 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div className="flex items-center gap-2 font-mono uppercase tracking-wider text-[#bac9cc]">
+          <span className="w-2 h-2 rounded-full bg-[#00e5ff] animate-ping" />
+          <span className="text-[#00e5ff] font-semibold">ZOEWAVE INNOVATION CORE:</span>
+          <span>SMARTWATCH INTOXICATION ASSESSMENT &amp; DRIVING SUITABILITY</span>
+        </div>
+        <div className="flex items-center gap-4 text-[#849396] font-mono text-[11px]">
+          <span>TARGET PLATFORMS:</span>
+          <span className="text-[#FFB703] font-bold">WEAR OS &amp; watchOS</span>
+          <span className="text-white/20">|</span>
+          <span className="text-[#c3f5ff]">iWATCH 4-CORE NEURAL ENGINE</span>
+        </div>
+      </div>
 
-        <div className="max-w-7xl mx-auto flex flex-col gap-space-xl relative z-10">
-          {/* Breadcrumb & Top Indicator Pill */}
-          <div className="flex flex-wrap items-center justify-between gap-space-md">
-            <div className="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">
-              <span className="text-primary-container">Telemetry</span>
+      {/* Hero Section */}
+      <section className="relative w-full pt-10 pb-16 px-4 sm:px-8 lg:px-12 overflow-hidden bg-gradient-to-b from-[#10141a] via-[#0B0F15] to-[#0a0e14]">
+        {/* Ambient atmospheric glows */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#00e5ff]/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-[#FFB703]/10 rounded-full blur-[130px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto flex flex-col gap-10 relative z-10">
+          {/* Breadcrumbs & Live Status */}
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#849396]">
+              <span className="text-[#00e5ff]">ZoeWave</span>
               <span>/</span>
-              <span className="text-circuit-gold">Biosensing Core</span>
+              <span className="text-[#FFB703]">Tech</span>
               <span>/</span>
-              <span className="text-text-primary">DrunkWatch™ OS v4.8</span>
+              <span className="text-[#dfe2eb]">Smartwatch</span>
+              <span>/</span>
+              <span className="text-white font-semibold">DrunkWatch</span>
             </div>
-            <div className="flex items-center gap-space-sm px-space-md py-1 rounded-full bg-surface-container-high border border-border-luminous/30 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse" />
-              <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary">
-                Micro-Spectrometry Sensor Matrix Active
-              </span>
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#181c22] border border-[#00e5ff]/30 text-xs text-[#00e5ff]">
+              <span className="w-2 h-2 rounded-full bg-[#00e5ff] animate-pulse" />
+              <span className="tracking-wider uppercase font-semibold">Life-Saving Wearable ML Architecture</span>
             </div>
           </div>
 
-          {/* Hero Asymmetric Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-            {/* Editorial & Technical Headline Block */}
-            <div className="lg:col-span-7 flex flex-col gap-space-lg">
-              <div className="flex flex-col gap-space-xs">
-                <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-circuit-gold font-semibold">
-                  Autonomous Metabolic Biometric Guardian
-                </span>
-                <h1 className="font-display text-display text-text-primary uppercase tracking-tight">
-                  DrunkWatch<span className="text-primary-container">™</span>
+          {/* Main Hero Header */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-8 flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#FFB703] font-semibold">
+                  <span className="material-symbols-outlined text-[16px]">health_and_safety</span>
+                  <span>Intersection of Health, Fashion and Technology</span>
+                </div>
+                <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white uppercase">
+                  DrunkWatch<span className="text-[#00e5ff]">™</span>
                 </h1>
-                <p className="font-headline-sm text-headline-sm text-secondary font-light">
-                  Transdermal Micro-Spectrometry & Human Sovereignty Core.
+                <p className="font-['Space_Grotesk'] text-xl sm:text-2xl text-[#4cd6fb] font-light">
+                  Intoxication Assessment &amp; Driving Suitability System
                 </p>
               </div>
 
-              <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-                A breakthrough cyber-couture module engineered for Wear OS, watchOS, and bespoke woven cuffs. DrunkWatch™ continuously samples epidermal interstitial sweat glands to measure ethanol clearance, cellular hydration, and autonomic safety vectors in real-time.
-              </p>
-
-              {/* Quick Metrics Bar */}
-              <div className="grid grid-cols-3 gap-space-md pt-space-xs">
-                <div className="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col border border-subtle">
-                  <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
-                    Calibration Rate
-                  </span>
-                  <span className="font-headline-md text-headline-md text-primary-container font-semibold">
-                    99.8%
-                  </span>
-                  <span className="font-body-sm text-body-sm text-text-muted">
-                    WestCoast Clinical Grade
-                  </span>
-                </div>
-                <div className="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col border border-subtle">
-                  <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
-                    Sampling Cycle
-                  </span>
-                  <span className="font-headline-md text-headline-md text-circuit-gold font-semibold">
-                    120ms
-                  </span>
-                  <span className="font-body-sm text-body-sm text-text-muted">
-                    Sub-Dermal Optical LED
-                  </span>
-                </div>
-                <div className="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col border border-subtle">
-                  <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
-                    Safety Net
-                  </span>
-                  <span className="font-headline-md text-headline-md text-secondary font-semibold">
-                    Autonomous
-                  </span>
-                  <span className="font-body-sm text-body-sm text-text-muted">
-                    Encrypted Dispatch Concierge
-                  </span>
+              {/* Authentic ZoeWave Site Core Description Callout */}
+              <div className="p-6 rounded-2xl bg-[#181c22]/90 border border-[#00e5ff]/30 backdrop-blur-md shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#00e5ff]/5 rounded-bl-full pointer-events-none" />
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-[#00e5ff]/10 text-[#00e5ff] shrink-0 border border-[#00e5ff]/30">
+                    <span className="material-symbols-outlined text-[28px]">watch</span>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-xs font-mono uppercase tracking-widest text-[#00e5ff] font-semibold">
+                      Official ZoeWave Architecture Brief
+                    </span>
+                    <blockquote className="font-['Plus_Jakarta_Sans'] text-base sm:text-lg text-[#F8FAFC] leading-relaxed italic">
+                      “This innovative system leverages your smartwatch to assess your intoxication level and determine your driving suitability. It analyzes your <span className="text-[#00e5ff] font-semibold not-italic">walking patterns</span>, <span className="text-[#FFB703] font-semibold not-italic">writing style</span> (when entering a code), and <span className="text-[#4cd6fb] font-semibold not-italic">bio-sensor data</span> to make this crucial call. This showcases the combined power of the iWatch&apos;s 4-core Neural Engine, accelerometer, and bio-sensors.”
+                    </blockquote>
+                    <div className="flex flex-wrap items-center gap-3 pt-2 text-xs text-[#bac9cc] font-mono">
+                      <span className="flex items-center gap-1 text-[#FFB703]">
+                        <span className="material-symbols-outlined text-[14px]">link</span>
+                        <a
+                          href="https://sites.google.com/view/zoewave/tech/smartwatch/drunkwatch"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          sites.google.com/view/zoewave/tech/smartwatch/drunkwatch
+                        </a>
+                      </span>
+                      <span>•</span>
+                      <span>Our first Wearable Products are Smartwatches (Wear OS &amp; watchOS)</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4">
                 <a
-                  className="px-space-xl py-3 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider font-semibold shadow-md hover:bg-primary transition-all flex items-center gap-space-xs cursor-pointer"
-                  href="#simulator"
+                  href="#video-theater"
+                  className="px-6 py-3.5 rounded-full bg-[#00e5ff] text-[#00363d] font-['Space_Grotesk'] text-sm uppercase tracking-wider font-bold shadow-[0_0_24px_rgba(0,229,255,0.4)] hover:bg-[#c3f5ff] hover:scale-105 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-[18px]">show_chart</span>
-                  Launch Telemetry Sim
+                  <span className="material-symbols-outlined text-[20px]">play_circle</span>
+                  <span>Watch Concept Video</span>
                 </a>
+
+                <a
+                  href="#multimodal-triad"
+                  className="px-6 py-3.5 rounded-full bg-[#262a31] text-[#F8FAFC] font-['Space_Grotesk'] text-sm uppercase tracking-wider font-semibold border border-white/10 hover:border-[#00e5ff]/50 hover:bg-[#31353c] transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-[20px] text-[#FFB703]">account_tree</span>
+                  <span>3 Multimodal Pillars</span>
+                </a>
+
+                <a
+                  href="#simulator"
+                  className="px-6 py-3.5 rounded-full bg-[#181c22] text-[#4cd6fb] font-['Space_Grotesk'] text-sm uppercase tracking-wider font-semibold border border-[#4cd6fb]/30 hover:bg-[#1c2026] transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-[20px]">speed</span>
+                  <span>Launch BAC &amp; Driving Sim</span>
+                </a>
+
                 <button
                   onClick={handleQuickCalibrate}
                   disabled={isCalibrating}
-                  className="px-space-lg py-3 rounded-full bg-surface-container-high text-primary font-label-lg text-label-lg uppercase tracking-wider shadow-sm hover:bg-surface-bright transition-all flex items-center gap-space-xs border border-border-luminous/40 cursor-pointer"
+                  className="px-5 py-3.5 rounded-full bg-[#181c22] text-[#FFB703] font-['Space_Grotesk'] text-sm uppercase tracking-wider font-semibold border border-[#FFB703]/30 hover:bg-[#1c2026] transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <span className={`material-symbols-outlined text-[18px] ${isCalibrating ? 'animate-spin' : ''}`}>
                     sensors
                   </span>
-                  <span>{isCalibrating ? 'Scanning Interstitial Sweat...' : 'Run Sensor Diagnostics'}</span>
-                </button>
-                <button
-                  onClick={() => onRequestPrototype('DrunkWatch™ Bespoke Cuff v4.8')}
-                  className="px-space-md py-3 rounded-full bg-circuit-gold/15 text-circuit-gold font-label-lg text-label-lg uppercase tracking-wider hover:bg-circuit-gold/25 transition-all flex items-center gap-1 border border-circuit-gold/40 cursor-pointer"
-                >
-                  <span className="material-symbols-outlined text-[18px]">bookmark_add</span>
-                  <span>Reserve Cuff Edition</span>
+                  <span>{isCalibrating ? 'Calibrating Sensors...' : 'Sensor Diagnostics'}</span>
                 </button>
               </div>
 
               {calibrationSuccess && (
-                <div className="p-3 rounded-xl bg-surface-container-high border border-primary-container text-primary font-body-sm text-body-sm flex items-center gap-2 animate-fadeIn">
+                <div className="p-3.5 rounded-xl bg-[#181c22] border border-[#00e5ff] text-[#00e5ff] text-sm flex items-center gap-2 animate-fadeIn font-mono">
                   <span className="material-symbols-outlined text-[20px]">check_circle</span>
-                  <span>Optical multi-wavelength array recalibrated to baseline 680nm. Sub-dermal impedance nominal (41.8 kΩ).</span>
+                  <span>Accelerometer baseline centered (0.00g). 4-Core Neural Engine weights loaded. Bio-sensor impedance 41.8 kΩ nominal.</span>
                 </div>
               )}
             </div>
 
-            {/* Hero Photo & Visual Artifact */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative w-full rounded-2xl overflow-hidden bg-surface-container-lowest shadow-2xl border border-border-luminous/40">
-                <img
-                  className="w-full h-[520px] object-cover object-center transition-transform duration-700 hover:scale-105"
-                  alt="Futuristic haute couture luxury smartwatch cuff crafted from matte black titanium and conductive cybernetic woven fibers"
-                  src={ASSETS.drunkWatchHero}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface-obsidian via-surface-obsidian/30 to-transparent" />
-
-                {/* Floating Holographic Badge */}
-                <div className="absolute top-space-md right-space-md px-space-md py-1.5 rounded-full bg-surface-slate/85 backdrop-blur-md shadow-md flex items-center gap-space-xs text-text-primary font-label-sm text-label-sm border border-border-luminous/40">
-                  <span className="material-symbols-outlined text-primary-container text-[16px]">verified</span>
-                  <span>ISO 13485 CERTIFIED</span>
+            {/* Right: Quick Specs Badge Pod */}
+            <div className="lg:col-span-4 flex flex-col gap-4">
+              <div className="p-6 rounded-2xl bg-[#181c22] border border-white/10 shadow-xl flex flex-col gap-5">
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                  <span className="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#FFB703] font-semibold">
+                    Core Architecture Specs
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#00e5ff]/20 text-[#00e5ff]">
+                    v4.8 ACTIVE
+                  </span>
                 </div>
 
-                {/* Bottom Floating Live Overlay */}
-                <div className="absolute bottom-space-md left-space-md right-space-md p-space-md rounded-xl bg-surface-slate/90 backdrop-blur-xl shadow-lg flex items-center justify-between border border-subtle">
-                  <div className="flex items-center gap-space-sm">
-                    <div className="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container">
-                      <span className="material-symbols-outlined text-[20px]">water_drop</span>
-                    </div>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-start gap-3">
+                    <span className="p-2 rounded-lg bg-[#262a31] text-[#00e5ff]">
+                      <span className="material-symbols-outlined text-[20px]">memory</span>
+                    </span>
                     <div className="flex flex-col">
-                      <span className="font-label-sm text-label-sm text-text-muted uppercase">
-                        Electrolyte Reserve
-                      </span>
-                      <span className="font-headline-sm text-headline-sm text-text-primary">
-                        88.4 mEq/L
-                      </span>
+                      <span className="text-white text-sm font-semibold">iWatch 4-Core Neural Engine</span>
+                      <span className="text-xs text-[#849396]">On-device CoreML &amp; TensorFlow Lite Micro inference</span>
                     </div>
                   </div>
-                  <div className="text-right flex flex-col">
-                    <span className="font-label-sm text-label-sm text-circuit-gold uppercase">Buffer State</span>
-                    <span className="font-label-lg text-label-lg text-text-primary font-semibold">STABLE</span>
+
+                  <div className="flex items-start gap-3">
+                    <span className="p-2 rounded-lg bg-[#262a31] text-[#FFB703]">
+                      <span className="material-symbols-outlined text-[20px]">directions_walk</span>
+                    </span>
+                    <div className="flex flex-col">
+                      <span className="text-white text-sm font-semibold">Gait Telemetry Vector</span>
+                      <span className="text-xs text-[#849396]">6-Axis Accelerometer &amp; Gyroscopic trunk sway logging</span>
+                    </div>
                   </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="p-2 rounded-lg bg-[#262a31] text-[#4cd6fb]">
+                      <span className="material-symbols-outlined text-[20px]">pin</span>
+                    </span>
+                    <div className="flex flex-col">
+                      <span className="text-white text-sm font-semibold">Passcode Writing / Motor Cadence</span>
+                      <span className="text-xs text-[#849396]">Micro-tremor, key dwell latency &amp; touch pressure</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="p-2 rounded-lg bg-[#262a31] text-emerald-400">
+                      <span className="material-symbols-outlined text-[20px]">favorite</span>
+                    </span>
+                    <div className="flex flex-col">
+                      <span className="text-white text-sm font-semibold">Multimodal Biosensors</span>
+                      <span className="text-xs text-[#849396]">Optical PPG, skin conductance, temp &amp; pulse wave</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-[#bac9cc]">
+                  <span>Driving Lockdown:</span>
+                  <span className="text-[#FFB703] font-semibold font-mono">Autonomous API Enabled</span>
+                </div>
+              </div>
+
+              {/* Hardware visual card */}
+              <div className="relative rounded-2xl overflow-hidden bg-[#181c22] border border-white/10 shadow-xl group">
+                <img
+                  src={ASSETS.drunkWatchHero}
+                  alt="ZoeWave DrunkWatch luxury smartwatch prototype"
+                  className="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F15] via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                  <span className="text-xs font-mono text-white font-semibold">ZoeWear Bespoke Wristwear</span>
+                  <span className="text-[11px] font-mono text-[#00e5ff]">Wear OS // watchOS</span>
                 </div>
               </div>
             </div>
@@ -224,47 +368,405 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
         </div>
       </section>
 
-      {/* Interactive HUD Simulator & Live Metabolic Telemetry Section */}
-      <section className="w-full py-24 px-margin bg-surface-container-lowest relative" id="simulator">
-        <div className="max-w-7xl mx-auto flex flex-col gap-space-xl">
+      {/* Video Showcase Section */}
+      <section
+        id="video-theater"
+        className={`w-full py-16 px-4 sm:px-8 lg:px-12 bg-[#0a0e14] border-t border-b border-white/10 transition-all duration-500 ${
+          theaterMode ? 'bg-black' : ''
+        }`}
+      >
+        <div className={`mx-auto flex flex-col gap-8 ${theaterMode ? 'max-w-7xl' : 'max-w-6xl'}`}>
           {/* Section Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-            <div className="flex flex-col gap-space-xs">
-              <div className="flex items-center gap-space-xs text-circuit-gold font-label-sm text-label-sm uppercase tracking-widest font-semibold">
-                <span className="material-symbols-outlined text-[16px]">stream</span>
-                <span>Interactive Console Simulator</span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="flex flex-col gap-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181c22] border border-[#00e5ff]/30 text-xs text-[#00e5ff] w-fit font-mono">
+                <span className="material-symbols-outlined text-[16px]">smart_display</span>
+                <span>AUTHENTIC ZOEWAVE DEMONSTRATION VIDEO</span>
               </div>
-              <h2 className="font-headline-lg text-headline-lg text-text-primary">
-                Sub-Dermal Neural Interface & BAC Dynamics
+              <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                DrunkWatch Concept Video
               </h2>
+              <p className="text-[#bac9cc] text-sm sm:text-base max-w-2xl">
+                Watch the original concept video for DrunkWatch created by Developer Ylabz (ZoeWave Labs), demonstrating smartwatch-based intoxication detection and driving suitability prevention.
+              </p>
             </div>
-            <div className="flex items-center gap-space-sm">
-              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Stream State:</span>
-              <span className="px-space-sm py-0.5 rounded-full bg-primary-container/20 text-primary-container font-label-sm text-label-sm uppercase font-semibold border border-primary-container/30">
+
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setTheaterMode(!theaterMode)}
+                className="px-4 py-2 rounded-xl bg-[#181c22] text-[#c3f5ff] hover:bg-[#262a31] border border-white/10 text-xs font-mono flex items-center gap-1.5 transition-all cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-[18px]">
+                  {theaterMode ? 'close_fullscreen' : 'open_in_full'}
+                </span>
+                <span>{theaterMode ? 'Exit Cinema' : 'Cinema Mode'}</span>
+              </button>
+
+              <a
+                href="https://www.youtube.com/watch?v=o3ZehHx6BR8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-xl bg-[#FF0000]/15 text-[#ff6b6b] hover:bg-[#FF0000]/25 border border-[#FF0000]/30 text-xs font-mono flex items-center gap-1.5 transition-all cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-[18px]">open_in_new</span>
+                <span>Open on YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Embedded YouTube Player Container */}
+          <div className="relative w-full rounded-2xl overflow-hidden bg-black border border-[#00e5ff]/30 shadow-[0_0_50px_rgba(0,229,255,0.15)]">
+            <div className="relative w-full aspect-video">
+              <iframe
+                key={videoIframeKey}
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/o3ZehHx6BR8?autoplay=0&rel=0&modestbranding=1&start=${videoTimestamp}`}
+                title="DrunkWatch Concept video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+
+            {/* Video Player Information Bar */}
+            <div className="p-4 bg-[#10141a] border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#00e5ff]/20 text-[#00e5ff] flex items-center justify-center font-bold">
+                  <span className="material-symbols-outlined text-[20px]">play_arrow</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-white text-sm font-semibold">
+                    DrunkWatch Concept Video — Developer Ylabz
+                  </span>
+                  <span className="text-xs text-[#849396] font-mono">
+                    Official Showcase from sites.google.com/view/zoewave/tech/smartwatch/drunkwatch
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-[#849396] font-mono mr-1">Jump to Scene:</span>
+                <button
+                  onClick={() => handleSeekVideo(0)}
+                  className="px-2.5 py-1 rounded bg-[#181c22] hover:bg-[#262a31] text-xs font-mono text-[#c3f5ff] border border-white/5 cursor-pointer"
+                >
+                  0:00 Intro
+                </button>
+                <button
+                  onClick={() => handleSeekVideo(30)}
+                  className="px-2.5 py-1 rounded bg-[#181c22] hover:bg-[#262a31] text-xs font-mono text-[#c3f5ff] border border-white/5 cursor-pointer"
+                >
+                  0:30 Detection
+                </button>
+                <button
+                  onClick={() => handleSeekVideo(60)}
+                  className="px-2.5 py-1 rounded bg-[#181c22] hover:bg-[#262a31] text-xs font-mono text-[#c3f5ff] border border-white/5 cursor-pointer"
+                >
+                  1:00 Neural
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Video Scene Chapters & Key Concepts */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-5 rounded-xl bg-[#181c22] border border-white/10 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono text-[#00e5ff] font-semibold">CHAPTER 01</span>
+                <span className="text-[11px] font-mono text-[#849396]">The Core Vision</span>
+              </div>
+              <h3 className="text-base font-semibold text-white">Smartwatch as a Life-Saving Guardian</h3>
+              <p className="text-xs text-[#bac9cc] leading-relaxed">
+                Smartwatches are no longer just notification mirrors—they are life-saving sentinels that proactively prevent fatal DUI accidents before a user ever touches the steering wheel.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl bg-[#181c22] border border-white/10 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono text-[#FFB703] font-semibold">CHAPTER 02</span>
+                <span className="text-[11px] font-mono text-[#849396]">Multimodal Data Triad</span>
+              </div>
+              <h3 className="text-base font-semibold text-white">Walking, Code Entry &amp; Biosensors</h3>
+              <p className="text-xs text-[#bac9cc] leading-relaxed">
+                Rather than relying solely on a single flawed metric, DrunkWatch aggregates walking gait, typing/writing motor reaction, and optical pulse sensors into a combined confidence index.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl bg-[#181c22] border border-white/10 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono text-[#4cd6fb] font-semibold">CHAPTER 03</span>
+                <span className="text-[11px] font-mono text-[#849396]">Edge ML Execution</span>
+              </div>
+              <h3 className="text-base font-semibold text-white">4-Core Neural Engine Intelligence</h3>
+              <p className="text-xs text-[#bac9cc] leading-relaxed">
+                Executed on-device with zero network latency. The user&apos;s privacy is strictly maintained with zero-knowledge biometric processing and autonomous roadside concierge fail-safes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Multimodal Triad Section */}
+      <section id="multimodal-triad" className="w-full py-20 px-4 sm:px-8 lg:px-12 bg-[#0B0F15]">
+        <div className="max-w-7xl mx-auto flex flex-col gap-12">
+          {/* Section Header */}
+          <div className="flex flex-col gap-3 max-w-3xl">
+            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FFB703] font-semibold">
+              <span className="material-symbols-outlined text-[16px]">hub</span>
+              <span>TRI-MODAL RECOGNITION ARCHITECTURE</span>
+            </div>
+            <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              How DrunkWatch Evaluates Your Driving Suitability
+            </h2>
+            <p className="text-[#bac9cc] text-base leading-relaxed">
+              ZoeWave&apos;s algorithm eliminates false positives by fusing three completely independent behavioral and biometric streams into the iWatch 4-Core Neural Engine.
+            </p>
+          </div>
+
+          {/* Triad 3 Cards Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* 1. Walking Patterns (Gait Analysis) */}
+            <div className="p-6 rounded-2xl bg-[#181c22] border border-[#00e5ff]/30 shadow-xl flex flex-col justify-between gap-6 relative overflow-hidden group">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#00e5ff]/15 text-[#00e5ff] border border-[#00e5ff]/30 group-hover:scale-105 transition-transform">
+                    <span className="material-symbols-outlined text-[28px]">directions_walk</span>
+                  </div>
+                  <span className="text-xs font-mono font-bold text-[#00e5ff] px-2 py-0.5 rounded bg-[#00e5ff]/10">
+                    PILLAR 01
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="font-['Space_Grotesk'] text-xl font-bold text-white">
+                    Walking Pattern &amp; Gait Analysis
+                  </h3>
+                  <span className="text-xs font-mono text-[#00e5ff]">
+                    6-Axis Accelerometer &amp; Gyroscope Telemetry
+                  </span>
+                  <p className="text-sm text-[#bac9cc] leading-relaxed mt-1">
+                    Continuous locomotion evaluation captures lateral body sway, step cadence irregularity, and balance deceleration. Intoxicated gait manifests as widened stance width and asymmetric stride time.
+                  </p>
+                </div>
+
+                {/* Live Gait Waveform Box */}
+                <div className="p-4 rounded-xl bg-[#0a0e14] border border-white/5 flex flex-col gap-2">
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-[#849396]">Stride Cadence:</span>
+                    <span className="text-[#00e5ff] font-bold">{gaitCadence} steps/min</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-[#849396]">Trunk Sway Angle:</span>
+                    <span className={lateralSway > 4.0 ? 'text-[#FFB703] font-bold' : 'text-emerald-400 font-bold'}>
+                      ±{lateralSway}° ({lateralSway > 4.0 ? 'Elevated Drift' : 'Stable'})
+                    </span>
+                  </div>
+                  {/* Visual Sway Bar */}
+                  <div className="w-full bg-[#181c22] h-2 rounded-full overflow-hidden mt-1">
+                    <div
+                      className={`h-full rounded-full transition-all duration-500 ${
+                        lateralSway > 5.0 ? 'bg-error' : lateralSway > 2.5 ? 'bg-[#FFB703]' : 'bg-[#00e5ff]'
+                      }`}
+                      style={{ width: `${Math.min(100, (lateralSway / 10) * 100)}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#849396]">
+                <span>Sample Rate: 100Hz</span>
+                <span className="text-[#00e5ff] font-semibold">Zero False Stride Rejection</span>
+              </div>
+            </div>
+
+            {/* 2. Writing Style / Passcode Motor Latency */}
+            <div className="p-6 rounded-2xl bg-[#181c22] border border-[#FFB703]/30 shadow-xl flex flex-col justify-between gap-6 relative overflow-hidden group">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#FFB703]/15 text-[#FFB703] border border-[#FFB703]/30 group-hover:scale-105 transition-transform">
+                    <span className="material-symbols-outlined text-[28px]">pin</span>
+                  </div>
+                  <span className="text-xs font-mono font-bold text-[#FFB703] px-2 py-0.5 rounded bg-[#FFB703]/10">
+                    PILLAR 02
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="font-['Space_Grotesk'] text-xl font-bold text-white">
+                    Writing &amp; Passcode Dynamics
+                  </h3>
+                  <span className="text-xs font-mono text-[#FFB703]">
+                    Touchscreen Motor Latency &amp; Tremor Analysis
+                  </span>
+                  <p className="text-sm text-[#bac9cc] leading-relaxed mt-1">
+                    Evaluates fine-motor skills when entering a passcode on the watch face. Detects finger tremor frequency (4-8Hz physiological tremor escalation), key dwell duration, and hesitation latency.
+                  </p>
+                </div>
+
+                {/* Interactive PIN Passcode Behavioral Test Simulator */}
+                <div className="p-4 rounded-xl bg-[#0a0e14] border border-white/5 flex flex-col gap-3">
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-[#849396]">Interactive Motor Test:</span>
+                    <button
+                      onClick={handleResetPasscode}
+                      className="text-[#FFB703] hover:underline cursor-pointer"
+                    >
+                      Clear
+                    </button>
+                  </div>
+
+                  {/* Passcode Display Pods */}
+                  <div className="flex items-center justify-center gap-2">
+                    {[0, 1, 2, 3].map((idx) => (
+                      <div
+                        key={idx}
+                        className={`w-9 h-10 rounded-lg flex items-center justify-center font-mono text-base font-bold border transition-all ${
+                          passcodeDigits[idx]
+                            ? 'bg-[#FFB703]/20 border-[#FFB703] text-white'
+                            : 'bg-[#181c22] border-white/10 text-white/20'
+                        }`}
+                      >
+                        {passcodeDigits[idx] || '•'}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Micro Number Pad */}
+                  <div className="grid grid-cols-3 gap-1 pt-1">
+                    {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map((digit) => (
+                      <button
+                        key={digit}
+                        onClick={() => handlePasscodeTap(digit)}
+                        className="py-1.5 rounded bg-[#181c22] hover:bg-[#262a31] text-xs font-mono text-white border border-white/5 cursor-pointer active:scale-95 transition-all"
+                      >
+                        {digit}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Live Motor Score Readout */}
+                  {motorScore && (
+                    <div className="pt-2 border-t border-white/10 flex flex-col gap-1 text-xs font-mono">
+                      <div className="flex justify-between">
+                        <span className="text-[#849396]">Dexterity Score:</span>
+                        <span className="text-white font-bold">{motorScore.score}/100</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-[#849396]">Dwell Latency:</span>
+                        <span className="text-[#FFB703]">{motorScore.dwellTimeMs}ms</span>
+                      </div>
+                      <span className={`text-[11px] font-semibold ${motorScore.verdictColor}`}>
+                        {motorScore.verdict}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#849396]">
+                <span>Tremor Threshold: 4-8Hz</span>
+                <span className="text-[#FFB703] font-semibold">Sub-Pixel Touch Pressure</span>
+              </div>
+            </div>
+
+            {/* 3. Bio-Sensors & Transdermal Metrics */}
+            <div className="p-6 rounded-2xl bg-[#181c22] border border-[#4cd6fb]/30 shadow-xl flex flex-col justify-between gap-6 relative overflow-hidden group">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#4cd6fb]/15 text-[#4cd6fb] border border-[#4cd6fb]/30 group-hover:scale-105 transition-transform">
+                    <span className="material-symbols-outlined text-[28px]">biotech</span>
+                  </div>
+                  <span className="text-xs font-mono font-bold text-[#4cd6fb] px-2 py-0.5 rounded bg-[#4cd6fb]/10">
+                    PILLAR 03
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="font-['Space_Grotesk'] text-xl font-bold text-white">
+                    Bio-Sensors &amp; Transdermal Metrics
+                  </h3>
+                  <span className="text-xs font-mono text-[#4cd6fb]">
+                    Multi-Wavelength PPG &amp; Interstitial Analysis
+                  </span>
+                  <p className="text-sm text-[#bac9cc] leading-relaxed mt-1">
+                    Sub-dermal optical sensors detect ethanol molecules within capillary perspiration. Monitors heart rate variability (HRV), peripheral temperature elevation, and skin conductance shifts.
+                  </p>
+                </div>
+
+                {/* Real-time Biosensor Metrics Pod */}
+                <div className="p-4 rounded-xl bg-[#0a0e14] border border-white/5 flex flex-col gap-2.5">
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-[#849396]">Heart Rate Pulse:</span>
+                    <span className="text-[#4cd6fb] font-bold">{Math.round(68 + bac * 160)} bpm</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-[#849396]">Epidermal Temperature:</span>
+                    <span className="text-white font-bold">{(34.4 + bac * 2.2).toFixed(1)}°C</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-[#849396]">Electrolyte Reserve:</span>
+                    <span className="text-emerald-400 font-bold">88.4 mEq/L</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-[#849396]">Sub-Dermal Impedance:</span>
+                    <span className="text-[#00e5ff] font-bold">{impedance.toFixed(1)} kΩ</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#849396]">
+                <span>Optical Spectrum: 680-940nm</span>
+                <span className="text-[#4cd6fb] font-semibold">Continuous Drift Auto-Correct</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive HUD Simulator & Live Metabolic Telemetry Section */}
+      <section className="w-full py-20 px-4 sm:px-8 lg:px-12 bg-[#0a0e14] relative" id="simulator">
+        <div className="max-w-7xl mx-auto flex flex-col gap-10">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-[#FFB703] font-mono text-xs uppercase tracking-widest font-semibold">
+                <span className="material-symbols-outlined text-[16px]">stream</span>
+                <span>INTERACTIVE CONSOLE SIMULATOR</span>
+              </div>
+              <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                Driving Suitability &amp; BAC Dynamics
+              </h2>
+              <p className="text-sm text-[#bac9cc] max-w-2xl">
+                Test how the DrunkWatch machine learning model evaluates BAC, walking sway, and motor skill scores to determine whether a user is legally and physiologically safe to drive.
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono text-[#849396] uppercase">Stream State:</span>
+              <span className="px-3 py-1 rounded-full bg-[#00e5ff]/20 text-[#00e5ff] text-xs font-mono font-semibold border border-[#00e5ff]/30">
                 Live Realtime
               </span>
             </div>
           </div>
 
           {/* Main Simulator Bento Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Left: Radial Dial & BAC Readout Pod */}
-            <div className="lg:col-span-5 p-space-xl rounded-2xl bg-surface-container-low shadow-xl flex flex-col items-center justify-between gap-space-lg relative overflow-hidden border border-subtle">
+            <div className="lg:col-span-5 p-6 rounded-2xl bg-[#181c22] border border-white/10 shadow-xl flex flex-col items-center justify-between gap-6 relative overflow-hidden">
               <div className="w-full flex items-center justify-between">
-                <span className="font-label-sm text-label-sm text-text-muted tracking-widest uppercase">
-                  HUD GAUGING CLUSTER
+                <span className="text-xs font-mono text-[#849396] tracking-widest uppercase">
+                  DRIVING FIT STATUS
                 </span>
-                <span className={`px-space-sm py-0.5 rounded-full font-label-sm text-label-sm uppercase font-semibold border border-current ${statusColor}`}>
+                <span className={`px-2.5 py-1 rounded-full text-xs font-mono font-semibold border ${statusColor}`}>
                   {statusText}
                 </span>
               </div>
 
               {/* Circular Radial Progress Gauge Visual SVG */}
-              <div className="relative w-72 h-72 flex items-center justify-center my-space-xs">
+              <div className="relative w-64 h-64 flex items-center justify-center my-2">
                 <svg className="w-full h-full -rotate-90 transform" viewBox="0 0 160 160">
                   {/* Background Ring */}
                   <circle
-                    className="text-surface-bright"
+                    className="text-[#262a31]"
                     cx="80"
                     cy="80"
                     fill="none"
@@ -274,7 +776,7 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
                   />
                   {/* Alert Threshold Arc (0.08% limit) */}
                   <circle
-                    className="text-circuit-gold/30"
+                    className="text-[#FFB703]/30"
                     cx="80"
                     cy="80"
                     fill="none"
@@ -284,10 +786,10 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
                     strokeDashoffset="-280"
                     strokeWidth="8"
                   />
-                  {/* Dynamic Luminous Cyan Value Arc */}
+                  {/* Dynamic Value Arc */}
                   <circle
                     className={`transition-all duration-700 ease-out ${
-                      bac >= 0.08 ? 'text-error' : bac >= 0.05 ? 'text-circuit-gold' : 'text-primary-container'
+                      bac >= 0.08 ? 'text-error' : bac >= 0.04 ? 'text-[#FFB703]' : 'text-[#00e5ff]'
                     }`}
                     cx="80"
                     cy="80"
@@ -303,27 +805,58 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
 
                 {/* Dial Interior Readout */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span className="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">
+                  <span className="text-xs font-mono text-[#849396] uppercase tracking-widest">
                     Estimated BAC
                   </span>
-                  <div className="flex items-baseline gap-space-xs">
-                    <span className="font-display text-display text-text-primary font-bold tracking-tight">
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold tracking-tight text-white">
                       {bac.toFixed(2)}
                     </span>
-                    <span className="font-label-sm text-label-sm text-primary-container font-semibold">%</span>
+                    <span className="text-sm font-mono text-[#00e5ff] font-semibold">%</span>
                   </div>
-                  <span className="mt-1 px-space-sm py-0.5 rounded-full bg-surface-bright text-primary font-label-sm text-label-sm uppercase tracking-wide border border-subtle">
+                  <span className="mt-1 px-3 py-0.5 rounded-full bg-[#262a31] text-[#c3f5ff] text-xs font-mono uppercase tracking-wide border border-white/5">
                     {clearanceText}
                   </span>
                 </div>
               </div>
 
+              {/* Driving Suitability Decision Box */}
+              <div
+                className={`w-full p-4 rounded-xl border flex items-center gap-3 ${
+                  bac >= 0.08
+                    ? 'bg-error/15 border-error/40 text-error'
+                    : bac >= 0.04
+                    ? 'bg-[#FFB703]/15 border-[#FFB703]/40 text-[#FFB703]'
+                    : 'bg-emerald-500/15 border-emerald-500/40 text-emerald-400'
+                }`}
+              >
+                <span className="material-symbols-outlined text-[24px] shrink-0">
+                  {bac >= 0.08 ? 'cancel' : bac >= 0.04 ? 'warning' : 'check_circle'}
+                </span>
+                <div className="flex flex-col text-xs font-mono">
+                  <span className="font-bold uppercase">
+                    {bac >= 0.08
+                      ? 'UNFIT TO DRIVE — VEHICLE LOCKOUT'
+                      : bac >= 0.04
+                      ? 'CAUTION — METABOLIC IMPAIRMENT'
+                      : 'PHYSIOLOGICALLY CLEARED TO DRIVE'}
+                  </span>
+                  <span className="text-white/80 text-[11px] mt-0.5">
+                    {bac >= 0.08
+                      ? 'Smartwatch has disabled vehicle key tokens. Concierge rideshare hail armed.'
+                      : bac >= 0.04
+                      ? 'Elevated sway and motor latency detected. User advised to delay driving.'
+                      : 'All 3 multimodal metrics (gait, passcode typing, optical pulse) within safe baseline.'}
+                  </span>
+                </div>
+              </div>
+
               {/* BAC Fine-tuning slider */}
-              <div className="w-full flex flex-col gap-1 px-2">
-                <div className="flex justify-between text-xs text-text-muted font-mono">
-                  <span>Fine Adjust: 0.00%</span>
-                  <span className="text-primary-container font-semibold">{bac.toFixed(3)}% BAC</span>
-                  <span>0.14%</span>
+              <div className="w-full flex flex-col gap-1.5 px-2">
+                <div className="flex justify-between text-xs text-[#849396] font-mono">
+                  <span>Sober (0.00%)</span>
+                  <span className="text-[#00e5ff] font-semibold">{bac.toFixed(3)}% BAC</span>
+                  <span>Critical (0.14%)</span>
                 </div>
                 <input
                   type="range"
@@ -334,55 +867,55 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
                   onChange={(e) => {
                     const val = parseFloat(e.target.value);
                     if (val < 0.04) {
-                      applyState(val, 'OPTIMAL & CLEARED', 'text-secondary bg-secondary/20', 'Clearance: 15m', 41.8);
+                      applyState(val, 'OPTIMAL & CLEARED TO DRIVE', 'text-secondary bg-secondary/20 border-secondary/40', 'Clearance: 15m', 41.8);
                     } else if (val < 0.08) {
-                      applyState(val, 'MODERATE METABOLIC', 'text-circuit-gold bg-circuit-gold/20', 'Spike Warning', 36.2);
+                      applyState(val, 'MODERATE METABOLIC IMPAIRMENT', 'text-[#FFB703] bg-[#FFB703]/20 border-[#FFB703]/40', 'Spike Warning', 36.2);
                     } else {
-                      applyState(val, 'HIGH BAC CRITICAL', 'text-error bg-error-container/40', 'Concierge Active', 29.4);
+                      applyState(val, 'CRITICAL LOCKOUT // AUTO CONCIERGE', 'text-error bg-error/20 border-error/40', 'Concierge Active', 29.4);
                     }
                   }}
-                  className="w-full accent-primary-container cursor-pointer h-2 bg-surface-bright rounded-lg"
+                  className="w-full accent-[#00e5ff] cursor-pointer h-2 bg-[#262a31] rounded-lg"
                 />
               </div>
 
               {/* Quick Simulation State Buttons */}
-              <div className="w-full flex flex-col gap-space-xs">
-                <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-center">
-                  Simulate Metabolic State
+              <div className="w-full flex flex-col gap-2">
+                <span className="text-xs font-mono text-[#849396] uppercase tracking-wider text-center">
+                  Preset Metabolic Scenarios
                 </span>
-                <div className="grid grid-cols-3 gap-space-xs">
+                <div className="grid grid-cols-3 gap-2">
                   <button
                     onClick={() =>
-                      applyState(0.02, 'OPTIMAL & CLEARED', 'text-secondary bg-secondary/20', 'Clearance: 18m', 41.8)
+                      applyState(0.02, 'OPTIMAL & CLEARED TO DRIVE', 'text-secondary bg-secondary/20 border-secondary/40', 'Clearance: 18m', 41.8)
                     }
-                    className={`py-2 px-space-xs rounded-lg font-label-sm text-label-sm uppercase transition-all border ${
+                    className={`py-2 px-2 rounded-lg text-xs font-mono uppercase transition-all border cursor-pointer ${
                       bac <= 0.03
                         ? 'bg-secondary/20 text-secondary border-secondary'
-                        : 'bg-surface-container-high text-text-primary hover:bg-surface-bright border-transparent'
+                        : 'bg-[#262a31] text-white hover:bg-[#31353c] border-transparent'
                     }`}
                   >
                     Resting (0.02%)
                   </button>
                   <button
                     onClick={() =>
-                      applyState(0.05, 'MODERATE METABOLIC', 'text-circuit-gold bg-circuit-gold/20', 'Spike Warning', 36.2)
+                      applyState(0.05, 'MODERATE METABOLIC IMPAIRMENT', 'text-[#FFB703] bg-[#FFB703]/20 border-[#FFB703]/40', 'Spike Warning', 36.2)
                     }
-                    className={`py-2 px-space-xs rounded-lg font-label-sm text-label-sm uppercase transition-all border ${
+                    className={`py-2 px-2 rounded-lg text-xs font-mono uppercase transition-all border cursor-pointer ${
                       bac > 0.03 && bac < 0.08
-                        ? 'bg-circuit-gold/20 text-circuit-gold border-circuit-gold'
-                        : 'bg-surface-container-high text-text-primary hover:bg-surface-bright border-transparent'
+                        ? 'bg-[#FFB703]/20 text-[#FFB703] border-[#FFB703]'
+                        : 'bg-[#262a31] text-white hover:bg-[#31353c] border-transparent'
                     }`}
                   >
                     Social (0.05%)
                   </button>
                   <button
                     onClick={() =>
-                      applyState(0.09, 'HIGH BAC CRITICAL', 'text-error bg-error-container/40', 'Concierge Active', 28.5)
+                      applyState(0.09, 'CRITICAL LOCKOUT // AUTO CONCIERGE', 'text-error bg-error/20 border-error/40', 'Concierge Active', 28.5)
                     }
-                    className={`py-2 px-space-xs rounded-lg font-label-sm text-label-sm uppercase transition-all border ${
+                    className={`py-2 px-2 rounded-lg text-xs font-mono uppercase transition-all border cursor-pointer ${
                       bac >= 0.08
-                        ? 'bg-error-container/50 text-error border-error'
-                        : 'bg-surface-container-high text-text-primary hover:bg-surface-bright border-transparent'
+                        ? 'bg-error/30 text-error border-error'
+                        : 'bg-[#262a31] text-white hover:bg-[#31353c] border-transparent'
                     }`}
                   >
                     Spike (0.09%)
@@ -391,39 +924,39 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
               </div>
 
               {/* Bottom Telemetry Status Line */}
-              <div className="w-full pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm border-t border-subtle">
-                <span className="flex items-center gap-space-xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse" />
-                  Pulse Rate: {Math.round(68 + bac * 160)} bpm
+              <div className="w-full pt-3 flex items-center justify-between text-[#849396] text-xs font-mono border-t border-white/10">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse" />
+                  Pulse: {Math.round(68 + bac * 160)} bpm
                 </span>
-                <span className="flex items-center gap-space-xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-circuit-gold" />
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFB703]" />
                   Skin Temp: {(34.4 + bac * 2.2).toFixed(1)}°C
                 </span>
               </div>
             </div>
 
-            {/* Right: Historical Metabolic Curve Graph & Live Console */}
-            <div className="lg:col-span-7 flex flex-col gap-space-lg">
+            {/* Right: Predictive Trajectory Curve & Neural Engine Pipeline */}
+            <div className="lg:col-span-7 flex flex-col gap-6">
               {/* Metabolic Curve Spark-HUD Card */}
-              <div className="p-space-xl rounded-2xl bg-surface-container-low shadow-xl flex flex-col gap-space-md border border-subtle">
+              <div className="p-6 rounded-2xl bg-[#181c22] border border-white/10 shadow-xl flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
-                    <span className="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">
-                      Metabolic Absorption & Clearance Curve
+                    <span className="text-xs font-mono text-[#849396] uppercase tracking-wider">
+                      Metabolic Absorption &amp; Clearance Curve
                     </span>
-                    <span className="font-headline-sm text-headline-sm text-text-primary">
-                      4-Hour Predictive Trajectory
+                    <span className="font-['Space_Grotesk'] text-xl font-bold text-white">
+                      4-Hour Driving Safety Prediction
                     </span>
                   </div>
-                  <div className="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-bright font-label-sm text-label-sm text-primary border border-subtle">
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#262a31] text-xs font-mono text-[#00e5ff] border border-white/5">
                     <span className="material-symbols-outlined text-[14px]">insights</span>
-                    <span>ML Predictor v2.1</span>
+                    <span>CoreML On-Device v2.1</span>
                   </div>
                 </div>
 
-                {/* Inline SVG Metabolic Curve Chart */}
-                <div className="w-full h-48 relative pt-2">
+                {/* Inline SVG Chart */}
+                <div className="w-full h-44 relative pt-2">
                   <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 500 150">
                     <defs>
                       <linearGradient id="curveGradient" x1="0" x2="0" y1="0" y2="1">
@@ -431,23 +964,22 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
                         <stop offset="100%" stopColor="#00e5ff" stopOpacity="0.0" />
                       </linearGradient>
                     </defs>
-                    {/* Grid Horizontal Guide Lines */}
-                    <line className="text-surface-bright" stroke="currentColor" strokeDasharray="4 4" strokeWidth="1" x1="0" x2="500" y1="30" y2="30" />
-                    <line className="text-surface-bright" stroke="currentColor" strokeDasharray="4 4" strokeWidth="1" x1="0" x2="500" y1="80" y2="80" />
-                    <line className="text-surface-bright" stroke="currentColor" strokeDasharray="4 4" strokeWidth="1" x1="0" x2="500" y1="130" y2="130" />
+                    <line className="text-white/10" stroke="currentColor" strokeDasharray="4 4" strokeWidth="1" x1="0" x2="500" y1="30" y2="30" />
+                    <line className="text-white/10" stroke="currentColor" strokeDasharray="4 4" strokeWidth="1" x1="0" x2="500" y1="80" y2="80" />
+                    <line className="text-white/10" stroke="currentColor" strokeDasharray="4 4" strokeWidth="1" x1="0" x2="500" y1="130" y2="130" />
 
-                    {/* Threshold Critical Line (0.08% BAC level) */}
+                    {/* Legal Limit Line 0.08% */}
                     <line stroke="#FFB703" strokeDasharray="2 4" strokeWidth="1.5" x1="0" x2="500" y1="45" y2="45" />
-                    <text className="font-label-sm text-[9px] uppercase tracking-widest" fill="#FFB703" x="4" y="40">
-                      Legal Limit (0.08% BAC)
+                    <text className="font-mono text-[9px] uppercase tracking-widest" fill="#FFB703" x="4" y="40">
+                      Legal Driving Limit (0.08% BAC Threshold)
                     </text>
 
-                    {/* Gradient Fill Under Curve */}
+                    {/* Fill */}
                     <path
                       d="M 0,140 Q 90,135 140,80 T 260,35 T 360,95 T 500,135 L 500,150 L 0,150 Z"
                       fill="url(#curveGradient)"
                     />
-                    {/* Main Trend Line */}
+                    {/* Line */}
                     <path
                       d="M 0,140 Q 90,135 140,80 T 260,35 T 360,95 T 500,135"
                       fill="none"
@@ -456,7 +988,7 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
                       strokeWidth="3"
                     />
 
-                    {/* Dynamic Simulated Node according to current BAC */}
+                    {/* Live Point */}
                     {(() => {
                       const dynamicX = 360;
                       const dynamicY = Math.max(25, 140 - (bac / 0.10) * 110);
@@ -470,323 +1002,148 @@ export const DrunkWatchScreen: React.FC<DrunkWatchScreenProps> = ({
                   </svg>
                 </div>
 
-                {/* Curve Timeline Labels */}
-                <div className="flex items-center justify-between text-text-muted font-label-sm text-label-sm pt-space-xs">
+                <div className="flex items-center justify-between text-[#849396] font-mono text-xs pt-1">
                   <span>-3.0 Hrs (Onset)</span>
-                  <span>-2.0 Hrs</span>
-                  <span>-1.0 Hr (Peak: 0.076%)</span>
-                  <span className="text-primary-container font-semibold">T-0 (Now: {bac.toFixed(2)}%)</span>
-                  <span>+1.0 Hr (Estimated Clearance)</span>
+                  <span>-1.5 Hrs (Peak)</span>
+                  <span className="text-[#00e5ff] font-semibold">T-0 (Now: {bac.toFixed(2)}%)</span>
+                  <span>+1.0 Hr (Est. Clearance)</span>
                 </div>
               </div>
 
-              {/* Calibration Test Console & Hardware Diagnostics */}
-              <div className="p-space-lg rounded-2xl bg-surface-container-low shadow-xl grid grid-cols-1 md:grid-cols-2 gap-space-md border border-subtle">
-                {/* Sensor Impedance Card */}
-                <div className="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-space-xs border border-subtle">
-                  <div className="flex items-center justify-between">
-                    <span className="font-label-sm text-label-sm uppercase text-text-muted">
-                      Sub-Dermal Impedance
-                    </span>
-                    <span className="font-label-sm text-label-sm text-primary font-semibold">
-                      {impedance.toFixed(1)} kΩ
-                    </span>
+              {/* Edge ML & Autonomous Concierge Relay */}
+              <div className="p-6 rounded-2xl bg-[#181c22] border border-white/10 shadow-xl flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#FFB703] font-semibold">
+                    <span className="material-symbols-outlined text-[16px]">lock</span>
+                    <span>AUTONOMOUS CONCIERGE &amp; VEHICLE LOCKOUT RELAY</span>
                   </div>
-                  <div className="w-full bg-surface-bright h-2 rounded-full overflow-hidden">
-                    <div
-                      className="bg-primary-container h-full rounded-full transition-all duration-500"
-                      style={{ width: `${Math.min(100, (impedance / 50) * 100)}%` }}
-                    />
-                  </div>
-                  <span className="font-body-sm text-body-sm text-on-surface-variant">
-                    Optimal epidermal moisture contact.
-                  </span>
+                  <span className="text-xs font-mono text-[#849396]">AES-256 ZERO KNOWLEDGE</span>
                 </div>
 
-                {/* Optical Transmittance Card */}
-                <div className="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-space-xs border border-subtle">
-                  <div className="flex items-center justify-between">
-                    <span className="font-label-sm text-label-sm uppercase text-text-muted">
-                      Spectrometry Accuracy
-                    </span>
-                    <span className="font-label-sm text-label-sm text-circuit-gold font-semibold">
-                      99.8% Calibrated
-                    </span>
-                  </div>
-                  <div className="w-full bg-surface-bright h-2 rounded-full overflow-hidden">
-                    <div className="bg-circuit-gold h-full rounded-full" style={{ width: '98%' }} />
-                  </div>
-                  <span className="font-body-sm text-body-sm text-on-surface-variant">
-                    Continuous optical drift compensation.
-                  </span>
+                <p className="text-xs text-[#bac9cc] leading-relaxed">
+                  When intoxication is confirmed by the multimodal classifier, DrunkWatch automatically interfaces with connected vehicle smart-keys via BLE to lock out ignition and dispatches an autonomous ride concierge token to designated family or driver services.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-4 pt-1">
+                  <button
+                    onClick={handleTestDispatch}
+                    className="px-5 py-2.5 rounded-full bg-[#262a31] text-[#FFB703] hover:bg-[#31353c] border border-[#FFB703]/40 text-xs font-mono uppercase tracking-wider font-semibold transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-[16px]">send</span>
+                    <span>Test Concierge Dispatch Ping</span>
+                  </button>
+
+                  <button
+                    onClick={() => onRequestPrototype('DrunkWatch Developer Preview Kit')}
+                    className="px-5 py-2.5 rounded-full bg-[#00e5ff]/15 text-[#00e5ff] hover:bg-[#00e5ff]/25 border border-[#00e5ff]/40 text-xs font-mono uppercase tracking-wider font-semibold transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-[16px]">developer_board</span>
+                    <span>Request Developer SDK</span>
+                  </button>
                 </div>
+
+                {dispatchAlert && (
+                  <div className="p-3 rounded-xl bg-[#0a0e14] border border-[#FFB703] text-[#FFB703] text-xs font-mono flex items-start gap-2 animate-fadeIn">
+                    <span className="material-symbols-outlined text-[18px] shrink-0 mt-0.5">verified_user</span>
+                    <span>{dispatchAlert}</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Technological Capabilities (4 Architectural Pillars) */}
-      <section className="w-full py-24 px-margin bg-surface-obsidian" id="pillars">
-        <div className="max-w-7xl mx-auto flex flex-col gap-space-xl">
-          <div className="flex flex-col gap-space-xs max-w-3xl">
-            <span className="font-label-sm text-label-sm text-circuit-gold uppercase tracking-[0.2em] font-semibold">
-              Pioneering Bio-Spectroscopy
+      {/* Official ZoeWave Resources & Article Citation Strip */}
+      <section className="w-full py-16 px-4 sm:px-8 lg:px-12 bg-[#10141a] border-t border-white/10">
+        <div className="max-w-7xl mx-auto flex flex-col gap-8">
+          <div className="flex flex-col gap-2">
+            <span className="text-xs font-mono text-[#00e5ff] uppercase tracking-widest font-semibold">
+              OFFICIAL RESEARCH ARCHIVE &amp; CITATIONS
             </span>
-            <h2 className="font-headline-lg text-headline-lg text-text-primary">
-              Four Pillars of Non-Invasive Metabolic Defense
+            <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-white">
+              ZoeWave DrunkWatch Publications &amp; Links
             </h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant">
-              Moving beyond rudimentary accelerometers to clinical-grade biochemical sensing embedded within high-fashion silicon and woven wristwear.
-            </p>
           </div>
 
-          {/* Bento Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
-            {/* Pillar 1 */}
-            <div className="p-space-lg rounded-2xl bg-surface-container-low shadow-md hover:bg-surface-container transition-all flex flex-col justify-between gap-space-lg group border border-subtle">
-              <div className="flex flex-col gap-space-md">
-                <div className="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary-container group-hover:scale-105 transition-transform border border-primary-container/20">
-                  <span className="material-symbols-outlined text-[28px]">biotech</span>
-                </div>
-                <div className="flex flex-col gap-space-xs">
-                  <h3 className="font-headline-sm text-headline-sm text-text-primary font-medium">
-                    Transdermal Micro-Spectrometry
-                  </h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                    Optical multi-wavelength emitter analyzes ethanol molecules within sweat vapor at ppm precision without prick tests or invasive probes.
-                  </p>
-                </div>
-              </div>
-              <div className="pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm border-t border-subtle">
-                <span>Accuracy: ±0.003%</span>
-                <span className="text-primary-container font-semibold">680nm - 940nm</span>
-              </div>
-            </div>
-
-            {/* Pillar 2 */}
-            <div className="p-space-lg rounded-2xl bg-surface-container-low shadow-md hover:bg-surface-container transition-all flex flex-col justify-between gap-space-lg group border border-subtle">
-              <div className="flex flex-col gap-space-md">
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform border border-secondary/20">
-                  <span className="material-symbols-outlined text-[28px]">water_drop</span>
-                </div>
-                <div className="flex flex-col gap-space-xs">
-                  <h3 className="font-headline-sm text-headline-sm text-text-primary font-medium">
-                    Hydration & Electrolyte Buffer
-                  </h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                    Continuous galvanic sweat conductivity monitors sodium and potassium shifts to forecast morning fatigue and cellular dehydration early.
-                  </p>
-                </div>
-              </div>
-              <div className="pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm border-t border-subtle">
-                <span>Cellular Osmolarity</span>
-                <span className="text-secondary font-semibold">Osmotic Tracking</span>
-              </div>
-            </div>
-
-            {/* Pillar 3 */}
-            <div className="p-space-lg rounded-2xl bg-surface-container-low shadow-md hover:bg-surface-container transition-all flex flex-col justify-between gap-space-lg group border border-subtle">
-              <div className="flex flex-col gap-space-md">
-                <div className="w-12 h-12 rounded-xl bg-circuit-gold/10 flex items-center justify-center text-circuit-gold group-hover:scale-105 transition-transform border border-circuit-gold/20">
-                  <span className="material-symbols-outlined text-[28px]">vibration</span>
-                </div>
-                <div className="flex flex-col gap-space-xs">
-                  <h3 className="font-headline-sm text-headline-sm text-text-primary font-medium">
-                    Proactive Haptic Interventions
-                  </h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                    Subtle micro-frequency pulses warn the user of fast metabolic rate shifts, prompting water intake before judgment or balance are compromised.
-                  </p>
-                </div>
-              </div>
-              <div className="pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm border-t border-subtle">
-                <span>Taptic Engine</span>
-                <span className="text-circuit-gold font-semibold">Custom Resonance</span>
-              </div>
-            </div>
-
-            {/* Pillar 4 */}
-            <div className="p-space-lg rounded-2xl bg-surface-container-low shadow-md hover:bg-surface-container transition-all flex flex-col justify-between gap-space-lg group border border-subtle">
-              <div className="flex flex-col gap-space-md">
-                <div className="w-12 h-12 rounded-xl bg-tertiary-container/10 flex items-center justify-center text-tertiary-container group-hover:scale-105 transition-transform border border-tertiary-container/20">
-                  <span className="material-symbols-outlined text-[28px]">local_taxi</span>
-                </div>
-                <div className="flex flex-col gap-space-xs">
-                  <h3 className="font-headline-sm text-headline-sm text-text-primary font-medium">
-                    Encrypted Safety Concierge
-                  </h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                    One-touch or autonomic trip orchestration. Dispatches premium rideshare tokens directly to your trusted circle with zero plain-text GPS exposure.
-                  </p>
-                </div>
-              </div>
-              <div className="pt-space-sm flex items-center justify-between text-text-muted font-label-sm text-label-sm border-t border-subtle">
-                <span>Zero-Knowledge Tokens</span>
-                <span className="text-tertiary-container font-semibold">AES-256 Vault</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Lifestyle & Autonomous Safety Network Demonstration */}
-      <section className="w-full py-24 px-margin bg-surface-container-lowest" id="chaperone">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-          {/* Visual Lifestyle Narrative */}
-          <div className="lg:col-span-6 relative">
-            <div className="w-full h-[460px] rounded-2xl overflow-hidden shadow-2xl relative border border-subtle">
-              <img
-                className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
-                alt="Editorial night-time photograph in a luxury lounge bar showing an individual holding a cocktail glass with a high-fashion biometric DrunkWatch bracelet"
-                src={ASSETS.drunkWatchLifestyle}
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-surface-obsidian via-transparent to-surface-obsidian/40" />
-
-              {/* Callout Pin on Cuff */}
-              <div className="absolute bottom-6 left-6 p-space-md rounded-xl bg-surface-slate/90 backdrop-blur-md shadow-lg flex items-center gap-space-md max-w-xs border border-circuit-gold/30">
-                <div className="w-8 h-8 rounded-full bg-circuit-gold flex items-center justify-center text-on-tertiary-fixed font-bold">
-                  <span className="material-symbols-outlined text-[18px]">shield</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-circuit-gold uppercase">Guardian Trigger</span>
-                  <span className="font-body-sm text-body-sm text-text-primary font-medium">
-                    Autonomous Ride Hail Armed
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Google Site Hub */}
+            <a
+              href="https://sites.google.com/view/zoewave/tech/smartwatch/drunkwatch"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 rounded-2xl bg-[#181c22] border border-white/10 hover:border-[#00e5ff]/50 hover:bg-[#1c2026] transition-all flex flex-col justify-between gap-4 group"
+            >
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <span className="p-2 rounded-lg bg-[#00e5ff]/10 text-[#00e5ff]">
+                    <span className="material-symbols-outlined text-[20px]">web</span>
+                  </span>
+                  <span className="material-symbols-outlined text-white/30 group-hover:text-[#00e5ff] transition-colors">
+                    arrow_outward
                   </span>
                 </div>
+                <h3 className="text-base font-semibold text-white group-hover:text-[#00e5ff] transition-colors">
+                  ZoeWave Official Google Site Hub
+                </h3>
+                <p className="text-xs text-[#849396] leading-relaxed">
+                  The primary project documentation repository hosted on Google Sites detailing the DrunkWatch concept, hardware ecosystem, and video demonstration.
+                </p>
               </div>
-            </div>
-          </div>
+              <span className="text-xs font-mono text-[#00e5ff]">sites.google.com/view/zoewave</span>
+            </a>
 
-          {/* Narrative & Dispatch Protocol Mechanics */}
-          <div className="lg:col-span-6 flex flex-col gap-space-lg">
-            <div className="flex flex-col gap-space-xs">
-              <span className="font-label-sm text-label-sm text-primary-container uppercase tracking-[0.2em] font-semibold">
-                Autonomic Protection Network
-              </span>
-              <h2 className="font-headline-lg text-headline-lg text-text-primary">
-                Sovereignty When Discretion Matters Most
-              </h2>
-              <p className="font-body-lg text-body-lg text-on-surface-variant">
-                DrunkWatch™ operates silently on your wrist, providing calm assurance in bustling metropolitan evenings, private galas, and late-night travels.
-              </p>
-            </div>
-
-            {/* Protocol Steps */}
-            <div className="flex flex-col gap-space-md">
-              <div className="flex gap-space-md items-start">
-                <span className="w-7 h-7 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-label-sm text-label-sm font-semibold shrink-0 border border-primary/30">
-                  01
-                </span>
-                <div className="flex flex-col">
-                  <span className="font-headline-sm text-headline-sm text-text-primary font-medium">
-                    Predictive Spike Telemetry
+            {/* Medium Article */}
+            <a
+              href="https://zoewave.medium.com/the-rise-of-the-wrist-revolution-6554ec25e4bd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 rounded-2xl bg-[#181c22] border border-white/10 hover:border-[#FFB703]/50 hover:bg-[#1c2026] transition-all flex flex-col justify-between gap-4 group"
+            >
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <span className="p-2 rounded-lg bg-[#FFB703]/10 text-[#FFB703]">
+                    <span className="material-symbols-outlined text-[20px]">article</span>
                   </span>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">
-                    Detects dynamic escalation before cognitive delay occurs, providing quiet haptic cues.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-space-md items-start">
-                <span className="w-7 h-7 rounded-full bg-surface-container-high text-circuit-gold flex items-center justify-center font-label-sm text-label-sm font-semibold shrink-0 border border-circuit-gold/30">
-                  02
-                </span>
-                <div className="flex flex-col">
-                  <span className="font-headline-sm text-headline-sm text-text-primary font-medium">
-                    Zero-Touch Chaperone Mode
+                  <span className="material-symbols-outlined text-white/30 group-hover:text-[#FFB703] transition-colors">
+                    arrow_outward
                   </span>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">
-                    If blood alcohol threshold exceeds customized limits, an encrypted concierge vehicle summons to your current location.
-                  </p>
                 </div>
+                <h3 className="text-base font-semibold text-white group-hover:text-[#FFB703] transition-colors">
+                  The Rise of the Wrist Revolution
+                </h3>
+                <p className="text-xs text-[#849396] leading-relaxed">
+                  ZoeWave&apos;s keynote essay exploring why smartwatches will become our invaluable everyday life companions and bio-sentries.
+                </p>
               </div>
+              <span className="text-xs font-mono text-[#FFB703]">zoewave.medium.com</span>
+            </a>
 
-              <div className="flex gap-space-md items-start">
-                <span className="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center font-label-sm text-label-sm font-semibold shrink-0 border border-secondary/30">
-                  03
-                </span>
-                <div className="flex flex-col">
-                  <span className="font-headline-sm text-headline-sm text-text-primary font-medium">
-                    Encrypted Ring Notification
+            {/* Concept Video */}
+            <a
+              href="https://www.youtube.com/watch?v=o3ZehHx6BR8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 rounded-2xl bg-[#181c22] border border-white/10 hover:border-[#4cd6fb]/50 hover:bg-[#1c2026] transition-all flex flex-col justify-between gap-4 group"
+            >
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <span className="p-2 rounded-lg bg-[#4cd6fb]/10 text-[#4cd6fb]">
+                    <span className="material-symbols-outlined text-[20px]">video_library</span>
                   </span>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">
-                    Designated family or security detail receives a tamper-proof check-in ping confirming your safe transit route.
-                  </p>
+                  <span className="material-symbols-outlined text-white/30 group-hover:text-[#4cd6fb] transition-colors">
+                    arrow_outward
+                  </span>
                 </div>
+                <h3 className="text-base font-semibold text-white group-hover:text-[#4cd6fb] transition-colors">
+                  DrunkWatch Concept Video
+                </h3>
+                <p className="text-xs text-[#849396] leading-relaxed">
+                  Watch the original concept video by Developer Ylabz demonstrating real-world intoxication detection on smartwatches.
+                </p>
               </div>
-            </div>
-
-            <div className="pt-space-xs">
-              <button
-                onClick={handleTestDispatch}
-                className="px-space-xl py-3 rounded-full bg-surface-container-high text-circuit-gold font-label-lg text-label-lg uppercase tracking-wider shadow-md hover:bg-surface-bright transition-all flex items-center gap-space-xs border border-circuit-gold/40 cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-[18px]">send</span>
-                <span>Test Concierge Dispatch Ping</span>
-              </button>
-            </div>
-
-            {dispatchAlert && (
-              <div className="p-3.5 rounded-xl bg-surface-slate border border-circuit-gold text-circuit-gold font-body-sm text-body-sm flex items-start gap-2 animate-fadeIn">
-                <span className="material-symbols-outlined text-[20px] shrink-0 mt-0.5">verified</span>
-                <span>{dispatchAlert}</span>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Standards, Clinical Validation & Compliance Matrix */}
-      <section className="w-full py-20 px-margin bg-surface-obsidian" id="compliance">
-        <div className="max-w-7xl mx-auto flex flex-col gap-space-xl">
-          <div className="p-space-xl rounded-2xl bg-surface-container-low shadow-xl flex flex-col md:flex-row items-center justify-between gap-space-xl border border-subtle">
-            <div className="flex flex-col gap-space-xs max-w-xl">
-              <span className="font-label-sm text-label-sm text-primary-container uppercase tracking-widest font-semibold">
-                Scientific Rigor & Medical Sovereignty
-              </span>
-              <h3 className="font-headline-md text-headline-md text-text-primary">
-                WestCoast Computational Bio-Lab Validated
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Cross-referenced with GC-MS (Gas Chromatography-Mass Spectrometry) blood draw tests across 1,400 clinical trials. Designed under strict HIPAA-compliant zero-knowledge architecture.
-              </p>
-            </div>
-
-            {/* Compliance Badges Badging Grid */}
-            <div className="grid grid-cols-2 gap-space-md shrink-0 w-full md:w-auto">
-              <div className="p-space-md rounded-xl bg-surface-container-high flex items-center gap-space-sm border border-subtle">
-                <span className="material-symbols-outlined text-primary-container text-[24px]">verified_user</span>
-                <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-text-primary font-semibold">HIPAA Telemetry</span>
-                  <span className="font-body-sm text-body-sm text-text-muted">End-to-End Encrypted</span>
-                </div>
-              </div>
-
-              <div className="p-space-md rounded-xl bg-surface-container-high flex items-center gap-space-sm border border-subtle">
-                <span className="material-symbols-outlined text-circuit-gold text-[24px]">workspace_premium</span>
-                <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-text-primary font-semibold">ISO 13485:2016</span>
-                  <span className="font-body-sm text-body-sm text-text-muted">Medical Device Standard</span>
-                </div>
-              </div>
-
-              <div className="p-space-md rounded-xl bg-surface-container-high flex items-center gap-space-sm border border-subtle">
-                <span className="material-symbols-outlined text-secondary text-[24px]">memory</span>
-                <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-text-primary font-semibold">Wear OS / watchOS</span>
-                  <span className="font-body-sm text-body-sm text-text-muted">Native Micro-App</span>
-                </div>
-              </div>
-
-              <div className="p-space-md rounded-xl bg-surface-container-high flex items-center gap-space-sm border border-subtle">
-                <span className="material-symbols-outlined text-tertiary text-[24px]">lock_reset</span>
-                <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-text-primary font-semibold">Self-Sovereign</span>
-                  <span className="font-body-sm text-body-sm text-text-muted">On-Device Processing</span>
-                </div>
-              </div>
-            </div>
+              <span className="text-xs font-mono text-[#4cd6fb]">youtube.com/watch?v=o3ZehHx6BR8</span>
+            </a>
           </div>
         </div>
       </section>

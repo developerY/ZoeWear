@@ -12,6 +12,7 @@ export interface SubmenuItem {
   title: string;
   sublabel?: string;
   sectionId?: string;
+  targetPage?: NavPage;
   badge?: string;
   badgeColor?: string;
   icon?: string;
@@ -176,8 +177,16 @@ export const Header: React.FC<HeaderProps> = ({
     {
       id: 'tech',
       label: 'TECH',
-      categoryTitle: 'HARDWARE & KERNEL MATRIX',
+      categoryTitle: 'HARDWARE, EDGE ML & DRUNKWATCH',
       items: [
+        {
+          id: 'drunkwatch-page',
+          title: 'DrunkWatch™',
+          sublabel: 'Dedicated Page: Smartwatch ML, gait analysis, concept video & driving safety',
+          targetPage: 'drunkwatch',
+          badge: 'Dedicated Page',
+          badgeColor: 'text-[#00e5ff] bg-[#00e5ff]/15 border-[#00e5ff]/40 font-bold',
+        },
         {
           id: 'pillars',
           title: 'Four Technological Pillars',
@@ -243,39 +252,6 @@ export const Header: React.FC<HeaderProps> = ({
           title: 'Clinical Pathology Curriculum',
           sublabel: 'Academic triad connecting medicine with fashion',
           sectionId: 'curriculum',
-        },
-      ],
-    },
-    {
-      id: 'drunkwatch',
-      label: 'DRUNKWATCH™',
-      categoryTitle: 'METABOLIC BIOMETRIC GUARDIAN',
-      items: [
-        {
-          id: 'simulator',
-          title: 'Interactive BAC Dial Simulator',
-          sublabel: 'Radial dial, metabolic states & impedance sweep',
-          sectionId: 'simulator',
-          badge: 'Live Sim',
-          badgeColor: 'text-[#00e5ff] bg-[#00e5ff]/10',
-        },
-        {
-          id: 'pillars',
-          title: 'Four Metabolic Defense Pillars',
-          sublabel: 'Spectroscopy, osmolarity, haptics & concierge',
-          sectionId: 'pillars',
-        },
-        {
-          id: 'chaperone',
-          title: 'Encrypted Chaperone Concierge',
-          sublabel: 'Zero-touch geofenced rideshare dispatch',
-          sectionId: 'chaperone',
-        },
-        {
-          id: 'compliance',
-          title: 'DOT & NHTSA Compliance Specs',
-          sublabel: 'Calibrated laboratory blood-alcohol standards',
-          sectionId: 'compliance',
         },
       ],
     },
@@ -395,7 +371,8 @@ export const Header: React.FC<HeaderProps> = ({
             onMouseLeave={handleMouseLeave}
           >
             {navTabs.map((tab) => {
-              const isActive = currentPage === tab.id;
+              const isActive =
+                currentPage === tab.id || (tab.id === 'tech' && currentPage === 'drunkwatch');
               const isHovered = activeDropdown === tab.id;
 
               return (
@@ -458,7 +435,12 @@ export const Header: React.FC<HeaderProps> = ({
                         {tab.items.map((item) => (
                           <button
                             key={item.id}
-                            onClick={() => handleItemClick(tab.id, item.sectionId)}
+                            onClick={() =>
+                              handleItemClick(
+                                item.targetPage || tab.id,
+                                item.targetPage ? undefined : item.sectionId
+                              )
+                            }
                             className="w-full text-left p-2.5 rounded-xl hover:bg-[#1a2333] transition-all flex items-start justify-between gap-3 group/item cursor-pointer"
                           >
                             <div className="min-w-0">
@@ -575,7 +557,8 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="space-y-2">
             {navTabs.map((tab) => {
               const isExpanded = mobileExpandedTab === tab.id;
-              const isActive = currentPage === tab.id;
+              const isActive =
+                currentPage === tab.id || (tab.id === 'tech' && currentPage === 'drunkwatch');
 
               return (
                 <div
@@ -615,7 +598,12 @@ export const Header: React.FC<HeaderProps> = ({
                       {tab.items.map((item) => (
                         <button
                           key={item.id}
-                          onClick={() => handleItemClick(tab.id, item.sectionId)}
+                          onClick={() =>
+                            handleItemClick(
+                              item.targetPage || tab.id,
+                              item.targetPage ? undefined : item.sectionId
+                            )
+                          }
                           className="w-full text-left p-2 rounded-xl text-xs text-[#94A3B8] hover:text-[#00e5ff] hover:bg-[#1a2333] transition-colors flex items-center justify-between"
                         >
                           <span>{item.title}</span>

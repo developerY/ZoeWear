@@ -138,7 +138,7 @@ export default function App() {
           }
         }, 150);
       } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo(0, 0);
       }
     };
 
@@ -166,11 +166,11 @@ export default function App() {
         if (el) {
           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo(0, 0);
         }
       }, 100);
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo(0, 0);
     }
   };
 
