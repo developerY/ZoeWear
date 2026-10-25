@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavPage } from '../types';
+import { ZOEWEAR_CHIP_LOGO } from '../data/mockData';
 
 interface FooterProps {
   onNavigate: (page: NavPage) => void;
@@ -26,13 +27,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-10 border-b border-[rgba(255,255,255,0.08)]">
           {/* Brand Column */}
           <div className="flex flex-col gap-4 lg:col-span-2">
-            <div className="flex flex-col">
-              <span className="font-['Space_Grotesk'] text-[20px] font-semibold tracking-wider text-[#F8FAFC] leading-none">
-                ZOEWEAR
-              </span>
-              <span className="font-['Space_Grotesk'] text-[11px] tracking-widest text-[#00e5ff] mt-1 uppercase">
-                CYBER-COUTURE & WEARABLE TECH
-              </span>
+            <div className="flex items-center gap-3">
+              <img
+                src={ZOEWEAR_CHIP_LOGO}
+                alt="ZoeWear Silicon Chip"
+                className="w-10 h-10 rounded-xl object-cover ring-1 ring-[rgba(0,229,255,0.5)] shadow-[0_0_12px_rgba(0,229,255,0.25)]"
+              />
+              <div className="flex flex-col">
+                <span className="font-['Space_Grotesk'] text-[20px] font-semibold tracking-wider text-[#F8FAFC] leading-none">
+                  ZOEWEAR
+                </span>
+                <span className="font-['Space_Grotesk'] text-[11px] tracking-widest text-[#00e5ff] mt-1 uppercase">
+                  CYBER-COUTURE & WEARABLE TECH
+                </span>
+              </div>
             </div>
 
             <p className="text-[#bac9cc] font-['Plus_Jakarta_Sans'] text-[13px] italic">

@@ -5,7 +5,7 @@
 
 import React, { useState, useRef } from 'react';
 import { NavPage } from '../types';
-import { ZOEWEAR_INSIGNIA } from '../data/mockData';
+import { ZOEWEAR_CHIP_LOGO, ZOEWEAR_FAVICON } from '../data/mockData';
 
 export interface SubmenuItem {
   id: string;
@@ -366,24 +366,24 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Main Navbar Bar */}
       <div className="w-full bg-[#121824]/95 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.6)] border-b border-[rgba(255,255,255,0.08)] relative">
         <div className="h-16 max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between gap-4">
-          {/* Logo */}
+          {/* Brand Logo with ZoeWear Chip */}
           <button
             onClick={() => handleItemClick('home')}
-            className="flex items-center gap-2.5 text-left focus:outline-none group cursor-pointer shrink-0"
+            className="flex items-center gap-3 text-left focus:outline-none group cursor-pointer shrink-0"
           >
             <div className="relative">
               <img
-                alt="ZoeWear Insignia"
-                className="w-8 h-8 rounded-full object-cover ring-1 ring-[rgba(0,229,255,0.5)] group-hover:scale-105 transition-transform"
-                src={ZOEWEAR_INSIGNIA}
+                alt="ZoeWear Core Silicon Chip"
+                className="w-10 h-10 rounded-xl object-cover ring-1 ring-[rgba(0,229,255,0.6)] shadow-[0_0_15px_rgba(0,229,255,0.35)] group-hover:scale-105 group-hover:ring-[#00e5ff] transition-all"
+                src={ZOEWEAR_CHIP_LOGO}
               />
-              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00e5ff] border-2 border-[#0B0F15]"></span>
+              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00e5ff] border-2 border-[#0B0F15] animate-pulse"></span>
             </div>
             <div className="flex flex-col">
               <span className="font-['Space_Grotesk'] text-lg font-bold tracking-wider text-[#F8FAFC] leading-none group-hover:text-[#00e5ff] transition-colors">
                 ZOEWEAR
               </span>
-              <span className="font-['Space_Grotesk'] text-[9px] tracking-widest text-[#00e5ff] leading-tight uppercase">
+              <span className="font-['Space_Grotesk'] text-[9px] tracking-widest text-[#00e5ff] leading-tight uppercase mt-0.5">
                 CYBER-COUTURE
               </span>
             </div>
@@ -550,7 +550,7 @@ export const Header: React.FC<HeaderProps> = ({
               title="Atelier Profile"
             >
               <img
-                src={ZOEWEAR_INSIGNIA}
+                src={ZOEWEAR_FAVICON}
                 alt="Profile"
                 className="w-7 h-7 rounded-full object-cover"
               />

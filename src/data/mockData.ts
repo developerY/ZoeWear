@@ -1,10 +1,15 @@
 import { GarmentSilhouette, FootwearModel, ResearchPaper, CourseModule, ShopItem } from '../types';
 
-export const ZOEWEAR_INSIGNIA =
-  'https://lh3.googleusercontent.com/aida/AEtjO1UZhPV7bT2Ga6gKl85I4jKcZ3AqF0KNXjEk01wHR_ZMacpbd0b0gpxMFLlaHIYBGam_lhC1QGgsPiJ8z41la3ZCGcfwW1_Dh8vXMr1gzkt-CuGOmS7H_PW3dKqVfhLQHt2_lH53IG3CW_R89vjA3LLrXCnR7qezaKrJJcCDEeX9nJPYJgGF8w6Hi4nRZBOaImzJM4SG9N45qUhLlJD-p3sl6jTJUzGQYr6YyBtmLLAb6kQdY2RM1168la0';
+export const ZOEWEAR_FAVICON = '/assets/aistudio/image_1ecf7768.png';
+export const ZOEWEAR_CHIP_LOGO = '/assets/aistudio/image_7c108a7e.png';
+export const ZOEWEAR_LOGO = ZOEWEAR_CHIP_LOGO;
+export const ZOEWEAR_INSIGNIA = ZOEWEAR_FAVICON;
 
 export const IMAGES = {
-  insignia: ZOEWEAR_INSIGNIA,
+  logo: ZOEWEAR_CHIP_LOGO,
+  chipLogo: ZOEWEAR_CHIP_LOGO,
+  insignia: ZOEWEAR_FAVICON,
+  favicon: ZOEWEAR_FAVICON,
   fashionHero:
     'https://lh3.googleusercontent.com/aida-public/AB6AXuCAnaIkpi_Waqx0BhuSVGNvw6ySCgkCEZhGRkXfAgovT3nuFBDR_5M4lLdHOgShEH_Wm3BL8NZDLiwaQqEkN_xkVOhozPu8ycwu9oD1LFmVTTqbsLO9OropE2qibVJWuWStPxYZRPzxsj6kxp7N49Lv-oehcFvXS_iIMbTHNHiMvMhT52dBP7ffcf4e97IF1FBeNe0qe8SEUOh3AwEPK4UWbEodGnVECgQ9p4pLDH6lsdz1CFOQlTma',
   swiftMonsterMountain:
@@ -49,7 +54,10 @@ export const IMAGES = {
 
 // Aliased ASSETS dictionary for convenient reference across all screen modules
 export const ASSETS = {
+  logo: IMAGES.logo,
+  chipLogo: IMAGES.chipLogo,
   insignia: IMAGES.insignia,
+  favicon: IMAGES.favicon,
   fashionHeroModel: IMAGES.fashionHero,
   swiftMonsterMountain: IMAGES.swiftMonsterMountain,
   swiftMonsterBeach: IMAGES.swiftMonsterBeach,
