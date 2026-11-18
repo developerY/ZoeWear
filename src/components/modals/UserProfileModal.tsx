@@ -65,8 +65,8 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({ isOpen, onCl
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-obsidian/85 backdrop-blur-xl animate-fadeIn">
-      <div className="relative w-full max-w-lg rounded-2xl bg-surface-container border border-border-luminous/40 shadow-[0_20px_70px_rgba(0,0,0,0.85)] p-space-lg overflow-hidden flex flex-col gap-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0E344D]/35 backdrop-blur-md animate-fadeIn">
+      <div className="relative w-full max-w-lg rounded-2xl bg-white border border-[#D6DCE0] shadow-2xl p-space-lg overflow-hidden flex flex-col gap-4">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-subtle">
           <div className="flex items-center gap-3">
@@ -173,7 +173,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({ isOpen, onCl
           </button>
           <button
             onClick={onClose}
-            className="px-5 py-1.5 rounded-full bg-primary-container text-surface-obsidian text-xs font-semibold uppercase tracking-wider hover:shadow-lg transition-all cursor-pointer"
+            className="px-5 py-1.5 rounded-full bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
           >
             Close
           </button>

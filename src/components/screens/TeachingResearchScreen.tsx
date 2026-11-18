@@ -97,7 +97,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
                 <a
-                  className="px-space-xl py-3.5 rounded-full bg-primary-container text-surface-obsidian font-headline-sm text-headline-sm hover:shadow-[0_0_24px_rgba(0,229,255,0.4)] transition-all flex items-center gap-space-xs cursor-pointer font-semibold"
+                  className="px-space-xl py-3.5 rounded-full bg-primary-container text-white font-headline-sm text-headline-sm hover:bg-[#2E766B] shadow-sm transition-all flex items-center gap-space-xs cursor-pointer font-semibold"
                   href="#fellowship"
                 >
                   Apply for Research Fellowship
@@ -105,9 +105,9 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                 </a>
                 <button
                   onClick={handleDownloadSyllabus}
-                  className="px-space-xl py-3.5 rounded-full bg-surface-container-high text-text-primary font-headline-sm text-headline-sm hover:bg-surface-container-highest transition-all flex items-center gap-space-xs shadow-md border border-subtle cursor-pointer"
+                  className="px-space-xl py-3.5 rounded-full bg-white text-[#0E344D] font-headline-sm text-headline-sm hover:bg-[#F1F3F4] transition-all flex items-center gap-space-xs shadow-xs border border-[#D6DCE0] cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-primary-container text-[20px]">download</span>
+                  <span className="material-symbols-outlined text-[#3B8E82] text-[20px]">download</span>
                   Download Academic Syllabus
                 </button>
               </div>
@@ -145,7 +145,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                   <span className="text-primary-container font-semibold">99.4% IEEE/HCI</span>
                 </div>
                 <div className="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
-                  <div className="bg-primary-container h-full rounded-full w-[99.4%] shadow-[0_0_8px_rgba(0,229,255,0.8)]" />
+                  <div className="bg-primary-container h-full rounded-full w-[99.4%]" />
                 </div>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant italic leading-normal">
@@ -158,39 +158,39 @@ ZoeWear Technologies Corp. Academic Outreach.`;
         {/* Lab Feature Imagery Strip */}
         <section className="max-w-7xl mx-auto px-margin py-space-md" id="labs">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-space-md">
-            <div className="md:col-span-7 rounded-xl overflow-hidden bg-surface-container shadow-xl relative min-h-[340px] border border-subtle group">
+            <div className="md:col-span-7 rounded-xl overflow-hidden bg-white shadow-md relative min-h-[340px] border border-[#D6DCE0] group">
               <img
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 alt="Close up high-precision macro photography of conductive silver threads woven into fine dark cashmere and silk"
                 src={ASSETS.textileFoundry}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface-obsidian via-surface-obsidian/40 to-transparent p-space-lg flex flex-col justify-end">
-                <span className="font-label-sm text-label-sm text-circuit-gold uppercase tracking-widest font-semibold">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E344D]/90 via-[#0E344D]/45 to-transparent p-space-lg flex flex-col justify-end">
+                <span className="font-label-sm text-label-sm text-[#7EC4B9] uppercase tracking-widest font-semibold">
                   [ LAB 01 // TEXTILE FOUNDRY ]
                 </span>
-                <h3 className="font-headline-md text-headline-md text-text-primary">
+                <h3 className="font-headline-md text-headline-md text-white">
                   Conductive Weft Micro-Integration
                 </h3>
-                <p className="font-body-sm text-body-sm text-on-surface-variant max-w-lg mt-1">
+                <p className="font-body-sm text-body-sm text-white/85 max-w-lg mt-1">
                   Precision automated looms interpolating insulated gold micro-leads with organic Merino fibers for zero-impedance biosensing.
                 </p>
               </div>
             </div>
 
-            <div className="md:col-span-5 rounded-xl overflow-hidden bg-surface-container shadow-xl relative min-h-[340px] border border-subtle group">
+            <div className="md:col-span-5 rounded-xl overflow-hidden bg-white shadow-md relative min-h-[340px] border border-[#D6DCE0] group">
               <img
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 alt="Futuristic university research laboratory with graduate design students inspecting a holographic 3D mannequin draped in glowing biometric cyber-garments"
                 src={ASSETS.virtualAtelier}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface-obsidian via-surface-obsidian/40 to-transparent p-space-lg flex flex-col justify-end">
-                <span className="font-label-sm text-label-sm text-primary-container uppercase tracking-widest font-semibold">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E344D]/90 via-[#0E344D]/45 to-transparent p-space-lg flex flex-col justify-end">
+                <span className="font-label-sm text-label-sm text-[#7EC4B9] uppercase tracking-widest font-semibold">
                   [ LAB 04 // VIRTUAL ATELIER ]
                 </span>
-                <h3 className="font-headline-md text-headline-md text-text-primary">
+                <h3 className="font-headline-md text-headline-md text-white">
                   Real-Time Twin Synthesis
                 </h3>
-                <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                <p className="font-body-sm text-body-sm text-white/85 mt-1">
                   Physics-accurate drape mechanics simulated directly from live pulse and respiratory input feeds.
                 </p>
               </div>
@@ -219,22 +219,22 @@ ZoeWear Technologies Corp. Academic Outreach.`;
               <div
                 key={mod.id}
                 onClick={() => setSelectedModule(mod)}
-                className={`bg-surface-container-low rounded-xl p-space-lg shadow-lg hover:shadow-2xl transition-all flex flex-col justify-between group border cursor-pointer ${
+                className={`bg-white rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group border cursor-pointer ${
                   selectedModule?.id === mod.id
-                    ? 'border-primary-container shadow-[0_0_16px_rgba(0,229,255,0.25)]'
-                    : 'border-subtle hover:border-border-luminous/40'
+                    ? 'border-[#3B8E82] ring-2 ring-[#3B8E82]/20'
+                    : 'border-[#D6DCE0] hover:border-[#3B8E82]/60'
                 }`}
               >
                 <div className="flex flex-col gap-space-sm">
                   <div className="flex items-center justify-between">
-                    <span className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-container font-headline-sm border border-subtle">
+                    <span className="w-10 h-10 rounded-lg bg-[#F1F3F4] flex items-center justify-center text-[#25665D] font-headline-sm border border-[#D6DCE0] font-semibold">
                       0{mod.number}
                     </span>
                     <span className="font-label-sm text-label-sm text-text-muted font-mono">
                       {mod.duration}
                     </span>
                   </div>
-                  <h3 className="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary-container transition-colors">
+                  <h3 className="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
                     {mod.title}
                   </h3>
                   <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
@@ -245,7 +245,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                   {mod.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-subtle"
+                      className="px-2 py-0.5 rounded bg-[#F1F3F4] text-on-surface-variant font-label-sm text-label-sm border border-[#D6DCE0]"
                     >
                       {tag}
                     </span>
@@ -256,9 +256,9 @@ ZoeWear Technologies Corp. Academic Outreach.`;
           </div>
 
           {selectedModule && (
-            <div className="mt-space-md p-space-lg rounded-xl bg-surface-container border border-primary-container/40 flex flex-col md:flex-row items-center justify-between gap-space-md animate-fadeIn">
+            <div className="mt-space-md p-space-lg rounded-xl bg-white border border-[#3B8E82] shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md animate-fadeIn">
               <div>
-                <span className="font-label-sm text-label-sm text-primary-container uppercase tracking-wider font-semibold">
+                <span className="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">
                   Active Syllabus Inspection: Module 0{selectedModule.number}
                 </span>
                 <h4 className="font-headline-sm text-headline-sm text-text-primary mt-0.5">
@@ -270,7 +270,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
               </div>
               <button
                 onClick={handleDownloadSyllabus}
-                className="px-space-md py-2 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase tracking-wide hover:shadow-lg transition-all font-semibold"
+                className="px-space-md py-2 rounded-full bg-[#3B8E82] text-white font-label-sm text-label-sm uppercase tracking-wide hover:bg-[#2E766B] shadow-xs transition-all font-semibold cursor-pointer"
               >
                 Get Syllabus PDF
               </button>
@@ -280,7 +280,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
 
         {/* WestCoast Academic Research Portal */}
         <section className="max-w-7xl mx-auto px-margin pt-space-xl pb-space-lg" id="whitepapers">
-          <div className="bg-surface-slate rounded-2xl p-space-xl shadow-2xl relative overflow-hidden border border-subtle">
+          <div className="bg-white rounded-2xl p-space-xl shadow-sm relative overflow-hidden border border-[#D6DCE0]">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-lg">
               <div>
                 <span className="font-label-sm text-label-sm text-primary-container tracking-widest uppercase font-semibold">
@@ -330,6 +330,31 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Featured Interactive Clinical Monograph: Ankle Biometrics & Kinematics */}
+            <div className="mt-space-lg rounded-xl p-space-md sm:p-space-lg bg-[#E8F3F1] border border-[#3B8E82]/35 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+              <div className="space-y-1 max-w-2xl">
+                <div className="flex items-center gap-2 text-xs font-['Space_Grotesk'] font-bold uppercase tracking-wider text-[#25665D]">
+                  <span>Featured Clinical Monograph</span>
+                  <span aria-hidden="true">·</span>
+                  <span>83 Linked PubMed &amp; PMC Citations</span>
+                </div>
+                <h3 className="font-headline-sm text-headline-sm text-[#0E344D] font-semibold">
+                  Biomechanical &amp; Physiological Superiority of Ankle-Worn Wearable Devices
+                </h3>
+                <p className="font-body-sm text-body-sm text-[#36454F]">
+                  Interactive gait lab, posterior tibial PPG comparison, PAD sensitivity analytics, Parkinson&apos;s FoG ML models, and full scientific text.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => onNavigate('ankle-biometrics')}
+                className="px-space-lg py-2.5 rounded-full bg-[#25665D] text-white font-label-sm text-label-sm uppercase tracking-wider font-semibold hover:bg-[#2E766B] transition-colors shrink-0 cursor-pointer flex items-center gap-1.5"
+              >
+                <span>Open Interactive Report</span>
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
             </div>
 
             {/* Academic Keynote Archive Strip */}
@@ -518,7 +543,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                         Deadline: May 15, 2025. Fully Funded Stipend.
                       </span>
                       <button
-                        className="w-full md:w-auto px-space-xl py-3 rounded-full bg-primary-container text-surface-obsidian font-headline-sm text-headline-sm hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all cursor-pointer font-semibold"
+                        className="w-full md:w-auto px-space-xl py-3 rounded-full bg-[#3B8E82] text-white font-headline-sm text-headline-sm hover:bg-[#2E766B] shadow-sm transition-all cursor-pointer font-semibold"
                         type="submit"
                       >
                         Submit Research Proposal

@@ -176,9 +176,9 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                       alt="Avant-garde luxury black garment woven with illuminated cyan threads and gold circuitry"
                       src={ASSETS.conductiveSilk}
                     />
-                    <div className="absolute bottom-2 left-2 right-2 p-space-xs rounded bg-surface-obsidian/85 backdrop-blur-md flex items-center justify-between font-label-sm text-label-sm border border-border-luminous/30">
-                      <span className="text-primary-container">CONDUCTIVE THREAD NO. 889</span>
-                      <span className="text-circuit-gold">98.8% CONDUCTANCE</span>
+                    <div className="absolute bottom-2 left-2 right-2 p-space-xs rounded bg-white/95 backdrop-blur-md flex items-center justify-between font-label-sm text-label-sm border border-[#D6DCE0] shadow-xs">
+                      <span className="text-[#25665D] font-semibold">CONDUCTIVE THREAD NO. 889</span>
+                      <span className="text-[#18587A] font-semibold">98.8% CONDUCTANCE</span>
                     </div>
                   </div>
                 </div>
@@ -219,7 +219,8 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                   />
                   <path
                     d="M 0 25 Q 40 40, 80 25 T 160 25 T 240 25 T 320 25 T 400 25 T 480 25 T 600 25"
-                    stroke="rgba(255, 183, 3, 0.45)"
+                    stroke="#18587A"
+                    strokeOpacity="0.45"
                     strokeDasharray="3 3"
                     strokeWidth="1.5"
                   />
@@ -253,8 +254,8 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                     onClick={() => setActiveStage(1)}
                     className={`p-space-sm rounded-lg flex items-center justify-between cursor-pointer transition-all ${
                       activeStage === 1
-                        ? 'bg-surface-container border border-primary-container shadow-[0_0_12px_rgba(0,229,255,0.2)]'
-                        : 'bg-surface-container-lowest/90 hover:bg-surface-container/60 border border-subtle'
+                        ? 'bg-white border border-[#3B8E82] shadow-sm'
+                        : 'bg-surface-container-lowest/90 hover:bg-white border border-subtle'
                     }`}
                   >
                     <div className="flex items-center gap-space-sm">
@@ -264,7 +265,7 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                           Transdermal Ingestion
                         </div>
                         <div className="font-body-sm text-body-sm text-text-muted">
-                          Electrolytes & Epidermal Heat
+                          Electrolytes &amp; Epidermal Heat
                         </div>
                       </div>
                     </div>
@@ -277,8 +278,8 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                     onClick={() => setActiveStage(2)}
                     className={`p-space-sm rounded-lg flex items-center justify-between cursor-pointer transition-all ${
                       activeStage === 2
-                        ? 'bg-surface-container border border-secondary shadow-[0_0_12px_rgba(76,214,251,0.2)]'
-                        : 'bg-surface-container-lowest/90 hover:bg-surface-container/60 border border-subtle'
+                        ? 'bg-white border border-[#18587A] shadow-sm'
+                        : 'bg-surface-container-lowest/90 hover:bg-white border border-subtle'
                     }`}
                   >
                     <div className="flex items-center gap-space-sm">
@@ -301,8 +302,8 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                     onClick={() => setActiveStage(3)}
                     className={`p-space-sm rounded-lg flex items-center justify-between cursor-pointer transition-all ${
                       activeStage === 3
-                        ? 'bg-surface-container border border-circuit-gold shadow-[0_0_12px_rgba(255,183,3,0.2)]'
-                        : 'bg-surface-container-lowest/90 hover:bg-surface-container/60 border border-subtle'
+                        ? 'bg-white border border-[#0E344D] shadow-sm'
+                        : 'bg-surface-container-lowest/90 hover:bg-white border border-subtle'
                     }`}
                   >
                     <div className="flex items-center gap-space-sm">
@@ -378,7 +379,7 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
 
         {/* Product Showcase: "Breathe" Mobile Health App & Diagnostics */}
         <section className="max-w-7xl mx-auto px-margin py-space-xl" id="breathe-app">
-          <div className="bg-surface-container-low/70 rounded-2xl p-space-lg lg:p-space-xl relative overflow-hidden border border-subtle shadow-2xl">
+          <div className="bg-white rounded-2xl p-space-lg lg:p-space-xl relative overflow-hidden border border-[#D6DCE0] shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
               {/* App Narrative & Highlights (6 Cols) */}
               <div className="lg:col-span-6 flex flex-col gap-space-md">
@@ -450,26 +451,26 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                 <div className="flex items-center gap-space-md pt-space-sm flex-wrap">
                   <button
                     onClick={onRequestBeta}
-                    className="px-space-lg py-3 rounded-full bg-primary-container text-on-primary-container font-headline-sm text-label-lg tracking-wide shadow-lg hover:shadow-[0_0_24px_rgba(0,229,255,0.45)] transition-all flex items-center gap-2 cursor-pointer font-semibold"
+                    className="px-space-lg py-3 rounded-full bg-primary-container text-white font-headline-sm text-label-lg tracking-wide shadow-sm hover:bg-[#2E766B] transition-all flex items-center gap-2 cursor-pointer font-semibold"
                   >
                     <span>Request Clinical Beta</span>
                     <span className="material-symbols-outlined text-[18px]">east</span>
                   </button>
                   <button
                     onClick={onOpenSpecs}
-                    className="px-space-md py-3 rounded-full bg-surface-container-high text-text-primary font-headline-sm text-label-lg hover:bg-surface-bright transition-all flex items-center gap-2 border border-border-luminous/40 cursor-pointer"
+                    className="px-space-md py-3 rounded-full bg-[#F1F3F4] text-text-primary font-headline-sm text-label-lg hover:bg-[#E4E8EB] transition-all flex items-center gap-2 border border-[#D6DCE0] cursor-pointer"
                   >
                     <span className="material-symbols-outlined text-[18px]">terminal</span>
-                    <span>API & FHIR Specs</span>
+                    <span>API &amp; FHIR Specs</span>
                   </button>
                 </div>
               </div>
 
               {/* App Mockup UI Card (6 Cols) */}
               <div className="lg:col-span-6 flex justify-center">
-                <div className="w-full max-w-sm rounded-[2.5rem] bg-surface-obsidian p-space-sm shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-border-luminous/40 relative">
+                <div className="w-full max-w-sm rounded-[2.5rem] bg-[#0E344D] p-space-sm shadow-xl border border-[#0E344D]/30 relative">
                   {/* Glass Inner Screen */}
-                  <div className="rounded-[2.2rem] bg-surface-container-lowest p-space-md flex flex-col gap-space-md relative overflow-hidden border border-subtle">
+                  <div className="rounded-[2.2rem] bg-white p-space-md flex flex-col gap-space-md relative overflow-hidden border border-[#D6DCE0]">
                     {/* Status bar */}
                     <div className="flex justify-between items-center text-text-muted font-label-sm text-label-sm">
                       <span>09:41</span>
@@ -508,7 +509,7 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                             cy="50"
                             fill="none"
                             r="42"
-                            stroke="rgba(255,255,255,0.06)"
+                            stroke="#E4E8EB"
                             strokeWidth="8"
                           />
                           <circle
@@ -741,21 +742,21 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                 alt="Modern high-tech bio-engineering cleanroom laboratory with researchers testing smart textile fiber garments"
                 src={ASSETS.cleanroomLab}
               />
-              <div className="absolute bottom-3 left-3 p-space-xs rounded bg-surface-obsidian/85 backdrop-blur-md font-label-sm text-label-sm text-primary border border-border-luminous/40">
+              <div className="absolute bottom-3 left-3 p-space-xs px-2.5 rounded bg-white/95 backdrop-blur-md font-label-sm text-label-sm text-[#25665D] font-semibold border border-[#D6DCE0] shadow-xs">
                 WestCoast Bio-Sensory Cleanroom // Station 4
               </div>
             </div>
-            <div className="md:col-span-7 p-space-xl rounded-xl bg-surface-container-low flex flex-col justify-between border border-subtle">
+            <div className="md:col-span-7 p-space-xl rounded-xl bg-white flex flex-col justify-between border border-[#D6DCE0] shadow-xs">
               <div className="flex flex-col gap-space-sm">
                 <div className="flex items-center gap-space-xs text-circuit-gold font-label-sm text-label-sm uppercase tracking-widest">
                   <span className="material-symbols-outlined text-[18px]">verified</span>
-                  <span>Empirical Validation & Peer Research</span>
+                  <span>Empirical Validation &amp; Peer Research</span>
                 </div>
                 <h3 className="font-display text-headline-md text-text-primary">
                   Closing the Feedback Loop on Sedentary Lifestyle Risks
                 </h3>
                 <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  "With the environment evolving faster than our biological capacity to adapt, wearable fashion technology provides the real-time cognitive counterweight required in modern society."
+                  &ldquo;With the environment evolving faster than our biological capacity to adapt, wearable fashion technology provides the real-time cognitive counterweight required in modern society.&rdquo;
                 </p>
               </div>
               <div className="flex items-center gap-space-md pt-space-md mt-space-md border-t border-subtle">
@@ -779,9 +780,9 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
 
         {/* Bottom Mission Callout & Resource Hub */}
         <section className="max-w-7xl mx-auto px-margin py-space-xl">
-          <div className="p-space-xl rounded-2xl bg-gradient-to-br from-surface-slate via-surface-container-lowest to-surface-slate relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-space-lg border border-border-luminous/30 shadow-2xl">
+          <div className="p-space-xl rounded-2xl bg-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-space-lg border border-[#D6DCE0] shadow-sm">
             <div className="flex flex-col gap-space-xs max-w-2xl">
-              <span className="font-label-sm text-label-sm text-primary-container uppercase tracking-widest">
+              <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">
                 Collaborative Initiative
               </span>
               <h2 className="font-display text-headline-md text-text-primary">
@@ -794,13 +795,13 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
             <div className="flex items-center gap-space-sm flex-shrink-0 flex-wrap">
               <button
                 onClick={onJoinCohort}
-                className="px-space-lg py-3 rounded-full bg-primary-container text-on-primary-container font-headline-sm text-label-lg tracking-wide hover:shadow-[0_0_24px_rgba(0,229,255,0.4)] transition-all cursor-pointer font-semibold"
+                className="px-space-lg py-3 rounded-full bg-primary-container text-white font-headline-sm text-label-lg tracking-wide hover:bg-[#2E766B] shadow-sm transition-all cursor-pointer font-semibold"
               >
                 Join Research Cohort
               </button>
               <button
                 onClick={() => onNavigate('teaching-and-research')}
-                className="px-space-md py-3 rounded-full bg-surface-container-high text-on-surface font-headline-sm text-label-lg hover:text-primary transition-colors border border-subtle cursor-pointer"
+                className="px-space-md py-3 rounded-full bg-[#F1F3F4] text-[#0E344D] font-headline-sm text-label-lg hover:text-[#25665D] transition-colors border border-[#D6DCE0] cursor-pointer font-medium"
               >
                 Download DoT15 Slides
               </button>

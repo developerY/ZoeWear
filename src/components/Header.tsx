@@ -108,7 +108,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Impedance-balancing second-skin veil (50ml)',
           sectionId: 'biomimetic-nude-veil',
           badge: 'Atelier 04',
-          badgeColor: 'text-[#FFB703] bg-[#FFB703]/10',
+          badgeColor: 'text-[#18587A] bg-[#EEF4F7] border-[#18587A]/30',
         },
         {
           id: 'swiftmonster-mountain',
@@ -156,7 +156,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Alpine Mountain & Hydrodynamic Beach footwear',
           sectionId: 'swiftmonster',
           badge: 'Dual Series',
-          badgeColor: 'text-[#00e5ff] bg-[#00e5ff]/10',
+          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35',
         },
         {
           id: 'lookbook',
@@ -170,7 +170,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Interactive compliance & drape ergonomics',
           sectionId: 'calculator',
           badge: 'Interactive',
-          badgeColor: 'text-[#4cd6fb] bg-[#4cd6fb]/10',
+          badgeColor: 'text-[#18587A] bg-[#EEF4F7] border-[#18587A]/30',
         },
       ],
     },
@@ -181,11 +181,11 @@ export const Header: React.FC<HeaderProps> = ({
       items: [
         {
           id: 'muse-charm-page',
-          title: 'Muse Charm (Meta AI Hackathon)',
-          sublabel: 'Dedicated Page: Bio-Responsive Digital Companion · sEMG, Life Engine & SAM 3.1',
+          title: 'Muse Charm (Personal Life Coach)',
+          sublabel: 'Dedicated Page: Bio-Responsive Life Coach · sEMG, Emotions, Wealth & SAM 3.1',
           targetPage: 'muse-charm',
           badge: 'Meta Hackathon',
-          badgeColor: 'text-[#00e5ff] bg-[#00e5ff]/15 border-[#00e5ff]/40 font-bold',
+          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35 font-bold',
         },
         {
           id: 'drunkwatch-page',
@@ -193,7 +193,15 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Dedicated Page: Smartwatch ML, gait analysis, concept video & driving safety',
           targetPage: 'drunkwatch',
           badge: 'Dedicated Page',
-          badgeColor: 'text-[#00e5ff] bg-[#00e5ff]/15 border-[#00e5ff]/40 font-bold',
+          badgeColor: 'text-[#18587A] bg-[#EEF4F7] border-[#18587A]/35 font-bold',
+        },
+        {
+          id: 'ankle-biometrics-tech',
+          title: 'Ankle Biometrics & Gait Lab',
+          sublabel: 'Supramalleolar PPG, FoG neural models & 83-paper synthesis',
+          targetPage: 'ankle-biometrics',
+          badge: 'Research Lab',
+          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35 font-bold',
         },
         {
           id: 'pillars',
@@ -214,7 +222,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Interactive telemetry debug kernel',
           sectionId: 'terminal',
           badge: 'Port 9042',
-          badgeColor: 'text-[#FFB703] bg-[#FFB703]/10',
+          badgeColor: 'text-[#0E344D] bg-[#F1F3F4] border-[#D6DCE0]',
         },
         {
           id: 'convergence',
@@ -247,7 +255,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Thoracic strain sensor tracking lung volume & stress tone',
           sectionId: 'breathe-app',
           badge: 'Pro Beta',
-          badgeColor: 'text-[#00e5ff] bg-[#00e5ff]/10',
+          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35',
         },
         {
           id: 'cleanroom',
@@ -287,7 +295,15 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'IEEE, ACM Transactions & Nature-Biotech papers',
           sectionId: 'whitepapers',
           badge: 'Open Access',
-          badgeColor: 'text-[#FFB703] bg-[#FFB703]/10',
+          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/30',
+        },
+        {
+          id: 'ankle-biometrics-page',
+          title: 'Ankle Biometrics & Kinematics Report',
+          sublabel: 'Interactive charts, full monograph & 83 PubMed/PMC citations',
+          targetPage: 'ankle-biometrics',
+          badge: '83 Citations',
+          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35 font-bold',
         },
         {
           id: 'fellowship',
@@ -322,33 +338,34 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 flex flex-col">
-      {/* Top Telemetry & Announcement Ribbon (like ZoeNude / MAC) */}
-      <div className="w-full bg-[#0a0e14]/95 backdrop-blur-md border-b border-[rgba(255,255,255,0.08)] py-1.5 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between text-[#bac9cc] font-['Space_Grotesk'] text-[11px] leading-4 tracking-[0.08em] font-medium">
+      {/* Top Telemetry & Announcement Ribbon */}
+      <div className="w-full bg-[#EFF2F3]/95 backdrop-blur-md border-b border-[#D6DCE0] py-1.5 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between text-[#36454F] font-['Space_Grotesk'] text-[11px] leading-4 tracking-[0.06em] font-medium">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse"></span>
-            <span className="tracking-wider uppercase text-[#F8FAFC]">ZoeWear Atelier</span>
-            <span className="text-[rgba(255,255,255,0.15)] hidden sm:inline">·</span>
-            <span className="text-[#94A3B8] hidden sm:inline">Fall/Winter Biometric Cyber-Couture Showcase</span>
+            <span className="tracking-wider uppercase text-[#0E344D] font-semibold">ZoeWear Atelier</span>
+            <span className="text-[#C6CED4] hidden sm:inline">·</span>
+            <span className="text-[#475866] hidden sm:inline">Fall/Winter Biometric Cyber-Couture Showcase</span>
           </div>
 
-          <div className="flex items-center gap-4 text-[#94A3B8]">
+          <div className="flex items-center gap-4 text-[#475866]">
             <button
               onClick={onOpenDiagnostics}
-              className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#182030] border border-[rgba(0,229,255,0.3)] text-[#00e5ff] hover:bg-[#00e5ff]/10 transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-[#3B8E82]/40 text-[#25665D] hover:bg-[#3B8E82]/10 transition-colors cursor-pointer shadow-xs"
               title="Open Live Telemetry Diagnostics"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-ping"></span>
-              <span className="tracking-widest uppercase text-[10px]">{liveBpm} BPM Live Biosignal</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#3B8E82] animate-ping"></span>
+              <span className="tracking-widest uppercase text-[10px] font-semibold">{liveBpm} BPM Live Biosignal</span>
             </button>
-            <span className="text-[rgba(255,255,255,0.15)] hidden md:inline">·</span>
-            <span className="tracking-widest uppercase text-[#FFB703] hidden md:inline">Complimentary White-Glove Insured Delivery</span>
+            <span className="text-[#C6CED4] hidden md:inline">·</span>
+            <span className="tracking-widest uppercase text-[#18587A] font-semibold hidden md:inline">
+              Complimentary White-Glove Insured Delivery
+            </span>
           </div>
         </div>
       </div>
 
       {/* Main Navbar Bar */}
-      <div className="w-full bg-[#121824]/95 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.6)] border-b border-[rgba(255,255,255,0.08)] relative">
+      <div className="w-full bg-white/95 backdrop-blur-2xl shadow-[0_4px_24px_rgba(14, 52, 77,0.06)] border-b border-[#D6DCE0] relative">
         <div className="h-16 max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between gap-4">
           {/* Brand Logo with ZoeWear Chip */}
           <button
@@ -358,22 +375,21 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="relative">
               <img
                 alt="ZoeWear Core Silicon Chip"
-                className="w-10 h-10 rounded-xl object-cover ring-1 ring-[rgba(0,229,255,0.6)] shadow-[0_0_15px_rgba(0,229,255,0.35)] group-hover:scale-105 group-hover:ring-[#00e5ff] transition-all"
+                className="w-10 h-10 rounded-xl object-cover ring-1 ring-[#3B8E82]/45 shadow-sm group-hover:scale-105 group-hover:ring-[#3B8E82] transition-all"
                 src={ZOEWEAR_CHIP_LOGO}
               />
-              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00e5ff] border-2 border-[#0B0F15] animate-pulse"></span>
             </div>
             <div className="flex flex-col">
-              <span className="font-['Space_Grotesk'] text-lg font-bold tracking-wider text-[#F8FAFC] leading-none group-hover:text-[#00e5ff] transition-colors">
+              <span className="font-['Space_Grotesk'] text-lg font-bold tracking-wider text-[#0E344D] leading-none group-hover:text-[#18587A] transition-colors">
                 ZOEWEAR
               </span>
-              <span className="font-['Space_Grotesk'] text-[9px] tracking-widest text-[#00e5ff] leading-tight uppercase mt-0.5">
+              <span className="font-['Space_Grotesk'] text-[9px] tracking-widest text-[#2E766B] font-semibold leading-tight uppercase mt-0.5">
                 CYBER-COUTURE
               </span>
             </div>
           </button>
 
-          {/* Desktop Tabs Across the Top (like Apple / ZoeNude / MAC) */}
+          {/* Desktop Tabs Across the Top */}
           <nav
             className="hidden lg:flex items-center gap-1 xl:gap-2 font-['Space_Grotesk'] text-xs tracking-wider font-semibold relative h-full"
             onMouseLeave={handleMouseLeave}
@@ -381,7 +397,8 @@ export const Header: React.FC<HeaderProps> = ({
             {navTabs.map((tab) => {
               const isActive =
                 currentPage === tab.id ||
-                (tab.id === 'tech' && (currentPage === 'drunkwatch' || currentPage === 'muse-charm'));
+                (tab.id === 'tech' && (currentPage === 'drunkwatch' || currentPage === 'muse-charm')) ||
+                (tab.id === 'teaching-and-research' && currentPage === 'ankle-biometrics');
               const isHovered = activeDropdown === tab.id;
 
               return (
@@ -394,52 +411,49 @@ export const Header: React.FC<HeaderProps> = ({
                     onClick={() => handleItemClick(tab.id)}
                     className={`h-full px-3 py-2 flex items-center gap-1 transition-colors cursor-pointer relative ${
                       isActive
-                        ? 'text-[#00e5ff]'
+                        ? 'text-[#2E766B]'
                         : isHovered
-                        ? 'text-[#F8FAFC]'
-                        : 'text-[#94A3B8] hover:text-[#F8FAFC]'
+                        ? 'text-[#0E344D]'
+                        : 'text-[#36454F] hover:text-[#0E344D]'
                     }`}
                   >
                     <span>{tab.label}</span>
                     <span
                       className={`material-symbols-outlined text-sm transition-transform duration-200 ${
-                        isHovered ? 'rotate-180 text-[#00e5ff]' : 'text-[#94A3B8]/60'
+                        isHovered ? 'rotate-180 text-[#3B8E82]' : 'text-[#7D8890]'
                       }`}
                     >
                       expand_more
                     </span>
 
-                    {/* Underline indicator for active or hovered tab (like ZoeNude / MAC) */}
+                    {/* Underline indicator */}
                     {(isActive || isHovered) && (
                       <span
                         className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full transition-all ${
-                          isActive ? 'bg-[#00e5ff]' : 'bg-[#94A3B8]/50'
+                          isActive ? 'bg-[#3B8E82]' : 'bg-[#18587A]/40'
                         }`}
                       />
                     )}
                   </button>
 
-                  {/* Dropdown Submenu Card (Anchored directly beneath this tab!) */}
+                  {/* Dropdown Submenu Card */}
                   {isHovered && (
                     <div
-                      className="absolute top-[calc(100%-2px)] left-0 min-w-[280px] w-max max-w-sm rounded-2xl bg-[#121824] border border-[rgba(255,255,255,0.12)] shadow-[0_16px_50px_rgba(0,0,0,0.85)] p-4 backdrop-blur-2xl z-50 animate-fadeIn"
+                      className="absolute top-[calc(100%-2px)] left-0 min-w-[280px] w-max max-w-sm rounded-2xl bg-white border border-[#D6DCE0] shadow-[0_18px_48px_rgba(14, 52, 77,0.14)] p-4 z-50 animate-fadeIn"
                       onMouseEnter={() => handleMouseEnter(tab.id)}
                       onMouseLeave={handleMouseLeave}
                     >
-                      {/* Subtle bridge so mouse never leaves hitbox */}
                       <div className="absolute -top-3 left-0 w-full h-3 bg-transparent" />
 
-                      {/* Category Header (like ZoeNude "ATELIER FORMULATIONS") */}
-                      <div className="pb-2.5 mb-2 border-b border-[rgba(255,255,255,0.08)] flex items-center justify-between">
-                        <span className="text-[10px] font-['Space_Grotesk'] tracking-widest text-[#FFB703] uppercase font-bold">
+                      <div className="pb-2.5 mb-2 border-b border-[#E8ECEE] flex items-center justify-between">
+                        <span className="text-[10px] font-['Space_Grotesk'] tracking-widest text-[#18587A] uppercase font-bold">
                           {tab.categoryTitle}
                         </span>
-                        <span className="text-[10px] font-['Space_Grotesk'] text-[#94A3B8]">
+                        <span className="text-[10px] font-['Space_Grotesk'] text-[#5D6870]">
                           {tab.items.length} sections
                         </span>
                       </div>
 
-                      {/* Subtabs Vertical List */}
                       <div className="space-y-1">
                         {tab.items.map((item) => (
                           <button
@@ -450,16 +464,16 @@ export const Header: React.FC<HeaderProps> = ({
                                 item.targetPage ? undefined : item.sectionId
                               )
                             }
-                            className="w-full text-left p-2.5 rounded-xl hover:bg-[#1a2333] transition-all flex items-start justify-between gap-3 group/item cursor-pointer"
+                            className="w-full text-left p-2.5 rounded-xl hover:bg-[#F1F3F4] transition-all flex items-start justify-between gap-3 group/item cursor-pointer"
                           >
                             <div className="min-w-0">
                               <div className="flex items-center gap-2">
-                                <span className="font-['Space_Grotesk'] text-xs font-semibold text-[#dfe2eb] group-hover/item:text-[#00e5ff] transition-colors leading-tight">
+                                <span className="font-['Space_Grotesk'] text-xs font-semibold text-[#0E344D] group-hover/item:text-[#2E766B] transition-colors leading-tight">
                                   {item.title}
                                 </span>
                               </div>
                               {item.sublabel && (
-                                <p className="text-[10px] text-[#94A3B8] font-light leading-snug mt-0.5 line-clamp-1">
+                                <p className="text-[11px] text-[#5D6870] leading-snug mt-0.5 line-clamp-1">
                                   {item.sublabel}
                                 </p>
                               )}
@@ -467,8 +481,8 @@ export const Header: React.FC<HeaderProps> = ({
 
                             {item.badge && (
                               <span
-                                className={`text-[9px] font-['Space_Grotesk'] uppercase px-2 py-0.5 rounded-md font-semibold shrink-0 border border-[rgba(255,255,255,0.08)] ${
-                                  item.badgeColor || 'text-[#00e5ff] bg-[#00e5ff]/10 border-[#00e5ff]/20'
+                                className={`text-[10px] font-['Space_Grotesk'] uppercase px-2 py-0.5 rounded-md font-semibold shrink-0 border ${
+                                  item.badgeColor || 'bg-[#E8F3F1] text-[#25665D] border-[#3B8E82]/25'
                                 }`}
                               >
                                 {item.badge}
@@ -478,11 +492,10 @@ export const Header: React.FC<HeaderProps> = ({
                         ))}
                       </div>
 
-                      {/* Direct jump to main page footer */}
-                      <div className="mt-3 pt-2.5 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+                      <div className="mt-3 pt-2.5 border-t border-[#E8ECEE] flex items-center justify-between">
                         <button
                           onClick={() => handleItemClick(tab.id)}
-                          className="text-[11px] font-['Space_Grotesk'] text-[#00e5ff] hover:underline flex items-center gap-1 cursor-pointer font-semibold"
+                          className="text-[11px] font-['Space_Grotesk'] text-[#18587A] hover:text-[#2E766B] hover:underline flex items-center gap-1 cursor-pointer font-semibold"
                         >
                           <span>Explore Full {tab.label}</span>
                           <span className="material-symbols-outlined text-xs">arrow_forward</span>
@@ -495,49 +508,45 @@ export const Header: React.FC<HeaderProps> = ({
             })}
           </nav>
 
-          {/* Right Action Icons (like ZoeNude & MAC: Search, Wishlist, Bag, Profile) */}
+          {/* Right Action Icons */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Search Icon */}
             <button
               onClick={onOpenSearch}
-              className="p-2 rounded-xl text-[#94A3B8] hover:text-[#00e5ff] hover:bg-[#1a2333] transition-colors cursor-pointer"
+              className="p-2 rounded-xl text-[#36454F] hover:text-[#18587A] hover:bg-[#F1F3F4] transition-colors cursor-pointer"
               title="Search (CMD+K)"
             >
               <span className="material-symbols-outlined text-xl">search</span>
             </button>
 
-            {/* Wishlist / Saved Prototypes (with counter badge like ZoeNude) */}
             <button
               onClick={onOpenWishlist}
-              className="p-2 rounded-xl text-[#94A3B8] hover:text-[#FFB703] hover:bg-[#1a2333] transition-colors cursor-pointer relative"
+              className="p-2 rounded-xl text-[#36454F] hover:text-[#18587A] hover:bg-[#EEF4F7] transition-colors cursor-pointer relative"
               title="Saved Wishlist"
             >
               <span className="material-symbols-outlined text-xl">favorite</span>
               {wishlistCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#FFB703] text-[#0B0F15] text-[9px] font-bold flex items-center justify-center font-['Space_Grotesk']">
+                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#0E344D] text-white text-[9px] font-bold flex items-center justify-center font-['Space_Grotesk']">
                   {wishlistCount}
                 </span>
               )}
             </button>
 
-            {/* Shopping Bag / Cart (with counter badge like ZoeNude & MAC) */}
             <button
               onClick={onOpenCart}
-              className="p-2 rounded-xl text-[#94A3B8] hover:text-[#00e5ff] hover:bg-[#1a2333] transition-colors cursor-pointer relative"
+              className="p-2 rounded-xl text-[#36454F] hover:text-[#2E766B] hover:bg-[#E8F3F1] transition-colors cursor-pointer relative"
               title="Shopping Bag"
             >
               <span className="material-symbols-outlined text-xl">shopping_bag</span>
               {cartCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#00e5ff] text-[#0B0F15] text-[9px] font-bold flex items-center justify-center font-['Space_Grotesk']">
+                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#3B8E82] text-white text-[9px] font-bold flex items-center justify-center font-['Space_Grotesk']">
                   {cartCount}
                 </span>
               )}
             </button>
 
-            {/* User Profile Avatar */}
             <button
               onClick={onOpenProfile}
-              className="p-1 rounded-full ring-1 ring-[rgba(255,255,255,0.15)] hover:ring-[#00e5ff] transition-all cursor-pointer ml-1"
+              className="p-1 rounded-full ring-1 ring-[#CBD5DC] hover:ring-[#3B8E82] transition-all cursor-pointer ml-1"
               title="Atelier Profile"
             >
               <img
@@ -547,10 +556,9 @@ export const Header: React.FC<HeaderProps> = ({
               />
             </button>
 
-            {/* Mobile Hamburger Menu Button */}
             <button
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="lg:hidden p-2 text-[#94A3B8] hover:text-[#00e5ff] hover:bg-[#1a2333] rounded-xl transition-colors cursor-pointer"
+              className="lg:hidden p-2 text-[#36454F] hover:text-[#0E344D] hover:bg-[#F1F3F4] rounded-xl transition-colors cursor-pointer"
             >
               <span className="material-symbols-outlined text-2xl">
                 {mobileMenuOpen ? 'close' : 'menu'}
@@ -562,24 +570,25 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer Navigation with Accordion Subtabs */}
       {mobileMenuOpen && (
-        <div className="lg:hidden w-full bg-[#121824] border-b border-[rgba(255,255,255,0.1)] shadow-2xl max-h-[80vh] overflow-y-auto p-4 animate-fadeIn">
+        <div className="lg:hidden w-full bg-white border-b border-[#D6DCE0] shadow-xl max-h-[80vh] overflow-y-auto p-4 animate-fadeIn">
           <div className="space-y-2">
             {navTabs.map((tab) => {
               const isExpanded = mobileExpandedTab === tab.id;
               const isActive =
                 currentPage === tab.id ||
-                (tab.id === 'tech' && (currentPage === 'drunkwatch' || currentPage === 'muse-charm'));
+                (tab.id === 'tech' && (currentPage === 'drunkwatch' || currentPage === 'muse-charm')) ||
+                (tab.id === 'teaching-and-research' && currentPage === 'ankle-biometrics');
 
               return (
                 <div
                   key={tab.id}
-                  className="rounded-2xl border border-[rgba(255,255,255,0.06)] bg-[#182030]/50 overflow-hidden"
+                  className="rounded-2xl border border-[#D6DCE0] bg-[#F7F8F7] overflow-hidden"
                 >
                   <div className="flex items-center justify-between p-3">
                     <button
                       onClick={() => handleItemClick(tab.id)}
                       className={`text-left font-['Space_Grotesk'] text-sm font-semibold tracking-wide ${
-                        isActive ? 'text-[#00e5ff]' : 'text-[#F8FAFC]'
+                        isActive ? 'text-[#2E766B]' : 'text-[#0E344D]'
                       }`}
                     >
                       {tab.label}
@@ -588,11 +597,11 @@ export const Header: React.FC<HeaderProps> = ({
                       onClick={() =>
                         setMobileExpandedTab(isExpanded ? null : tab.id)
                       }
-                      className="p-1 text-[#94A3B8] hover:text-white"
+                      className="p-1 text-[#5D6870] hover:text-[#0E344D]"
                     >
                       <span
                         className={`material-symbols-outlined text-lg transition-transform ${
-                          isExpanded ? 'rotate-180 text-[#00e5ff]' : ''
+                          isExpanded ? 'rotate-180 text-[#3B8E82]' : ''
                         }`}
                       >
                         expand_more
@@ -601,8 +610,8 @@ export const Header: React.FC<HeaderProps> = ({
                   </div>
 
                   {isExpanded && (
-                    <div className="px-3 pb-3 space-y-1.5 border-t border-[rgba(255,255,255,0.06)] pt-2 bg-[#0d121c]/60">
-                      <div className="text-[10px] font-['Space_Grotesk'] text-[#FFB703] uppercase tracking-wider font-bold mb-1">
+                    <div className="px-3 pb-3 space-y-1.5 border-t border-[#E4E8EB] pt-2 bg-white">
+                      <div className="text-[10px] font-['Space_Grotesk'] text-[#18587A] uppercase tracking-wider font-bold mb-1">
                         {tab.categoryTitle}
                       </div>
                       {tab.items.map((item) => (
@@ -614,11 +623,11 @@ export const Header: React.FC<HeaderProps> = ({
                               item.targetPage ? undefined : item.sectionId
                             )
                           }
-                          className="w-full text-left p-2 rounded-xl text-xs text-[#94A3B8] hover:text-[#00e5ff] hover:bg-[#1a2333] transition-colors flex items-center justify-between"
+                          className="w-full text-left p-2 rounded-xl text-xs text-[#36454F] hover:text-[#2E766B] hover:bg-[#F1F3F4] transition-colors flex items-center justify-between"
                         >
                           <span>{item.title}</span>
                           {item.badge && (
-                            <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#1a2333] text-[#00e5ff]">
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#E8F3F1] text-[#25665D] font-medium">
                               {item.badge}
                             </span>
                           )}

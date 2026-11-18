@@ -39,10 +39,10 @@ export const ReservePrototypeModal: React.FC<ReservePrototypeModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-obsidian/85 backdrop-blur-xl animate-fadeIn">
-      <div className="relative w-full max-w-lg rounded-2xl bg-surface-container border border-border-luminous/40 shadow-[0_20px_70px_rgba(0,0,0,0.85)] p-space-lg overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0E344D]/35 backdrop-blur-md animate-fadeIn">
+      <div className="relative w-full max-w-lg rounded-2xl bg-white border border-[#D6DCE0] shadow-2xl p-space-lg overflow-hidden">
         {/* Glow corner */}
-        <div className="absolute -top-16 -right-16 w-36 h-36 bg-primary-container/20 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -top-16 -right-16 w-36 h-36 bg-[#3B8E82]/10 rounded-full blur-2xl pointer-events-none" />
 
         <div className="flex items-center justify-between pb-3 border-b border-subtle">
           <div className="flex items-center gap-2">
@@ -155,7 +155,7 @@ export const ReservePrototypeModal: React.FC<ReservePrototypeModalProps> = ({
               <button
                 type="submit"
                 disabled={!consent}
-                className="px-5 py-2 rounded-full bg-primary-container text-surface-obsidian text-xs font-semibold uppercase tracking-wider hover:shadow-[0_0_18px_rgba(0,229,255,0.4)] transition-all cursor-pointer disabled:opacity-50"
+                className="px-5 py-2 rounded-full bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-semibold uppercase tracking-wider shadow-md shadow-[#3B8E82]/20 transition-all cursor-pointer disabled:opacity-50"
               >
                 Confirm Prototype Allocation
               </button>
@@ -180,7 +180,7 @@ export const ReservePrototypeModal: React.FC<ReservePrototypeModalProps> = ({
             </p>
             <button
               onClick={handleReset}
-              className="mt-2 px-6 py-2.5 rounded-full bg-primary-container text-surface-obsidian text-xs font-semibold uppercase tracking-wider hover:shadow-lg transition-all cursor-pointer"
+              className="mt-2 px-6 py-2.5 rounded-full bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-semibold uppercase tracking-wider shadow-md transition-all cursor-pointer"
             >
               Done
             </button>

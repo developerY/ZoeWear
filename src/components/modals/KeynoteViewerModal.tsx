@@ -74,8 +74,8 @@ export const KeynoteViewerModal: React.FC<KeynoteViewerModalProps> = ({
   const slide = slidesData[slideIndex];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-obsidian/85 backdrop-blur-xl animate-fadeIn">
-      <div className="relative w-full max-w-3xl rounded-2xl bg-surface-container border border-border-luminous/40 shadow-[0_20px_70px_rgba(0,0,0,0.85)] p-space-lg overflow-hidden flex flex-col gap-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0E344D]/35 backdrop-blur-md animate-fadeIn">
+      <div className="relative w-full max-w-3xl rounded-2xl bg-white border border-[#D6DCE0] shadow-2xl p-space-lg overflow-hidden flex flex-col gap-4">
         {/* Top Header */}
         <div className="flex items-center justify-between pb-3 border-b border-subtle">
           <div className="flex items-center gap-2">
@@ -98,8 +98,8 @@ export const KeynoteViewerModal: React.FC<KeynoteViewerModalProps> = ({
         </div>
 
         {/* Slide Screen Canvas */}
-        <div className="relative w-full aspect-[16/9] rounded-xl bg-surface-obsidian border border-subtle p-8 flex flex-col justify-between overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-60 h-60 bg-primary-container/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative w-full aspect-[16/9] rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-8 flex flex-col justify-between overflow-hidden shadow-inner">
+          <div className="absolute top-0 right-0 w-60 h-60 bg-[#3B8E82]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="flex items-center justify-between border-b border-subtle/50 pb-3">
             <span className="font-label-sm text-xs text-primary-container tracking-widest uppercase font-mono">
@@ -151,7 +151,7 @@ export const KeynoteViewerModal: React.FC<KeynoteViewerModalProps> = ({
 
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-full bg-primary-container text-surface-obsidian text-xs font-semibold uppercase tracking-wider hover:shadow-lg transition-all cursor-pointer"
+            className="px-5 py-2 rounded-full bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
           >
             Close Presentation
           </button>

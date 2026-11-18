@@ -64,14 +64,22 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onNav
       }
     });
 
-    // Muse Charm (Meta AI Hackathon)
-    if ('muse charm meta ai hackathon companion semg fsm totem sam'.includes(q) || 'meta'.includes(q) || 'hackathon'.includes(q) || 'companion'.includes(q)) {
+    // Muse Charm (Personal Life Coach & Meta AI Hackathon)
+    if (
+      'muse charm meta ai hackathon companion semg fsm totem sam life coach finance financial wealth emotions emotional stoic impulse budget'.includes(q) ||
+      'coach'.includes(q) ||
+      'finance'.includes(q) ||
+      'emotion'.includes(q) ||
+      'meta'.includes(q) ||
+      'hackathon'.includes(q) ||
+      'companion'.includes(q)
+    ) {
       items.push({
         category: 'Meta AI Hackathon',
-        title: 'Muse Charm: Bio-Responsive Digital Companion',
-        snippet: 'Tripartite deterministic architecture: sEMG + Google Health -> Life Engine FSM -> Generative Totem Companion.',
+        title: 'Muse Charm: Bio-Responsive Personal Life Coach',
+        snippet: '4-Pillar life coach: Body (sEMG + Google Health), Emotions (Valence/Arousal), Wealth (Impulse Guard) & Meta Muse AI.',
         targetPage: 'muse-charm',
-        badge: 'Meta MVP',
+        badge: 'Life Coach MVP',
       });
     }
 
@@ -83,6 +91,23 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onNav
         snippet: 'Transdermal micro-spectrometry sensor measuring ethanol clearance and hydration.',
         targetPage: 'drunkwatch',
         badge: 'OS v4.8',
+      });
+    }
+
+    // Ankle Biometrics & Gait Lab
+    if (
+      'ankle biometrics kinematics gait step tibial ppg pad parkinson fog stroke imu horology bare below elbows'.includes(q) ||
+      'ankle'.includes(q) ||
+      'gait'.includes(q) ||
+      'ppg'.includes(q) ||
+      'parkinson'.includes(q)
+    ) {
+      items.push({
+        category: 'Scientific Report',
+        title: 'Ankle Biometrics & Kinematics: Physiological & Clinical Synthesis',
+        snippet: 'Posterior tibial artery PPG, <5% slow-gait MAPE, -1.8s FoG prediction & 83 citations.',
+        targetPage: 'ankle-biometrics',
+        badge: '83 Citations',
       });
     }
 
@@ -142,8 +167,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onNav
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 p-4 bg-surface-obsidian/85 backdrop-blur-xl animate-fadeIn">
-      <div className="relative w-full max-w-xl rounded-2xl bg-surface-container border border-border-luminous/40 shadow-[0_20px_70px_rgba(0,0,0,0.85)] p-space-md overflow-hidden flex flex-col gap-3">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 p-4 bg-[#0E344D]/35 backdrop-blur-md animate-fadeIn">
+      <div className="relative w-full max-w-xl rounded-2xl bg-white border border-[#D6DCE0] shadow-2xl p-space-md overflow-hidden flex flex-col gap-3">
         {/* Search Input Bar */}
         <div className="relative flex items-center">
           <span className="material-symbols-outlined text-primary-container text-[22px] absolute left-3">
@@ -173,7 +198,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onNav
             <div className="p-3 text-xs text-text-muted flex flex-col gap-2">
               <span className="font-mono text-circuit-gold uppercase">Popular Queries:</span>
               <div className="flex flex-wrap gap-1.5">
-                {['SwiftMonster', 'DrunkWatch', 'Breathe App', 'Opto-Merino', 'TensorFlow', 'Fellowship', 'Ethanol Sensor'].map(
+                {['Ankle Biometrics', 'SwiftMonster', 'Muse Charm', 'DrunkWatch', 'Breathe App', 'Opto-Merino', 'Fellowship'].map(
                   (tag) => (
                     <button
                       key={tag}

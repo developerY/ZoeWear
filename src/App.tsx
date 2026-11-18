@@ -17,6 +17,7 @@ import { TechScreen } from './components/screens/TechScreen';
 import { FusionScreen } from './components/screens/FusionScreen';
 import { DrunkWatchScreen } from './components/screens/DrunkWatchScreen';
 import { MuseCharmScreen } from './components/screens/MuseCharmScreen';
+import { AnkleBiometricsScreen } from './components/screens/AnkleBiometricsScreen';
 import { TeachingResearchScreen } from './components/screens/TeachingResearchScreen';
 
 // Modals
@@ -105,6 +106,7 @@ export default function App() {
       'fusion',
       'drunkwatch',
       'muse-charm',
+      'ankle-biometrics',
       'teaching-and-research',
     ];
 
@@ -239,7 +241,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#0B0F15] text-[#dfe2eb] font-['Plus_Jakarta_Sans',sans-serif] antialiased min-h-screen flex flex-col selection:bg-[#00e5ff] selection:text-[#00363d]">
+    <div className="bg-[#F7F8F7] text-[#0E344D] font-['Plus_Jakarta_Sans',sans-serif] antialiased min-h-screen flex flex-col selection:bg-[#3B8E82]/20 selection:text-[#0E344D]">
       {/* Top Navigation Tabs with Hover Submenus (Zero Share Buttons) */}
       <Header
         currentPage={currentPage}
@@ -255,7 +257,7 @@ export default function App() {
       />
 
       {/* Main Content View with Top Offset for Fixed Header */}
-      <main className="w-full pt-24 bg-[#0B0F15] flex-grow min-h-screen">
+      <main className="w-full pt-24 bg-[#F7F8F7] flex-grow min-h-screen">
         {currentPage === 'home' && (
           <HomeScreen
             onNavigate={handleNavigate}
@@ -284,6 +286,7 @@ export default function App() {
           <TechScreen
             onNavigateToDrunkwatch={() => handleNavigate('drunkwatch')}
             onNavigateToMuseCharm={() => handleNavigate('muse-charm')}
+            onNavigateToAnkle={() => handleNavigate('ankle-biometrics')}
             onNavigateToTeaching={() => handleNavigate('teaching-and-research')}
             onOpenKeynote={(deck) => handleOpenKeynote(deck.title, deck.slides)}
           />
@@ -308,6 +311,12 @@ export default function App() {
 
         {currentPage === 'muse-charm' && (
           <MuseCharmScreen
+            onNavigate={handleNavigate}
+          />
+        )}
+
+        {currentPage === 'ankle-biometrics' && (
+          <AnkleBiometricsScreen
             onNavigate={handleNavigate}
           />
         )}

@@ -56,8 +56,8 @@ export const TelemetryDiagnosticsModal: React.FC<TelemetryDiagnosticsModalProps>
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-obsidian/85 backdrop-blur-xl animate-fadeIn">
-      <div className="relative w-full max-w-2xl rounded-2xl bg-surface-container border border-border-luminous/40 shadow-[0_20px_70px_rgba(0,0,0,0.85)] p-space-lg overflow-hidden flex flex-col gap-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0E344D]/35 backdrop-blur-md animate-fadeIn">
+      <div className="relative w-full max-w-2xl rounded-2xl bg-white border border-[#D6DCE0] shadow-2xl p-space-lg overflow-hidden flex flex-col gap-4">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-subtle">
           <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ export const TelemetryDiagnosticsModal: React.FC<TelemetryDiagnosticsModalProps>
             <span>TELEMETRY SUBSYSTEM STREAM:</span>
             <span className="text-primary-container">TLS 1.3 ENCRYPTED</span>
           </div>
-          <div className="h-40 rounded-lg bg-surface-obsidian p-3 font-mono text-xs overflow-y-auto flex flex-col gap-1.5 border border-subtle">
+          <div className="h-40 rounded-lg bg-[#F4F6F6] p-3 font-mono text-xs overflow-y-auto flex flex-col gap-1.5 border border-[#D6DCE0]">
             {logs.map((log, index) => (
               <div key={index} className="text-on-surface-variant leading-relaxed">
                 <span className="text-text-muted">{log.slice(0, 10)}</span>
@@ -140,7 +140,7 @@ export const TelemetryDiagnosticsModal: React.FC<TelemetryDiagnosticsModalProps>
             <button
               onClick={startSweep}
               disabled={isScanning}
-              className="px-4 py-2 rounded-full bg-primary-container text-surface-obsidian text-xs font-semibold uppercase tracking-wider hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] transition-all cursor-pointer disabled:opacity-50 flex items-center gap-1.5"
+              className="px-4 py-2 rounded-full bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-semibold uppercase tracking-wider shadow-md shadow-[#3B8E82]/20 transition-all cursor-pointer disabled:opacity-50 flex items-center gap-1.5"
             >
               <span className={`material-symbols-outlined text-[16px] ${isScanning ? 'animate-spin' : ''}`}>
                 autorenew
