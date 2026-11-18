@@ -97,7 +97,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
                 <a
-                  className="px-space-xl py-3.5 rounded-full bg-primary-container text-white font-headline-sm text-headline-sm hover:bg-[#2E766B] shadow-sm transition-all flex items-center gap-space-xs cursor-pointer font-semibold"
+                  className="px-space-xl py-3.5 rounded-full bg-primary-container text-white font-headline-sm text-headline-sm hover:bg-[#124460] shadow-sm transition-all flex items-center gap-space-xs cursor-pointer font-semibold"
                   href="#fellowship"
                 >
                   Apply for Research Fellowship
@@ -107,7 +107,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                   onClick={handleDownloadSyllabus}
                   className="px-space-xl py-3.5 rounded-full bg-white text-[#0E344D] font-headline-sm text-headline-sm hover:bg-[#F1F3F4] transition-all flex items-center gap-space-xs shadow-xs border border-[#D6DCE0] cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-[#3B8E82] text-[20px]">download</span>
+                  <span className="material-symbols-outlined text-[#18587A] text-[20px]">download</span>
                   Download Academic Syllabus
                 </button>
               </div>
@@ -165,7 +165,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                 src={ASSETS.textileFoundry}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0E344D]/90 via-[#0E344D]/45 to-transparent p-space-lg flex flex-col justify-end">
-                <span className="font-label-sm text-label-sm text-[#7EC4B9] uppercase tracking-widest font-semibold">
+                <span className="font-label-sm text-label-sm text-[#8EB4CB] uppercase tracking-widest font-semibold">
                   [ LAB 01 // TEXTILE FOUNDRY ]
                 </span>
                 <h3 className="font-headline-md text-headline-md text-white">
@@ -184,7 +184,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                 src={ASSETS.virtualAtelier}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0E344D]/90 via-[#0E344D]/45 to-transparent p-space-lg flex flex-col justify-end">
-                <span className="font-label-sm text-label-sm text-[#7EC4B9] uppercase tracking-widest font-semibold">
+                <span className="font-label-sm text-label-sm text-[#8EB4CB] uppercase tracking-widest font-semibold">
                   [ LAB 04 // VIRTUAL ATELIER ]
                 </span>
                 <h3 className="font-headline-md text-headline-md text-white">
@@ -221,13 +221,13 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                 onClick={() => setSelectedModule(mod)}
                 className={`bg-white rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group border cursor-pointer ${
                   selectedModule?.id === mod.id
-                    ? 'border-[#3B8E82] ring-2 ring-[#3B8E82]/20'
-                    : 'border-[#D6DCE0] hover:border-[#3B8E82]/60'
+                    ? 'border-[#18587A] ring-2 ring-[#18587A]/20'
+                    : 'border-[#D6DCE0] hover:border-[#18587A]/60'
                 }`}
               >
                 <div className="flex flex-col gap-space-sm">
                   <div className="flex items-center justify-between">
-                    <span className="w-10 h-10 rounded-lg bg-[#F1F3F4] flex items-center justify-center text-[#25665D] font-headline-sm border border-[#D6DCE0] font-semibold">
+                    <span className="w-10 h-10 rounded-lg bg-[#F1F3F4] flex items-center justify-center text-[#0E344D] font-headline-sm border border-[#D6DCE0] font-semibold">
                       0{mod.number}
                     </span>
                     <span className="font-label-sm text-label-sm text-text-muted font-mono">
@@ -256,7 +256,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
           </div>
 
           {selectedModule && (
-            <div className="mt-space-md p-space-lg rounded-xl bg-white border border-[#3B8E82] shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md animate-fadeIn">
+            <div className="mt-space-md p-space-lg rounded-xl bg-white border border-[#18587A] shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md animate-fadeIn">
               <div>
                 <span className="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">
                   Active Syllabus Inspection: Module 0{selectedModule.number}
@@ -270,7 +270,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
               </div>
               <button
                 onClick={handleDownloadSyllabus}
-                className="px-space-md py-2 rounded-full bg-[#3B8E82] text-white font-label-sm text-label-sm uppercase tracking-wide hover:bg-[#2E766B] shadow-xs transition-all font-semibold cursor-pointer"
+                className="px-space-md py-2 rounded-full bg-[#18587A] text-white font-label-sm text-label-sm uppercase tracking-wide hover:bg-[#124460] shadow-xs transition-all font-semibold cursor-pointer"
               >
                 Get Syllabus PDF
               </button>
@@ -333,9 +333,9 @@ ZoeWear Technologies Corp. Academic Outreach.`;
             </div>
 
             {/* Featured Interactive Clinical Monograph: Ankle Biometrics & Kinematics */}
-            <div className="mt-space-lg rounded-xl p-space-md sm:p-space-lg bg-[#E8F3F1] border border-[#3B8E82]/35 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+            <div className="mt-space-lg rounded-xl p-space-md sm:p-space-lg bg-[#E8EEF3] border border-[#18587A]/35 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
               <div className="space-y-1 max-w-2xl">
-                <div className="flex items-center gap-2 text-xs font-['Space_Grotesk'] font-bold uppercase tracking-wider text-[#25665D]">
+                <div className="flex items-center gap-2 text-xs font-['Space_Grotesk'] font-bold uppercase tracking-wider text-[#0E344D]">
                   <span>Featured Clinical Monograph</span>
                   <span aria-hidden="true">·</span>
                   <span>83 Linked PubMed &amp; PMC Citations</span>
@@ -350,7 +350,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
               <button
                 type="button"
                 onClick={() => onNavigate('ankle-biometrics')}
-                className="px-space-lg py-2.5 rounded-full bg-[#25665D] text-white font-label-sm text-label-sm uppercase tracking-wider font-semibold hover:bg-[#2E766B] transition-colors shrink-0 cursor-pointer flex items-center gap-1.5"
+                className="px-space-lg py-2.5 rounded-full bg-[#0E344D] text-white font-label-sm text-label-sm uppercase tracking-wider font-semibold hover:bg-[#124460] transition-colors shrink-0 cursor-pointer flex items-center gap-1.5"
               >
                 <span>Open Interactive Report</span>
                 <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -543,7 +543,7 @@ ZoeWear Technologies Corp. Academic Outreach.`;
                         Deadline: May 15, 2025. Fully Funded Stipend.
                       </span>
                       <button
-                        className="w-full md:w-auto px-space-xl py-3 rounded-full bg-[#3B8E82] text-white font-headline-sm text-headline-sm hover:bg-[#2E766B] shadow-sm transition-all cursor-pointer font-semibold"
+                        className="w-full md:w-auto px-space-xl py-3 rounded-full bg-[#18587A] text-white font-headline-sm text-headline-sm hover:bg-[#124460] shadow-sm transition-all cursor-pointer font-semibold"
                         type="submit"
                       >
                         Submit Research Proposal

@@ -137,7 +137,7 @@ export const InnovationExplorerModal: React.FC<InnovationExplorerModalProps> = (
               onClick={() => setActiveFilter(filter)}
               className={`px-3 py-1.5 rounded-lg text-xs uppercase font-label-sm tracking-wider transition-all cursor-pointer ${
                 activeFilter === filter
-                  ? 'bg-[#3B8E82] text-white font-semibold shadow-sm'
+                  ? 'bg-[#18587A] text-white font-semibold shadow-sm'
                   : 'bg-[#F1F3F4] text-[#36454F] hover:text-[#0E344D] border border-[#D6DCE0]'
               }`}
             >
@@ -183,7 +183,7 @@ export const InnovationExplorerModal: React.FC<InnovationExplorerModalProps> = (
                     onClose();
                     onReserve(item.title);
                   }}
-                  className="px-2.5 py-1 rounded bg-[#F1F3F4] border border-[#D6DCE0] hover:bg-[#3B8E82] hover:border-[#3B8E82] hover:text-white text-xs font-medium transition-colors cursor-pointer text-[#0E344D]"
+                  className="px-2.5 py-1 rounded bg-[#F1F3F4] border border-[#D6DCE0] hover:bg-[#18587A] hover:border-[#18587A] hover:text-white text-xs font-medium transition-colors cursor-pointer text-[#0E344D]"
                 >
                   Reserve
                 </button>

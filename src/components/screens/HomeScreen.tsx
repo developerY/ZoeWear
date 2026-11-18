@@ -52,7 +52,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                   Editorial Manifesto // Zoe [Greek: Life]
                 </span>
                 <h1 className="font-display text-display text-text-primary tracking-tight">
-                  Technology is the <span className="text-primary-container">New Black</span>.
+                  Technology is the{' '}
+                  <span className="bg-gradient-to-r from-[#0E344D] via-[#0284C7] to-[#2563EB] bg-clip-text text-transparent">
+                    New Black
+                  </span>
+                  .
                 </h1>
                 <p className="font-headline-sm text-headline-sm text-secondary font-light">
                   Awaken the Soul of the Shoe & the Garment.
@@ -67,23 +71,23 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               <div className="flex flex-wrap items-center gap-space-md pt-space-xs">
                 <button
                   onClick={() => onNavigate('fashion')}
-                  className="px-space-xl py-3.5 rounded-full bg-primary-container text-white font-headline-sm text-headline-sm hover:bg-[#2E766B] shadow-sm transition-all flex items-center gap-2 cursor-pointer font-semibold"
+                  className="px-space-xl py-3.5 rounded-full bg-gradient-to-r from-[#0E344D] via-[#0284C7] to-[#0369A1] text-white font-headline-sm text-headline-sm hover:opacity-95 shadow-sm transition-all flex items-center gap-2 cursor-pointer font-semibold"
                 >
                   <span>Explore Fashion Runway</span>
                   <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
                 </button>
                 <button
                   onClick={() => onNavigate('drunkwatch')}
-                  className="px-space-lg py-3.5 rounded-full bg-white text-[#18587A] font-headline-sm text-headline-sm hover:bg-[#EEF4F7] transition-all flex items-center gap-2 border border-[#18587A]/35 cursor-pointer font-semibold shadow-xs"
+                  className="px-space-lg py-3.5 rounded-full bg-white text-[#0284C7] font-headline-sm text-headline-sm hover:bg-[#E0F2FE] transition-all flex items-center gap-2 border border-[#0284C7]/40 cursor-pointer font-semibold shadow-xs"
                 >
                   <span className="material-symbols-outlined text-[20px]">watch</span>
                   <span>DrunkWatch™ Sim</span>
                 </button>
                 <button
                   onClick={onOpenInnovations}
-                  className="px-space-md py-3.5 rounded-full bg-white text-[#0E344D] font-headline-sm text-headline-sm hover:border-[#18587A] hover:text-[#18587A] transition-all flex items-center gap-2 border border-[#D6DCE0] cursor-pointer shadow-xs"
+                  className="px-space-md py-3.5 rounded-full bg-white text-[#0E344D] font-headline-sm text-headline-sm hover:border-[#0284C7] hover:text-[#0284C7] transition-all flex items-center gap-2 border border-[#D6DCE0] cursor-pointer shadow-xs"
                 >
-                  <span className="material-symbols-outlined text-[20px]">dashboard_customize</span>
+                  <span className="material-symbols-outlined text-[20px] text-[#0284C7]">dashboard_customize</span>
                   <span>Matrix Index</span>
                 </button>
               </div>
@@ -92,12 +96,12 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               <div className="grid grid-cols-3 gap-space-sm pt-space-sm">
                 <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] shadow-xs">
                   <span className="font-label-sm text-label-sm text-text-muted uppercase">Concealment</span>
-                  <div className="font-display text-headline-md text-[#25665D] mt-0.5">100%</div>
+                  <div className="font-display text-headline-md text-[#0E344D] mt-0.5">100%</div>
                   <span className="font-body-sm text-body-sm text-text-muted">Zero medical look</span>
                 </div>
                 <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] shadow-xs">
                   <span className="font-label-sm text-label-sm text-text-muted uppercase">Latency</span>
-                  <div className="font-display text-headline-md text-[#0E344D] mt-0.5">&lt; 14ms</div>
+                  <div className="font-display text-headline-md text-[#0284C7] mt-0.5">&lt; 14ms</div>
                   <span className="font-body-sm text-body-sm text-text-muted">On-device TF Edge</span>
                 </div>
                 <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] shadow-xs">
@@ -119,7 +123,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0E344D]/85 via-[#0E344D]/20 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 p-space-md rounded-xl bg-white/95 backdrop-blur-md flex items-center justify-between border border-[#D6DCE0] shadow-md">
                   <div className="flex flex-col">
-                    <span className="font-label-sm text-label-sm text-[#25665D] uppercase tracking-wider font-semibold">
+                    <span className="font-label-sm text-label-sm text-[#0284C7] uppercase tracking-wider font-semibold">
                       AUTUMN/WINTER SHOWCASE
                     </span>
                     <span className="font-headline-sm text-headline-sm text-[#0E344D]">
@@ -128,7 +132,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                   </div>
                   <button
                     onClick={() => onNavigate('fashion')}
-                    className="px-3.5 py-1.5 rounded-full bg-[#3B8E82] text-white text-xs font-semibold hover:bg-[#2E766B] transition-all cursor-pointer"
+                    className="px-3.5 py-1.5 rounded-full bg-[#0284C7] text-white text-xs font-semibold hover:bg-[#0369A1] transition-all cursor-pointer"
                   >
                     View Runway
                   </button>
@@ -160,23 +164,23 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             {/* 1. Fashion */}
             <div
               onClick={() => onNavigate('fashion')}
-              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#3B8E82] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
+              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#0284C7] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
             >
               <div className="flex flex-col gap-space-sm">
                 <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-xl bg-[#E8F3F1] flex items-center justify-center text-[#3B8E82] border border-[#3B8E82]/25 group-hover:scale-110 transition-transform">
+                  <span className="w-10 h-10 rounded-xl bg-[#E0F2FE] flex items-center justify-center text-[#0284C7] border border-[#0284C7]/25 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined">styler</span>
                   </span>
-                  <span className="font-label-sm text-label-sm text-[#25665D] font-mono font-semibold">DIMENSION 01</span>
+                  <span className="font-label-sm text-label-sm text-[#0284C7] font-mono font-semibold">DIMENSION 01</span>
                 </div>
-                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#25665D] transition-colors">
+                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#0284C7] transition-colors">
                   Fashion &amp; Footwear
                 </h3>
                 <p className="font-body-sm text-body-sm text-[#36454F] leading-relaxed">
                   The SwiftMonster dual footwear line (Mountain &amp; Beach) with 3D-printed bio-heels, sensory sole grids, and avant-garde runway silhouettes.
                 </p>
               </div>
-              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#25665D] font-semibold">
+              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#0284C7] font-semibold">
                 <span>View SwiftMonster &amp; Silhouettes</span>
                 <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
                   arrow_forward
@@ -187,23 +191,23 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             {/* 2. Tech */}
             <div
               onClick={() => onNavigate('tech')}
-              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#18587A] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
+              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#1D4ED8] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
             >
               <div className="flex flex-col gap-space-sm">
                 <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-xl bg-[#EEF4F7] flex items-center justify-center text-[#18587A] border border-[#18587A]/25 group-hover:scale-110 transition-transform">
+                  <span className="w-10 h-10 rounded-xl bg-[#DBEAFE] flex items-center justify-center text-[#1D4ED8] border border-[#1D4ED8]/25 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined">memory</span>
                   </span>
-                  <span className="font-label-sm text-label-sm text-[#18587A] font-mono font-semibold">DIMENSION 02</span>
+                  <span className="font-label-sm text-label-sm text-[#1D4ED8] font-mono font-semibold">DIMENSION 02</span>
                 </div>
-                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#18587A] transition-colors">
+                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#1D4ED8] transition-colors">
                   Tech Architecture
                 </h3>
                 <p className="font-body-sm text-body-sm text-[#36454F] leading-relaxed">
                   Four technological pillars, Wear OS &amp; watchOS cross-platform sensor matrix, simulated real-time terminal logs, and convergence stages.
                 </p>
               </div>
-              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#18587A] font-semibold">
+              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#1D4ED8] font-semibold">
                 <span>Inspect Sensor Matrix &amp; Terminal</span>
                 <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
                   arrow_forward
@@ -214,23 +218,23 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             {/* 3. Fusion */}
             <div
               onClick={() => onNavigate('fusion')}
-              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#3B8E82] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
+              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#0369A1] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
             >
               <div className="flex flex-col gap-space-sm">
                 <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-xl bg-[#E8F3F1] flex items-center justify-center text-[#3B8E82] border border-[#3B8E82]/25 group-hover:scale-110 transition-transform">
+                  <span className="w-10 h-10 rounded-xl bg-[#E8F1F8] flex items-center justify-center text-[#0369A1] border border-[#0369A1]/25 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined">vital_signs</span>
                   </span>
-                  <span className="font-label-sm text-label-sm text-[#25665D] font-mono font-semibold">DIMENSION 03</span>
+                  <span className="font-label-sm text-label-sm text-[#0369A1] font-mono font-semibold">DIMENSION 03</span>
                 </div>
-                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#25665D] transition-colors">
+                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#0369A1] transition-colors">
                   Biomedical Fusion
                 </h3>
                 <p className="font-body-sm text-body-sm text-[#36454F] leading-relaxed">
                   Transdermal Fabric Matrix, continuous noise filtration wave, TensorFlow clustering, and the &ldquo;Breathe&rdquo; mobile respiratory diagnostics simulator.
                 </p>
               </div>
-              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#25665D] font-semibold">
+              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#0369A1] font-semibold">
                 <span>Launch &ldquo;Breathe&rdquo; Diagnostic App</span>
                 <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
                   arrow_forward
@@ -245,7 +249,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             >
               <div className="flex flex-col gap-space-sm">
                 <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-xl bg-[#EEF4F7] flex items-center justify-center text-[#18587A] border border-[#18587A]/25 group-hover:scale-110 transition-transform">
+                  <span className="w-10 h-10 rounded-xl bg-[#E8F0F4] flex items-center justify-center text-[#18587A] border border-[#18587A]/25 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined">watch</span>
                   </span>
                   <span className="font-label-sm text-label-sm text-[#18587A] font-mono font-semibold">DIMENSION 04</span>
@@ -268,16 +272,16 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             {/* 5. Teaching & Research */}
             <div
               onClick={() => onNavigate('teaching-and-research')}
-              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#0E344D] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md lg:col-span-2"
+              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#0284C7] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md lg:col-span-2"
             >
               <div className="flex flex-col gap-space-sm">
                 <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-xl bg-[#F1F3F4] flex items-center justify-center text-[#0E344D] border border-[#0E344D]/20 group-hover:scale-110 transition-transform">
+                  <span className="w-10 h-10 rounded-xl bg-[#E8EEF3] flex items-center justify-center text-[#0E344D] border border-[#0E344D]/20 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined">school</span>
                   </span>
                   <span className="font-label-sm text-label-sm text-[#0E344D] font-mono font-semibold">DIMENSION 05</span>
                 </div>
-                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#18587A] transition-colors">
+                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#0284C7] transition-colors">
                   WestCoast Curricula &amp; Research
                 </h3>
                 <p className="font-body-sm text-body-sm text-[#36454F] leading-relaxed">
@@ -318,14 +322,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
             {/* Footwear 1 */}
-            <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] hover:border-[#3B8E82] transition-all flex flex-col justify-between group shadow-xs">
+            <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] hover:border-[#0284C7] transition-all flex flex-col justify-between group shadow-xs">
               <div className="w-full h-44 rounded-lg overflow-hidden bg-[#F1F3F4] relative">
                 <img
                   src={FOOTWEAR_COLLECTION.mountain.image}
                   alt="SwiftMonster Mountain"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#0E344D]/90 text-[10px] text-white font-mono font-semibold">
+                <span className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#0284C7]/90 text-[10px] text-white font-mono font-semibold">
                   TERRAIN ADAPTIVE
                 </span>
               </div>
@@ -333,10 +337,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 <h4 className="font-headline-sm text-[#0E344D]">SwiftMonster Mountain</h4>
                 <p className="text-xs text-[#5D6870] mt-1">Sub-dermal gait sensor sole matrix</p>
                 <div className="mt-3 flex items-center justify-between">
-                  <span className="text-xs text-[#25665D] font-mono font-semibold">$1,850</span>
+                  <span className="text-xs text-[#0284C7] font-mono font-semibold">$1,850</span>
                   <button
                     onClick={() => onRequestPrototype('SwiftMonster Mountain Footwear')}
-                    className="text-xs px-3 py-1 rounded-lg bg-[#F1F3F4] hover:bg-[#3B8E82] hover:text-white transition-colors text-[#0E344D] font-semibold cursor-pointer"
+                    className="text-xs px-3 py-1 rounded-lg bg-[#F1F3F4] hover:bg-[#0284C7] hover:text-white transition-colors text-[#0E344D] font-semibold cursor-pointer"
                   >
                     Reserve
                   </button>
@@ -345,14 +349,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             </div>
 
             {/* Footwear 2 */}
-            <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] hover:border-[#18587A] transition-all flex flex-col justify-between group shadow-xs">
+            <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] hover:border-[#1D4ED8] transition-all flex flex-col justify-between group shadow-xs">
               <div className="w-full h-44 rounded-lg overflow-hidden bg-[#F1F3F4] relative">
                 <img
                   src={FOOTWEAR_COLLECTION.beach.image}
                   alt="SwiftMonster Beach"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#0E344D]/90 text-[10px] text-white font-mono font-semibold">
+                <span className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#1D4ED8]/90 text-[10px] text-white font-mono font-semibold">
                   PARAMETRIC LATTICE
                 </span>
               </div>
@@ -360,10 +364,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 <h4 className="font-headline-sm text-[#0E344D]">SwiftMonster Beach</h4>
                 <p className="text-xs text-[#5D6870] mt-1">Self-aerating biomimetic lattice</p>
                 <div className="mt-3 flex items-center justify-between">
-                  <span className="text-xs text-[#18587A] font-mono font-semibold">$1,650</span>
+                  <span className="text-xs text-[#1D4ED8] font-mono font-semibold">$1,650</span>
                   <button
                     onClick={() => onRequestPrototype('SwiftMonster Beach Footwear')}
-                    className="text-xs px-3 py-1 rounded-lg bg-[#F1F3F4] hover:bg-[#18587A] hover:text-white transition-colors text-[#0E344D] font-semibold cursor-pointer"
+                    className="text-xs px-3 py-1 rounded-lg bg-[#F1F3F4] hover:bg-[#1D4ED8] hover:text-white transition-colors text-[#0E344D] font-semibold cursor-pointer"
                   >
                     Reserve
                   </button>
@@ -372,14 +376,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             </div>
 
             {/* Garment 1 */}
-            <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] hover:border-[#18587A] transition-all flex flex-col justify-between group shadow-xs">
+            <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] hover:border-[#0369A1] transition-all flex flex-col justify-between group shadow-xs">
               <div className="w-full h-44 rounded-lg overflow-hidden bg-[#F1F3F4] relative">
                 <img
                   src={GARMENT_SILHOUETTES[0].image}
                   alt={GARMENT_SILHOUETTES[0].title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#0E344D]/90 text-[10px] text-white font-mono font-semibold">
+                <span className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#0369A1]/90 text-[10px] text-white font-mono font-semibold">
                   COUTURE
                 </span>
               </div>
@@ -387,10 +391,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 <h4 className="font-headline-sm text-[#0E344D]">{GARMENT_SILHOUETTES[0].title}</h4>
                 <p className="text-xs text-[#5D6870] mt-1">{GARMENT_SILHOUETTES[0].sensor}</p>
                 <div className="mt-3 flex items-center justify-between">
-                  <span className="text-xs text-[#18587A] font-mono font-semibold">Bespoke</span>
+                  <span className="text-xs text-[#0369A1] font-mono font-semibold">Bespoke</span>
                   <button
                     onClick={() => onRequestPrototype(GARMENT_SILHOUETTES[0].title)}
-                    className="text-xs px-3 py-1 rounded-lg bg-[#F1F3F4] hover:bg-[#18587A] hover:text-white transition-colors text-[#0E344D] font-semibold cursor-pointer"
+                    className="text-xs px-3 py-1 rounded-lg bg-[#F1F3F4] hover:bg-[#0369A1] hover:text-white transition-colors text-[#0E344D] font-semibold cursor-pointer"
                   >
                     Order
                   </button>
@@ -399,7 +403,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             </div>
 
             {/* Garment 2 */}
-            <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] hover:border-[#3B8E82] transition-all flex flex-col justify-between group shadow-xs">
+            <div className="p-space-md rounded-xl bg-white border border-[#D6DCE0] hover:border-[#0E344D] transition-all flex flex-col justify-between group shadow-xs">
               <div className="w-full h-44 rounded-lg overflow-hidden bg-[#F1F3F4] relative">
                 <img
                   src={GARMENT_SILHOUETTES[1].image}
@@ -414,10 +418,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 <h4 className="font-headline-sm text-[#0E344D]">{GARMENT_SILHOUETTES[1].title}</h4>
                 <p className="text-xs text-[#5D6870] mt-1">{GARMENT_SILHOUETTES[1].sensor}</p>
                 <div className="mt-3 flex items-center justify-between">
-                  <span className="text-xs text-[#25665D] font-mono font-semibold">Bespoke</span>
+                  <span className="text-xs text-[#0E344D] font-mono font-semibold">Bespoke</span>
                   <button
                     onClick={() => onRequestPrototype(GARMENT_SILHOUETTES[1].title)}
-                    className="text-xs px-3 py-1 rounded-lg bg-[#F1F3F4] hover:bg-[#3B8E82] hover:text-white transition-colors text-[#0E344D] font-semibold cursor-pointer"
+                    className="text-xs px-3 py-1 rounded-lg bg-[#F1F3F4] hover:bg-[#0E344D] hover:text-white transition-colors text-[#0E344D] font-semibold cursor-pointer"
                   >
                     Order
                   </button>

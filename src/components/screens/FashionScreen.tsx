@@ -27,12 +27,12 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
   const currentFootwear = FOOTWEAR_MODELS[activeShoeTab];
 
   return (
-    <div className="flex flex-col w-full bg-[#F7F8F7] text-[#0E344D]">
+    <div className="flex flex-col w-full bg-[#F5F6F8] text-[#0E344D]">
       {/* Top Manifesto Marquee Banner */}
       <div className="w-full bg-[#F1F3F4] overflow-hidden py-3 border-b border-[#D6DCE0]">
         <div className="flex items-center gap-10 whitespace-nowrap text-[#36454F] font-['Space_Grotesk'] text-[11px] uppercase tracking-widest animate-[marquee_25s_linear_infinite] font-semibold">
-          <div className="flex items-center gap-2 text-[#25665D]">
-            <span className="w-2 h-2 rounded-full bg-[#3B8E82] animate-ping"></span>
+          <div className="flex items-center gap-2 text-[#0E344D]">
+            <span className="w-2 h-2 rounded-full bg-[#18587A] animate-ping"></span>
             <span>HAUTE ERGONOMICS // VOLUME IX</span>
           </div>
           <span className="text-[#0E344D]">THE R/EVOLUTION OF FASHION IN THE DIGITAL AGE</span>
@@ -41,7 +41,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
           <span>•</span>
           <span className="text-[#18587A]">CONTINUOUS TRANSDERMAL BIO-MAPPING</span>
           <span>•</span>
-          <span className="text-[#25665D]">SWIFTMONSTER PROTOTYPES SYNCHRONIZED</span>
+          <span className="text-[#0E344D]">SWIFTMONSTER PROTOTYPES SYNCHRONIZED</span>
           <span>•</span>
           <span className="text-[#36454F]">AWAKEN THE SOUL OF THE SHOE &amp; GARMENT</span>
         </div>
@@ -53,7 +53,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
           {/* Left Column: Big Typographic Statement */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="px-3 py-1 rounded-full bg-[#E8F3F1] border border-[#3B8E82]/30 text-[#25665D] font-['Space_Grotesk'] text-[11px] tracking-widest uppercase font-semibold">
+              <span className="px-3 py-1 rounded-full bg-[#E8EEF3] border border-[#18587A]/30 text-[#0E344D] font-['Space_Grotesk'] text-[11px] tracking-widest uppercase font-semibold">
                 Editorial Dossier
               </span>
               <span className="text-[#5D6870] font-['Space_Grotesk'] text-[11px] uppercase tracking-wider font-medium">
@@ -63,7 +63,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
 
             <h1 className="font-['Space_Grotesk'] text-display text-[#0E344D] tracking-tight leading-tight">
               Humanizing Technology Through{' '}
-              <span className="text-[#25665D]">
+              <span className="bg-gradient-to-r from-[#0E344D] via-[#0284C7] to-[#2563EB] bg-clip-text text-transparent">
                 Haute Cyber-Couture
               </span>
               .
@@ -77,7 +77,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
             <div className="p-6 rounded-xl bg-white border border-[#D6DCE0] shadow-sm">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#25665D] font-semibold">
+                  <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#0284C7] font-semibold">
                     01 / The Magic
                   </span>
                   <span className="font-['Space_Grotesk'] text-[18px] font-semibold text-[#0E344D]">
@@ -89,7 +89,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#0E344D] font-semibold">
+                  <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#18587A] font-semibold">
                     02 / The Beauty
                   </span>
                   <span className="font-['Space_Grotesk'] text-[18px] font-semibold text-[#0E344D]">
@@ -101,7 +101,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#18587A] font-semibold">
+                  <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#1D4ED8] font-semibold">
                     03 / The Wellness
                   </span>
                   <span className="font-['Space_Grotesk'] text-[18px] font-semibold text-[#0E344D]">
@@ -118,7 +118,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
             <div className="flex items-center gap-4 pt-2 flex-wrap">
               <a
                 href="#swiftmonster"
-                className="px-6 py-3 rounded-full bg-[#3B8E82] text-white font-['Space_Grotesk'] text-[13px] uppercase tracking-wider font-semibold hover:bg-[#2E766B] transition-all shadow-sm flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3 rounded-full bg-[#18587A] text-white font-['Space_Grotesk'] text-[13px] uppercase tracking-wider font-semibold hover:bg-[#124460] transition-all shadow-sm flex items-center gap-2 cursor-pointer"
               >
                 <span>Explore SwiftMonster Shoes</span>
                 <span className="material-symbols-outlined text-[18px]">arrow_downward</span>
@@ -143,15 +143,15 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
               <div className="absolute inset-0 bg-gradient-to-t from-[#0E344D]/75 via-[#0E344D]/15 to-transparent"></div>
 
               {/* Corner Telemetry Overlay */}
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#25665D] font-['Space_Grotesk'] text-[11px] font-semibold flex items-center gap-1.5 border border-[#3B8E82]/30 shadow-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#3B8E82] animate-pulse"></span>
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#0E344D] font-['Space_Grotesk'] text-[11px] font-semibold flex items-center gap-1.5 border border-[#18587A]/30 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#18587A] animate-pulse"></span>
                 <span>GAIT SENSING: ACTIVE</span>
               </div>
 
               {/* Bottom Glass Overlay */}
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/95 backdrop-blur-xl border border-[#D6DCE0] shadow-md flex items-center justify-between">
                 <div className="flex flex-col">
-                  <span className="font-['Space_Grotesk'] text-[11px] text-[#25665D] tracking-widest uppercase font-semibold">
+                  <span className="font-['Space_Grotesk'] text-[11px] text-[#0E344D] tracking-widest uppercase font-semibold">
                     Philosophy Principle
                   </span>
                   <span className="font-['Space_Grotesk'] text-[18px] text-[#0E344D] font-semibold">
@@ -173,15 +173,15 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 rounded-xl bg-white border border-[#D6DCE0] shadow-xs flex flex-col justify-between">
                 <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#5D6870] font-semibold">
-                  Coastal Mineral Matrix
+                  Slate &amp; Ocean Matrix
                 </span>
                 <div className="flex items-center gap-2 my-2.5">
                   {[
                     { color: '#0E344D', label: 'Deep Ocean Blue' },
-                    { color: '#36454F', label: 'Slate' },
-                    { color: '#6C777F', label: 'Mineral Grey' },
-                    { color: '#3B8E82', label: 'Sea-Glass Green' },
-                    { color: '#F0EFEB', label: 'Pearl' },
+                    { color: '#18587A', label: 'Ocean Steel' },
+                    { color: '#0284C7', label: 'Sky Azure' },
+                    { color: '#2563EB', label: 'Cobalt Blue' },
+                    { color: '#38BDF8', label: 'Glacier Ice' },
                   ].map((item, idx) => (
                     <button
                       key={idx}
@@ -205,7 +205,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                 <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#5D6870] font-semibold">
                   Bio-Feedback Loop
                 </span>
-                <span className="font-['Space_Grotesk'] text-[20px] text-[#25665D] font-bold mt-1">
+                <span className="font-['Space_Grotesk'] text-[20px] text-[#0E344D] font-bold mt-1">
                   Continuous 24/7
                 </span>
                 <span className="font-['Plus_Jakarta_Sans'] text-[12px] text-[#36454F]">
@@ -221,7 +221,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
       <section className="w-full bg-white border-y border-[#D6DCE0] py-4 my-6 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-[#E8F3F1] border border-[#3B8E82]/30 flex items-center justify-center text-[#3B8E82]">
+            <div className="w-10 h-10 rounded-full bg-[#E8EEF3] border border-[#18587A]/30 flex items-center justify-center text-[#18587A]">
               <span className="material-symbols-outlined text-2xl">vital_signs</span>
             </div>
             <div className="flex flex-col">
@@ -237,11 +237,11 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
           {/* Inline Biosignal Graph */}
           <div className="flex items-center gap-8 w-full md:w-auto justify-between md:justify-end">
             <div className="flex flex-col">
-              <span className="font-['Space_Grotesk'] text-[11px] text-[#25665D] uppercase font-semibold">
+              <span className="font-['Space_Grotesk'] text-[11px] text-[#0E344D] uppercase font-semibold">
                 Heart-Rate Variability (HRV)
               </span>
               <div className="w-48 h-8 flex items-center">
-                <svg className="w-full h-full text-[#3B8E82]" fill="none" viewBox="0 0 180 32">
+                <svg className="w-full h-full text-[#0284C7]" fill="none" viewBox="0 0 180 32">
                   <path
                     d="M0,16 L30,16 L38,4 L44,28 L50,16 L65,16 L72,9 L78,22 L84,16 L120,16 L128,2 L136,30 L144,16 L180,16"
                     stroke="currentColor"
@@ -278,7 +278,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-12 w-full" id="swiftmonster">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="flex flex-col gap-2 max-w-2xl">
-            <div className="flex items-center gap-1.5 text-[#25665D] font-['Space_Grotesk'] text-[11px] uppercase tracking-widest font-semibold">
+            <div className="flex items-center gap-1.5 text-[#0E344D] font-['Space_Grotesk'] text-[11px] uppercase tracking-widest font-semibold">
               <span className="material-symbols-outlined text-base">footprint</span>
               <span>Footwear Architecture Showcase</span>
             </div>
@@ -296,7 +296,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
               onClick={() => setActiveShoeTab('mountain')}
               className={`px-4 py-1.5 rounded-full font-['Space_Grotesk'] text-[11px] tracking-wider uppercase font-semibold transition-all cursor-pointer ${
                 activeShoeTab === 'mountain'
-                  ? 'bg-[#3B8E82] text-white shadow-xs'
+                  ? 'bg-[#18587A] text-white shadow-xs'
                   : 'text-[#36454F] hover:text-[#0E344D]'
               }`}
             >
@@ -329,10 +329,10 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
             {/* Floating Sensor Badge */}
             <div className="absolute bottom-6 left-6 p-4 rounded-xl bg-white/95 backdrop-blur-md border border-[#D6DCE0] flex flex-col gap-1 max-w-xs shadow-lg">
               <div className="flex items-center justify-between">
-                <span className="font-['Space_Grotesk'] text-[11px] text-[#25665D] uppercase tracking-wider font-semibold">
+                <span className="font-['Space_Grotesk'] text-[11px] text-[#0E344D] uppercase tracking-wider font-semibold">
                   {currentFootwear.badgeTitle}
                 </span>
-                <span className="w-2 h-2 rounded-full bg-[#3B8E82] animate-ping"></span>
+                <span className="w-2 h-2 rounded-full bg-[#18587A] animate-ping"></span>
               </div>
               <span className="font-['Space_Grotesk'] text-[18px] text-[#0E344D] font-semibold">
                 {currentFootwear.headline}
@@ -361,7 +361,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
               {currentFootwear.features.map((feat, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-white border border-[#D6DCE0] flex items-start gap-4 hover:border-[#3B8E82] transition-colors shadow-xs"
+                  className="p-4 rounded-xl bg-white border border-[#D6DCE0] flex items-start gap-4 hover:border-[#18587A] transition-colors shadow-xs"
                 >
                   <div className={`p-2 rounded-lg bg-[#F1F3F4] ${feat.colorClass} shrink-0`}>
                     <span className="material-symbols-outlined text-2xl">{feat.icon}</span>
@@ -384,7 +384,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
               </span>
               <button
                 onClick={() => onReserveFootwear(currentFootwear)}
-                className="px-6 py-3 rounded-full bg-[#3B8E82] text-white font-['Space_Grotesk'] text-[11px] uppercase tracking-widest font-bold hover:bg-[#2E766B] transition-all shadow-sm cursor-pointer"
+                className="px-6 py-3 rounded-full bg-[#18587A] text-white font-['Space_Grotesk'] text-[11px] uppercase tracking-widest font-bold hover:bg-[#124460] transition-all shadow-sm cursor-pointer"
               >
                 Reserve Prototype
               </button>
@@ -398,7 +398,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col gap-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="flex flex-col gap-1">
-              <span className="font-['Space_Grotesk'] text-[11px] text-[#25665D] uppercase tracking-widest font-semibold">
+              <span className="font-['Space_Grotesk'] text-[11px] text-[#0E344D] uppercase tracking-widest font-semibold">
                 Autumn / Winter Ready-to-Wear
               </span>
               <h2 className="font-['Space_Grotesk'] text-headline-lg text-[#0E344D] tracking-tight">
@@ -410,7 +410,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
             </div>
 
             <div className="flex items-center gap-2 text-[#5D6870] font-['Space_Grotesk'] text-[11px] font-semibold">
-              <span className="text-[#25665D]">04 SILHOUETTES</span>
+              <span className="text-[#0E344D]">04 SILHOUETTES</span>
               <span>/</span>
               <span>SERIES 2025</span>
             </div>
@@ -422,7 +422,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
               <div
                 key={garment.id}
                 onClick={() => onViewGarment(garment)}
-                className="group relative rounded-2xl bg-white overflow-hidden border border-[#D6DCE0] shadow-sm flex flex-col hover:border-[#3B8E82] hover:shadow-md transition-all duration-300 cursor-pointer"
+                className="group relative rounded-2xl bg-white overflow-hidden border border-[#D6DCE0] shadow-sm flex flex-col hover:border-[#18587A] hover:shadow-md transition-all duration-300 cursor-pointer"
               >
                 <div className="relative h-80 w-full overflow-hidden bg-[#F1F3F4]">
                   <img
@@ -431,14 +431,14 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                     src={garment.imageUrl}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E344D]/40 via-transparent to-transparent"></div>
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#25665D] font-['Space_Grotesk'] text-[10px] tracking-wider uppercase font-semibold border border-[#D6DCE0] shadow-xs">
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#0E344D] font-['Space_Grotesk'] text-[10px] tracking-wider uppercase font-semibold border border-[#D6DCE0] shadow-xs">
                     {garment.tag}
                   </span>
                 </div>
 
                 <div className="p-5 flex flex-col flex-grow justify-between gap-4">
                   <div className="flex flex-col gap-1.5">
-                    <span className="font-['Space_Grotesk'] text-[18px] text-[#0E344D] font-semibold group-hover:text-[#25665D] transition-colors">
+                    <span className="font-['Space_Grotesk'] text-[18px] text-[#0E344D] font-semibold group-hover:text-[#0E344D] transition-colors">
                       {garment.title}
                     </span>
                     <p className="font-['Plus_Jakarta_Sans'] text-[13px] text-[#36454F] leading-normal">
@@ -450,7 +450,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                     <span className="font-['Space_Grotesk'] text-[11px] text-[#18587A] font-semibold">
                       {garment.metric}
                     </span>
-                    <span className="material-symbols-outlined text-[#3B8E82] group-hover:translate-x-1 transition-transform">
+                    <span className="material-symbols-outlined text-[#18587A] group-hover:translate-x-1 transition-transform">
                       arrow_forward
                     </span>
                   </div>
@@ -466,8 +466,8 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
         <div className="p-8 sm:p-10 rounded-2xl bg-white border border-[#D6DCE0] relative overflow-hidden shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6 flex flex-col gap-6">
-              <div className="flex items-center gap-1.5 text-[#25665D] font-['Space_Grotesk'] text-[11px] uppercase tracking-widest font-semibold">
-                <span className="material-symbols-outlined text-base text-[#3B8E82]">tune</span>
+              <div className="flex items-center gap-1.5 text-[#0E344D] font-['Space_Grotesk'] text-[11px] uppercase tracking-widest font-semibold">
+                <span className="material-symbols-outlined text-base text-[#18587A]">tune</span>
                 <span>Wearer Acceptance Calculator</span>
               </div>
 
@@ -484,7 +484,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between font-['Space_Grotesk'] text-[11px]">
                     <span className="text-[#36454F] uppercase font-semibold">Fabric Elegance &amp; Drape Index</span>
-                    <span className="text-[#25665D] font-bold text-[13px]">{eleganceVal}%</span>
+                    <span className="text-[#0E344D] font-bold text-[13px]">{eleganceVal}%</span>
                   </div>
                   <input
                     type="range"
@@ -492,7 +492,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                     max="100"
                     value={eleganceVal}
                     onChange={(e) => setEleganceVal(parseInt(e.target.value, 10))}
-                    className="w-full h-2 bg-[#E4E8EB] rounded-lg appearance-none cursor-pointer accent-[#3B8E82]"
+                    className="w-full h-2 bg-[#E4E8EB] rounded-lg appearance-none cursor-pointer accent-[#18587A]"
                   />
                 </div>
 
@@ -520,11 +520,11 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                   <span className="font-['Space_Grotesk'] text-[11px] text-[#5D6870] uppercase tracking-widest font-semibold">
                     Projected Daily Continuous Wear
                   </span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#3B8E82] animate-ping"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0284C7] animate-ping"></span>
                 </div>
 
                 <div className="flex items-baseline gap-2">
-                  <span className="font-['Space_Grotesk'] text-[56px] text-[#25665D] font-bold leading-none">
+                  <span className="font-['Space_Grotesk'] text-[56px] text-[#0284C7] font-bold leading-none">
                     {projectedHours}
                   </span>
                   <span className="font-['Space_Grotesk'] text-[20px] text-[#5D6870]">hrs / day</span>
@@ -532,7 +532,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
 
                 <div className="w-full bg-[#E4E8EB] h-2.5 rounded-full overflow-hidden">
                   <div
-                    className="bg-gradient-to-r from-[#3B8E82] to-[#18587A] h-full rounded-full transition-all duration-300"
+                    className="bg-gradient-to-r from-[#0E344D] via-[#0284C7] to-[#38BDF8] h-full rounded-full transition-all duration-300"
                     style={{ width: `${Math.min(100, avgVal)}%` }}
                   ></div>
                 </div>
@@ -542,7 +542,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                     <span className="font-['Space_Grotesk'] text-[11px] text-[#5D6870] uppercase">
                       Health Data Fidelity
                     </span>
-                    <span className="font-['Space_Grotesk'] text-[20px] text-[#25665D] font-bold">
+                    <span className="font-['Space_Grotesk'] text-[20px] text-[#0284C7] font-bold">
                       {dataFidelity}%
                     </span>
                   </div>
@@ -551,7 +551,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                     <span className="font-['Space_Grotesk'] text-[11px] text-[#5D6870] uppercase">
                       Social Comfort Index
                     </span>
-                    <span className="font-['Space_Grotesk'] text-[20px] text-[#18587A] font-bold">
+                    <span className="font-['Space_Grotesk'] text-[20px] text-[#1D4ED8] font-bold">
                       {comfortIndex}
                     </span>
                   </div>

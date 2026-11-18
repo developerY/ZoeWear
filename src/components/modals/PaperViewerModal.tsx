@@ -85,7 +85,7 @@ export const PaperViewerModal: React.FC<PaperViewerModalProps> = ({ paper, onClo
             </button>
             <button
               onClick={onClose}
-              className="px-4 py-1.5 rounded-full bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+              className="px-4 py-1.5 rounded-full bg-[#18587A] hover:bg-[#124460] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
             >
               Close
             </button>

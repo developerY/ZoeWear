@@ -140,7 +140,7 @@ export const TelemetryDiagnosticsModal: React.FC<TelemetryDiagnosticsModalProps>
             <button
               onClick={startSweep}
               disabled={isScanning}
-              className="px-4 py-2 rounded-full bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-semibold uppercase tracking-wider shadow-md shadow-[#3B8E82]/20 transition-all cursor-pointer disabled:opacity-50 flex items-center gap-1.5"
+              className="px-4 py-2 rounded-full bg-[#18587A] hover:bg-[#124460] text-white text-xs font-semibold uppercase tracking-wider shadow-md shadow-[#18587A]/20 transition-all cursor-pointer disabled:opacity-50 flex items-center gap-1.5"
             >
               <span className={`material-symbols-outlined text-[16px] ${isScanning ? 'animate-spin' : ''}`}>
                 autorenew

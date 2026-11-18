@@ -98,8 +98,8 @@ export const KeynoteViewerModal: React.FC<KeynoteViewerModalProps> = ({
         </div>
 
         {/* Slide Screen Canvas */}
-        <div className="relative w-full aspect-[16/9] rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-8 flex flex-col justify-between overflow-hidden shadow-inner">
-          <div className="absolute top-0 right-0 w-60 h-60 bg-[#3B8E82]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative w-full aspect-[16/9] rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-8 flex flex-col justify-between overflow-hidden shadow-inner">
+          <div className="absolute top-0 right-0 w-60 h-60 bg-[#18587A]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="flex items-center justify-between border-b border-subtle/50 pb-3">
             <span className="font-label-sm text-xs text-primary-container tracking-widest uppercase font-mono">
@@ -151,7 +151,7 @@ export const KeynoteViewerModal: React.FC<KeynoteViewerModalProps> = ({
 
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-full bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+            className="px-5 py-2 rounded-full bg-[#18587A] hover:bg-[#124460] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
           >
             Close Presentation
           </button>

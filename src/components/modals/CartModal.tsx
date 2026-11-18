@@ -29,9 +29,9 @@ export const CartModal: React.FC<CartModalProps> = ({
     <div className="fixed inset-0 z-50 flex justify-end bg-[#0E344D]/35 backdrop-blur-sm animate-fadeIn">
       <div className="relative w-full max-w-md bg-white border-l border-[#D6DCE0] h-full flex flex-col justify-between shadow-2xl">
         {/* Header */}
-        <div className="p-6 border-b border-[#D6DCE0] flex items-center justify-between bg-[#F7F8F7]">
+        <div className="p-6 border-b border-[#D6DCE0] flex items-center justify-between bg-[#F5F6F8]">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[#3B8E82]">shopping_bag</span>
+            <span className="material-symbols-outlined text-[#18587A]">shopping_bag</span>
             <h2 className="font-['Space_Grotesk'] text-lg font-bold text-[#0E344D]">
               Shopping Bag ({cartItems.length})
             </h2>
@@ -73,7 +73,7 @@ export const CartModal: React.FC<CartModalProps> = ({
                   <h4 className="font-['Space_Grotesk'] text-xs font-semibold text-[#0E344D] truncate">
                     {item.name}
                   </h4>
-                  <p className="text-[11px] text-[#25665D] font-['Space_Grotesk'] font-bold mt-0.5">
+                  <p className="text-[11px] text-[#0E344D] font-['Space_Grotesk'] font-bold mt-0.5">
                     {item.price}
                   </p>
                   <p className="text-[10px] text-[#5D6870] truncate">{item.collection}</p>
@@ -106,7 +106,7 @@ export const CartModal: React.FC<CartModalProps> = ({
             </p>
             <button
               onClick={onCheckout}
-              className="w-full py-3.5 rounded-xl bg-[#3B8E82] hover:bg-[#2E766B] text-white font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-[#3B8E82]/20"
+              className="w-full py-3.5 rounded-xl bg-[#18587A] hover:bg-[#124460] text-white font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-[#18587A]/20"
             >
               <span>Proceed to Bespoke Reserve</span>
               <span className="material-symbols-outlined text-base">arrow_forward</span>

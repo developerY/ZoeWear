@@ -2,22 +2,22 @@
 
 @theme {
   --color-border-subtle: rgba(14, 52, 77, 0.12);
-  --color-border-luminous: rgba(59, 142, 130, 0.45);
-  --color-neon-cyan-glow: rgba(59, 142, 130, 0.18);
-  --color-surface-glass: rgba(255, 255, 255, 0.88);
+  --color-border-luminous: rgba(2, 132, 199, 0.42);
+  --color-neon-cyan-glow: rgba(2, 132, 199, 0.18);
+  --color-surface-glass: rgba(255, 255, 255, 0.90);
 
-  /* Unified Deep Ocean, Slate, Mineral Grey, Sea-Glass & Pearl Swatches */
+  /* Unified Deep Ocean Blue, Slate & Material Gray + Analogous Azure & Cobalt Spectrum */
   --color-electric-navy: #0E344D;
   --color-electric-ocean: #18587A;
-  --color-electric-teal: #3B8E82;
-  --color-electric-lime: #3B8E82;
-  --color-electric-pink: #18587A;
+  --color-electric-teal: #0284C7;
+  --color-electric-lime: #2563EB;
+  --color-electric-pink: #0EA5E9;
 
-  /* Light Mode Pearl & Mineral Surfaces */
-  --color-surface-obsidian: #F7F8F7;
+  /* Light Mode Material Gray & Mineral Surfaces */
+  --color-surface-obsidian: #F5F6F8;
   --color-surface-slate: #FFFFFF;
   --color-surface: #FFFFFF;
-  --color-surface-dim: #EFF2F3;
+  --color-surface-dim: #ECEFF2;
   --color-surface-bright: #E4E8EB;
   --color-surface-variant: #EBEEF0;
   --color-surface-container-lowest: #FFFFFF;
@@ -27,12 +27,12 @@
   --color-surface-container-highest: #DCE2E6;
 
   /* Light Mode Semantic Colors */
-  --color-primary: #25665D;
+  --color-primary: #0E344D;
   --color-on-primary: #FFFFFF;
-  --color-primary-container: #3B8E82;
+  --color-primary-container: #0284C7;
   --color-on-primary-container: #FFFFFF;
-  --color-primary-fixed: #E8F3F1;
-  --color-primary-fixed-dim: #2E766B;
+  --color-primary-fixed: #E0F2FE;
+  --color-primary-fixed-dim: #0369A1;
   --color-inverse-primary: #0E344D;
 
   --color-secondary: #18587A;
@@ -42,9 +42,9 @@
 
   --color-tertiary: #36454F;
   --color-on-tertiary: #FFFFFF;
-  --color-tertiary-container: #18587A;
+  --color-tertiary-container: #1D4ED8;
   --color-on-tertiary-container: #FFFFFF;
-  --color-circuit-gold: #18587A;
+  --color-circuit-gold: #1D4ED8;
 
   --color-on-surface: #0E344D;
   --color-on-surface-variant: #36454F;
@@ -79,7 +79,7 @@
   html, body {
     margin: 0;
     padding: 0;
-    background-color: #F7F8F7;
+    background-color: #F5F6F8;
     color: #0E344D;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
@@ -196,14 +196,14 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #EFF2F3;
+  background: #ECEFF2;
 }
 ::-webkit-scrollbar-thumb {
   background: #C6CED4;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B8E82;
+  background: #1F78B4;
 }
 
 @keyframes floatSlow {

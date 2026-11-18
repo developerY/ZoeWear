@@ -879,7 +879,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
         const w = canvas.width;
         const h = canvas.height;
         // Crisp clinical light canvas grid
-        ctx.fillStyle = '#F7F8F7';
+        ctx.fillStyle = '#F5F6F8';
         ctx.fillRect(0, 0, w, h);
 
         // Center baseline
@@ -892,7 +892,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
 
         // Waveform
         const amp = Math.min(h * 0.44, (telemetry.semgUv / 180) * (h * 0.44));
-        ctx.strokeStyle = telemetry.semgUv > 90 ? '#C23B32' : '#3B8E82';
+        ctx.strokeStyle = telemetry.semgUv > 90 ? '#C23B32' : '#18587A';
         ctx.lineWidth = 2;
         ctx.beginPath();
         for (let x = 0; x < w; x++) {
@@ -923,7 +923,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
     salmon_bowl: {
       title: 'Scene: Wild Salmon, Quinoa & Avocado Bowl',
       masks: [
-        { label: 'mask_01: Wild Salmon Fillet (185g)', confidence: '98.4%', delta: '+24 Nourishment, +12 Energy', color: '#3B8E82' },
+        { label: 'mask_01: Wild Salmon Fillet (185g)', confidence: '98.4%', delta: '+24 Nourishment, +12 Energy', color: '#18587A' },
         { label: 'mask_02: Steamed Quinoa & Greens', confidence: '96.1%', delta: '+14 Activity Fuel', color: '#18587A' },
         { label: 'mask_03: Sliced Avocado (Healthy Lipids)', confidence: '95.8%', delta: '+8 Growth & Recovery', color: '#0E344D' },
       ],
@@ -952,7 +952,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
     ergonomic_walk: {
       title: 'Scene: Outdoor Park Trail & Hydration Bottle',
       masks: [
-        { label: 'mask_01: Shaded Walking Trail Path', confidence: '99.1%', delta: 'Resets Sedentary Window to 0m', color: '#3B8E82' },
+        { label: 'mask_01: Shaded Walking Trail Path', confidence: '99.1%', delta: 'Resets Sedentary Window to 0m', color: '#18587A' },
         { label: 'mask_02: 750ml Electrolyte Bottle', confidence: '96.7%', delta: '+15 Nourishment & Vitality', color: '#18587A' },
       ],
       apply: () => {
@@ -999,7 +999,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
     const w = canvas.width;
     const h = canvas.height;
 
-    ctx.fillStyle = '#F7F8F7';
+    ctx.fillStyle = '#F5F6F8';
     ctx.fillRect(0, 0, w, h);
 
     // Subtle scientific coordinate grid
@@ -1323,13 +1323,13 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
       default:
         return {
           stop1: '#64B2A6',
-          stop2: '#3B8E82',
+          stop2: '#18587A',
           mouthPath: 'M86 110 Q100 124 114 110',
           eyeRy: 11,
-          auraClass: 'aura-ring absolute w-44 h-44 rounded-full bg-[#3B8E82]/20 blur-2xl pointer-events-none',
+          auraClass: 'aura-ring absolute w-44 h-44 rounded-full bg-[#18587A]/20 blur-2xl pointer-events-none',
           directive: `anim: gentle_levitation_pulse (${telemetry.hrBpm} BPM sync)`,
           proteus: 'Proteus: Whole-Life Vitality',
-          stateBadgeClass: 'bg-[#E8F3F1] text-[#25665D] border-[#3B8E82]/40',
+          stateBadgeClass: 'bg-[#E8EEF3] text-[#0E344D] border-[#18587A]/40',
         };
     }
   };
@@ -1412,21 +1412,21 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
   );
 
   return (
-    <div className="w-full bg-[#F7F8F7] text-[#0E344D] min-h-screen flex flex-col font-['Plus_Jakarta_Sans',sans-serif]">
+    <div className="w-full bg-[#F5F6F8] text-[#0E344D] min-h-screen flex flex-col font-['Plus_Jakarta_Sans',sans-serif]">
       {/* Top Banner Ribbon for Meta AI Hackathon & Medium Publication */}
-      <section className="w-full bg-gradient-to-r from-[#EFF2F3] via-white to-[#E8F3F1] border-b border-[#D6DCE0] px-4 sm:px-8 py-3">
+      <section className="w-full bg-gradient-to-r from-[#ECEFF2] via-white to-[#E8EEF3] border-b border-[#D6DCE0] px-4 sm:px-8 py-3">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
           <div className="flex items-center gap-3 flex-wrap">
             <button
               onClick={() => onNavigate('tech')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#D6DCE0] text-xs font-['Space_Grotesk'] font-semibold text-[#0E344D] hover:text-[#25665D] hover:border-[#3B8E82]/50 shadow-xs transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#D6DCE0] text-xs font-['Space_Grotesk'] font-semibold text-[#0E344D] hover:text-[#0E344D] hover:border-[#18587A]/50 shadow-xs transition-colors cursor-pointer"
             >
               <span className="material-symbols-outlined text-[16px]">arrow_back</span>
               <span>Back to Tech</span>
             </button>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#3B8E82]"></span>
-              <span className="text-xs uppercase font-['Space_Grotesk'] tracking-widest text-[#25665D] font-bold">
+              <span className="w-2 h-2 rounded-full bg-[#18587A]"></span>
+              <span className="text-xs uppercase font-['Space_Grotesk'] tracking-widest text-[#0E344D] font-bold">
                 Meta AI Global Hackathon Submission
               </span>
             </div>
@@ -1463,7 +1463,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
       <nav className="sticky top-24 z-30 border-b border-[#D6DCE0] bg-white/95 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#3B8E82] via-[#18587A] to-[#0E344D] flex items-center justify-center shadow-sm">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0E344D] via-[#0284C7] to-[#2563EB] flex items-center justify-center shadow-sm">
               <span className="material-symbols-outlined text-white text-[20px]">psychology</span>
             </div>
             <div>
@@ -1471,12 +1471,12 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 <h1 className="text-base sm:text-lg font-bold tracking-tight text-[#0E344D] font-['Space_Grotesk']">
                   Muse Charm · Personal Life Coach
                 </h1>
-                <span className="px-2 py-0.5 text-[11px] font-semibold rounded-md bg-[#E8F3F1] text-[#25665D] border border-[#3B8E82]/30">
+                <span className="px-2 py-0.5 text-[11px] font-semibold rounded-md bg-[#E0F2FE] text-[#0284C7] border border-[#0284C7]/35">
                   Meta AI Hackathon
                 </span>
               </div>
               <p className="text-xs text-[#5D6870]">
-                4-Pillar Life Architecture: <span className="text-[#0E344D] font-semibold">Body (sEMG) · Emotion · Wealth (Impulse Guard) · Purpose</span>
+                4-Pillar Life Architecture: <span className="text-[#0284C7] font-semibold">Body (sEMG)</span> · <span className="text-[#1D4ED8] font-semibold">Emotion</span> · <span className="text-[#0369A1] font-semibold">Wealth (Impulse Guard)</span> · <span className="text-[#18587A] font-semibold">Purpose</span>
               </p>
             </div>
           </div>
@@ -1489,7 +1489,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 onClick={() => setActiveTab('main')}
                 className={`px-3 py-1.5 rounded-md text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
                   activeTab === 'main'
-                    ? 'bg-white text-[#25665D] border border-[#3B8E82]/40 shadow-xs'
+                    ? 'bg-white text-[#0284C7] border border-[#0284C7]/45 shadow-xs'
                     : 'text-[#36454F] hover:text-[#0E344D]'
                 }`}
               >
@@ -1501,7 +1501,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 onClick={() => setActiveTab('mind_emotion')}
                 className={`px-3 py-1.5 rounded-md text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
                   activeTab === 'mind_emotion'
-                    ? 'bg-white text-[#18587A] border border-[#18587A]/40 shadow-xs'
+                    ? 'bg-white text-[#1D4ED8] border border-[#1D4ED8]/45 shadow-xs'
                     : 'text-[#36454F] hover:text-[#0E344D]'
                 }`}
               >
@@ -1513,7 +1513,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 onClick={() => setActiveTab('wealth')}
                 className={`px-3 py-1.5 rounded-md text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
                   activeTab === 'wealth'
-                    ? 'bg-white text-[#25665D] border border-[#3B8E82]/40 shadow-xs'
+                    ? 'bg-white text-[#0369A1] border border-[#0369A1]/45 shadow-xs'
                     : 'text-[#36454F] hover:text-[#0E344D]'
                 }`}
               >
@@ -1528,7 +1528,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 onClick={() => setActiveTab('sam')}
                 className={`px-3 py-1.5 rounded-md text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
                   activeTab === 'sam'
-                    ? 'bg-white text-[#18587A] border border-[#18587A]/40 shadow-xs'
+                    ? 'bg-white text-[#18587A] border border-[#18587A]/45 shadow-xs'
                     : 'text-[#36454F] hover:text-[#0E344D]'
                 }`}
               >
@@ -1540,7 +1540,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 onClick={() => setActiveTab('arch')}
                 className={`px-3 py-1.5 rounded-md text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
                   activeTab === 'arch'
-                    ? 'bg-white text-[#0E344D] border border-[#0E344D]/30 shadow-xs'
+                    ? 'bg-white text-[#0E344D] border border-[#0E344D]/40 shadow-xs'
                     : 'text-[#36454F] hover:text-[#0E344D]'
                 }`}
               >
@@ -1559,7 +1559,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
               className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white hover:bg-[#F1F3F4] text-[#0E344D] border border-[#D6DCE0] flex items-center gap-1.5 transition cursor-pointer"
               title="Toggle Bio-Haptic Audio Synthesis"
             >
-              <span className={`w-2 h-2 rounded-full ${audioEnabled ? 'bg-[#3B8E82]' : 'bg-[#98A2A8]'}`}></span>
+              <span className={`w-2 h-2 rounded-full ${audioEnabled ? 'bg-[#0284C7]' : 'bg-[#98A2A8]'}`}></span>
               <span>{audioEnabled ? 'Chimes On' : 'Chimes Muted'}</span>
             </button>
           </div>
@@ -1587,7 +1587,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
               <button
                 type="button"
                 onClick={() => handleBankImpulseSavings(50)}
-                className="px-3 py-1.5 rounded-lg bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-bold transition shadow-xs cursor-pointer"
+                className="px-3 py-1.5 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-bold transition shadow-xs cursor-pointer"
               >
                 Auto-Save $50 to Vault &amp; Unlock
               </button>
@@ -1605,9 +1605,9 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
 
       {/* Toast Notification Banner */}
       {toast.visible && (
-        <div className="fixed bottom-5 right-5 z-50 max-w-sm rounded-xl bg-white/95 border border-[#3B8E82]/50 px-4 py-3 shadow-lg backdrop-blur-md">
+        <div className="fixed bottom-5 right-5 z-50 max-w-sm rounded-xl bg-white/95 border border-[#0284C7]/50 px-4 py-3 shadow-lg backdrop-blur-md">
           <div className="flex items-start gap-2.5">
-            <span className="mt-1 w-2 h-2 rounded-full bg-[#3B8E82] shrink-0"></span>
+            <span className="mt-1 w-2 h-2 rounded-full bg-[#0284C7] shrink-0"></span>
             <div>
               <p className="text-xs font-bold text-[#0E344D]">{toast.title}</p>
               <p className="text-xs text-[#36454F] mt-0.5">{toast.message}</p>
@@ -1624,18 +1624,18 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
               <div className="flex items-center gap-5">
                 {/* Composite Score Square */}
-                <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[#EEF6F5] to-[#E8F0F4] border border-[#3B8E82]/40 flex flex-col items-center justify-center shadow-xs shrink-0">
-                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#25665D] font-bold">ALIGNMENT</span>
+                <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[#E0F2FE] via-[#DBEAFE] to-[#E8F0F4] border border-[#0284C7]/40 flex flex-col items-center justify-center shadow-xs shrink-0">
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#0284C7] font-bold">ALIGNMENT</span>
                   <span className="text-2xl font-black font-['Space_Grotesk'] text-[#0E344D] tabular-nums">{compositeLifeScore}</span>
                   <span className="text-[10px] text-[#5D6870] font-mono">/100</span>
                 </div>
 
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#25665D] font-['Space_Grotesk']">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7] font-['Space_Grotesk']">
                       Personal Life Coach Engine
                     </span>
-                    <span className="px-2 py-0.5 text-[10px] rounded-md bg-[#E8F0F4] text-[#18587A] border border-[#18587A]/30 font-mono font-semibold">
+                    <span className="px-2 py-0.5 text-[10px] rounded-md bg-[#E0F2FE] text-[#0369A1] border border-[#0284C7]/35 font-mono font-semibold">
                       Level {Math.floor(coachXp / 100) + 1} · {coachStreak} Day Streak
                     </span>
                   </div>
@@ -1643,19 +1643,19 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     Whole-Person Harmonizer: Body, Mind &amp; Wealth
                   </h2>
                   <p className="text-xs text-[#36454F] mt-1 max-w-2xl leading-relaxed">
-                    Muse Charm monitors neuromuscular strain (<code className="text-[#25665D] font-mono font-semibold">{telemetry.semgUv} µV</code>), emotional valence (<code className="text-[#18587A] font-mono font-semibold">{emotion.valence > 0 ? '+' : ''}{emotion.valence.toFixed(1)}</code>), and daily financial velocity (<code className="text-[#0E344D] font-mono font-semibold">${financial.spentToday.toFixed(0)} / ${financial.dailyBudget}</code>) to provide holistic grounding interventions.
+                    Muse Charm monitors neuromuscular strain (<code className="text-[#0E344D] font-mono font-semibold">{telemetry.semgUv} µV</code>), emotional valence (<code className="text-[#18587A] font-mono font-semibold">{emotion.valence > 0 ? '+' : ''}{emotion.valence.toFixed(1)}</code>), and daily financial velocity (<code className="text-[#0E344D] font-mono font-semibold">${financial.spentToday.toFixed(0)} / ${financial.dailyBudget}</code>) to provide holistic grounding interventions.
                   </p>
                 </div>
               </div>
 
               {/* 4 Pillars Mini-Dashboard */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 shrink-0">
-                <div className="p-2.5 rounded-xl bg-[#F3F6F6] border border-[#3B8E82]/30 flex flex-col">
+                <div className="p-2.5 rounded-xl bg-[#F3F6F6] border border-[#18587A]/30 flex flex-col">
                   <span className="text-[10px] text-[#5D6870] uppercase font-mono flex items-center justify-between">
                     <span>Body</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B8E82]"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#18587A]"></span>
                   </span>
-                  <span className="text-sm font-bold text-[#25665D] font-['Space_Grotesk'] mt-0.5 tabular-nums">{bodyScore}%</span>
+                  <span className="text-sm font-bold text-[#0E344D] font-['Space_Grotesk'] mt-0.5 tabular-nums">{bodyScore}%</span>
                   <span className="text-[10px] text-[#5D6870] font-mono">{telemetry.semgUv} µV · {telemetry.sleepHrs}h</span>
                 </div>
 
@@ -1677,12 +1677,12 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   <span className="text-[10px] text-[#5D6870] font-mono">${(financial.dailyBudget - financial.spentToday).toFixed(0)} left</span>
                 </div>
 
-                <div className="p-2.5 rounded-xl bg-[#E8F3F1] border border-[#3B8E82]/35 flex flex-col">
+                <div className="p-2.5 rounded-xl bg-[#E8EEF3] border border-[#18587A]/35 flex flex-col">
                   <span className="text-[10px] text-[#5D6870] uppercase font-mono flex items-center justify-between">
                     <span>Growth</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#25665D]"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0E344D]"></span>
                   </span>
-                  <span className="text-sm font-bold text-[#25665D] font-['Space_Grotesk'] mt-0.5 tabular-nums">{coachXp} XP</span>
+                  <span className="text-sm font-bold text-[#0E344D] font-['Space_Grotesk'] mt-0.5 tabular-nums">{coachXp} XP</span>
                   <span className="text-[10px] text-[#5D6870] font-mono">Stage: {growthStage}</span>
                 </div>
               </div>
@@ -1717,7 +1717,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     }}
                     className={`px-2.5 py-1 rounded text-xs font-semibold transition cursor-pointer ${
                       coachPersona === 'sage'
-                        ? 'bg-[#25665D] text-white shadow-xs'
+                        ? 'bg-[#0E344D] text-white shadow-xs'
                         : 'text-[#36454F] hover:text-[#0E344D]'
                     }`}
                   >
@@ -1732,7 +1732,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     }}
                     className={`px-2.5 py-1 rounded text-xs font-semibold transition cursor-pointer ${
                       coachPersona === 'pragmatist'
-                        ? 'bg-[#3B8E82] text-white shadow-xs'
+                        ? 'bg-[#18587A] text-white shadow-xs'
                         : 'text-[#36454F] hover:text-[#0E344D]'
                     }`}
                   >
@@ -1762,7 +1762,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 <button
                   type="button"
                   onClick={() => applyPreset('optimal_flow')}
-                  className="px-2 py-1 rounded text-[11px] font-semibold bg-[#E8F3F1] hover:bg-[#DCECE9] text-[#25665D] border border-[#3B8E82]/40 transition cursor-pointer"
+                  className="px-2 py-1 rounded text-[11px] font-semibold bg-[#E8EEF3] hover:bg-[#DCE5EC] text-[#0E344D] border border-[#18587A]/40 transition cursor-pointer"
                 >
                   1. Optimal Flow
                 </button>
@@ -1792,11 +1792,11 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
           </section>
 
           {/* 3-ACT CINEMATIC HACKATHON TOUR CARD */}
-          <section className="rounded-2xl bg-gradient-to-br from-[#F1F7F6] via-white to-[#EFF4F7] border border-[#3B8E82]/40 p-5 shadow-sm relative overflow-hidden">
+          <section className="rounded-2xl bg-gradient-to-br from-[#F1F7F6] via-white to-[#EFF4F7] border border-[#18587A]/40 p-5 shadow-sm relative overflow-hidden">
             {/* Top tag & Auto-Play button */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#D6DCE0] pb-3">
               <div className="flex items-center gap-3">
-                <span className="p-2 rounded-xl bg-[#E8F3F1] text-[#25665D] border border-[#3B8E82]/30">
+                <span className="p-2 rounded-xl bg-[#E8EEF3] text-[#0E344D] border border-[#18587A]/30">
                   <span className="material-symbols-outlined text-[20px]">movie</span>
                 </span>
                 <div>
@@ -1804,7 +1804,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     <span className="text-xs uppercase font-['Space_Grotesk'] tracking-widest text-[#18587A] font-bold">
                       Meta AI Hackathon Presentation Flow
                     </span>
-                    <span className="px-2 py-0.5 text-[10px] rounded-md bg-[#E8F3F1] text-[#25665D] border border-[#3B8E82]/30 font-mono font-semibold">
+                    <span className="px-2 py-0.5 text-[10px] rounded-md bg-[#E8EEF3] text-[#0E344D] border border-[#18587A]/30 font-mono font-semibold">
                       Judges Demo Mode
                     </span>
                   </div>
@@ -1821,7 +1821,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   onClick={toggleAutoPlayDemo}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer ${
                     isAutoPlayingActs
-                      ? 'bg-[#3B8E82] text-white'
+                      ? 'bg-[#18587A] text-white'
                       : 'bg-gradient-to-r from-[#0E344D] to-[#18587A] hover:from-[#0A283D] hover:to-[#11425C] text-white'
                   }`}
                 >
@@ -1842,7 +1842,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 className={`p-3.5 rounded-xl text-left border transition cursor-pointer flex flex-col justify-between ${
                   cinematicAct === 1
                     ? 'bg-[#F1F3F4] border-[#0E344D] shadow-xs ring-1 ring-[#0E344D]/30'
-                    : 'bg-white border-[#D6DCE0] hover:border-[#3B8E82]/50'
+                    : 'bg-white border-[#D6DCE0] hover:border-[#18587A]/50'
                 }`}
               >
                 <div>
@@ -1870,16 +1870,16 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 onClick={() => triggerCinematicAct(2)}
                 className={`p-3.5 rounded-xl text-left border transition cursor-pointer flex flex-col justify-between ${
                   cinematicAct === 2
-                    ? 'bg-[#E8F3F1] border-[#3B8E82] shadow-xs ring-1 ring-[#3B8E82]/50'
-                    : 'bg-white border-[#D6DCE0] hover:border-[#3B8E82]/50'
+                    ? 'bg-[#E8EEF3] border-[#18587A] shadow-xs ring-1 ring-[#18587A]/50'
+                    : 'bg-white border-[#D6DCE0] hover:border-[#18587A]/50'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-bold uppercase font-['Space_Grotesk'] text-[#25665D]">
+                    <span className="text-[11px] font-bold uppercase font-['Space_Grotesk'] text-[#0E344D]">
                       Act 2 · Afternoon
                     </span>
-                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#DCECE9] text-[#25665D] font-semibold">
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#DCE5EC] text-[#0E344D] font-semibold">
                       🌿 Growing
                     </span>
                   </div>
@@ -1888,7 +1888,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     10m walk logged, $50 impulse stopped &amp; saved into Vault. Tension drops to 38 µV.
                   </p>
                 </div>
-                <div className="mt-2 text-[10px] font-mono text-[#25665D] font-semibold">
+                <div className="mt-2 text-[10px] font-mono text-[#0E344D] font-semibold">
                   Focus: Impulse Guard + Hydration
                 </div>
               </button>
@@ -1927,8 +1927,8 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
             <div className="mt-4 p-4 rounded-xl bg-white border border-[#D6DCE0] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#3B8E82]"></span>
-                  <span className="text-xs font-bold text-[#25665D] uppercase tracking-wider font-['Space_Grotesk']">
+                  <span className="w-2 h-2 rounded-full bg-[#18587A]"></span>
+                  <span className="text-xs font-bold text-[#0E344D] uppercase tracking-wider font-['Space_Grotesk']">
                     Meta Model API Guidance · {metaContract.mood.toUpperCase()}
                   </span>
                   <span className="text-[#C6CED4] text-xs">|</span>
@@ -1951,7 +1951,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 <button
                   type="button"
                   onClick={executeSuggestedAction}
-                  className="w-full md:w-auto px-4 py-2.5 rounded-xl bg-[#3B8E82] hover:bg-[#2E766B] text-white font-bold text-xs transition shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full md:w-auto px-4 py-2.5 rounded-xl bg-[#18587A] hover:bg-[#124460] text-white font-bold text-xs transition shadow-sm flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-[16px]">bolt</span>
                   <span>Execute Suggested Action: {metaContract.suggested_action.title}</span>
@@ -1965,7 +1965,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#E4E8EB] pb-3 mb-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#25665D] font-['Space_Grotesk']">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#0E344D] font-['Space_Grotesk']">
                     Idea Doc Specification · Dual-Dial Architecture
                   </span>
                   <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-[#F1F3F4] text-[#36454F] border border-[#D6DCE0]">
@@ -1983,18 +1983,18 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {/* Dial 1: Health & Somatic Signals */}
-              <div className="rounded-xl bg-[#F3F6F6] border border-[#3B8E82]/30 p-4 flex flex-col justify-between">
+              <div className="rounded-xl bg-[#F3F6F6] border border-[#18587A]/30 p-4 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold text-[#18587A] uppercase tracking-wider font-['Space_Grotesk'] flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-[16px] text-[#3B8E82]">ecg_heart</span>
+                      <span className="material-symbols-outlined text-[16px] text-[#18587A]">ecg_heart</span>
                       <span>Physical &amp; Emotional Wellness Signal</span>
                     </span>
-                    <span className="text-lg font-black text-[#25665D] font-['Space_Grotesk'] tabular-nums">{wellnessScore}/100</span>
+                    <span className="text-lg font-black text-[#0E344D] font-['Space_Grotesk'] tabular-nums">{wellnessScore}/100</span>
                   </div>
                   <div className="w-full h-2.5 rounded-full bg-white overflow-hidden border border-[#D6DCE0] mt-2">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-[#3B8E82] to-[#18587A] transition-all duration-300"
+                      className="h-full rounded-full bg-gradient-to-r from-[#18587A] to-[#18587A] transition-all duration-300"
                       style={{ width: `${wellnessScore}%` }}
                     />
                   </div>
@@ -2030,7 +2030,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   </div>
                   <div className="w-full h-2.5 rounded-full bg-white overflow-hidden border border-[#D6DCE0] mt-2">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-[#18587A] to-[#3B8E82] transition-all duration-300"
+                      className="h-full rounded-full bg-gradient-to-r from-[#18587A] to-[#18587A] transition-all duration-300"
                       style={{ width: `${financialProgressScore}%` }}
                     />
                   </div>
@@ -2047,7 +2047,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     </div>
                     <div className="p-2 rounded bg-white border border-[#D6DCE0]">
                       <span className="text-[10px] text-[#5D6870] block font-mono">Vault Stash</span>
-                      <span className="font-bold text-[#25665D] tabular-nums">${financial.vaultSavings.toFixed(0)}</span>
+                      <span className="font-bold text-[#0E344D] tabular-nums">${financial.vaultSavings.toFixed(0)}</span>
                     </div>
                   </div>
                 </div>
@@ -2065,7 +2065,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
               <div>
                 <div className="flex items-center justify-between border-b border-[#E4E8EB] pb-3">
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#25665D] font-['Space_Grotesk']">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#0E344D] font-['Space_Grotesk']">
                       Layer 1 · The Body
                     </span>
                     <h3 className="text-sm font-bold text-[#0E344D] mt-0.5">Biosignals &amp; Wearable Telemetry</h3>
@@ -2088,14 +2088,14 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 </div>
 
                 {/* Live sEMG Oscilloscope Canvas */}
-                <div className="mt-3 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-3">
+                <div className="mt-3 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-3">
                   <div className="flex items-center justify-between text-xs mb-1.5">
                     <span className="font-semibold text-[#0E344D]">Neural Band sEMG (5–250 Hz RMS)</span>
-                    <span className={`font-mono font-semibold ${telemetry.semgUv > 90 ? 'text-[#9E2A22]' : 'text-[#25665D]'}`}>
+                    <span className={`font-mono font-semibold ${telemetry.semgUv > 90 ? 'text-[#9E2A22]' : 'text-[#0E344D]'}`}>
                       {telemetry.semgUv} µV RMS · {telemetry.semgUv > 90 ? 'Isometric Clench' : telemetry.semgUv > 55 ? 'Active Typing' : 'Relaxed Baseline'}
                     </span>
                   </div>
-                  <div className="relative h-20 w-full overflow-hidden rounded-lg bg-[#F7F8F7] border border-[#E4E8EB]">
+                  <div className="relative h-20 w-full overflow-hidden rounded-lg bg-[#F5F6F8] border border-[#E4E8EB]">
                     <canvas ref={semgCanvasRef} className="w-full h-full block" />
                   </div>
                 </div>
@@ -2105,7 +2105,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   <div>
                     <div className="flex justify-between text-xs mb-1">
                       <label className="text-[#36454F] font-medium">Wrist sEMG Muscle Activation</label>
-                      <span className="font-mono text-[#25665D] font-semibold tabular-nums">{telemetry.semgUv} µV</span>
+                      <span className="font-mono text-[#0E344D] font-semibold tabular-nums">{telemetry.semgUv} µV</span>
                     </div>
                     <input
                       type="range"
@@ -2113,7 +2113,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       max="180"
                       value={telemetry.semgUv}
                       onChange={(e) => handleTelemetryChange('semgUv', Number(e.target.value), 'Wrist sEMG Adjusted')}
-                      className="w-full accent-[#3B8E82] cursor-pointer"
+                      className="w-full accent-[#18587A] cursor-pointer"
                     />
                   </div>
 
@@ -2135,7 +2135,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   <div>
                     <div className="flex justify-between text-xs mb-1">
                       <label className="text-[#36454F] font-medium">Daily Google Health Steps</label>
-                      <span className="font-mono text-[#25665D] font-semibold tabular-nums">{telemetry.steps.toLocaleString()}</span>
+                      <span className="font-mono text-[#0E344D] font-semibold tabular-nums">{telemetry.steps.toLocaleString()}</span>
                     </div>
                     <input
                       type="range"
@@ -2144,7 +2144,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       step="100"
                       value={telemetry.steps}
                       onChange={(e) => handleTelemetryChange('steps', Number(e.target.value), 'Steps Updated')}
-                      className="w-full accent-[#3B8E82] cursor-pointer"
+                      className="w-full accent-[#18587A] cursor-pointer"
                     />
                   </div>
 
@@ -2207,7 +2207,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     setActiveTab('sam');
                     showToast('SAM 3.1 Lab', 'Segmenting nutritional or desk posture scans.');
                   }}
-                  className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#E8F3F1] hover:bg-[#DCECE9] text-[#25665D] border border-[#3B8E82]/30 transition cursor-pointer"
+                  className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#E8EEF3] hover:bg-[#DCE5EC] text-[#0E344D] border border-[#18587A]/30 transition cursor-pointer"
                 >
                   SAM 3.1 Vision Scan
                 </button>
@@ -2233,14 +2233,14 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 <div className="mt-3.5 space-y-2">
                   {(
                     [
-                      { key: 'Happiness', gradient: 'from-[#3B8E82] to-[#18587A]' },
-                      { key: 'Energy', gradient: 'from-[#3B8E82] to-[#25665D]' },
-                      { key: 'Nourishment', gradient: 'from-[#18587A] to-[#3B8E82]' },
+                      { key: 'Happiness', gradient: 'from-[#18587A] to-[#18587A]' },
+                      { key: 'Energy', gradient: 'from-[#18587A] to-[#0E344D]' },
+                      { key: 'Nourishment', gradient: 'from-[#18587A] to-[#18587A]' },
                       { key: 'Rest', gradient: 'from-[#18587A] to-[#0E344D]' },
-                      { key: 'Activity', gradient: 'from-[#3B8E82] to-[#0E344D]' },
-                      { key: 'Engagement', gradient: 'from-[#18587A] to-[#3B8E82]' },
+                      { key: 'Activity', gradient: 'from-[#18587A] to-[#0E344D]' },
+                      { key: 'Engagement', gradient: 'from-[#18587A] to-[#18587A]' },
                       { key: 'Growth', gradient: 'from-[#0E344D] to-[#18587A]' },
-                      { key: 'Relationship', gradient: 'from-[#25665D] to-[#18587A]' },
+                      { key: 'Relationship', gradient: 'from-[#0E344D] to-[#18587A]' },
                     ] as const
                   ).map(({ key, gradient }) => {
                     const val = vector[key];
@@ -2272,14 +2272,14 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     </span>
                     <span className="text-[11px] text-[#5D6870] font-mono">systemd-nspawn Enclave</span>
                   </div>
-                  <div className="h-28 overflow-y-auto rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-2.5 space-y-1.5 text-xs font-mono">
+                  <div className="h-28 overflow-y-auto rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-2.5 space-y-1.5 text-xs font-mono">
                     {causalLogs.map((item) => {
                       const color =
                         item.level === 'warn'
                           ? 'text-[#18587A]'
                           : item.level === 'crit'
                           ? 'text-[#9E2A22]'
-                          : 'text-[#25665D]';
+                          : 'text-[#0E344D]';
                       return (
                         <div key={item.id} className="flex items-start gap-2 border-b border-[#E4E8EB] pb-1">
                           <span className="text-[#5D6870] shrink-0">[{item.ts}]</span>
@@ -2320,7 +2320,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
               <div>
                 <div className="flex items-center justify-between border-b border-[#E4E8EB] pb-3">
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#25665D] font-['Space_Grotesk']">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#0E344D] font-['Space_Grotesk']">
                       Layer 3 · Digital Totem &amp; Coach
                     </span>
                     <h3 className="text-sm font-bold text-[#0E344D] mt-0.5">Muse Charm Life Companion</h3>
@@ -2336,7 +2336,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
 
                   <div className="relative z-10 w-full flex items-center justify-between text-[11px] text-[#5D6870] mb-1.5 flex-wrap gap-1">
                     <div className="flex items-center gap-1.5 font-mono">
-                      <span className="w-2 h-2 rounded-full bg-[#3B8E82]"></span>
+                      <span className="w-2 h-2 rounded-full bg-[#18587A]"></span>
                       <span className="text-[#0E344D] font-semibold">MUSE OS v2.4</span>
                     </div>
 
@@ -2361,7 +2361,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                           playBioChime('positive');
                         }}
                         className={`px-1.5 py-0.5 rounded transition cursor-pointer ${
-                          growthStage === 'growing' ? 'bg-[#E8F3F1] text-[#25665D] font-bold' : 'text-[#5D6870]'
+                          growthStage === 'growing' ? 'bg-[#E8EEF3] text-[#0E344D] font-bold' : 'text-[#5D6870]'
                         }`}
                       >
                         🌿 Growing
@@ -2388,15 +2388,15 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     title="Tap to exchange bio-haptic pulse with your companion"
                   >
                     <svg className="w-36 h-36 transition-transform group-hover:scale-105" viewBox="0 0 200 200" fill="none">
-                      <circle cx="100" cy="100" r="76" stroke="#3B8E82" strokeWidth="2" strokeDasharray="6 6" opacity="0.45" />
+                      <circle cx="100" cy="100" r="76" stroke="#18587A" strokeWidth="2" strokeDasharray="6 6" opacity="0.45" />
                       
                       {/* Growth Stage 3: Crown Halo & Star Particles */}
                       {growthStage === 'thriving' && (
                         <g>
                           <ellipse cx="100" cy="24" rx="34" ry="8" fill="none" stroke="#18587A" strokeWidth="2.5" strokeDasharray="4 3" opacity="0.9" />
-                          <polygon points="100,10 103,18 112,19 105,25 107,33 100,28 93,33 95,25 88,19 97,18" fill="#3B8E82" stroke="#0E344D" strokeWidth="1" />
+                          <polygon points="100,10 103,18 112,19 105,25 107,33 100,28 93,33 95,25 88,19 97,18" fill="#18587A" stroke="#0E344D" strokeWidth="1" />
                           <circle cx="56" cy="38" r="3" fill="#18587A" />
-                          <circle cx="144" cy="38" r="3" fill="#3B8E82" />
+                          <circle cx="144" cy="38" r="3" fill="#18587A" />
                           <circle cx="100" cy="100" r="84" stroke="#18587A" strokeWidth="1.5" opacity="0.55" strokeDasharray="3 3" />
                         </g>
                       )}
@@ -2404,7 +2404,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       {/* Growth Stage 2: Twin Leafy Antenna Sprouts */}
                       {growthStage === 'growing' && (
                         <g>
-                          <path d="M96 38 C84 18, 68 22, 72 14 C84 17, 94 26, 98 38 Z" fill="#3B8E82" stroke="#0E344D" strokeWidth="1.2" />
+                          <path d="M96 38 C84 18, 68 22, 72 14 C84 17, 94 26, 98 38 Z" fill="#18587A" stroke="#0E344D" strokeWidth="1.2" />
                           <path d="M104 38 C116 18, 132 22, 128 14 C116 17, 106 26, 102 38 Z" fill="#18587A" stroke="#0E344D" strokeWidth="1.2" />
                         </g>
                       )}
@@ -2412,7 +2412,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       {/* Growth Stage 1: Gentle Single Leaf Sprout Bud */}
                       {growthStage === 'sprout' && (
                         <g>
-                          <path d="M100 38 C94 22, 105 14, 107 12 C103 22, 108 30, 101 38 Z" fill="#3B8E82" stroke="#0E344D" strokeWidth="1.5" />
+                          <path d="M100 38 C94 22, 105 14, 107 12 C103 22, 108 30, 101 38 Z" fill="#18587A" stroke="#0E344D" strokeWidth="1.5" />
                           <circle cx="106" cy="12" r="2.5" fill="#18587A" />
                         </g>
                       )}
@@ -2422,7 +2422,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       <path
                         d="M100 38 C142 38, 164 68, 160 112 C156 150, 132 168, 100 168 C68 168, 44 150, 40 112 C36 68, 58 38, 100 38 Z"
                         fill="url(#creatureGradDynamicCockpit)"
-                        stroke={growthStage === 'thriving' ? '#0E344D' : '#3B8E82'}
+                        stroke={growthStage === 'thriving' ? '#0E344D' : '#18587A'}
                         strokeWidth="3"
                       />
                       <circle cx="100" cy="128" r="14" fill="#FFFFFF" opacity="0.55" />
@@ -2434,8 +2434,8 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       {/* Starlight pupil glint in Thriving stage */}
                       {growthStage === 'thriving' && (
                         <>
-                          <circle cx="80" cy="94" r="1.8" fill="#7EC4B9" />
-                          <circle cx="124" cy="94" r="1.8" fill="#7EC4B9" />
+                          <circle cx="80" cy="94" r="1.8" fill="#8EB4CB" />
+                          <circle cx="124" cy="94" r="1.8" fill="#8EB4CB" />
                         </>
                       )}
 
@@ -2444,7 +2444,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       <ellipse cx="137" cy="104" rx="7" ry="4" fill="#4E84A1" opacity="0.45" />
                       <defs>
                         <radialGradient id="creatureGradDynamicCockpit" cx="50%" cy="35%" r="65%">
-                          <stop offset="0%" stopColor={growthStage === 'thriving' ? '#7EC4B9' : visuals.stop1} />
+                          <stop offset="0%" stopColor={growthStage === 'thriving' ? '#8EB4CB' : visuals.stop1} />
                           <stop offset="65%" stopColor={visuals.stop2} />
                           <stop offset="100%" stopColor="#0E344D" />
                         </radialGradient>
@@ -2452,7 +2452,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     </svg>
                   </div>
 
-                  <span className="relative z-10 px-2.5 py-0.5 rounded-md bg-white/95 border border-[#D6DCE0] text-[11px] font-mono text-[#25665D] font-semibold shadow-2xs">
+                  <span className="relative z-10 px-2.5 py-0.5 rounded-md bg-white/95 border border-[#D6DCE0] text-[11px] font-mono text-[#0E344D] font-semibold shadow-2xs">
                     Growth: {growthStage.toUpperCase()} · {visuals.directive}
                   </span>
                 </div>
@@ -2474,14 +2474,14 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
 
                 {/* Breathing Guidance Session */}
                 {isGuidedActive && (
-                  <div className="mt-2.5 rounded-lg bg-[#E8F3F1] border border-[#3B8E82]/50 p-2.5 shadow-xs">
+                  <div className="mt-2.5 rounded-lg bg-[#E8EEF3] border border-[#18587A]/50 p-2.5 shadow-xs">
                     <div className="flex items-center justify-between text-xs mb-1">
-                      <span className="font-bold text-[#25665D]">{guidedStepLabel}</span>
+                      <span className="font-bold text-[#0E344D]">{guidedStepLabel}</span>
                       <span className="font-mono text-[#0E344D] font-bold">{guidedRemaining}s</span>
                     </div>
                     <div className="w-full h-1.5 rounded-full bg-white overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-[#3B8E82] to-[#18587A] transition-all duration-300"
+                        className="h-full bg-gradient-to-r from-[#18587A] to-[#18587A] transition-all duration-300"
                         style={{ width: `${Math.round(((6 - guidedRemaining) / 6) * 100)}%` }}
                       />
                     </div>
@@ -2493,7 +2493,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   <button
                     type="button"
                     onClick={startGuidedBreathing}
-                    className="col-span-2 py-2 px-3 rounded-lg text-xs font-bold bg-[#3B8E82] hover:bg-[#2E766B] text-white transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="col-span-2 py-2 px-3 rounded-lg text-xs font-bold bg-[#18587A] hover:bg-[#124460] text-white transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <span className="material-symbols-outlined text-[16px]">air</span>
                     <span>15s Guided Somatic Bio-Coherence Reset</span>
@@ -2559,7 +2559,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     value={chatMessage}
                     onChange={(e) => setChatMessage(e.target.value)}
                     placeholder="Talk to your Life Coach..."
-                    className="w-full rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] px-3 py-2 text-xs text-[#0E344D] placeholder-[#7D8890] focus:outline-none focus:border-[#3B8E82]"
+                    className="w-full rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] px-3 py-2 text-xs text-[#0E344D] placeholder-[#7D8890] focus:outline-none focus:border-[#18587A]"
                   />
                   <button
                     type="submit"
@@ -2601,21 +2601,21 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   }}
                   className={`p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                     q.completed
-                      ? 'bg-[#E8F3F1] border-[#3B8E82] text-[#0E344D]'
-                      : 'bg-[#F7F8F7] border-[#D6DCE0] text-[#36454F] hover:border-[#3B8E82]/50'
+                      ? 'bg-[#E8EEF3] border-[#18587A] text-[#0E344D]'
+                      : 'bg-[#F5F6F8] border-[#D6DCE0] text-[#36454F] hover:border-[#18587A]/50'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
                     <span
                       className={`w-5 h-5 rounded flex items-center justify-center text-xs font-bold ${
-                        q.completed ? 'bg-[#3B8E82] text-white' : 'border border-[#CBD5DC] bg-white'
+                        q.completed ? 'bg-[#18587A] text-white' : 'border border-[#CBD5DC] bg-white'
                       }`}
                     >
                       {q.completed ? '✓' : ''}
                     </span>
                     <span className="text-xs font-medium">{q.title}</span>
                   </div>
-                  <span className="text-[11px] font-mono font-bold text-[#25665D] shrink-0">+{q.xp} XP</span>
+                  <span className="text-[11px] font-mono font-bold text-[#0E344D] shrink-0">+{q.xp} XP</span>
                 </div>
               ))}
             </div>
@@ -2645,9 +2645,9 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     {emotion.somaticAnxiety}%
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-[#E8F3F1] border border-[#3B8E82]/35 text-center">
+                <div className="p-3 rounded-xl bg-[#E8EEF3] border border-[#18587A]/35 text-center">
                   <span className="text-[10px] text-[#5D6870] font-mono uppercase block">Burnout Risk</span>
-                  <span className={`text-lg font-bold font-['Space_Grotesk'] tabular-nums ${emotion.burnoutRisk > 50 ? 'text-[#9E2A22]' : 'text-[#25665D]'}`}>
+                  <span className={`text-lg font-bold font-['Space_Grotesk'] tabular-nums ${emotion.burnoutRisk > 50 ? 'text-[#9E2A22]' : 'text-[#0E344D]'}`}>
                     {emotion.burnoutRisk}%
                   </span>
                 </div>
@@ -2656,7 +2656,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-5">
               {/* 2D Affective Circumplex Matrix */}
-              <div className="lg:col-span-6 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-4 flex flex-col justify-between">
+              <div className="lg:col-span-6 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-4 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between text-xs text-[#0E344D] mb-2">
                     <span className="font-bold font-['Space_Grotesk']">2D Affective Circumplex Map</span>
@@ -2681,7 +2681,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     <span className="absolute bottom-2 left-3 text-[10px] font-mono font-semibold text-[#5D6870]">
                       LOW AROUSAL · NEGATIVE (Burnout/Lethargy)
                     </span>
-                    <span className="absolute bottom-2 right-3 text-[10px] font-mono font-semibold text-[#25665D]">
+                    <span className="absolute bottom-2 right-3 text-[10px] font-mono font-semibold text-[#0E344D]">
                       LOW AROUSAL · POSITIVE (Peace/Rest)
                     </span>
 
@@ -2721,7 +2721,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   <div>
                     <div className="flex justify-between text-xs mb-1">
                       <span className="text-[#36454F] font-medium">Physiological Arousal (Lethargic ⇄ Fight-or-Flight)</span>
-                      <span className="font-mono text-[#25665D] font-bold">{emotion.arousal} / 10</span>
+                      <span className="font-mono text-[#0E344D] font-bold">{emotion.arousal} / 10</span>
                     </div>
                     <input
                       type="range"
@@ -2730,14 +2730,14 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       step="1"
                       value={emotion.arousal}
                       onChange={(e) => handleEmotionChange('arousal', Number(e.target.value), 'Arousal Slider')}
-                      className="w-full accent-[#3B8E82] cursor-pointer"
+                      className="w-full accent-[#18587A] cursor-pointer"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Emotional Journal & Stoic Reframe Form */}
-              <div className="lg:col-span-6 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-4 flex flex-col justify-between">
+              <div className="lg:col-span-6 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-4 flex flex-col justify-between">
                 <div>
                   <h3 className="text-sm font-bold text-[#0E344D] font-['Space_Grotesk'] flex items-center justify-between">
                     <span>Active Emotional Journal &amp; Reframe</span>
@@ -2830,7 +2830,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
 
               {/* Financial Vital Stats */}
               <div className="flex items-center gap-3 flex-wrap">
-                <div className="p-3 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] text-center">
+                <div className="p-3 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] text-center">
                   <span className="text-[10px] text-[#5D6870] font-mono uppercase block">Daily Discretionary</span>
                   <span className="text-lg font-bold font-['Space_Grotesk'] text-[#0E344D] tabular-nums">
                     ${(financial.dailyBudget - financial.spentToday).toFixed(2)}
@@ -2838,9 +2838,9 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   <span className="text-[10px] text-[#5D6870] font-mono block">of ${financial.dailyBudget} cap</span>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#E8F3F1] border border-[#3B8E82]/40 text-center">
-                  <span className="text-[10px] text-[#25665D] font-mono uppercase block">Vault Savings</span>
-                  <span className="text-lg font-bold font-['Space_Grotesk'] text-[#25665D] tabular-nums">
+                <div className="p-3 rounded-xl bg-[#E8EEF3] border border-[#18587A]/40 text-center">
+                  <span className="text-[10px] text-[#0E344D] font-mono uppercase block">Vault Savings</span>
+                  <span className="text-lg font-bold font-['Space_Grotesk'] text-[#0E344D] tabular-nums">
                     ${financial.vaultSavings.toFixed(2)}
                   </span>
                   <span className="text-[10px] text-[#5D6870] font-mono block">saved via cooldowns</span>
@@ -2857,14 +2857,14 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
             </div>
 
             {/* Impulse Guard Interlock Showcase Box */}
-            <div className="mt-5 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-4">
+            <div className="mt-5 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold border ${
                       financial.impulseInterlockActive
                         ? 'bg-[#FDF1F0] text-[#9E2A22] border-[#D4584E]/40'
-                        : 'bg-[#E8F3F1] text-[#25665D] border-[#3B8E82]/40'
+                        : 'bg-[#E8EEF3] text-[#0E344D] border-[#18587A]/40'
                     }`}
                   >
                     <span className="material-symbols-outlined text-[22px]">
@@ -2874,7 +2874,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   <div>
                     <h3 className="text-sm font-bold text-[#0E344D] font-['Space_Grotesk']">
                       Bio-Responsive Impulse Guard:{' '}
-                      <span className={financial.impulseInterlockActive ? 'text-[#9E2A22]' : 'text-[#25665D]'}>
+                      <span className={financial.impulseInterlockActive ? 'text-[#9E2A22]' : 'text-[#0E344D]'}>
                         {financial.impulseInterlockActive ? 'ARMED & INTERLOCKED' : 'MONITORING STANDBY'}
                       </span>
                     </h3>
@@ -2913,7 +2913,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   <button
                     type="button"
                     onClick={() => handleBankImpulseSavings(50)}
-                    className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#3B8E82] hover:bg-[#2E766B] text-white transition cursor-pointer"
+                    className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#18587A] hover:bg-[#124460] text-white transition cursor-pointer"
                   >
                     Auto-Save $50 to Vault
                   </button>
@@ -2924,7 +2924,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
             {/* Grid: Expense Simulator & Live Ledger */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-5">
               {/* Quick Expense Logger */}
-              <div className="lg:col-span-5 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-4 space-y-4">
+              <div className="lg:col-span-5 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-4 space-y-4">
                 <div>
                   <h3 className="text-sm font-bold text-[#0E344D] font-['Space_Grotesk']">
                     Biometric Expense Logger
@@ -2959,10 +2959,10 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     <button
                       type="button"
                       onClick={() => handleAddExpense('Organic Greens & Salmon', 32.0, 'fuel')}
-                      className="p-2.5 rounded-lg bg-[#E8F3F1] hover:bg-[#DCECE9] border border-[#3B8E82]/40 text-[#0E344D] text-left text-xs transition cursor-pointer"
+                      className="p-2.5 rounded-lg bg-[#E8EEF3] hover:bg-[#DCE5EC] border border-[#18587A]/40 text-[#0E344D] text-left text-xs transition cursor-pointer"
                     >
                       <div className="font-bold">$32.00 Organic Fuel</div>
-                      <div className="text-[10px] text-[#25665D]">Mindful Nutrition</div>
+                      <div className="text-[10px] text-[#0E344D]">Mindful Nutrition</div>
                     </button>
                     <button
                       type="button"
@@ -2993,7 +2993,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       value={newExpTitle}
                       onChange={(e) => setNewExpTitle(e.target.value)}
                       placeholder="e.g. Ergonomic Desk Arm"
-                      className="w-full rounded-lg bg-white border border-[#D6DCE0] px-3 py-1.5 text-xs text-[#0E344D] placeholder-[#7D8890] focus:outline-none focus:border-[#3B8E82]"
+                      className="w-full rounded-lg bg-white border border-[#D6DCE0] px-3 py-1.5 text-xs text-[#0E344D] placeholder-[#7D8890] focus:outline-none focus:border-[#18587A]"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-2">
@@ -3005,7 +3005,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                         value={newExpAmount}
                         onChange={(e) => setNewExpAmount(e.target.value)}
                         placeholder="0.00"
-                        className="w-full rounded-lg bg-white border border-[#D6DCE0] px-3 py-1.5 text-xs text-[#0E344D] placeholder-[#7D8890] focus:outline-none focus:border-[#3B8E82]"
+                        className="w-full rounded-lg bg-white border border-[#D6DCE0] px-3 py-1.5 text-xs text-[#0E344D] placeholder-[#7D8890] focus:outline-none focus:border-[#18587A]"
                       />
                     </div>
                     <div>
@@ -3013,7 +3013,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       <select
                         value={newExpCat}
                         onChange={(e) => setNewExpCat(e.target.value as any)}
-                        className="w-full rounded-lg bg-white border border-[#D6DCE0] px-2 py-1.5 text-xs text-[#0E344D] focus:outline-none focus:border-[#3B8E82] cursor-pointer"
+                        className="w-full rounded-lg bg-white border border-[#D6DCE0] px-2 py-1.5 text-xs text-[#0E344D] focus:outline-none focus:border-[#18587A] cursor-pointer"
                       >
                         <option value="impulse">Impulse</option>
                         <option value="fuel">Fuel / Food</option>
@@ -3033,7 +3033,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
               </div>
 
               {/* Live Ledger with Biometric Stamp */}
-              <div className="lg:col-span-7 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-4 flex flex-col justify-between">
+              <div className="lg:col-span-7 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-4 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between border-b border-[#E4E8EB] pb-2 mb-3">
                     <h3 className="text-sm font-bold text-[#0E344D] font-['Space_Grotesk']">
@@ -3058,7 +3058,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                                 exp.category === 'impulse'
                                   ? 'bg-[#FDF1F0] text-[#9E2A22]'
                                   : exp.category === 'fuel'
-                                  ? 'bg-[#E8F3F1] text-[#25665D]'
+                                  ? 'bg-[#E8EEF3] text-[#0E344D]'
                                   : 'bg-[#E8F0F4] text-[#18587A]'
                               }`}
                             >
@@ -3109,7 +3109,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 </span>
                 <h2 className="text-lg font-bold text-[#0E344D] mt-0.5 font-['Space_Grotesk']">Zero-Friction Visual Grounding for the Life Engine</h2>
                 <p className="text-xs text-[#36454F] mt-0.5">
-                  Instead of manual food, workout, or checkout logging, <code className="text-[#25665D] font-mono font-semibold">SAM 3.1</code> outlines food portions, desk posture, and impulse retail environments from a quick camera frame.
+                  Instead of manual food, workout, or checkout logging, <code className="text-[#0E344D] font-mono font-semibold">SAM 3.1</code> outlines food portions, desk posture, and impulse retail environments from a quick camera frame.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -3118,8 +3118,8 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                   onClick={() => setSamScene('salmon_bowl')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer ${
                     samScene === 'salmon_bowl'
-                      ? 'bg-[#3B8E82] text-white border border-[#3B8E82]'
-                      : 'bg-[#E8F3F1] text-[#25665D] border border-[#3B8E82]/30 hover:bg-[#DCECE9]'
+                      ? 'bg-[#18587A] text-white border border-[#18587A]'
+                      : 'bg-[#E8EEF3] text-[#0E344D] border border-[#18587A]/30 hover:bg-[#DCE5EC]'
                   }`}
                 >
                   Scan Salmon Bowl
@@ -3161,19 +3161,19 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-5">
-              <div className="lg:col-span-7 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-4 flex flex-col items-center justify-center">
+              <div className="lg:col-span-7 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-4 flex flex-col items-center justify-center">
                 <div className="w-full flex items-center justify-between text-xs text-[#5D6870] mb-2">
                   <span className="font-semibold text-[#0E344D]">{samSamples[samScene].title}</span>
                   <span className="font-mono text-[#18587A] font-semibold">
                     Model: sam-3.1-vision · {samSamples[samScene].masks.length} Masks Detected
                   </span>
                 </div>
-                <div className="relative w-full h-64 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] overflow-hidden flex items-center justify-center">
+                <div className="relative w-full h-64 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] overflow-hidden flex items-center justify-center">
                   <canvas ref={samCanvasRef} className="w-full h-full block" />
                 </div>
               </div>
 
-              <div className="lg:col-span-5 flex flex-col justify-between rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] p-4">
+              <div className="lg:col-span-5 flex flex-col justify-between rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] p-4">
                 <div>
                   <h3 className="text-sm font-bold text-[#0E344D] font-['Space_Grotesk']">
                     SAM 3.1 Segmentation Telemetry
@@ -3188,7 +3188,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                           <span className="font-semibold text-[#0E344D]">{m.label}</span>
                           <span className="font-mono text-[#18587A] font-semibold">{m.confidence}</span>
                         </div>
-                        <div className="text-[#25665D] font-mono mt-1 font-medium">FSM Impact: {m.delta}</div>
+                        <div className="text-[#0E344D] font-mono mt-1 font-medium">FSM Impact: {m.delta}</div>
                       </div>
                     ))}
                   </div>
@@ -3219,7 +3219,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
             {/* Left: 2026 Web Architecture for Health + Plaid */}
             <div className="lg:col-span-6 rounded-2xl bg-white border border-[#D6DCE0] p-5 shadow-sm space-y-4">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#25665D] font-['Space_Grotesk']">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#0E344D] font-['Space_Grotesk']">
                   2026 Web Life Coach Architecture
                 </span>
                 <h2 className="text-base font-bold text-[#0E344D] mt-0.5 font-['Space_Grotesk']">
@@ -3231,8 +3231,8 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
               </div>
 
               <div className="space-y-2.5 text-xs">
-                <div className="rounded-xl bg-[#F3F6F6] border border-[#3B8E82]/30 p-3">
-                  <div className="font-semibold text-[#25665D]">Path A · Google Fitbit Web API + Android Health Connect</div>
+                <div className="rounded-xl bg-[#F3F6F6] border border-[#18587A]/30 p-3">
+                  <div className="font-semibold text-[#0E344D]">Path A · Google Fitbit Web API + Android Health Connect</div>
                   <p className="text-[#36454F] mt-1">
                     Android Health Connect syncs bi-directionally with Fitbit. The web app connects via OAuth 2.0 PKCE to continuously stream daily step counts, sleep stage architectures, and optical heart rates.
                   </p>
@@ -3271,7 +3271,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                       value={metaApiKey}
                       onChange={(e) => setMetaApiKey(e.target.value)}
                       placeholder="meta_sk_live_..."
-                      className="w-full rounded-lg bg-[#F7F8F7] border border-[#D6DCE0] px-3 py-1.5 text-xs text-[#0E344D] font-mono focus:outline-none focus:border-[#3B8E82]"
+                      className="w-full rounded-lg bg-[#F5F6F8] border border-[#D6DCE0] px-3 py-1.5 text-xs text-[#0E344D] font-mono focus:outline-none focus:border-[#18587A]"
                     />
                   </div>
                   <div>
@@ -3279,7 +3279,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     <select
                       value={metaModel}
                       onChange={(e) => setMetaModel(e.target.value)}
-                      className="w-full rounded-lg bg-[#F7F8F7] border border-[#D6DCE0] px-3 py-1.5 text-xs text-[#0E344D] font-mono focus:outline-none focus:border-[#3B8E82] cursor-pointer"
+                      className="w-full rounded-lg bg-[#F5F6F8] border border-[#D6DCE0] px-3 py-1.5 text-xs text-[#0E344D] font-mono focus:outline-none focus:border-[#18587A] cursor-pointer"
                     >
                       <option value="muse-spark-1.3">muse-spark-1.3 (Low-Latency Life Coach)</option>
                       <option value="muse-wonder-1.0">muse-wonder-1.0 (1M Context Cross-Domain)</option>
@@ -3331,12 +3331,12 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                           document.body.removeChild(ta);
                           showToast('Copied to Clipboard', 'Structured Meta API response contract copied.');
                         }}
-                        className="text-[#25665D] hover:text-[#0E344D] font-semibold cursor-pointer"
+                        className="text-[#0E344D] hover:text-[#0E344D] font-semibold cursor-pointer"
                       >
                         Copy Response JSON
                       </button>
                     </div>
-                    <pre className="h-36 overflow-auto rounded-xl bg-[#F1F7F6] border border-[#3B8E82]/40 p-2.5 text-[11px] text-[#1D524B] font-mono leading-relaxed">
+                    <pre className="h-36 overflow-auto rounded-xl bg-[#F1F7F6] border border-[#18587A]/40 p-2.5 text-[11px] text-[#1D524B] font-mono leading-relaxed">
                       {structuredMetaResponseJson}
                     </pre>
                   </div>
@@ -3351,7 +3351,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
       <footer className="w-full border-t border-[#D6DCE0] bg-white px-4 sm:px-8 py-6 mt-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#5D6870]">
           <div className="flex items-center gap-3 flex-wrap">
-            <span className="px-2 py-0.5 rounded bg-[#E8F3F1] text-[#25665D] border border-[#3B8E82]/30 font-mono text-[10px] font-semibold">
+            <span className="px-2 py-0.5 rounded bg-[#E8EEF3] text-[#0E344D] border border-[#18587A]/30 font-mono text-[10px] font-semibold">
               Meta AI Hackathon 2026
             </span>
             <span>·</span>

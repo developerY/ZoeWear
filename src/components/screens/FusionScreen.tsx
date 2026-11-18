@@ -177,7 +177,7 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                       src={ASSETS.conductiveSilk}
                     />
                     <div className="absolute bottom-2 left-2 right-2 p-space-xs rounded bg-white/95 backdrop-blur-md flex items-center justify-between font-label-sm text-label-sm border border-[#D6DCE0] shadow-xs">
-                      <span className="text-[#25665D] font-semibold">CONDUCTIVE THREAD NO. 889</span>
+                      <span className="text-[#0E344D] font-semibold">CONDUCTIVE THREAD NO. 889</span>
                       <span className="text-[#18587A] font-semibold">98.8% CONDUCTANCE</span>
                     </div>
                   </div>
@@ -254,7 +254,7 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                     onClick={() => setActiveStage(1)}
                     className={`p-space-sm rounded-lg flex items-center justify-between cursor-pointer transition-all ${
                       activeStage === 1
-                        ? 'bg-white border border-[#3B8E82] shadow-sm'
+                        ? 'bg-white border border-[#18587A] shadow-sm'
                         : 'bg-surface-container-lowest/90 hover:bg-white border border-subtle'
                     }`}
                   >
@@ -451,7 +451,7 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                 <div className="flex items-center gap-space-md pt-space-sm flex-wrap">
                   <button
                     onClick={onRequestBeta}
-                    className="px-space-lg py-3 rounded-full bg-primary-container text-white font-headline-sm text-label-lg tracking-wide shadow-sm hover:bg-[#2E766B] transition-all flex items-center gap-2 cursor-pointer font-semibold"
+                    className="px-space-lg py-3 rounded-full bg-primary-container text-white font-headline-sm text-label-lg tracking-wide shadow-sm hover:bg-[#124460] transition-all flex items-center gap-2 cursor-pointer font-semibold"
                   >
                     <span>Request Clinical Beta</span>
                     <span className="material-symbols-outlined text-[18px]">east</span>
@@ -742,7 +742,7 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
                 alt="Modern high-tech bio-engineering cleanroom laboratory with researchers testing smart textile fiber garments"
                 src={ASSETS.cleanroomLab}
               />
-              <div className="absolute bottom-3 left-3 p-space-xs px-2.5 rounded bg-white/95 backdrop-blur-md font-label-sm text-label-sm text-[#25665D] font-semibold border border-[#D6DCE0] shadow-xs">
+              <div className="absolute bottom-3 left-3 p-space-xs px-2.5 rounded bg-white/95 backdrop-blur-md font-label-sm text-label-sm text-[#0E344D] font-semibold border border-[#D6DCE0] shadow-xs">
                 WestCoast Bio-Sensory Cleanroom // Station 4
               </div>
             </div>
@@ -795,13 +795,13 @@ export const FusionScreen: React.FC<FusionScreenProps> = ({
             <div className="flex items-center gap-space-sm flex-shrink-0 flex-wrap">
               <button
                 onClick={onJoinCohort}
-                className="px-space-lg py-3 rounded-full bg-primary-container text-white font-headline-sm text-label-lg tracking-wide hover:bg-[#2E766B] shadow-sm transition-all cursor-pointer font-semibold"
+                className="px-space-lg py-3 rounded-full bg-primary-container text-white font-headline-sm text-label-lg tracking-wide hover:bg-[#124460] shadow-sm transition-all cursor-pointer font-semibold"
               >
                 Join Research Cohort
               </button>
               <button
                 onClick={() => onNavigate('teaching-and-research')}
-                className="px-space-md py-3 rounded-full bg-[#F1F3F4] text-[#0E344D] font-headline-sm text-label-lg hover:text-[#25665D] transition-colors border border-[#D6DCE0] cursor-pointer font-medium"
+                className="px-space-md py-3 rounded-full bg-[#F1F3F4] text-[#0E344D] font-headline-sm text-label-lg hover:text-[#0E344D] transition-colors border border-[#D6DCE0] cursor-pointer font-medium"
               >
                 Download DoT15 Slides
               </button>

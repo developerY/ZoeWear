@@ -89,12 +89,12 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
   };
 
   return (
-    <div className="flex flex-col w-full bg-[#F7F8F7] text-[#0E344D]">
+    <div className="flex flex-col w-full bg-[#F5F6F8] text-[#0E344D]">
       {/* Sub-Navigation Sticky Bar */}
       <div className="sticky top-[88px] z-30 w-full bg-white/95 backdrop-blur-md border-b border-[#D6DCE0] px-4 sm:px-8 lg:px-12 py-3">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-3">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-9 h-9 rounded-lg bg-[#0E344D] text-white flex items-center justify-center font-['Space_Grotesk'] font-bold text-xs shrink-0">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#0E344D] via-[#0284C7] to-[#1D4ED8] text-white flex items-center justify-center font-['Space_Grotesk'] font-bold text-xs shrink-0 shadow-xs">
               AB
             </div>
             <div className="min-w-0">
@@ -115,7 +115,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                 onClick={() => setViewMode('dashboard')}
                 className={`px-3 py-1.5 rounded-md font-['Space_Grotesk'] text-xs font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                   viewMode === 'dashboard'
-                    ? 'bg-[#25665D] text-white shadow-xs'
+                    ? 'bg-[#0E344D] text-white shadow-xs'
                     : 'text-[#36454F] hover:text-[#0E344D]'
                 }`}
               >
@@ -150,7 +150,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     key={item.id}
                     type="button"
                     onClick={() => scrollToSection(item.id as SectionAnchor)}
-                    className="px-2.5 py-1.5 rounded-lg text-[#36454F] hover:text-[#25665D] hover:bg-[#E8F3F1] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                    className="px-2.5 py-1.5 rounded-lg text-[#36454F] hover:text-[#0E344D] hover:bg-[#E8EEF3] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                   >
                     {item.label}
                   </button>
@@ -169,7 +169,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
             <section id="ankle-overview" className="scroll-mt-36 space-y-8">
               <div className="bg-white rounded-2xl border border-[#D6DCE0] p-6 sm:p-8 lg:p-10 shadow-sm space-y-8">
                 <div className="max-w-4xl space-y-4">
-                  <div className="flex flex-wrap items-center gap-2 text-xs font-['Space_Grotesk'] font-semibold uppercase tracking-widest text-[#25665D]">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-['Space_Grotesk'] font-semibold uppercase tracking-widest text-[#0E344D]">
                     <span>Biomedical &amp; Sports Science Synthesis</span>
                     <span aria-hidden="true" className="text-[#D6DCE0]">·</span>
                     <span className="text-[#18587A]">Supramalleolar Placement Study</span>
@@ -177,7 +177,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     <button
                       type="button"
                       onClick={() => setViewMode('manuscript')}
-                      className="text-[#18587A] underline hover:text-[#25665D] cursor-pointer normal-case tracking-normal"
+                      className="text-[#18587A] underline hover:text-[#0E344D] cursor-pointer normal-case tracking-normal"
                     >
                       Read full monograph (83 sources)
                     </button>
@@ -194,14 +194,14 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
 
                 {/* 4-Column KPI Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="bg-[#F7F8F7] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between">
+                  <div className="bg-[#F5F6F8] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between">
                     <div>
-                      <div className="font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider text-[#25665D]">
+                      <div className="font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider text-[#0284C7]">
                         Hand-Task Artifact Error
                       </div>
                       <div className="mt-2 flex items-baseline gap-2 flex-wrap">
                         <span className="text-3xl font-bold font-mono tabular-nums text-[#0E344D]">0.0%</span>
-                        <span className="text-xs font-mono tabular-nums font-semibold text-[#9E2A22] bg-[#FDF1F0] border border-[#C23B32]/25 px-2 py-0.5 rounded">
+                        <span className="text-xs font-mono tabular-nums font-semibold text-[#475569] bg-[#E8ECEE] border border-[#CBD5DC] px-2 py-0.5 rounded">
                           vs. &gt;57% Wrist
                         </span>
                       </div>
@@ -211,16 +211,16 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     </p>
                   </div>
 
-                  <div className="bg-[#F7F8F7] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between">
+                  <div className="bg-[#F5F6F8] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between">
                     <div>
-                      <div className="font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider text-[#25665D]">
+                      <div className="font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider text-[#1D4ED8]">
                         Active Heart Rate Error
                       </div>
                       <div className="mt-2 flex items-baseline gap-2 flex-wrap">
                         <span className="text-3xl font-bold font-mono tabular-nums text-[#0E344D]">
                           &lt;3.8 <span className="text-sm font-semibold text-[#5D6870]">bpm</span>
                         </span>
-                        <span className="text-xs font-mono tabular-nums font-semibold text-[#9E2A22] bg-[#FDF1F0] border border-[#C23B32]/25 px-2 py-0.5 rounded">
+                        <span className="text-xs font-mono tabular-nums font-semibold text-[#475569] bg-[#E8ECEE] border border-[#CBD5DC] px-2 py-0.5 rounded">
                           vs. 5–15+ Wrist
                         </span>
                       </div>
@@ -230,14 +230,14 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     </p>
                   </div>
 
-                  <div className="bg-[#F7F8F7] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between">
+                  <div className="bg-[#F5F6F8] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between">
                     <div>
-                      <div className="font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider text-[#25665D]">
+                      <div className="font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider text-[#0284C7]">
                         PAD Screening Sensitivity
                       </div>
                       <div className="mt-2 flex items-baseline gap-2 flex-wrap">
                         <span className="text-3xl font-bold font-mono tabular-nums text-[#0E344D]">68.1%</span>
-                        <span className="text-xs font-mono tabular-nums font-semibold text-[#9E2A22] bg-[#FDF1F0] border border-[#C23B32]/25 px-2 py-0.5 rounded">
+                        <span className="text-xs font-mono tabular-nums font-semibold text-[#475569] bg-[#E8ECEE] border border-[#CBD5DC] px-2 py-0.5 rounded">
                           vs. 19.1% ABI
                         </span>
                       </div>
@@ -247,16 +247,16 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     </p>
                   </div>
 
-                  <div className="bg-[#F7F8F7] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between">
+                  <div className="bg-[#F5F6F8] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between">
                     <div>
-                      <div className="font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider text-[#25665D]">
+                      <div className="font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider text-[#0369A1]">
                         FoG Pre-Freeze Prediction
                       </div>
                       <div className="mt-2 flex items-baseline gap-2 flex-wrap">
                         <span className="text-3xl font-bold font-mono tabular-nums text-[#0E344D]">
                           1.8 <span className="text-sm font-semibold text-[#5D6870]">sec</span>
                         </span>
-                        <span className="text-xs font-semibold text-[#25665D] bg-[#E8F3F1] border border-[#3B8E82]/30 px-2 py-0.5 rounded">
+                        <span className="text-xs font-semibold text-[#0284C7] bg-[#E0F2FE] border border-[#0284C7]/35 px-2 py-0.5 rounded">
                           Ankle Exclusive
                         </span>
                       </div>
@@ -285,7 +285,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         onClick={() => setActiveSite('ankle')}
                         className={`px-4 py-1.5 rounded-md font-['Space_Grotesk'] text-xs font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                           activeSite === 'ankle'
-                            ? 'bg-[#25665D] text-white shadow-xs'
+                            ? 'bg-[#0284C7] text-white shadow-xs'
                             : 'text-[#36454F] hover:text-[#0E344D]'
                         }`}
                       >
@@ -296,7 +296,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         onClick={() => setActiveSite('wrist')}
                         className={`px-4 py-1.5 rounded-md font-['Space_Grotesk'] text-xs font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                           activeSite === 'wrist'
-                            ? 'bg-[#C23B32] text-white shadow-xs'
+                            ? 'bg-[#475569] text-white shadow-xs'
                             : 'text-[#36454F] hover:text-[#0E344D]'
                         }`}
                       >
@@ -315,8 +315,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                           <span
                             className={`text-[11px] font-semibold px-2 py-0.5 rounded whitespace-nowrap ${
                               activeSite === 'ankle'
-                                ? 'bg-[#E8F3F1] text-[#25665D]'
-                                : 'bg-[#FDF1F0] text-[#9E2A22]'
+                                ? 'bg-[#E0F2FE] text-[#0284C7]'
+                                : 'bg-[#ECEFF2] text-[#475569]'
                             }`}
                           >
                             {card.tag}
@@ -333,7 +333,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
             {/* SECTION 01: STEP & GAIT ACCURACY LAB */}
             <section id="ankle-kinematics" className="scroll-mt-36 space-y-6">
               <div className="max-w-3xl space-y-2">
-                <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#25665D]">
+                <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0E344D]">
                   Section 01 · Locomotor Mechanics
                 </div>
                 <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-[#0E344D] text-balance">
@@ -371,7 +371,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         }}
                         className={`px-3 py-1.5 rounded-lg border font-['Space_Grotesk'] text-xs font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                           kinematicKey === btn.id
-                            ? 'bg-[#25665D] text-white border-[#25665D]'
+                            ? 'bg-[#0E344D] text-white border-[#0E344D]'
                             : 'bg-white text-[#36454F] border-[#D6DCE0] hover:bg-[#F1F3F4]'
                         }`}
                       >
@@ -384,7 +384,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                   {/* Grouped Vertical Bar Chart */}
                   <div className="lg:col-span-7 flex flex-col space-y-4">
-                    <div className="bg-[#F7F8F7] rounded-xl border border-[#D6DCE0] p-5">
+                    <div className="bg-[#F5F6F8] rounded-xl border border-[#D6DCE0] p-5">
                       <div className="flex items-center justify-between mb-3 text-[11px] font-mono text-[#5D6870]">
                         <span>Y-AXIS: MEAN ABSOLUTE PERCENTAGE ERROR (MAPE %)</span>
                         <span>LOWER = HIGHER ACCURACY</span>
@@ -428,7 +428,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                                   {/* Hover Tooltip */}
                                   {isHovered && (
                                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 -translate-y-full z-20 bg-[#0E344D] text-white rounded-lg p-2.5 shadow-lg text-[11px] font-mono tabular-nums whitespace-nowrap pointer-events-none space-y-0.5">
-                                      <div className="font-['Space_Grotesk'] font-bold text-[#7EC4B9] mb-1">
+                                      <div className="font-['Space_Grotesk'] font-bold text-[#8EB4CB] mb-1">
                                         {label}
                                       </div>
                                       <div>Wrist MAPE: {wVal.toFixed(1)}%</div>
@@ -439,11 +439,11 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
 
                                   {/* Wrist Bar */}
                                   <div className="flex-1 h-full flex flex-col justify-end items-center">
-                                    <span className="text-[10px] font-mono tabular-nums font-bold text-[#9E2A22] mb-1">
+                                    <span className="text-[10px] font-mono tabular-nums font-bold text-[#475569] mb-1">
                                       {wVal.toFixed(1)}%
                                     </span>
                                     <div
-                                      className="w-full max-w-[30px] rounded-t-md bg-[#C23B32] transition-all duration-300"
+                                      className="w-full max-w-[30px] rounded-t-md bg-[#64748B] transition-all duration-300"
                                       style={{ height: `${Math.max((wVal / 80) * 100, 2)}%` }}
                                     />
                                   </div>
@@ -454,18 +454,18 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                                       {hVal.toFixed(1)}%
                                     </span>
                                     <div
-                                      className="w-full max-w-[30px] rounded-t-md bg-[#8C99A2] transition-all duration-300"
+                                      className="w-full max-w-[30px] rounded-t-md bg-[#94A3B8] transition-all duration-300"
                                       style={{ height: `${Math.max((hVal / 80) * 100, 2)}%` }}
                                     />
                                   </div>
 
                                   {/* Ankle Bar */}
                                   <div className="flex-1 h-full flex flex-col justify-end items-center">
-                                    <span className="text-[10px] font-mono tabular-nums font-bold text-[#25665D] mb-1">
+                                    <span className="text-[10px] font-mono tabular-nums font-bold text-[#0284C7] mb-1">
                                       {aVal.toFixed(1)}%
                                     </span>
                                     <div
-                                      className="w-full max-w-[30px] rounded-t-md bg-[#3B8E82] transition-all duration-300"
+                                      className="w-full max-w-[30px] rounded-t-md bg-[#0284C7] transition-all duration-300"
                                       style={{ height: `${Math.max((aVal / 80) * 100, 3)}%` }}
                                     />
                                   </div>
@@ -491,15 +491,15 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                       {/* Legend */}
                       <div className="pt-3 border-t border-[#E4E8EB] flex flex-wrap items-center justify-center gap-5 text-xs font-['Space_Grotesk']">
                         <div className="flex items-center gap-2">
-                          <span className="w-3 h-3 rounded-xs bg-[#C23B32]" />
+                          <span className="w-3 h-3 rounded-xs bg-[#64748B]" />
                           <span className="text-[#36454F] font-medium">Wrist Tracker Error (%)</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="w-3 h-3 rounded-xs bg-[#8C99A2]" />
+                          <span className="w-3 h-3 rounded-xs bg-[#94A3B8]" />
                           <span className="text-[#36454F] font-medium">Waist / Hip Error (%)</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="w-3 h-3 rounded-xs bg-[#3B8E82]" />
+                          <span className="w-3 h-3 rounded-xs bg-[#0284C7]" />
                           <span className="text-[#0E344D] font-bold">Ankle Tracker Error (%)</span>
                         </div>
                       </div>
@@ -512,8 +512,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
 
                   {/* Insight + Energy Expenditure Column */}
                   <div className="lg:col-span-5 space-y-4">
-                    <div className="bg-[#F7F8F7] rounded-xl p-5 border border-[#D6DCE0] space-y-3">
-                      <div className="inline-block px-2.5 py-0.5 rounded bg-[#FDF1F0] border border-[#C23B32]/25 text-[#9E2A22] font-['Space_Grotesk'] text-xs font-bold">
+                    <div className="bg-[#F5F6F8] rounded-xl p-5 border border-[#D6DCE0] space-y-3">
+                      <div className="inline-block px-2.5 py-0.5 rounded bg-[#E0F2FE] border border-[#0284C7]/30 text-[#0284C7] font-['Space_Grotesk'] text-xs font-bold">
                         {currentKinematic.stat}
                       </div>
                       <h4 className="font-['Space_Grotesk'] text-sm font-bold text-[#0E344D]">
@@ -522,12 +522,12 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                       <p className="text-xs text-[#36454F] leading-relaxed">{currentKinematic.body}</p>
                     </div>
 
-                    <div className="bg-[#E8F3F1] rounded-xl p-5 border border-[#3B8E82]/35 space-y-2.5">
+                    <div className="bg-[#E8EEF3] rounded-xl p-5 border border-[#18587A]/35 space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#25665D]">
+                        <span className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0E344D]">
                           Energy Expenditure (EE) &amp; METs
                         </span>
-                        <span className="font-mono tabular-nums text-xs font-bold text-[#0E344D] bg-white px-2.5 py-0.5 rounded border border-[#3B8E82]/30">
+                        <span className="font-mono tabular-nums text-xs font-bold text-[#0E344D] bg-white px-2.5 py-0.5 rounded border border-[#18587A]/30">
                           r &gt; 0.90 Correlation
                         </span>
                       </div>
@@ -543,7 +543,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
             {/* SECTION 02: VASCULAR ANATOMY & OPTICAL PPG */}
             <section id="ankle-vascular" className="scroll-mt-36 space-y-6">
               <div className="max-w-3xl space-y-2">
-                <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#25665D]">
+                <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0E344D]">
                   Section 02 · Hemodynamics &amp; Optical Physics
                 </div>
                 <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-[#0E344D] text-balance">
@@ -562,7 +562,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                       <h3 className="font-['Space_Grotesk'] text-base font-bold text-[#0E344D]">
                         Heart Rate Mean Absolute Error (MAE in bpm)
                       </h3>
-                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-[#E8F3F1] text-[#25665D] border border-[#3B8E82]/30">
+                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-[#E8EEF3] text-[#0E344D] border border-[#18587A]/30">
                         SVD &amp; Adaptive Filtering
                       </span>
                     </div>
@@ -572,7 +572,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                   </div>
 
                   {/* HR MAE Chart */}
-                  <div className="bg-[#F7F8F7] rounded-xl border border-[#D6DCE0] p-4 space-y-3">
+                  <div className="bg-[#F5F6F8] rounded-xl border border-[#D6DCE0] p-4 space-y-3">
                     <div className="relative h-56 flex">
                       <div className="w-10 flex flex-col justify-between items-end pr-2 text-[11px] font-mono tabular-nums text-[#5D6870] pb-9">
                         <span>16 bpm</span>
@@ -601,28 +601,28 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                             >
                               {hoveredHrIdx === idx && (
                                 <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full z-20 bg-[#0E344D] text-white rounded-lg p-2.5 shadow-lg text-[11px] space-y-0.5 max-w-[240px]">
-                                  <div className="font-['Space_Grotesk'] font-bold text-[#7EC4B9]">{item.state}</div>
+                                  <div className="font-['Space_Grotesk'] font-bold text-[#8EB4CB]">{item.state}</div>
                                   <div>Wrist: {item.wristDetail}</div>
                                   <div>Ankle: {item.ankleDetail}</div>
                                 </div>
                               )}
 
                               <div className="flex-1 h-full flex flex-col justify-end items-center">
-                                <span className="text-[11px] font-mono tabular-nums font-bold text-[#9E2A22] mb-1">
+                                <span className="text-[11px] font-mono tabular-nums font-bold text-[#475569] mb-1">
                                   {item.wristMae.toFixed(1)}
                                 </span>
                                 <div
-                                  className="w-full max-w-[36px] rounded-t-md bg-[#C23B32] transition-all duration-300"
+                                  className="w-full max-w-[36px] rounded-t-md bg-[#64748B] transition-all duration-300"
                                   style={{ height: `${(item.wristMae / 16) * 100}%` }}
                                 />
                               </div>
 
                               <div className="flex-1 h-full flex flex-col justify-end items-center">
-                                <span className="text-[11px] font-mono tabular-nums font-bold text-[#25665D] mb-1">
+                                <span className="text-[11px] font-mono tabular-nums font-bold text-[#0284C7] mb-1">
                                   {item.ankleMae.toFixed(2)}
                                 </span>
                                 <div
-                                  className="w-full max-w-[36px] rounded-t-md bg-[#3B8E82] transition-all duration-300"
+                                  className="w-full max-w-[36px] rounded-t-md bg-[#0284C7] transition-all duration-300"
                                   style={{ height: `${(item.ankleMae / 16) * 100}%` }}
                                 />
                               </div>
@@ -645,18 +645,18 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
 
                     <div className="pt-2 border-t border-[#E4E8EB] flex items-center justify-center gap-5 text-xs font-['Space_Grotesk']">
                       <div className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-xs bg-[#C23B32]" />
+                        <span className="w-3 h-3 rounded-xs bg-[#64748B]" />
                         <span className="text-[#36454F]">Wrist PPG Error (MAE bpm)</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-xs bg-[#3B8E82]" />
+                        <span className="w-3 h-3 rounded-xs bg-[#0284C7]" />
                         <span className="text-[#0E344D] font-bold">Ankle PPG Error (MAE bpm)</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Vessel Anatomy / PPG Waveform Switcher */}
-                  <div className="bg-[#F7F8F7] rounded-xl p-4 border border-[#D6DCE0] space-y-3">
+                  <div className="bg-[#F5F6F8] rounded-xl p-4 border border-[#D6DCE0] space-y-3">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <span className="font-['Space_Grotesk'] text-xs font-bold text-[#0E344D]">
                         Inspect Vascular &amp; Waveform Advantage:
@@ -667,7 +667,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                           onClick={() => setPpgDetailTab('anatomy')}
                           className={`px-2.5 py-1 rounded font-['Space_Grotesk'] font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                             ppgDetailTab === 'anatomy'
-                              ? 'bg-[#25665D] text-white'
+                              ? 'bg-[#0E344D] text-white'
                               : 'text-[#36454F] hover:text-[#0E344D]'
                           }`}
                         >
@@ -678,7 +678,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                           onClick={() => setPpgDetailTab('morphology')}
                           className={`px-2.5 py-1 rounded font-['Space_Grotesk'] font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                             ppgDetailTab === 'morphology'
-                              ? 'bg-[#25665D] text-white'
+                              ? 'bg-[#0E344D] text-white'
                               : 'text-[#36454F] hover:text-[#0E344D]'
                           }`}
                         >
@@ -710,15 +710,15 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                   </div>
 
                   {/* Horizontal Bar Chart */}
-                  <div className="bg-[#F7F8F7] rounded-xl border border-[#D6DCE0] p-5 space-y-5">
+                  <div className="bg-[#F5F6F8] rounded-xl border border-[#D6DCE0] p-5 space-y-5">
                     <div className="space-y-4">
                       {PAD_SENSITIVITY_DATA.map((bar, idx) => {
                         const barColor =
-                          bar.tone === 'seaglass'
-                            ? '#25665D'
-                            : bar.tone === 'ocean'
+                          bar.tone === 'deep-ocean'
+                            ? '#0284C7'
+                            : bar.tone === 'slate'
                             ? '#18587A'
-                            : '#8C99A2';
+                            : '#64748B';
                         return (
                           <div
                             key={bar.label}
@@ -767,7 +767,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                   </div>
 
                   {/* Clinical Context Card */}
-                  <div className="bg-[#F7F8F7] rounded-xl p-4 border border-[#D6DCE0] space-y-2">
+                  <div className="bg-[#F5F6F8] rounded-xl p-4 border border-[#D6DCE0] space-y-2">
                     <div className="font-['Space_Grotesk'] text-xs font-bold text-[#0E344D]">
                       Why Ankle PPG Outperforms Cuff-Based ABI (68.1% vs. 19.1%)
                     </div>
@@ -783,7 +783,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
             {/* SECTION 03: EXCLUSIVE ANKLE BIOMECHANICS & NEUROLOGICAL DIAGNOSTICS */}
             <section id="ankle-biomechanics" className="scroll-mt-36 space-y-6">
               <div className="max-w-3xl space-y-2">
-                <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#25665D]">
+                <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0E344D]">
                   Section 03 · Exclusive Ankle Capabilities
                 </div>
                 <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-[#0E344D] text-balance">
@@ -827,8 +827,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                   <div className="space-y-6">
                     {/* 4 Kinetic Metric Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                      <div className="p-4 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] space-y-1.5">
-                        <div className="font-['Space_Grotesk'] text-[11px] font-bold text-[#25665D] uppercase tracking-wider">
+                      <div className="p-4 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] space-y-1.5">
+                        <div className="font-['Space_Grotesk'] text-[11px] font-bold text-[#0E344D] uppercase tracking-wider">
                           Peak Tibial Acceleration
                         </div>
                         <div className="text-xl font-bold font-mono tabular-nums text-[#0E344D]">
@@ -839,8 +839,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         </p>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] space-y-1.5">
-                        <div className="font-['Space_Grotesk'] text-[11px] font-bold text-[#25665D] uppercase tracking-wider">
+                      <div className="p-4 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] space-y-1.5">
+                        <div className="font-['Space_Grotesk'] text-[11px] font-bold text-[#0E344D] uppercase tracking-wider">
                           Ground Contact Time
                         </div>
                         <div className="text-xl font-bold font-mono tabular-nums text-[#0E344D]">
@@ -851,8 +851,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         </p>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] space-y-1.5">
-                        <div className="font-['Space_Grotesk'] text-[11px] font-bold text-[#25665D] uppercase tracking-wider">
+                      <div className="p-4 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] space-y-1.5">
+                        <div className="font-['Space_Grotesk'] text-[11px] font-bold text-[#0E344D] uppercase tracking-wider">
                           Vertical Oscillation
                         </div>
                         <div className="text-xl font-bold font-mono tabular-nums text-[#0E344D]">
@@ -863,8 +863,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         </p>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-[#F7F8F7] border border-[#D6DCE0] space-y-1.5">
-                        <div className="font-['Space_Grotesk'] text-[11px] font-bold text-[#25665D] uppercase tracking-wider">
+                      <div className="p-4 rounded-xl bg-[#F5F6F8] border border-[#D6DCE0] space-y-1.5">
+                        <div className="font-['Space_Grotesk'] text-[11px] font-bold text-[#0E344D] uppercase tracking-wider">
                           Joint Angle Prediction
                         </div>
                         <div className="text-xl font-bold font-mono tabular-nums text-[#0E344D]">
@@ -878,7 +878,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
 
                     {/* Foot-Strike Spectral Analyzer + Edge Signal Pipeline */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-                      <div className="lg:col-span-6 bg-[#F7F8F7] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between space-y-4">
+                      <div className="lg:col-span-6 bg-[#F5F6F8] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between space-y-4">
                         <div className="space-y-4">
                           <div className="flex flex-wrap items-center justify-between gap-2">
                             <h4 className="font-['Space_Grotesk'] text-sm font-bold text-[#0E344D]">
@@ -890,7 +890,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                                 onClick={() => setStrikeMode('ffs')}
                                 className={`px-2.5 py-1 rounded font-['Space_Grotesk'] font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                                   strikeMode === 'ffs'
-                                    ? 'bg-[#25665D] text-white'
+                                    ? 'bg-[#0E344D] text-white'
                                     : 'text-[#36454F] hover:text-[#0E344D]'
                                 }`}
                               >
@@ -921,11 +921,11 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                             <div className="space-y-1">
                               <div className="flex items-center justify-between text-[11px] font-mono tabular-nums text-[#36454F]">
                                 <span>Active Push-Off Band (3–8 Hz)</span>
-                                <span className="font-bold text-[#25665D]">{currentStrike.activeBandPct}% PSD</span>
+                                <span className="font-bold text-[#0284C7]">{currentStrike.activeBandPct}% PSD</span>
                               </div>
                               <div className="w-full h-2.5 rounded-full bg-[#E4E8EB] overflow-hidden">
                                 <div
-                                  className="h-full bg-[#3B8E82] transition-all duration-300"
+                                  className="h-full bg-[#0284C7] transition-all duration-300"
                                   style={{ width: `${currentStrike.activeBandPct}%` }}
                                 />
                               </div>
@@ -936,7 +936,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                                 <span>Impact Transient Band (9–20 Hz)</span>
                                 <span
                                   className={`font-bold ${
-                                    strikeMode === 'rfs' ? 'text-[#9E2A22]' : 'text-[#18587A]'
+                                    strikeMode === 'rfs' ? 'text-[#0E344D]' : 'text-[#18587A]'
                                   }`}
                                 >
                                   {currentStrike.impactBandPct}% PSD
@@ -947,7 +947,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                                   className="h-full transition-all duration-300"
                                   style={{
                                     width: `${currentStrike.impactBandPct}%`,
-                                    backgroundColor: strikeMode === 'rfs' ? '#C23B32' : '#18587A',
+                                    backgroundColor: strikeMode === 'rfs' ? '#0E344D' : '#18587A',
                                   }}
                                 />
                               </div>
@@ -961,7 +961,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         </div>
                       </div>
 
-                      <div className="lg:col-span-6 bg-[#F7F8F7] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between space-y-4">
+                      <div className="lg:col-span-6 bg-[#F5F6F8] rounded-xl p-5 border border-[#D6DCE0] flex flex-col justify-between space-y-4">
                         <div className="space-y-2">
                           <h4 className="font-['Space_Grotesk'] text-sm font-bold text-[#0E344D]">
                             Edge Signal Processing Architecture
@@ -973,7 +973,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
 
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                           <div className="bg-white p-3.5 rounded-lg border border-[#D6DCE0] space-y-1.5">
-                            <div className="font-['Space_Grotesk'] text-xs font-bold text-[#25665D]">
+                            <div className="font-['Space_Grotesk'] text-xs font-bold text-[#0E344D]">
                               1. Wavelet Transform
                             </div>
                             <p className="text-[11px] text-[#36454F] leading-relaxed">
@@ -1004,7 +1004,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                           <span className="font-['Space_Grotesk'] font-semibold text-[#0E344D]">
                             Sagittal Plane Joint &amp; GRF Fidelity
                           </span>
-                          <span className="font-mono tabular-nums text-[#25665D] font-bold">
+                          <span className="font-mono tabular-nums text-[#0E344D] font-bold">
                             Foot-Contact Timing ±ms · Joint RMSE 2.14°
                           </span>
                         </div>
@@ -1024,7 +1024,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         </p>
                       </div>
 
-                      <div className="bg-[#F7F8F7] rounded-xl border border-[#D6DCE0] p-4 space-y-3">
+                      <div className="bg-[#F5F6F8] rounded-xl border border-[#D6DCE0] p-4 space-y-3">
                         <div className="relative h-60 flex">
                           <div className="w-10 flex flex-col justify-between items-end pr-2 text-[11px] font-mono tabular-nums text-[#5D6870] pb-11">
                             <span>100%</span>
@@ -1053,7 +1053,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                                 >
                                   {hoveredNeuroIdx === idx && (
                                     <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full z-20 bg-[#0E344D] text-white rounded-lg p-2.5 shadow-lg text-[11px] font-mono tabular-nums whitespace-nowrap space-y-0.5">
-                                      <div className="font-['Space_Grotesk'] font-bold text-[#7EC4B9]">
+                                      <div className="font-['Space_Grotesk'] font-bold text-[#8EB4CB]">
                                         {m.shortLabel}
                                       </div>
                                       <div>Sensitivity: {m.sensitivity?.toFixed(2)}%</div>
@@ -1063,11 +1063,11 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                                   )}
 
                                   <div className="flex-1 h-full flex flex-col justify-end items-center">
-                                    <span className="text-[10px] font-mono tabular-nums font-semibold text-[#25665D] mb-1">
+                                    <span className="text-[10px] font-mono tabular-nums font-semibold text-[#0284C7] mb-1">
                                       {m.sensitivity?.toFixed(1)}
                                     </span>
                                     <div
-                                      className="w-full max-w-[26px] rounded-t-md bg-[#25665D]"
+                                      className="w-full max-w-[26px] rounded-t-md bg-[#0284C7]"
                                       style={{ height: `${m.sensitivity ?? 0}%` }}
                                     />
                                   </div>
@@ -1077,7 +1077,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                                       {m.specificity?.toFixed(1)}
                                     </span>
                                     <div
-                                      className="w-full max-w-[26px] rounded-t-md bg-[#3B8E82]"
+                                      className="w-full max-w-[26px] rounded-t-md bg-[#18587A]"
                                       style={{ height: `${m.specificity ?? 0}%` }}
                                     />
                                   </div>
@@ -1110,11 +1110,11 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
 
                         <div className="pt-2 border-t border-[#E4E8EB] flex flex-wrap items-center justify-center gap-5 text-xs font-['Space_Grotesk']">
                           <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 rounded-xs bg-[#25665D]" />
+                            <span className="w-3 h-3 rounded-xs bg-[#0284C7]" />
                             <span className="text-[#36454F]">Sensitivity (%)</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 rounded-xs bg-[#3B8E82]" />
+                            <span className="w-3 h-3 rounded-xs bg-[#18587A]" />
                             <span className="text-[#36454F]">Specificity (%)</span>
                           </div>
                           <div className="flex items-center gap-2">
@@ -1126,12 +1126,12 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     </div>
 
                     <div className="lg:col-span-5 space-y-4">
-                      <div className="bg-[#E8F3F1] rounded-xl p-5 border border-[#3B8E82]/35 space-y-3">
+                      <div className="bg-[#E8EEF3] rounded-xl p-5 border border-[#18587A]/35 space-y-3">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#25665D]">
+                          <span className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0E344D]">
                             Closed-Loop FoG Intervention
                           </span>
-                          <span className="font-mono tabular-nums text-xs font-bold text-[#0E344D] bg-white px-2.5 py-0.5 rounded border border-[#3B8E82]/35">
+                          <span className="font-mono tabular-nums text-xs font-bold text-[#0E344D] bg-white px-2.5 py-0.5 rounded border border-[#18587A]/35">
                             -1.8s Lead Time
                           </span>
                         </div>
@@ -1140,7 +1140,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         </p>
                       </div>
 
-                      <div className="bg-[#F7F8F7] rounded-xl p-5 border border-[#D6DCE0] space-y-2">
+                      <div className="bg-[#F5F6F8] rounded-xl p-5 border border-[#D6DCE0] space-y-2">
                         <h4 className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0E344D]">
                           Bilateral Stroke &amp; Arthroplasty Symmetry
                         </h4>
@@ -1157,7 +1157,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
             {/* SECTION 04: ERGONOMICS, COMPLIANCE & SARTORIAL FREEDOM */}
             <section id="ankle-lifestyle" className="scroll-mt-36 space-y-6">
               <div className="max-w-3xl space-y-2">
-                <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#25665D]">
+                <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0E344D]">
                   Section 04 · Ergonomics, Compliance &amp; Aesthetics
                 </div>
                 <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-[#0E344D] text-balance">
@@ -1180,7 +1180,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         onClick={() => setLifestyleTab(key)}
                         className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-['Space_Grotesk'] text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                           lifestyleTab === key
-                            ? 'bg-[#25665D] text-white'
+                            ? 'bg-[#0E344D] text-white'
                             : 'bg-[#F1F3F4] text-[#36454F] hover:bg-[#E4E8EB]'
                         }`}
                       >
@@ -1193,8 +1193,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
 
                 {/* Split Wrist Limitation vs Ankle Resolution */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-                  <div className="bg-[#FDF1F0] rounded-xl p-5 border border-[#C23B32]/25 space-y-3">
-                    <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#9E2A22]">
+                  <div className="bg-[#F1F3F4] rounded-xl p-5 border border-[#D6DCE0] space-y-3">
+                    <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#475569]">
                       Wrist Limitation
                     </div>
                     <h4 className="font-['Space_Grotesk'] text-base font-bold text-[#0E344D]">
@@ -1203,7 +1203,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     <ul className="space-y-2.5 text-xs text-[#36454F] leading-relaxed">
                       {currentLifestyle.problemPoints.map((pt, i) => (
                         <li key={i} className="flex items-start gap-2.5">
-                          <span className="material-symbols-outlined text-[16px] text-[#C23B32] shrink-0 mt-0.5">
+                          <span className="material-symbols-outlined text-[16px] text-[#5D6870] shrink-0 mt-0.5">
                             close
                           </span>
                           <span>{pt}</span>
@@ -1212,8 +1212,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     </ul>
                   </div>
 
-                  <div className="bg-[#E8F3F1] rounded-xl p-5 border border-[#3B8E82]/30 space-y-3">
-                    <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#25665D]">
+                  <div className="bg-[#E0F2FE]/60 rounded-xl p-5 border border-[#0284C7]/30 space-y-3">
+                    <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0284C7]">
                       Ankle Resolution
                     </div>
                     <h4 className="font-['Space_Grotesk'] text-base font-bold text-[#0E344D]">
@@ -1222,7 +1222,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     <ul className="space-y-2.5 text-xs text-[#36454F] leading-relaxed">
                       {currentLifestyle.solutionPoints.map((pt, i) => (
                         <li key={i} className="flex items-start gap-2.5">
-                          <span className="material-symbols-outlined text-[16px] text-[#25665D] shrink-0 mt-0.5">
+                          <span className="material-symbols-outlined text-[16px] text-[#0284C7] shrink-0 mt-0.5">
                             check
                           </span>
                           <span>{pt}</span>
@@ -1238,8 +1238,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     <thead>
                       <tr className="border-b border-[#D6DCE0] text-[#5D6870] font-['Space_Grotesk'] uppercase text-[11px] tracking-wider">
                         <th className="py-3 pr-4 font-semibold">Evaluation Dimension</th>
-                        <th className="py-3 px-4 font-semibold text-[#9E2A22]">Wrist-Worn Tracker</th>
-                        <th className="py-3 pl-4 font-semibold text-[#25665D]">Ankle-Worn Tracker</th>
+                        <th className="py-3 px-4 font-semibold text-[#5D6870]">Wrist-Worn Tracker</th>
+                        <th className="py-3 pl-4 font-semibold text-[#0284C7]">Ankle-Worn Tracker</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-[#E4E8EB] text-[#36454F]">
@@ -1247,7 +1247,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         <tr key={row.dimension}>
                           <td className="py-3 pr-4 font-semibold text-[#0E344D]">{row.dimension}</td>
                           <td className="py-3 px-4">{row.wrist}</td>
-                          <td className="py-3 pl-4 font-medium text-[#25665D]">{row.ankle}</td>
+                          <td className="py-3 pl-4 font-medium text-[#0E344D]">{row.ankle}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -1278,7 +1278,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     onClick={() => scrollToManuscriptChapter(sec.id)}
                     className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F1F3F4] transition-colors flex items-start gap-2.5 cursor-pointer"
                   >
-                    <span className="font-mono tabular-nums text-xs font-bold text-[#25665D] shrink-0 pt-0.5">
+                    <span className="font-mono tabular-nums text-xs font-bold text-[#0E344D] shrink-0 pt-0.5">
                       {sec.number}.
                     </span>
                     <span className="text-xs font-['Space_Grotesk'] font-semibold text-[#0E344D] leading-snug">
@@ -1289,12 +1289,12 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                 <button
                   type="button"
                   onClick={() => scrollToManuscriptChapter('works-cited')}
-                  className="w-full text-left px-3 py-2 rounded-lg bg-[#E8F3F1] hover:bg-[#DCECE9] transition-colors flex items-start gap-2.5 cursor-pointer"
+                  className="w-full text-left px-3 py-2 rounded-lg bg-[#E8EEF3] hover:bg-[#DCE5EC] transition-colors flex items-start gap-2.5 cursor-pointer"
                 >
-                  <span className="font-mono tabular-nums text-xs font-bold text-[#25665D] shrink-0 pt-0.5">
+                  <span className="font-mono tabular-nums text-xs font-bold text-[#0E344D] shrink-0 pt-0.5">
                     [83]
                   </span>
-                  <span className="text-xs font-['Space_Grotesk'] font-bold text-[#25665D] leading-snug">
+                  <span className="text-xs font-['Space_Grotesk'] font-bold text-[#0E344D] leading-snug">
                     Works Cited Archive (1–83)
                   </span>
                 </button>
@@ -1304,7 +1304,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                 <button
                   type="button"
                   onClick={() => setViewMode('dashboard')}
-                  className="w-full py-2 px-4 rounded-lg bg-[#25665D] text-white font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#2E766B] transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                  className="w-full py-2 px-4 rounded-lg bg-[#0E344D] text-white font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#124460] transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                 >
                   <span className="material-symbols-outlined text-[16px]">bar_chart</span>
                   <span>Return to Interactive Charts</span>
@@ -1316,7 +1316,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
             <div className="lg:col-span-8 space-y-8">
               <div className="bg-white rounded-2xl border border-[#D6DCE0] p-6 sm:p-8 shadow-sm space-y-3">
                 <div className="flex flex-wrap items-center gap-2 text-xs text-[#5D6870] font-['Space_Grotesk']">
-                  <span className="text-[#25665D] font-bold">Full Peer-Reviewed Evidence Analysis</span>
+                  <span className="text-[#0E344D] font-bold">Full Peer-Reviewed Evidence Analysis</span>
                   <span aria-hidden="true">·</span>
                   <span>4 Quantitative Tables</span>
                   <span aria-hidden="true">·</span>
@@ -1334,7 +1334,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                   className="scroll-mt-36 bg-white rounded-2xl border border-[#D6DCE0] p-6 sm:p-8 shadow-sm space-y-6"
                 >
                   <div className="space-y-1.5 pb-4 border-b border-[#E4E8EB]">
-                    <div className="font-mono tabular-nums text-xs font-bold text-[#25665D]">
+                    <div className="font-mono tabular-nums text-xs font-bold text-[#0E344D]">
                       Section {sec.number}
                     </div>
                     <h2 className="font-['Space_Grotesk'] text-xl sm:text-2xl font-bold text-[#0E344D]">
@@ -1360,7 +1360,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                           </p>
                         ))}
                         {sub.bullets && (
-                          <ul className="space-y-2.5 bg-[#F7F8F7] rounded-xl p-4 border border-[#D6DCE0]">
+                          <ul className="space-y-2.5 bg-[#F5F6F8] rounded-xl p-4 border border-[#D6DCE0]">
                             {sub.bullets.map((b, bIdx) => (
                               <li key={bIdx} className="text-sm text-[#36454F] leading-relaxed">
                                 <strong className="text-[#0E344D]">{b.label}:</strong> {b.text}
@@ -1393,7 +1393,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                           </thead>
                           <tbody className="divide-y divide-[#E4E8EB] bg-white font-['Plus_Jakarta_Sans']">
                             {sec.table.rows.map((row, rIdx) => (
-                              <tr key={rIdx} className="hover:bg-[#F7F8F7]">
+                              <tr key={rIdx} className="hover:bg-[#F5F6F8]">
                                 {row.map((cell, cIdx) => (
                                   <td
                                     key={cIdx}
@@ -1423,7 +1423,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
               >
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-[#E4E8EB]">
                   <div>
-                    <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#25665D]">
+                    <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0E344D]">
                       Complete Primary Literature Index
                     </div>
                     <h2 className="font-['Space_Grotesk'] text-xl sm:text-2xl font-bold text-[#0E344D]">
@@ -1440,7 +1440,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                       value={citationQuery}
                       onChange={(e) => setCitationQuery(e.target.value)}
                       placeholder="Filter citations or ID..."
-                      className="w-full pl-9 pr-3 py-2 rounded-lg bg-[#F7F8F7] border border-[#D6DCE0] text-xs text-[#0E344D] placeholder:text-[#7D8890] focus:outline-none focus:border-[#3B8E82]"
+                      className="w-full pl-9 pr-3 py-2 rounded-lg bg-[#F5F6F8] border border-[#D6DCE0] text-xs text-[#0E344D] placeholder:text-[#7D8890] focus:outline-none focus:border-[#18587A]"
                     />
                   </div>
                 </div>
@@ -1479,10 +1479,10 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                       href={cite.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-between gap-4 p-3.5 bg-white hover:bg-[#F7F8F7] transition-colors group"
+                      className="flex items-center justify-between gap-4 p-3.5 bg-white hover:bg-[#F5F6F8] transition-colors group"
                     >
                       <div className="flex items-start gap-3 min-w-0">
-                        <span className="font-mono tabular-nums text-xs font-bold text-[#25665D] w-7 shrink-0 pt-0.5">
+                        <span className="font-mono tabular-nums text-xs font-bold text-[#0E344D] w-7 shrink-0 pt-0.5">
                           [{cite.id}]
                         </span>
                         <div className="min-w-0">
@@ -1494,7 +1494,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                           </div>
                         </div>
                       </div>
-                      <span className="material-symbols-outlined text-[18px] text-[#5D6870] group-hover:text-[#25665D] shrink-0">
+                      <span className="material-symbols-outlined text-[18px] text-[#5D6870] group-hover:text-[#0E344D] shrink-0">
                         open_in_new
                       </span>
                     </a>
@@ -1528,7 +1528,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
             <button
               type="button"
               onClick={() => onNavigate('fashion', 'swiftmonster')}
-              className="px-4 py-2 rounded-lg bg-[#25665D] text-white font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#2E766B] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="px-4 py-2 rounded-lg bg-[#0E344D] text-white font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#124460] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               Explore SwiftMonster™
             </button>
@@ -1542,7 +1542,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
             <button
               type="button"
               onClick={() => setViewMode(viewMode === 'dashboard' ? 'manuscript' : 'dashboard')}
-              className="px-4 py-2 rounded-lg bg-white text-[#18587A] border border-[#D6DCE0] font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#F7F8F7] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="px-4 py-2 rounded-lg bg-white text-[#18587A] border border-[#D6DCE0] font-['Space_Grotesk'] text-xs font-semibold hover:bg-[#F5F6F8] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               {viewMode === 'dashboard' ? 'Read Full Manuscript' : 'Open Interactive Charts'}
             </button>

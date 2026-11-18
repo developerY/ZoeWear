@@ -46,11 +46,11 @@ export const TechScreen: React.FC<TechScreenProps> = ({
   };
 
   return (
-    <div className="flex flex-col w-full bg-[#F7F8F7] text-[#0E344D]">
+    <div className="flex flex-col w-full bg-[#F5F6F8] text-[#0E344D]">
       {/* Top Circuit Grid Ribbon */}
       <div className="w-full bg-[#F1F3F4] px-4 sm:px-8 lg:px-12 py-3 border-b border-[#D6DCE0] flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-2 font-['Space_Grotesk'] text-[11px] text-[#36454F] tracking-widest uppercase font-semibold">
-          <span className="w-2 h-2 rounded-full bg-[#3B8E82] animate-ping"></span>
+          <span className="w-2 h-2 rounded-full bg-[#18587A] animate-ping"></span>
           <span className="text-[#0E344D]">CORE SPEC: ARCHITECTURE v4.8</span>
           <span className="text-[#D6DCE0]">/</span>
           <span className="text-[#18587A]">HARDWARE &amp; DISTRIBUTED SYSTEM MESH</span>
@@ -59,7 +59,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
         <div className="flex items-center gap-6 text-[11px] font-['Space_Grotesk']">
           <div className="flex items-center gap-2 text-[#36454F]">
             <span className="text-[#5D6870]">LATENCY:</span>
-            <span className="text-[#25665D] font-mono tracking-wider font-bold">1.2ms</span>
+            <span className="text-[#0E344D] font-mono tracking-wider font-bold">1.2ms</span>
           </div>
           <div className="flex items-center gap-2 text-[#36454F]">
             <span className="text-[#5D6870]">CRYPTO-NODES:</span>
@@ -73,13 +73,13 @@ export const TechScreen: React.FC<TechScreenProps> = ({
       </div>
 
       {/* Hero Telemetry Matrix Section */}
-      <section className="relative w-full px-4 sm:px-8 lg:px-12 py-12 overflow-hidden bg-gradient-to-b from-[#EEF4F7] via-[#F7F8F7] to-[#F7F8F7]">
+      <section className="relative w-full px-4 sm:px-8 lg:px-12 py-12 overflow-hidden bg-gradient-to-b from-[#EEF4F7] via-[#F5F6F8] to-[#F5F6F8]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Typographic Architecture */}
           <div className="lg:col-span-7 flex flex-col gap-6 z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white w-fit border border-[#3B8E82]/40 shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3B8E82]"></span>
-              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#25665D] font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white w-fit border border-[#18587A]/40 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#18587A]"></span>
+              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#0E344D] font-semibold">
                 PHYGITAL MATRIX • AUTONOMOUS WEAR
               </span>
             </div>
@@ -90,7 +90,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               </p>
               <h1 className="font-['Space_Grotesk'] text-display text-[#0E344D] tracking-tight mt-1">
                 Tech is the{' '}
-                <span className="text-[#25665D] underline decoration-[#3B8E82]/40 underline-offset-8">
+                <span className="text-[#0E344D] underline decoration-[#18587A]/40 underline-offset-8">
                   New Black
                 </span>
               </h1>
@@ -107,7 +107,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                   AI Biosignal Loop
                 </span>
                 <div className="flex items-baseline gap-1 mt-1">
-                  <span className="font-['Space_Grotesk'] text-[28px] text-[#25665D] font-bold">99.8</span>
+                  <span className="font-['Space_Grotesk'] text-[28px] text-[#0E344D] font-bold">99.8</span>
                   <span className="font-['Space_Grotesk'] text-[11px] text-[#36454F] font-semibold">% ACC</span>
                 </div>
                 <span className="font-['Plus_Jakarta_Sans'] text-[12px] text-[#5D6870] mt-1">
@@ -145,7 +145,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#pillars"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#3B8E82] text-white font-['Space_Grotesk'] text-[13px] tracking-wider font-bold shadow-sm hover:bg-[#2E766B] transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0284C7] text-white font-['Space_Grotesk'] text-[13px] tracking-wider font-bold shadow-sm hover:bg-[#0369A1] transition-all cursor-pointer"
               >
                 <span>EXPLORE 4 PILLARS</span>
                 <span className="material-symbols-outlined text-[18px]">arrow_downward</span>
@@ -154,7 +154,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                 href="#smartwatch"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[#0E344D] font-['Space_Grotesk'] text-[13px] tracking-wider font-semibold hover:bg-[#F1F3F4] transition-all border border-[#D6DCE0] shadow-xs cursor-pointer"
               >
-                <span className="material-symbols-outlined text-[18px] text-[#18587A]">watch</span>
+                <span className="material-symbols-outlined text-[18px] text-[#0284C7]">watch</span>
                 <span>WRIST TELEMETRY LAB</span>
               </a>
             </div>
@@ -170,10 +170,10 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               />
 
               {/* Luminous Circuit Overlay Vector */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none text-[#3B8E82]/45">
+              <svg className="absolute inset-0 w-full h-full pointer-events-none text-[#18587A]/45">
                 <line stroke="currentColor" strokeDasharray="4 6" strokeWidth="1.5" x1="20%" x2="80%" y1="10%" y2="10%"></line>
                 <line stroke="currentColor" strokeDasharray="2 4" strokeWidth="1.5" x1="80%" x2="80%" y1="10%" y2="70%"></line>
-                <circle cx="80%" cy="70%" fill="#3B8E82" r="5"></circle>
+                <circle cx="80%" cy="70%" fill="#18587A" r="5"></circle>
                 <circle cx="20%" cy="10%" fill="#18587A" r="4"></circle>
                 <line stroke="currentColor" strokeWidth="1" x1="15%" x2="70%" y1="90%" y2="90%"></line>
               </svg>
@@ -182,7 +182,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               <div className="absolute top-4 left-4 p-3 rounded-xl bg-white/95 backdrop-blur-md shadow-md flex flex-col gap-1 max-w-[210px] border border-[#D6DCE0]">
                 <div className="flex items-center justify-between">
                   <span className="font-['Space_Grotesk'] text-[11px] text-[#18587A] font-semibold">LAYER 01</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#3B8E82] animate-pulse"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#18587A] animate-pulse"></span>
                 </div>
                 <p className="font-['Space_Grotesk'] text-[11px] text-[#0E344D] tracking-wider uppercase font-semibold">
                   SYNTACTIC FIBER ARRAY
@@ -195,7 +195,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               {/* Live Biometric Waveform Box */}
               <div className="absolute bottom-4 right-4 left-4 p-4 rounded-xl bg-white/95 backdrop-blur-lg border border-[#D6DCE0] shadow-md flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-[#3B8E82] text-[24px]">vital_signs</span>
+                  <span className="material-symbols-outlined text-[#1F78B4] text-[24px]">vital_signs</span>
                   <div>
                     <p className="font-['Space_Grotesk'] text-[11px] text-[#0E344D] uppercase tracking-wider font-semibold">
                       BIO-DIAGNOSTIC WAVEFORM
@@ -206,7 +206,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                   </div>
                 </div>
 
-                <svg className="w-32 h-8 text-[#3B8E82]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 120 30">
+                <svg className="w-32 h-8 text-[#1F78B4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 120 30">
                   <path d="M0 15 H30 L38 5 L45 25 L52 10 L58 18 L64 15 H120" strokeLinecap="round" strokeLinejoin="round"></path>
                 </svg>
               </div>
@@ -261,16 +261,16 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               onClick={() => setActivePillar('ai')}
               className={`flex flex-col justify-between p-6 rounded-2xl border transition-all duration-300 group shadow-sm cursor-pointer ${
                 activePillar === 'ai'
-                  ? 'bg-[#E8F3F1]/60 border-[#3B8E82] ring-2 ring-[#3B8E82]/20 scale-[1.02]'
-                  : 'bg-[#F7F8F7] border-[#D6DCE0] hover:bg-white'
+                  ? 'bg-[#E8EEF3]/60 border-[#18587A] ring-2 ring-[#18587A]/20 scale-[1.02]'
+                  : 'bg-[#F5F6F8] border-[#D6DCE0] hover:bg-white'
               }`}
             >
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  <span className="p-3 rounded-xl bg-white text-[#3B8E82] border border-[#D6DCE0] group-hover:scale-110 transition-transform">
+                  <span className="p-3 rounded-xl bg-white text-[#18587A] border border-[#D6DCE0] group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined text-[24px]">neurology</span>
                   </span>
-                  <span className="font-['Space_Grotesk'] text-[11px] text-[#25665D] tracking-widest font-mono font-bold">
+                  <span className="font-['Space_Grotesk'] text-[11px] text-[#0E344D] tracking-widest font-mono font-bold">
                     PIL.01
                   </span>
                 </div>
@@ -285,13 +285,13 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               <div className="pt-6 flex flex-col gap-2 border-t border-[#D6DCE0] mt-4">
                 <div className="flex justify-between items-center font-['Space_Grotesk'] text-[11px]">
                   <span className="text-[#5D6870] uppercase">Neural Core Throttle</span>
-                  <span className="text-[#25665D] font-mono font-bold">1.8 TFLOPS</span>
+                  <span className="text-[#0E344D] font-mono font-bold">1.8 TFLOPS</span>
                 </div>
                 <div className="w-full bg-[#E4E8EB] rounded-full h-1.5 overflow-hidden">
-                  <div className="bg-[#3B8E82] h-full rounded-full" style={{ width: '88%' }}></div>
+                  <div className="bg-[#18587A] h-full rounded-full" style={{ width: '88%' }}></div>
                 </div>
                 <span className="font-['Space_Grotesk'] text-[11px] text-[#36454F] mt-1 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#3B8E82]"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#18587A]"></span>
                   Dynamic Garment Customization Active
                 </span>
               </div>
@@ -303,7 +303,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               className={`flex flex-col justify-between p-6 rounded-2xl border transition-all duration-300 group shadow-sm cursor-pointer ${
                 activePillar === 'blockchain'
                   ? 'bg-[#EEF4F7]/70 border-[#18587A] ring-2 ring-[#18587A]/20 scale-[1.02]'
-                  : 'bg-[#F7F8F7] border-[#D6DCE0] hover:bg-white'
+                  : 'bg-[#F5F6F8] border-[#D6DCE0] hover:bg-white'
               }`}
             >
               <div className="flex flex-col gap-3">
@@ -343,16 +343,16 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               onClick={() => setActivePillar('3d')}
               className={`flex flex-col justify-between p-6 rounded-2xl border transition-all duration-300 group shadow-sm cursor-pointer ${
                 activePillar === '3d'
-                  ? 'bg-[#E8F3F1]/60 border-[#3B8E82] ring-2 ring-[#3B8E82]/20 scale-[1.02]'
-                  : 'bg-[#F7F8F7] border-[#D6DCE0] hover:bg-white'
+                  ? 'bg-[#E8EEF3]/60 border-[#18587A] ring-2 ring-[#18587A]/20 scale-[1.02]'
+                  : 'bg-[#F5F6F8] border-[#D6DCE0] hover:bg-white'
               }`}
             >
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  <span className="p-3 rounded-xl bg-white text-[#3B8E82] border border-[#D6DCE0] group-hover:scale-110 transition-transform">
+                  <span className="p-3 rounded-xl bg-white text-[#18587A] border border-[#D6DCE0] group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined text-[24px]">view_in_ar</span>
                   </span>
-                  <span className="font-['Space_Grotesk'] text-[11px] text-[#25665D] tracking-widest font-mono font-bold">
+                  <span className="font-['Space_Grotesk'] text-[11px] text-[#0E344D] tracking-widest font-mono font-bold">
                     PIL.03
                   </span>
                 </div>
@@ -367,13 +367,13 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               <div className="pt-6 flex flex-col gap-2 border-t border-[#D6DCE0] mt-4">
                 <div className="flex justify-between items-center font-['Space_Grotesk'] text-[11px]">
                   <span className="text-[#5D6870] uppercase">Lattice Density Modulus</span>
-                  <span className="text-[#25665D] font-mono font-bold">0.42 g/cm³</span>
+                  <span className="text-[#0E344D] font-mono font-bold">0.42 g/cm³</span>
                 </div>
                 <div className="w-full bg-[#E4E8EB] rounded-full h-1.5 overflow-hidden">
-                  <div className="bg-[#3B8E82] h-full rounded-full" style={{ width: '76%' }}></div>
+                  <div className="bg-[#18587A] h-full rounded-full" style={{ width: '76%' }}></div>
                 </div>
                 <span className="font-['Space_Grotesk'] text-[11px] text-[#36454F] mt-1 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#3B8E82]"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#18587A]"></span>
                   Zero Material Subtractive Waste
                 </span>
               </div>
@@ -385,7 +385,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               className={`flex flex-col justify-between p-6 rounded-2xl border transition-all duration-300 group shadow-sm cursor-pointer ${
                 activePillar === 'wearable'
                   ? 'bg-[#F1F3F4] border-[#0E344D] ring-2 ring-[#0E344D]/15 scale-[1.02]'
-                  : 'bg-[#F7F8F7] border-[#D6DCE0] hover:bg-white'
+                  : 'bg-[#F5F6F8] border-[#D6DCE0] hover:bg-white'
               }`}
             >
               <div className="flex flex-col gap-3">
@@ -424,7 +424,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
       </section>
 
       {/* Deep Dive: Wear OS & watchOS Sensory Architecture */}
-      <section className="w-full px-4 sm:px-8 lg:px-12 py-16 bg-[#F7F8F7] border-t border-[#D6DCE0]" id="smartwatch">
+      <section className="w-full px-4 sm:px-8 lg:px-12 py-16 bg-[#F5F6F8] border-t border-[#D6DCE0]" id="smartwatch">
         <div className="max-w-7xl mx-auto flex flex-col gap-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left 6 cols: Smartwatch Specs */}
@@ -445,7 +445,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               {/* Core Feature Bullets */}
               <div className="flex flex-col gap-3 pt-1">
                 <div className="p-4 rounded-xl bg-white border border-[#D6DCE0] shadow-xs flex items-start gap-4">
-                  <div className="p-2 rounded-lg bg-[#E8F3F1] text-[#3B8E82] shrink-0">
+                  <div className="p-2 rounded-lg bg-[#E8EEF3] text-[#18587A] shrink-0">
                     <span className="material-symbols-outlined text-[20px]">sync_alt</span>
                   </div>
                   <div className="flex flex-col">
@@ -459,8 +459,8 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                 </div>
 
                 {/* Muse Charm Hackathon Feature Card */}
-                <div className="p-4 rounded-xl bg-gradient-to-r from-[#E8F3F1] to-[#EEF4F7] border border-[#3B8E82]/50 flex items-start gap-4 hover:border-[#3B8E82] transition-colors shadow-sm">
-                  <div className="p-2 rounded-lg bg-white text-[#3B8E82] shrink-0 border border-[#3B8E82]/30">
+                <div className="p-4 rounded-xl bg-gradient-to-r from-[#E8EEF3] to-[#EEF4F7] border border-[#18587A]/50 flex items-start gap-4 hover:border-[#18587A] transition-colors shadow-sm">
+                  <div className="p-2 rounded-lg bg-white text-[#18587A] shrink-0 border border-[#18587A]/30">
                     <span className="material-symbols-outlined text-[20px]">smart_toy</span>
                   </div>
                   <div className="flex flex-col flex-1">
@@ -468,7 +468,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                       <span className="font-['Space_Grotesk'] text-[16px] text-[#0E344D] font-semibold leading-snug">
                         Muse Charm: Bio-Responsive Personal Life Coach
                       </span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#3B8E82] text-white font-bold">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#18587A] text-white font-bold">
                         META AI HACKATHON
                       </span>
                     </div>
@@ -478,7 +478,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                     <div className="flex items-center gap-4 mt-2">
                       <button
                         onClick={onNavigateToMuseCharm}
-                        className="text-xs font-['Space_Grotesk'] text-[#25665D] hover:underline flex items-center gap-1 font-semibold w-fit cursor-pointer"
+                        className="text-xs font-['Space_Grotesk'] text-[#0E344D] hover:underline flex items-center gap-1 font-semibold w-fit cursor-pointer"
                       >
                         <span>Launch Personal Life Coach Cockpit</span>
                         <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -550,7 +550,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                     World shifts in wrist’s hold.”
                   </p>
                   <div className="w-12 h-0.5 bg-[#18587A]/40"></div>
-                  <p className="font-['Space_Grotesk'] text-[20px] text-[#25665D] tracking-wide italic leading-relaxed">
+                  <p className="font-['Space_Grotesk'] text-[20px] text-[#0E344D] tracking-wide italic leading-relaxed">
                     “Smart bracelet’s gentle light,<br />
                     Guides steps, health in its delight,<br />
                     Future on your arm’s sight.”
@@ -571,7 +571,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                       <span className="font-['Space_Grotesk'] text-[13px] font-bold text-[#0E344D] uppercase">
                         ZoeWear WatchOS Core v3
                       </span>
-                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-[#E8F3F1] text-[#25665D] font-mono font-bold border border-[#3B8E82]/30">
+                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-[#E8EEF3] text-[#0E344D] font-mono font-bold border border-[#18587A]/30">
                         RELEASED
                       </span>
                     </div>
@@ -590,7 +590,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                 <div className="z-10 rounded-xl bg-[#F4F6F6] border border-[#18587A]/25 p-4 font-mono text-[11px] text-[#36454F] flex flex-col gap-1.5">
                   <div className="flex items-center justify-between pb-2 border-b border-[#D6DCE0] text-[#5D6870]">
                     <span className="font-semibold text-[#0E344D]">ZOEWEAR KERNEL // VIRTUAL CONSOLE</span>
-                    <span className="text-[#25665D] font-bold">PORT 9042</span>
+                    <span className="text-[#0E344D] font-bold">PORT 9042</span>
                   </div>
                   <div className="max-h-28 overflow-y-auto space-y-1 pr-1">
                     {terminalCommands.map((line, idx) => (
@@ -602,7 +602,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                             : line.startsWith('> [OK]')
                             ? 'text-[#18587A] font-medium'
                             : line.startsWith('> init')
-                            ? 'text-[#25665D] font-semibold'
+                            ? 'text-[#0E344D] font-semibold'
                             : 'text-[#36454F]'
                         }
                       >
@@ -611,7 +611,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                     ))}
                   </div>
                   <form onSubmit={handleRunCommand} className="flex items-center gap-2 pt-2 border-t border-[#D6DCE0]">
-                    <span className="text-[#25665D] font-bold">&gt;</span>
+                    <span className="text-[#0E344D] font-bold">&gt;</span>
                     <input
                       type="text"
                       value={customCmd}
@@ -635,7 +635,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
         <div className="max-w-7xl mx-auto flex flex-col gap-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#25665D] font-semibold">
+              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#0E344D] font-semibold">
                 SYSTEM TELEMETRY ENGINE
               </span>
               <h2 className="font-['Space_Grotesk'] text-headline-lg text-[#0E344D] mt-1">
@@ -652,7 +652,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               <span className="font-['Space_Grotesk'] text-[44px] text-[#E4E8EB] absolute right-4 top-2 font-bold select-none">
                 01
               </span>
-              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#25665D] font-semibold">
+              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#0E344D] font-semibold">
                 STAGE 1: CAPTURE
               </span>
               <h4 className="font-['Space_Grotesk'] text-[18px] text-[#0E344D] font-semibold">
@@ -682,7 +682,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
               <span className="font-['Space_Grotesk'] text-[44px] text-[#E4E8EB] absolute right-4 top-2 font-bold select-none">
                 03
               </span>
-              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#25665D] font-semibold">
+              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#0E344D] font-semibold">
                 STAGE 3: ADAPTATION
               </span>
               <h4 className="font-['Space_Grotesk'] text-[18px] text-[#0E344D] font-semibold">
@@ -737,7 +737,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
             {KEYNOTE_DECKS.map((deck) => (
               <div
                 key={deck.id}
-                className="p-6 rounded-2xl bg-[#F7F8F7] border border-[#D6DCE0] hover:border-[#3B8E82] transition-all duration-300 flex flex-col justify-between group shadow-sm"
+                className="p-6 rounded-2xl bg-[#F5F6F8] border border-[#D6DCE0] hover:border-[#18587A] transition-all duration-300 flex flex-col justify-between group shadow-sm"
               >
                 <div className="flex flex-col gap-4">
                   <div className="relative w-full h-44 rounded-xl overflow-hidden bg-[#F1F3F4]">
@@ -747,7 +747,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                       src={deck.imageUrl}
                     />
                     <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md border border-[#D6DCE0] shadow-xs">
-                      <span className="font-['Space_Grotesk'] text-[11px] text-[#25665D] font-mono font-bold">
+                      <span className="font-['Space_Grotesk'] text-[11px] text-[#0E344D] font-mono font-bold">
                         {deck.conference}
                       </span>
                     </div>
@@ -760,7 +760,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                     <span className="font-['Space_Grotesk'] text-[11px] text-[#5D6870] uppercase tracking-widest font-semibold">
                       {deck.event}
                     </span>
-                    <h3 className="font-['Space_Grotesk'] text-[18px] text-[#0E344D] font-semibold group-hover:text-[#25665D] transition-colors">
+                    <h3 className="font-['Space_Grotesk'] text-[18px] text-[#0E344D] font-semibold group-hover:text-[#0E344D] transition-colors">
                       {deck.title}
                     </h3>
                     <p className="font-['Plus_Jakarta_Sans'] text-[13px] text-[#36454F] mt-1 line-clamp-3">
@@ -776,7 +776,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => onOpenKeynote(deck)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E8F3F1] text-[#25665D] hover:bg-[#3B8E82] hover:text-white transition-all font-['Space_Grotesk'] text-[11px] uppercase tracking-wider font-semibold cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E8EEF3] text-[#0E344D] hover:bg-[#18587A] hover:text-white transition-all font-['Space_Grotesk'] text-[11px] uppercase tracking-wider font-semibold cursor-pointer"
                     >
                       <span>Preview Deck</span>
                     </button>
@@ -798,11 +798,11 @@ export const TechScreen: React.FC<TechScreenProps> = ({
       </section>
 
       {/* Research & SDK Access Strip */}
-      <section className="w-full px-4 sm:px-8 lg:px-12 py-12 bg-[#F7F8F7] border-t border-[#D6DCE0]">
+      <section className="w-full px-4 sm:px-8 lg:px-12 py-12 bg-[#F5F6F8] border-t border-[#D6DCE0]">
         <div className="max-w-7xl mx-auto p-8 sm:p-10 rounded-2xl bg-white border border-[#D6DCE0] flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-[#25665D] font-['Space_Grotesk'] text-[11px] uppercase tracking-widest font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#3B8E82] animate-ping"></span>
+            <div className="flex items-center gap-2 text-[#0E344D] font-['Space_Grotesk'] text-[11px] uppercase tracking-widest font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#18587A] animate-ping"></span>
               <span>RESEARCH &amp; SDK ACCESS</span>
             </div>
             <h3 className="font-['Space_Grotesk'] text-[24px] text-[#0E344D] font-semibold">
@@ -816,7 +816,7 @@ export const TechScreen: React.FC<TechScreenProps> = ({
           <div className="flex flex-wrap items-center gap-4">
             <button
               onClick={onNavigateToTeaching}
-              className="px-6 py-3 rounded-full bg-[#3B8E82] text-white font-['Space_Grotesk'] text-[13px] tracking-wider font-bold shadow-sm hover:bg-[#2E766B] transition-all cursor-pointer"
+              className="px-6 py-3 rounded-full bg-[#18587A] text-white font-['Space_Grotesk'] text-[13px] tracking-wider font-bold shadow-sm hover:bg-[#124460] transition-all cursor-pointer"
             >
               DEVELOPER DOCS
             </button>

@@ -27,7 +27,7 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({
     <div className="fixed inset-0 z-50 flex justify-end bg-[#0E344D]/35 backdrop-blur-sm animate-fadeIn">
       <div className="relative w-full max-w-md bg-white border-l border-[#D6DCE0] h-full flex flex-col justify-between shadow-2xl">
         {/* Header */}
-        <div className="p-6 border-b border-[#D6DCE0] flex items-center justify-between bg-[#F7F8F7]">
+        <div className="p-6 border-b border-[#D6DCE0] flex items-center justify-between bg-[#F5F6F8]">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[#18587A]">favorite</span>
             <h2 className="font-['Space_Grotesk'] text-lg font-bold text-[#0E344D]">
@@ -71,14 +71,14 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({
                   <h4 className="font-['Space_Grotesk'] text-xs font-semibold text-[#0E344D] truncate">
                     {item.name}
                   </h4>
-                  <p className="text-[11px] text-[#25665D] font-['Space_Grotesk'] font-bold mt-0.5">
+                  <p className="text-[11px] text-[#0E344D] font-['Space_Grotesk'] font-bold mt-0.5">
                     {item.price}
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => onMoveToCart(item, idx)}
-                    className="p-1.5 rounded-lg bg-[#E8F3F1] hover:bg-[#3B8E82] text-[#25665D] hover:text-white border border-[#3B8E82]/30 transition-colors cursor-pointer"
+                    className="p-1.5 rounded-lg bg-[#E8EEF3] hover:bg-[#18587A] text-[#0E344D] hover:text-white border border-[#18587A]/30 transition-colors cursor-pointer"
                     title="Move to Bag"
                   >
                     <span className="material-symbols-outlined text-base">shopping_bag</span>

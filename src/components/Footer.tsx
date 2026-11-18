@@ -31,13 +31,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
               <img
                 src={ZOEWEAR_CHIP_LOGO}
                 alt="ZoeWear Silicon Chip"
-                className="w-10 h-10 rounded-xl object-cover ring-1 ring-[#3B8E82]/45 shadow-sm"
+                className="w-10 h-10 rounded-xl object-cover ring-1 ring-[#18587A]/45 shadow-sm"
               />
               <div className="flex flex-col">
                 <span className="font-['Space_Grotesk'] text-[20px] font-semibold tracking-wider text-[#0E344D] leading-none">
                   ZOEWEAR
                 </span>
-                <span className="font-['Space_Grotesk'] text-[11px] tracking-widest text-[#2E766B] font-semibold mt-1 uppercase">
+                <span className="font-['Space_Grotesk'] text-[11px] tracking-widest text-[#124460] font-semibold mt-1 uppercase">
                   CYBER-COUTURE & WEARABLE TECH
                 </span>
               </div>
@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
                 Telemetry Dispatch
               </span>
               {subscribed ? (
-                <div className="p-2.5 rounded-lg bg-[#E8F3F1] border border-[#3B8E82]/40 text-[#25665D] text-[13px] flex items-center gap-2">
+                <div className="p-2.5 rounded-lg bg-[#E8EEF3] border border-[#18587A]/40 text-[#0E344D] text-[13px] flex items-center gap-2">
                   <span className="material-symbols-outlined text-[18px]">verified</span>
                   <span>Dispatch Link Confirmed. Encrypted transmission enrolled.</span>
                 </div>
@@ -69,12 +69,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="couture@biometrics.com"
                     required
-                    className="w-full bg-[#F7F8F7] border border-[#CBD5DC] rounded-lg px-3 py-2 text-[#0E344D] text-[13px] placeholder:text-[#7D8890] focus:outline-none focus:border-[#3B8E82] transition-colors"
+                    className="w-full bg-[#F5F6F8] border border-[#CBD5DC] rounded-lg px-3 py-2 text-[#0E344D] text-[13px] placeholder:text-[#7D8890] focus:outline-none focus:border-[#18587A] transition-colors"
                   />
                   <button
                     type="submit"
                     aria-label="Subscribe to Dispatch"
-                    className="px-4 py-2 rounded-lg bg-[#0E344D] text-white hover:bg-[#3B8E82] transition-all flex items-center justify-center cursor-pointer shrink-0"
+                    className="px-4 py-2 rounded-lg bg-[#0E344D] text-white hover:bg-[#18587A] transition-all flex items-center justify-center cursor-pointer shrink-0"
                   >
                     <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                   </button>
@@ -191,14 +191,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
 
           {/* Column 3: Innovation & Labs */}
           <div className="flex flex-col gap-3">
-            <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#2E766B] font-semibold pb-2 border-b border-[#E8ECEE]">
-              Innovation & Labs
+            <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#0284C7] font-semibold pb-2 border-b border-[#E8ECEE]">
+              Innovation &amp; Labs
             </span>
             <ul className="flex flex-col gap-2 text-[13px] text-[#36454F]">
               <li>
                 <button
                   onClick={() => onNavigate('muse-charm')}
-                  className="hover:text-[#18587A] transition-colors text-left cursor-pointer text-[#25665D] font-semibold"
+                  className="hover:text-[#1F78B4] transition-colors text-left cursor-pointer text-[#0E344D] font-semibold"
                 >
                   Muse Charm (Personal Life Coach)
                 </button>
@@ -206,7 +206,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
               <li>
                 <button
                   onClick={() => onNavigate('drunkwatch')}
-                  className="hover:text-[#2E766B] transition-colors text-left cursor-pointer"
+                  className="hover:text-[#1F78B4] transition-colors text-left cursor-pointer"
                 >
                   DrunkWatch™ Biosensor
                 </button>
@@ -214,7 +214,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
               <li>
                 <button
                   onClick={() => onNavigate('ankle-biometrics')}
-                  className="hover:text-[#2E766B] transition-colors text-left cursor-pointer font-semibold text-[#18587A]"
+                  className="hover:text-[#1F78B4] transition-colors text-left cursor-pointer font-semibold text-[#1F78B4]"
                 >
                   Ankle Biometrics &amp; Gait Lab
                 </button>
@@ -222,7 +222,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
               <li>
                 <button
                   onClick={() => onNavigate('teaching-and-research')}
-                  className="hover:text-[#2E766B] transition-colors text-left cursor-pointer"
+                  className="hover:text-[#124460] transition-colors text-left cursor-pointer"
                 >
                   Academic Curricula Program
                 </button>
@@ -230,7 +230,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
               <li>
                 <button
                   onClick={() => onNavigate('teaching-and-research')}
-                  className="hover:text-[#2E766B] transition-colors text-left cursor-pointer"
+                  className="hover:text-[#124460] transition-colors text-left cursor-pointer"
                 >
                   WestCoast Computational Bio-Lab
                 </button>
@@ -238,7 +238,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
               <li>
                 <button
                   onClick={() => onNavigate('teaching-and-research')}
-                  className="hover:text-[#2E766B] transition-colors text-left cursor-pointer"
+                  className="hover:text-[#124460] transition-colors text-left cursor-pointer"
                 >
                   Whitepapers & Clinical Data
                 </button>
@@ -246,7 +246,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPolicy }) => {
               <li>
                 <button
                   onClick={() => onNavigate('fusion')}
-                  className="hover:text-[#2E766B] transition-colors text-left cursor-pointer"
+                  className="hover:text-[#124460] transition-colors text-left cursor-pointer"
                 >
                   Global Health Consortium Trials
                 </button>

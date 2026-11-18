@@ -241,7 +241,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#F7F8F7] text-[#0E344D] font-['Plus_Jakarta_Sans',sans-serif] antialiased min-h-screen flex flex-col selection:bg-[#3B8E82]/20 selection:text-[#0E344D]">
+    <div className="bg-[#F5F6F8] text-[#0E344D] font-['Plus_Jakarta_Sans',sans-serif] antialiased min-h-screen flex flex-col selection:bg-[#18587A]/20 selection:text-[#0E344D]">
       {/* Top Navigation Tabs with Hover Submenus (Zero Share Buttons) */}
       <Header
         currentPage={currentPage}
@@ -257,7 +257,7 @@ export default function App() {
       />
 
       {/* Main Content View with Top Offset for Fixed Header */}
-      <main className="w-full pt-24 bg-[#F7F8F7] flex-grow min-h-screen">
+      <main className="w-full pt-24 bg-[#F5F6F8] flex-grow min-h-screen">
         {currentPage === 'home' && (
           <HomeScreen
             onNavigate={handleNavigate}

@@ -108,7 +108,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Impedance-balancing second-skin veil (50ml)',
           sectionId: 'biomimetic-nude-veil',
           badge: 'Atelier 04',
-          badgeColor: 'text-[#18587A] bg-[#EEF4F7] border-[#18587A]/30',
+          badgeColor: 'text-[#0284C7] bg-[#E0F2FE] border-[#0284C7]/35',
         },
         {
           id: 'swiftmonster-mountain',
@@ -156,7 +156,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Alpine Mountain & Hydrodynamic Beach footwear',
           sectionId: 'swiftmonster',
           badge: 'Dual Series',
-          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35',
+          badgeColor: 'text-[#0E344D] bg-[#E8EEF3] border-[#18587A]/35',
         },
         {
           id: 'lookbook',
@@ -185,7 +185,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Dedicated Page: Bio-Responsive Life Coach · sEMG, Emotions, Wealth & SAM 3.1',
           targetPage: 'muse-charm',
           badge: 'Meta Hackathon',
-          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35 font-bold',
+          badgeColor: 'text-[#1D4ED8] bg-[#DBEAFE] border-[#1D4ED8]/35 font-bold',
         },
         {
           id: 'drunkwatch-page',
@@ -193,7 +193,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Dedicated Page: Smartwatch ML, gait analysis, concept video & driving safety',
           targetPage: 'drunkwatch',
           badge: 'Dedicated Page',
-          badgeColor: 'text-[#18587A] bg-[#EEF4F7] border-[#18587A]/35 font-bold',
+          badgeColor: 'text-[#0369A1] bg-[#E8F1F8] border-[#0369A1]/30 font-bold',
         },
         {
           id: 'ankle-biometrics-tech',
@@ -201,7 +201,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Supramalleolar PPG, FoG neural models & 83-paper synthesis',
           targetPage: 'ankle-biometrics',
           badge: 'Research Lab',
-          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35 font-bold',
+          badgeColor: 'text-[#0284C7] bg-[#E0F2FE] border-[#0284C7]/35 font-bold',
         },
         {
           id: 'pillars',
@@ -255,7 +255,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Thoracic strain sensor tracking lung volume & stress tone',
           sectionId: 'breathe-app',
           badge: 'Pro Beta',
-          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35',
+          badgeColor: 'text-[#0E344D] bg-[#E8EEF3] border-[#18587A]/35',
         },
         {
           id: 'cleanroom',
@@ -295,7 +295,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'IEEE, ACM Transactions & Nature-Biotech papers',
           sectionId: 'whitepapers',
           badge: 'Open Access',
-          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/30',
+          badgeColor: 'text-[#0E344D] bg-[#E8EEF3] border-[#18587A]/30',
         },
         {
           id: 'ankle-biometrics-page',
@@ -303,7 +303,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Interactive charts, full monograph & 83 PubMed/PMC citations',
           targetPage: 'ankle-biometrics',
           badge: '83 Citations',
-          badgeColor: 'text-[#25665D] bg-[#E8F3F1] border-[#3B8E82]/35 font-bold',
+          badgeColor: 'text-[#0284C7] bg-[#E0F2FE] border-[#0284C7]/35 font-bold',
         },
         {
           id: 'fellowship',
@@ -339,7 +339,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="fixed top-0 left-0 w-full z-50 flex flex-col">
       {/* Top Telemetry & Announcement Ribbon */}
-      <div className="w-full bg-[#EFF2F3]/95 backdrop-blur-md border-b border-[#D6DCE0] py-1.5 px-4 sm:px-8">
+      <div className="w-full bg-[#ECEFF2]/95 backdrop-blur-md border-b border-[#D6DCE0] py-1.5 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-[#36454F] font-['Space_Grotesk'] text-[11px] leading-4 tracking-[0.06em] font-medium">
           <div className="flex items-center gap-2">
             <span className="tracking-wider uppercase text-[#0E344D] font-semibold">ZoeWear Atelier</span>
@@ -350,14 +350,14 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center gap-4 text-[#475866]">
             <button
               onClick={onOpenDiagnostics}
-              className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-[#3B8E82]/40 text-[#25665D] hover:bg-[#3B8E82]/10 transition-colors cursor-pointer shadow-xs"
+              className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-[#0284C7]/40 text-[#0E344D] hover:bg-[#E0F2FE] transition-colors cursor-pointer shadow-xs"
               title="Open Live Telemetry Diagnostics"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3B8E82] animate-ping"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7] animate-ping"></span>
               <span className="tracking-widest uppercase text-[10px] font-semibold">{liveBpm} BPM Live Biosignal</span>
             </button>
             <span className="text-[#C6CED4] hidden md:inline">·</span>
-            <span className="tracking-widest uppercase text-[#18587A] font-semibold hidden md:inline">
+            <span className="tracking-widest uppercase text-[#0284C7] font-semibold hidden md:inline">
               Complimentary White-Glove Insured Delivery
             </span>
           </div>
@@ -375,7 +375,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="relative">
               <img
                 alt="ZoeWear Core Silicon Chip"
-                className="w-10 h-10 rounded-xl object-cover ring-1 ring-[#3B8E82]/45 shadow-sm group-hover:scale-105 group-hover:ring-[#3B8E82] transition-all"
+                className="w-10 h-10 rounded-xl object-cover ring-1 ring-[#18587A]/45 shadow-sm group-hover:scale-105 group-hover:ring-[#18587A] transition-all"
                 src={ZOEWEAR_CHIP_LOGO}
               />
             </div>
@@ -383,7 +383,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="font-['Space_Grotesk'] text-lg font-bold tracking-wider text-[#0E344D] leading-none group-hover:text-[#18587A] transition-colors">
                 ZOEWEAR
               </span>
-              <span className="font-['Space_Grotesk'] text-[9px] tracking-widest text-[#2E766B] font-semibold leading-tight uppercase mt-0.5">
+              <span className="font-['Space_Grotesk'] text-[9px] tracking-widest text-[#124460] font-semibold leading-tight uppercase mt-0.5">
                 CYBER-COUTURE
               </span>
             </div>
@@ -411,7 +411,7 @@ export const Header: React.FC<HeaderProps> = ({
                     onClick={() => handleItemClick(tab.id)}
                     className={`h-full px-3 py-2 flex items-center gap-1 transition-colors cursor-pointer relative ${
                       isActive
-                        ? 'text-[#2E766B]'
+                        ? 'text-[#124460]'
                         : isHovered
                         ? 'text-[#0E344D]'
                         : 'text-[#36454F] hover:text-[#0E344D]'
@@ -420,7 +420,7 @@ export const Header: React.FC<HeaderProps> = ({
                     <span>{tab.label}</span>
                     <span
                       className={`material-symbols-outlined text-sm transition-transform duration-200 ${
-                        isHovered ? 'rotate-180 text-[#3B8E82]' : 'text-[#7D8890]'
+                        isHovered ? 'rotate-180 text-[#18587A]' : 'text-[#7D8890]'
                       }`}
                     >
                       expand_more
@@ -430,7 +430,7 @@ export const Header: React.FC<HeaderProps> = ({
                     {(isActive || isHovered) && (
                       <span
                         className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full transition-all ${
-                          isActive ? 'bg-[#3B8E82]' : 'bg-[#18587A]/40'
+                          isActive ? 'bg-gradient-to-r from-[#0E344D] via-[#0284C7] to-[#2563EB]' : 'bg-[#0284C7]/45'
                         }`}
                       />
                     )}
@@ -468,7 +468,7 @@ export const Header: React.FC<HeaderProps> = ({
                           >
                             <div className="min-w-0">
                               <div className="flex items-center gap-2">
-                                <span className="font-['Space_Grotesk'] text-xs font-semibold text-[#0E344D] group-hover/item:text-[#2E766B] transition-colors leading-tight">
+                                <span className="font-['Space_Grotesk'] text-xs font-semibold text-[#0E344D] group-hover/item:text-[#124460] transition-colors leading-tight">
                                   {item.title}
                                 </span>
                               </div>
@@ -482,7 +482,7 @@ export const Header: React.FC<HeaderProps> = ({
                             {item.badge && (
                               <span
                                 className={`text-[10px] font-['Space_Grotesk'] uppercase px-2 py-0.5 rounded-md font-semibold shrink-0 border ${
-                                  item.badgeColor || 'bg-[#E8F3F1] text-[#25665D] border-[#3B8E82]/25'
+                                  item.badgeColor || 'bg-[#E8EEF3] text-[#0E344D] border-[#18587A]/25'
                                 }`}
                               >
                                 {item.badge}
@@ -495,7 +495,7 @@ export const Header: React.FC<HeaderProps> = ({
                       <div className="mt-3 pt-2.5 border-t border-[#E8ECEE] flex items-center justify-between">
                         <button
                           onClick={() => handleItemClick(tab.id)}
-                          className="text-[11px] font-['Space_Grotesk'] text-[#18587A] hover:text-[#2E766B] hover:underline flex items-center gap-1 cursor-pointer font-semibold"
+                          className="text-[11px] font-['Space_Grotesk'] text-[#18587A] hover:text-[#124460] hover:underline flex items-center gap-1 cursor-pointer font-semibold"
                         >
                           <span>Explore Full {tab.label}</span>
                           <span className="material-symbols-outlined text-xs">arrow_forward</span>
@@ -520,12 +520,12 @@ export const Header: React.FC<HeaderProps> = ({
 
             <button
               onClick={onOpenWishlist}
-              className="p-2 rounded-xl text-[#36454F] hover:text-[#18587A] hover:bg-[#EEF4F7] transition-colors cursor-pointer relative"
+              className="p-2 rounded-xl text-[#36454F] hover:text-[#1D4ED8] hover:bg-[#DBEAFE]/70 transition-colors cursor-pointer relative"
               title="Saved Wishlist"
             >
               <span className="material-symbols-outlined text-xl">favorite</span>
               {wishlistCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#0E344D] text-white text-[9px] font-bold flex items-center justify-center font-['Space_Grotesk']">
+                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#1D4ED8] text-white text-[9px] font-bold flex items-center justify-center font-['Space_Grotesk']">
                   {wishlistCount}
                 </span>
               )}
@@ -533,12 +533,12 @@ export const Header: React.FC<HeaderProps> = ({
 
             <button
               onClick={onOpenCart}
-              className="p-2 rounded-xl text-[#36454F] hover:text-[#2E766B] hover:bg-[#E8F3F1] transition-colors cursor-pointer relative"
+              className="p-2 rounded-xl text-[#36454F] hover:text-[#0284C7] hover:bg-[#E0F2FE] transition-colors cursor-pointer relative"
               title="Shopping Bag"
             >
               <span className="material-symbols-outlined text-xl">shopping_bag</span>
               {cartCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#3B8E82] text-white text-[9px] font-bold flex items-center justify-center font-['Space_Grotesk']">
+                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#0284C7] text-white text-[9px] font-bold flex items-center justify-center font-['Space_Grotesk']">
                   {cartCount}
                 </span>
               )}
@@ -546,7 +546,7 @@ export const Header: React.FC<HeaderProps> = ({
 
             <button
               onClick={onOpenProfile}
-              className="p-1 rounded-full ring-1 ring-[#CBD5DC] hover:ring-[#3B8E82] transition-all cursor-pointer ml-1"
+              className="p-1 rounded-full ring-1 ring-[#CBD5DC] hover:ring-[#18587A] transition-all cursor-pointer ml-1"
               title="Atelier Profile"
             >
               <img
@@ -582,13 +582,13 @@ export const Header: React.FC<HeaderProps> = ({
               return (
                 <div
                   key={tab.id}
-                  className="rounded-2xl border border-[#D6DCE0] bg-[#F7F8F7] overflow-hidden"
+                  className="rounded-2xl border border-[#D6DCE0] bg-[#F5F6F8] overflow-hidden"
                 >
                   <div className="flex items-center justify-between p-3">
                     <button
                       onClick={() => handleItemClick(tab.id)}
                       className={`text-left font-['Space_Grotesk'] text-sm font-semibold tracking-wide ${
-                        isActive ? 'text-[#2E766B]' : 'text-[#0E344D]'
+                        isActive ? 'text-[#124460]' : 'text-[#0E344D]'
                       }`}
                     >
                       {tab.label}
@@ -601,7 +601,7 @@ export const Header: React.FC<HeaderProps> = ({
                     >
                       <span
                         className={`material-symbols-outlined text-lg transition-transform ${
-                          isExpanded ? 'rotate-180 text-[#3B8E82]' : ''
+                          isExpanded ? 'rotate-180 text-[#18587A]' : ''
                         }`}
                       >
                         expand_more
@@ -623,11 +623,11 @@ export const Header: React.FC<HeaderProps> = ({
                               item.targetPage ? undefined : item.sectionId
                             )
                           }
-                          className="w-full text-left p-2 rounded-xl text-xs text-[#36454F] hover:text-[#2E766B] hover:bg-[#F1F3F4] transition-colors flex items-center justify-between"
+                          className="w-full text-left p-2 rounded-xl text-xs text-[#36454F] hover:text-[#124460] hover:bg-[#F1F3F4] transition-colors flex items-center justify-between"
                         >
                           <span>{item.title}</span>
                           {item.badge && (
-                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#E8F3F1] text-[#25665D] font-medium">
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#E8EEF3] text-[#0E344D] font-medium">
                               {item.badge}
                             </span>
                           )}

@@ -137,7 +137,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
           <span>ZoeWear Technologies Corp. Legal & Compliance Division</span>
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-full bg-[#3B8E82] hover:bg-[#2E766B] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+            className="px-5 py-2 rounded-full bg-[#18587A] hover:bg-[#124460] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
           >
             Acknowledge &amp; Close
           </button>

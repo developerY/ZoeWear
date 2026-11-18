@@ -173,8 +173,8 @@ export const PPG_DETAIL_COPY: Record<'anatomy' | 'morphology', { title: string; 
 
 export const PAD_SENSITIVITY_DATA = [
   { label: 'Traditional Cuff ABI', value: 19.1, tone: 'neutral' as const, note: 'Limited by calcified, non-compressible vessels' },
-  { label: 'Ankle Optical PPGamp', value: 55.3, tone: 'ocean' as const, note: 'Direct systolic microvascular pulse amplitude' },
-  { label: 'Ankle Optical PPGratio', value: 68.1, tone: 'seaglass' as const, note: 'Pulsatile AC / non-pulsatile DC perfusion ratio' },
+  { label: 'Ankle Optical PPGamp', value: 55.3, tone: 'slate' as const, note: 'Direct systolic microvascular pulse amplitude' },
+  { label: 'Ankle Optical PPGratio', value: 68.1, tone: 'deep-ocean' as const, note: 'Pulsatile AC / non-pulsatile DC perfusion ratio' },
 ];
 
 export const STRIKE_DETAILS: Record<'ffs' | 'rfs', { badge: string; text: string; activeBandPct: number; impactBandPct: number }> = {
