@@ -101,7 +101,7 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#1D4ED8] font-semibold">
+                  <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#2E7D5B] font-semibold">
                     03 / The Wellness
                   </span>
                   <span className="font-['Space_Grotesk'] text-[18px] font-semibold text-[#0E344D]">
@@ -178,10 +178,10 @@ export const FashionScreen: React.FC<FashionScreenProps> = ({
                 <div className="flex items-center gap-2 my-2.5">
                   {[
                     { color: '#0E344D', label: 'Deep Ocean Blue' },
-                    { color: '#18587A', label: 'Ocean Steel' },
                     { color: '#0284C7', label: 'Sky Azure' },
-                    { color: '#2563EB', label: 'Cobalt Blue' },
-                    { color: '#38BDF8', label: 'Glacier Ice' },
+                    { color: '#64748B', label: 'Slate' },
+                    { color: '#86EFAC', label: 'Light Mint Green' },
+                    { color: '#FDBA74', label: 'Light Apricot Orange' },
                   ].map((item, idx) => (
                     <button
                       key={idx}

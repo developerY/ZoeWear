@@ -1471,7 +1471,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                 <h1 className="text-base sm:text-lg font-bold tracking-tight text-[#0E344D] font-['Space_Grotesk']">
                   Muse Charm · Personal Life Coach
                 </h1>
-                <span className="px-2 py-0.5 text-[11px] font-semibold rounded-md bg-[#E0F2FE] text-[#0284C7] border border-[#0284C7]/35">
+                <span className="px-2 py-0.5 text-[11px] font-semibold rounded-md bg-[#FFF3E6] text-[#C26D2D] border border-[#FDBA74]">
                   Meta AI Hackathon
                 </span>
               </div>
@@ -1559,7 +1559,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
               className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white hover:bg-[#F1F3F4] text-[#0E344D] border border-[#D6DCE0] flex items-center gap-1.5 transition cursor-pointer"
               title="Toggle Bio-Haptic Audio Synthesis"
             >
-              <span className={`w-2 h-2 rounded-full ${audioEnabled ? 'bg-[#0284C7]' : 'bg-[#98A2A8]'}`}></span>
+              <span className={`w-2 h-2 rounded-full ${audioEnabled ? 'bg-[#4ADE80]' : 'bg-[#98A2A8]'}`}></span>
               <span>{audioEnabled ? 'Chimes On' : 'Chimes Muted'}</span>
             </button>
           </div>
@@ -1635,7 +1635,7 @@ export const MuseCharmScreen: React.FC<MuseCharmScreenProps> = ({ onNavigate }) 
                     <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7] font-['Space_Grotesk']">
                       Personal Life Coach Engine
                     </span>
-                    <span className="px-2 py-0.5 text-[10px] rounded-md bg-[#E0F2FE] text-[#0369A1] border border-[#0284C7]/35 font-mono font-semibold">
+                    <span className="px-2 py-0.5 text-[10px] rounded-md bg-[#EAF7EE] text-[#2E7D5B] border border-[#86EFAC]/70 font-mono font-semibold">
                       Level {Math.floor(coachXp / 100) + 1} · {coachStreak} Day Streak
                     </span>
                   </div>

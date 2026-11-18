@@ -185,7 +185,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Dedicated Page: Bio-Responsive Life Coach · sEMG, Emotions, Wealth & SAM 3.1',
           targetPage: 'muse-charm',
           badge: 'Meta Hackathon',
-          badgeColor: 'text-[#1D4ED8] bg-[#DBEAFE] border-[#1D4ED8]/35 font-bold',
+          badgeColor: 'text-[#C26D2D] bg-[#FFF3E6] border-[#FDBA74] font-bold',
         },
         {
           id: 'drunkwatch-page',
@@ -255,7 +255,7 @@ export const Header: React.FC<HeaderProps> = ({
           sublabel: 'Thoracic strain sensor tracking lung volume & stress tone',
           sectionId: 'breathe-app',
           badge: 'Pro Beta',
-          badgeColor: 'text-[#0E344D] bg-[#E8EEF3] border-[#18587A]/35',
+          badgeColor: 'text-[#2E7D5B] bg-[#EAF7EE] border-[#86EFAC]',
         },
         {
           id: 'cleanroom',
@@ -350,10 +350,10 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center gap-4 text-[#475866]">
             <button
               onClick={onOpenDiagnostics}
-              className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-[#0284C7]/40 text-[#0E344D] hover:bg-[#E0F2FE] transition-colors cursor-pointer shadow-xs"
+              className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-[#86EFAC]/80 text-[#0E344D] hover:bg-[#EAF7EE] transition-colors cursor-pointer shadow-xs"
               title="Open Live Telemetry Diagnostics"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7] animate-ping"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-ping"></span>
               <span className="tracking-widest uppercase text-[10px] font-semibold">{liveBpm} BPM Live Biosignal</span>
             </button>
             <span className="text-[#C6CED4] hidden md:inline">·</span>

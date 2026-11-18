@@ -36,9 +36,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               <span>/</span>
               <span className="text-text-primary">Autumn/Winter 2025</span>
             </div>
-            <div className="flex items-center gap-space-sm px-space-md py-1 rounded-full bg-surface-container-high border border-border-luminous/40">
-              <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse" />
-              <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary">
+            <div className="flex items-center gap-space-sm px-space-md py-1 rounded-full bg-[#EAF7EE]/85 border border-[#86EFAC]/70">
+              <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse" />
+              <span className="font-label-sm text-label-sm uppercase tracking-wider text-[#2E7D5B] font-semibold">
                 Phygital Telemetry Mesh Active
               </span>
             </div>
@@ -218,23 +218,23 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             {/* 3. Fusion */}
             <div
               onClick={() => onNavigate('fusion')}
-              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#0369A1] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
+              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#68D391] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
             >
               <div className="flex flex-col gap-space-sm">
                 <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-xl bg-[#E8F1F8] flex items-center justify-center text-[#0369A1] border border-[#0369A1]/25 group-hover:scale-110 transition-transform">
+                  <span className="w-10 h-10 rounded-xl bg-[#EAF7EE] flex items-center justify-center text-[#2E7D5B] border border-[#86EFAC]/60 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined">vital_signs</span>
                   </span>
-                  <span className="font-label-sm text-label-sm text-[#0369A1] font-mono font-semibold">DIMENSION 03</span>
+                  <span className="font-label-sm text-label-sm text-[#2E7D5B] font-mono font-semibold">DIMENSION 03</span>
                 </div>
-                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#0369A1] transition-colors">
+                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#2E7D5B] transition-colors">
                   Biomedical Fusion
                 </h3>
                 <p className="font-body-sm text-body-sm text-[#36454F] leading-relaxed">
                   Transdermal Fabric Matrix, continuous noise filtration wave, TensorFlow clustering, and the &ldquo;Breathe&rdquo; mobile respiratory diagnostics simulator.
                 </p>
               </div>
-              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#0369A1] font-semibold">
+              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#2E7D5B] font-semibold">
                 <span>Launch &ldquo;Breathe&rdquo; Diagnostic App</span>
                 <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
                   arrow_forward
@@ -245,23 +245,23 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             {/* 4. DrunkWatch */}
             <div
               onClick={() => onNavigate('drunkwatch')}
-              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#18587A] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
+              className="p-space-lg rounded-2xl bg-white border border-[#D6DCE0] hover:border-[#FDBA74] transition-all flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md"
             >
               <div className="flex flex-col gap-space-sm">
                 <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-xl bg-[#E8F0F4] flex items-center justify-center text-[#18587A] border border-[#18587A]/25 group-hover:scale-110 transition-transform">
+                  <span className="w-10 h-10 rounded-xl bg-[#FFF3E6] flex items-center justify-center text-[#C26D2D] border border-[#FDBA74]/70 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined">watch</span>
                   </span>
-                  <span className="font-label-sm text-label-sm text-[#18587A] font-mono font-semibold">DIMENSION 04</span>
+                  <span className="font-label-sm text-label-sm text-[#C26D2D] font-mono font-semibold">DIMENSION 04</span>
                 </div>
-                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#18587A] transition-colors">
+                <h3 className="font-headline-md text-headline-md text-[#0E344D] group-hover:text-[#C26D2D] transition-colors">
                   DrunkWatch™ Guardian
                 </h3>
                 <p className="font-body-sm text-body-sm text-[#36454F] leading-relaxed">
                   Sub-dermal micro-spectrometry measuring ethanol clearance, 4-hour predictive trajectory curve, and autonomic zero-touch chauffeur protection.
                 </p>
               </div>
-              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#18587A] font-semibold">
+              <div className="pt-space-md mt-space-md border-t border-[#E4E8EB] flex items-center justify-between text-xs text-[#C26D2D] font-semibold">
                 <span>Launch Radial BAC Console</span>
                 <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
                   arrow_forward

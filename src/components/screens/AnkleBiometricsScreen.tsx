@@ -256,7 +256,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                         <span className="text-3xl font-bold font-mono tabular-nums text-[#0E344D]">
                           1.8 <span className="text-sm font-semibold text-[#5D6870]">sec</span>
                         </span>
-                        <span className="text-xs font-semibold text-[#0284C7] bg-[#E0F2FE] border border-[#0284C7]/35 px-2 py-0.5 rounded">
+                        <span className="text-xs font-semibold text-[#C26D2D] bg-[#FFF3E6] border border-[#FDBA74] px-2 py-0.5 rounded">
                           Ankle Exclusive
                         </span>
                       </div>
@@ -1073,11 +1073,11 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                                   </div>
 
                                   <div className="flex-1 h-full flex flex-col justify-end items-center">
-                                    <span className="text-[10px] font-mono tabular-nums font-semibold text-[#18587A] mb-1">
+                                    <span className="text-[10px] font-mono tabular-nums font-semibold text-[#2E7D5B] mb-1">
                                       {m.specificity?.toFixed(1)}
                                     </span>
                                     <div
-                                      className="w-full max-w-[26px] rounded-t-md bg-[#18587A]"
+                                      className="w-full max-w-[26px] rounded-t-md bg-[#6EE7B7]"
                                       style={{ height: `${m.specificity ?? 0}%` }}
                                     />
                                   </div>
@@ -1114,7 +1114,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                             <span className="text-[#36454F]">Sensitivity (%)</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 rounded-xs bg-[#18587A]" />
+                            <span className="w-3 h-3 rounded-xs bg-[#6EE7B7]" />
                             <span className="text-[#36454F]">Specificity (%)</span>
                           </div>
                           <div className="flex items-center gap-2">
@@ -1212,8 +1212,8 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     </ul>
                   </div>
 
-                  <div className="bg-[#E0F2FE]/60 rounded-xl p-5 border border-[#0284C7]/30 space-y-3">
-                    <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#0284C7]">
+                  <div className="bg-[#EAF7EE]/75 rounded-xl p-5 border border-[#86EFAC]/70 space-y-3">
+                    <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-[#2E7D5B]">
                       Ankle Resolution
                     </div>
                     <h4 className="font-['Space_Grotesk'] text-base font-bold text-[#0E344D]">
@@ -1222,7 +1222,7 @@ export const AnkleBiometricsScreen: React.FC<AnkleBiometricsScreenProps> = ({ on
                     <ul className="space-y-2.5 text-xs text-[#36454F] leading-relaxed">
                       {currentLifestyle.solutionPoints.map((pt, i) => (
                         <li key={i} className="flex items-start gap-2.5">
-                          <span className="material-symbols-outlined text-[16px] text-[#0284C7] shrink-0 mt-0.5">
+                          <span className="material-symbols-outlined text-[16px] text-[#2E7D5B] shrink-0 mt-0.5">
                             check
                           </span>
                           <span>{pt}</span>
